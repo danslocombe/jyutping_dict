@@ -12,7 +12,7 @@ fn main() {
     let mut trad_to_jyutping = TraditionalToJyutping::parse("../cccedict-canto-readings-150923.txt");
     let mut trad_to_frequency = TraditionalToFrequencies::parse("../frequencies.txt");
 
-    defs.parse_ccanto(&mut trad_to_jyutping, &mut trad_to_frequency, "../cccanto-webdist.txt");
+    //defs.parse_ccanto(&mut trad_to_jyutping, &mut trad_to_frequency, "../cccanto-webdist.txt");
 
     let dict = Dictionary {
         trad_to_def : defs,
@@ -28,7 +28,11 @@ fn main() {
 
     //println!("{} - {} {:?} - {:?}", char, jyutping, def, frequency_data);
 
-    let compiled_dictionary = CompiledDictionary::from_dictionary(&dict);
+    let compiled_dictionary = CompiledDictionary::from_dictionary(dict);
+
+    let matches = compiled_dictionary.search_single("ga");
+
+    println!("{:#?}", matches);
 
     //let mut buffer = String::new();
 
@@ -217,6 +221,8 @@ impl TraditionalToDefinitions
 
                 definitions.push(def.to_owned());
             }
+            
+            //println!("{} - {:?}", traditional, definitions);
 
             if let Some(x) = self.inner.get_mut(traditional) {
                 x.extend(definitions);
@@ -224,8 +230,6 @@ impl TraditionalToDefinitions
             else {
                 self.inner.insert(traditional.to_owned(), definitions);
             }
-            
-            //println!("{} - {:?}", traditional, definitions);
         }
 
         println!("Read {} dictionary entries from {}", {self.inner.len() - size_at_start}, path);
