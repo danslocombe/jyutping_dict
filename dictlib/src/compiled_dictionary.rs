@@ -53,13 +53,15 @@ impl CompiledDictionary {
 
         for (traditional_chars, definitions) in dict.trad_to_def.inner
         {
-            let mut score = 0.0;
+            let mut cost : f32 = 0.0;
 
             let mut char_indexes = Vec::new();
 
             for character in traditional_chars.chars()
             {
                 char_indexes.push(character_store.char_to_index(character).expect(&format!("Could not find match for {}", character)));
+
+                cost += dict.trad_to_frequency.get_or_default(character).cost as f32;
             }
 
             let mut jyutpings = Vec::new();
@@ -75,9 +77,11 @@ impl CompiledDictionary {
                 characters: char_indexes,
                 jyutpings: jyutpings,
                 english_definitions: definitions,
-                cost: 0,
+                cost,
             });
         }
+
+        entries.sort_by(|x, y| x.cost.total_cmp(&y.cost));
 
         Self {
             character_store,
@@ -90,25 +94,29 @@ impl CompiledDictionary {
 impl CompiledDictionary {
     pub fn search_single(&self, s : &str) -> Vec<&DictionaryEntry>
     {
-        let bitset = self.get_jyutping_matches(s);
+        let (bitset, tone) = self.get_jyutping_matches(s);
 
         let mut matches = Vec::new();
 
         let max = 10;
         for x in &self.entries
         {
-            if (x.jyutpings.len() == 0)
-            {
-                continue;
-            }
-
-            let mut is_match = true;
+            let mut is_match = false;
             for j in &x.jyutpings
             {
-                if (!bitset.contains(j.base as usize))
+                if (bitset.contains(j.base as usize))
                 {
-                    is_match = false;
-                    break;
+                    if let Some(t) = tone {
+                        if t == j.tone {
+                            is_match = true;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        is_match = true;
+                        break;
+                    }
                 }
             }
 
@@ -126,8 +134,19 @@ impl CompiledDictionary {
         matches
     }
 
-    pub fn get_jyutping_matches(&self, s : &str) -> BitSet
+    pub fn get_jyutping_matches(&self, mut s : &str) -> (BitSet, Option<u8>)
     {
+        let mut tone : Option<u8> = None;
+
+        let bs = s.as_bytes();
+        if (bs.len() > 0)
+        {
+            if bs[bs.len() - 1].is_ascii_digit() {
+                tone = Some(bs[bs.len() - 1] as u8 - '0' as u8);
+                s = unsafe { std::str::from_utf8_unchecked(&bs[0..bs.len()-1])};
+            }
+        }
+
         let mut matches = BitSet::new();
 
         //for (i, jyutping) in self.jyutping_store.base_strings
@@ -147,7 +166,7 @@ impl CompiledDictionary {
             }
         }
 
-        matches
+        (matches, tone)
     }
 }
 
@@ -241,5 +260,44 @@ pub struct DictionaryEntry
     // TODO struct of array members here
     jyutpings : Vec<Jyutping>,
     english_definitions : Vec<String>,
-    cost : i32,
+    cost : f32,
+}
+
+#[derive(Debug)]
+pub struct DisplayDictionaryEntry
+{
+    characters : String,
+    jyutping : String,
+    english_definitions : Vec<String>,
+    cost : f32,
+}
+
+impl DisplayDictionaryEntry
+{
+    pub fn from_entry(entry : &DictionaryEntry, dict : &CompiledDictionary) -> Self {
+        let mut characters = String::new();
+        for c in &entry.characters
+        {
+            characters.push(dict.character_store.characters[*c as usize]);
+        }
+
+        let mut jyutping = String::new();
+        for j in &entry.jyutpings
+        {
+            if (jyutping.len() > 0)
+            {
+                jyutping.push(' ');
+            }
+
+            jyutping.push_str(&dict.jyutping_store.base_strings[j.base as usize]);
+            jyutping.push((j.tone + '0' as u8) as char);
+        }
+
+        Self {
+            characters,
+            jyutping,
+            english_definitions: entry.english_definitions.clone(),
+            cost : entry.cost,
+        }
+    }
 }

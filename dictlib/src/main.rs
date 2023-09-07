@@ -2,6 +2,8 @@ use std::collections::BTreeMap;
 
 use compiled_dictionary::CompiledDictionary;
 
+use crate::compiled_dictionary::DisplayDictionaryEntry;
+
 mod compiled_dictionary;
 mod jyutping_splitter;
 
@@ -12,7 +14,7 @@ fn main() {
     let mut trad_to_jyutping = TraditionalToJyutping::parse("../cccedict-canto-readings-150923.txt");
     let mut trad_to_frequency = TraditionalToFrequencies::parse("../frequencies.txt");
 
-    //defs.parse_ccanto(&mut trad_to_jyutping, &mut trad_to_frequency, "../cccanto-webdist.txt");
+    defs.parse_ccanto(&mut trad_to_jyutping, &mut trad_to_frequency, "../cccanto-webdist.txt");
 
     let dict = Dictionary {
         trad_to_def : defs,
@@ -39,7 +41,12 @@ fn main() {
         std::io::stdin().read_line(&mut buffer).unwrap();
 
         let matches = compiled_dictionary.search_single(&buffer.trim());
-        println!("{:#?}", matches);
+
+        for m in matches
+        {
+            let display = DisplayDictionaryEntry::from_entry(m, &compiled_dictionary);
+            println!("{:#?}", display);
+        }
     }
 
     //let mut buffer = String::new();
