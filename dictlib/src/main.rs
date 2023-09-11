@@ -48,7 +48,7 @@ fn main() {
         println!("Query: ");
         std::io::stdin().read_line(&mut buffer).unwrap();
 
-        let matches = compiled_dictionary.search_single(&buffer.trim());
+        let matches = compiled_dictionary.search(&buffer.trim());
 
         for m in matches
         {

@@ -95,43 +95,20 @@ impl CompiledDictionary {
 }
 
 impl CompiledDictionary {
-    //pub fn search(&self, s : &str) -> Vec<&DictionaryEntry>
-    //{
-    //    for query_term in s.split_ascii_whitespace()
-    //    {
-    //        
-    //    }
-    //}
-
-    pub fn search_single(&self, s : &str) -> Vec<&DictionaryEntry>
+    pub fn search(&self, s : &str) -> Vec<&DictionaryEntry>
     {
-        let (bitset, tone) = self.get_jyutping_matches(s);
+        let mut jyutping_matches = Vec::new();
+        for query_term in s.split_ascii_whitespace()
+        {
+            jyutping_matches.push(self.get_jyutping_matches(query_term));
+        }
 
         let mut matches = Vec::new();
 
         let max = 10;
         for x in &self.entries
         {
-            let mut is_match = false;
-            for j in &x.jyutpings
-            {
-                if (bitset.contains(j.base as usize))
-                {
-                    if let Some(t) = tone {
-                        if t == j.tone {
-                            is_match = true;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        is_match = true;
-                        break;
-                    }
-                }
-            }
-
-            if (is_match)
+            if (self.matches_query(x, &jyutping_matches))
             {
                 matches.push(x);
 
@@ -143,6 +120,40 @@ impl CompiledDictionary {
         }
 
         matches
+    }
+
+    pub fn matches_query(&self, entry: &DictionaryEntry, query_terms : &[(BitSet, Option<u8>)]) -> bool
+    {
+        for (bitset, tone) in query_terms
+        {
+            let mut term_match = false;
+
+            for j in &entry.jyutpings
+            {
+                if (bitset.contains(j.base as usize))
+                {
+                    if let Some(t) = tone
+                    {
+                        if *t == j.tone {
+                            term_match = true;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        term_match = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!term_match)
+            {
+                return false;
+            }
+        }
+
+        true
     }
 
     pub fn get_jyutping_matches(&self, mut s : &str) -> (BitSet, Option<u8>)
@@ -172,7 +183,7 @@ impl CompiledDictionary {
         {
             if (jyutping_string.contains(s))
             {
-                println!("{} match {}", s, jyutping_string);
+                println!("'{}' matches {}", s, jyutping_string);
                 matches.insert(i);
             }
         }
