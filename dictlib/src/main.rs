@@ -1,4 +1,4 @@
-use std::collections::BTreeMap;
+use std::{collections::BTreeMap, io::Read};
 
 use compiled_dictionary::CompiledDictionary;
 
@@ -7,7 +7,14 @@ use crate::compiled_dictionary::DisplayDictionaryEntry;
 mod compiled_dictionary;
 mod jyutping_splitter;
 mod data_writer;
+mod data_reader;
 mod vbyte;
+
+#[derive(Debug, Clone, Copy)]
+pub struct OffsetString {
+    pub start: u32,
+    pub len: u32,
+}
 
 fn main() {
     let mut defs = TraditionalToDefinitions::default();
@@ -32,13 +39,26 @@ fn main() {
 
     //println!("{} - {} {:?} - {:?}", char, jyutping, def, frequency_data);
 
-    let compiled_dictionary = CompiledDictionary::from_dictionary(dict);
-    
     let write_path = "../test.jyp_dict";
-    println!("Writing to {}", write_path);
-    let mut data_writer = data_writer::DataWriter::new(write_path);
-    compiled_dictionary.serialize(&mut data_writer).unwrap();
-    println!("Writing done!");
+    
+    {
+        let mut compiled_dictionary = CompiledDictionary::from_dictionary(dict);
+
+        println!("Writing to {}", write_path);
+        let mut data_writer = data_writer::DataWriter::new(write_path);
+        compiled_dictionary.serialize(&mut data_writer).unwrap();
+        println!("Writing done!");
+    }
+
+    let compiled_dictionary = {
+        println!("Reading from {}", write_path);
+        let mut f = std::fs::File::open(write_path).unwrap();
+        let mut buffer = Vec::new();
+        f.read_to_end(&mut buffer).unwrap();
+
+        let mut data_reader = data_reader::DataReader::new(&buffer[..]);
+        CompiledDictionary::deserialize(&mut data_reader)
+    };
 
     let mut buffer = String::new();
 

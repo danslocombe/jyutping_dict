@@ -2,7 +2,7 @@ use std::collections::{HashSet, BTreeSet};
 
 use bit_set::BitSet;
 
-use crate::{Dictionary, jyutping_splitter::JyutpingSplitter, data_writer::DataWriter};
+use crate::{Dictionary, jyutping_splitter::JyutpingSplitter, data_writer::DataWriter, data_reader::DataReader};
 
 pub struct CompiledDictionary
 {
@@ -191,6 +191,66 @@ impl CompiledDictionary {
         (matches, tone)
     }
 
+    pub fn deserialize(reader : &mut DataReader) -> Self {
+
+        let header = reader.read_bytes_len(8);
+        assert!(header == FILE_HEADER);
+        println!("Header '{}'", std::str::from_utf8(header).unwrap());
+
+        let version = reader.read_u32();
+        assert_eq!(CURRENT_VERSION, version);
+        println!("Version {}", version);
+
+        let mut character_store = CharacterStore::default();
+        let character_count = reader.read_u32();
+        for _ in 0..character_count {
+            character_store.characters.push(reader.read_utf8_char());
+        }
+
+        let mut jyutping_store = JyutpingStore::default();
+        let jyutping_count = reader.read_u32();
+        for _ in 0..jyutping_count {
+
+            // TODO move to offset_string
+            let base_string = reader.read_string().to_owned();
+            jyutping_store.base_strings.push(base_string);
+        }
+
+        let entry_count = reader.read_u32();
+        let mut entries = Vec::with_capacity(entry_count as usize);
+
+        for _ in 0..entry_count {
+            let mut entry = DictionaryEntry::default();
+
+            let char_count = reader.read_u8();
+            for _ in 0..char_count {
+                entry.characters.push(reader.read_vbyte() as u16);
+            }
+
+            let jyutping_count = reader.read_u8();
+            for _ in 0..jyutping_count {
+                let base = reader.read_vbyte() as u16;
+                let tone = reader.read_u8();
+                entry.jyutpings.push(Jyutping { base, tone });
+            }
+
+            let english_count = reader.read_u8();
+            for _ in 0..english_count {
+                // TODO move to offset_string
+                let def = reader.read_string().to_owned();
+                entry.english_definitions.push(def.to_owned());
+            }
+
+            entries.push(entry);
+        }
+
+        Self {
+            character_store,
+            jyutping_store,
+            entries,
+        }
+    }
+
     pub fn serialize<T : std::io::Write>(&self, writer : &mut DataWriter<T>) -> std::io::Result<()>
     {
         writer.write_bytes(FILE_HEADER)?;
@@ -219,7 +279,7 @@ impl CompiledDictionary {
             }
 
             assert!(e.jyutpings.len() < 256);
-            writer.write_u8(e.characters.len() as u8)?;
+            writer.write_u8(e.jyutpings.len() as u8)?;
             for j in &e.jyutpings
             {
                 writer.write_vbyte(j.base as u64)?;
@@ -231,8 +291,8 @@ impl CompiledDictionary {
             for def in &e.english_definitions
             {
                 // Some dummy offset
-                writer.write_u32(100);
-                //writer.write_string(def)?;
+                //writer.write_u32(100);
+                writer.write_string(def)?;
             }
         }
 
@@ -240,6 +300,7 @@ impl CompiledDictionary {
     }
 }
 
+#[derive(Default)]
 struct CharacterStore
 {
     characters : Vec<char>,
@@ -262,6 +323,7 @@ impl CharacterStore
     }
 }
 
+#[derive(Default)]
 struct JyutpingStore
 {
     base_strings : Vec<String>,
@@ -323,7 +385,7 @@ struct Jyutping
 }
 
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Default)]
 pub struct DictionaryEntry
 {
     characters : Vec<u16>,
@@ -332,6 +394,14 @@ pub struct DictionaryEntry
     english_definitions : Vec<String>,
     cost : f32,
 }
+
+pub struct Result
+{
+    entry_index : usize,
+    base_cost : f32,
+    match_cost : f32,
+}
+
 
 #[derive(Debug)]
 pub struct DisplayDictionaryEntry
