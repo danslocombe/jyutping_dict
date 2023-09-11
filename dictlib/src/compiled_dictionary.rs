@@ -2,7 +2,7 @@ use std::collections::{HashSet, BTreeSet};
 
 use bit_set::BitSet;
 
-use crate::{Dictionary, jyutping_splitter::JyutpingSplitter};
+use crate::{Dictionary, jyutping_splitter::JyutpingSplitter, data_writer::DataWriter};
 
 pub struct CompiledDictionary
 {
@@ -11,6 +11,9 @@ pub struct CompiledDictionary
 
     entries : Vec<DictionaryEntry>,
 }
+
+pub const FILE_HEADER: &[u8] = b"jyp_dict";
+pub const CURRENT_VERSION: u32 = 1;
 
 impl CompiledDictionary {
     pub fn from_dictionary(dict : Dictionary) -> Self {
@@ -92,6 +95,14 @@ impl CompiledDictionary {
 }
 
 impl CompiledDictionary {
+    //pub fn search(&self, s : &str) -> Vec<&DictionaryEntry>
+    //{
+    //    for query_term in s.split_ascii_whitespace()
+    //    {
+    //        
+    //    }
+    //}
+
     pub fn search_single(&self, s : &str) -> Vec<&DictionaryEntry>
     {
         let (bitset, tone) = self.get_jyutping_matches(s);
@@ -167,6 +178,54 @@ impl CompiledDictionary {
         }
 
         (matches, tone)
+    }
+
+    pub fn serialize<T : std::io::Write>(&self, writer : &mut DataWriter<T>) -> std::io::Result<()>
+    {
+        writer.write_bytes(FILE_HEADER)?;
+        writer.write_u32(CURRENT_VERSION)?;
+
+        writer.write_u32(self.character_store.characters.len() as u32)?;
+        for c in &self.character_store.characters
+        {
+            writer.write_utf8(*c)?;
+        }
+
+        writer.write_u32(self.jyutping_store.base_strings.len() as u32)?;
+        for j in &self.jyutping_store.base_strings
+        {
+            writer.write_string(j)?;
+        }
+
+        writer.write_u32(self.entries.len() as u32)?;
+        for e in &self.entries
+        {
+            assert!(e.characters.len() < 256);
+            writer.write_u8(e.characters.len() as u8)?;
+            for c in &e.characters
+            {
+                writer.write_vbyte(*c as u64)?;
+            }
+
+            assert!(e.jyutpings.len() < 256);
+            writer.write_u8(e.characters.len() as u8)?;
+            for j in &e.jyutpings
+            {
+                writer.write_vbyte(j.base as u64)?;
+                writer.write_u8(j.tone)?;
+            }
+
+            assert!(e.english_definitions.len() < 256);
+            writer.write_u8(e.english_definitions.len() as u8)?;
+            for def in &e.english_definitions
+            {
+                // Some dummy offset
+                writer.write_u32(100);
+                //writer.write_string(def)?;
+            }
+        }
+
+        Ok(())
     }
 }
 

@@ -6,6 +6,8 @@ use crate::compiled_dictionary::DisplayDictionaryEntry;
 
 mod compiled_dictionary;
 mod jyutping_splitter;
+mod data_writer;
+mod vbyte;
 
 fn main() {
     let mut defs = TraditionalToDefinitions::default();
@@ -31,6 +33,12 @@ fn main() {
     //println!("{} - {} {:?} - {:?}", char, jyutping, def, frequency_data);
 
     let compiled_dictionary = CompiledDictionary::from_dictionary(dict);
+    
+    let write_path = "../test.jyp_dict";
+    println!("Writing to {}", write_path);
+    let mut data_writer = data_writer::DataWriter::new(write_path);
+    compiled_dictionary.serialize(&mut data_writer).unwrap();
+    println!("Writing done!");
 
     let mut buffer = String::new();
 
