@@ -1,8 +1,9 @@
 use std::collections::BTreeSet;
 
 use bit_set::BitSet;
+use serde::Serialize;
 
-use crate::{Dictionary, jyutping_splitter::JyutpingSplitter, data_writer::DataWriter, data_reader::DataReader};
+use crate::{data_reader::DataReader, data_writer::DataWriter, debug_logline, jyutping_splitter::JyutpingSplitter, Dictionary};
 
 #[derive(Debug)]
 pub struct CompiledDictionary
@@ -49,7 +50,7 @@ impl CompiledDictionary {
         let character_store = CharacterStore::from_chars(all_characters_list);
         let jyutping_store = JyutpingStore::from_strings(all_jyutping_words_list);
 
-        println!("Individual characters {}, Individual jyutping words {}", character_store.characters.len(), jyutping_store.base_strings.len());
+        debug_log!("Individual characters {}, Individual jyutping words {}", character_store.characters.len(), jyutping_store.base_strings.len());
         //println!("{:#?}", character_store.characters);
         //println!("{:#?}", jyutping_store.base_strings);
 
@@ -108,8 +109,8 @@ pub struct JyutpingQueryTerm {
 #[derive(Debug)]
 pub struct MatchCostInfo
 {
-    match_cost: u32,
-    static_cost: u32,
+    pub match_cost: u32,
+    pub static_cost: u32,
 }
 
 impl MatchCostInfo {
@@ -159,17 +160,22 @@ impl CompiledDictionary {
                 //    break;
                 //}
             }
-            else if let Some(match_cost) = self.matches_query_english(x, s)
-            {
-                let cost_info = MatchCostInfo {
-                    match_cost,
-                    static_cost: x.cost,
-                };
-
-                matches.push((cost_info, x));
-            }
             else
             {
+                let force_english = false;
+                if (s.len() > 2 || force_english)
+                {
+                    if let Some(match_cost) = self.matches_query_english(x, s)
+                    {
+                        let cost_info = MatchCostInfo {
+                            match_cost,
+                            static_cost: x.cost,
+                        };
+
+                        matches.push((cost_info, x));
+                    }
+                }
+
                 if (!query_terms.traditional_terms.is_empty())
                 {
                     if (self.matches_query_traditional(x, &query_terms)) {
@@ -184,7 +190,7 @@ impl CompiledDictionary {
             }
         }
 
-        println!("Internal candidates: {}", matches.len());
+        debug_log!("Internal candidates: {}", matches.len());
         matches.sort_by(|(x, _), (y, _)| x.total().cmp(&y.total()));
         matches.truncate(8);
 
@@ -316,7 +322,7 @@ impl CompiledDictionary {
         {
             if (jyutping_string.eq_ignore_ascii_case(s))
             {
-                println!("'{}' matches {}", s, jyutping_string);
+                debug_log!("'{}' matches {}", s, jyutping_string);
                 matches.insert(i);
                 continue;
             }
@@ -324,7 +330,7 @@ impl CompiledDictionary {
             if let Some(_) = crate::string_search::string_indexof_linear_ignorecase(s, &jyutping_string)
             {
                 let match_cost = (jyutping_string.len() - s.len()) as u32 * 6_000;
-                println!("'{}' matches {} with cost {}", s, jyutping_string, match_cost);
+                debug_log!("'{}' matches {} with cost {}", s, jyutping_string, match_cost);
                 match_bit_to_match_cost.push((i, match_cost));
                 matches.insert(i);
                 continue;
@@ -352,14 +358,20 @@ impl CompiledDictionary {
     }
 
     pub fn deserialize(reader : &mut DataReader) -> Self {
+        debug_log!("Hello!");
 
         let header = reader.read_bytes_len(8);
+        for x in header
+        {
+            debug_log!("{}", x);
+        }
+
+        debug_log!("Header '{}'", std::str::from_utf8(header).expect("Not utf8"));
         assert!(header == FILE_HEADER);
-        println!("Header '{}'", std::str::from_utf8(header).unwrap());
 
         let version = reader.read_u32();
+        debug_log!("Version {}", version);
         assert_eq!(CURRENT_VERSION, version);
-        println!("Version {}", version);
 
         let mut character_store = CharacterStore::default();
         let character_count = reader.read_u32();
@@ -541,22 +553,22 @@ impl JyutpingStore {
 }
 
 #[derive(Debug, Clone, Copy)]
-struct Jyutping
+pub struct Jyutping
 {
     // TODO merge to single u16
-    base : u16,
-    tone : u8,
+    pub base : u16,
+    pub tone : u8,
 }
 
 
 #[derive(Debug, Clone, Default)]
 pub struct DictionaryEntry
 {
-    characters : Vec<u16>,
+    pub characters : Vec<u16>,
     // TODO struct of array members here
-    jyutpings : Vec<Jyutping>,
-    english_definitions : Vec<String>,
-    cost : u32,
+    pub jyutpings : Vec<Jyutping>,
+    pub english_definitions : Vec<String>,
+    pub cost : u32,
 }
 
 pub struct Result
@@ -567,13 +579,13 @@ pub struct Result
 }
 
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct DisplayDictionaryEntry
 {
-    characters : String,
-    jyutping : String,
-    english_definitions : Vec<String>,
-    cost : u32,
+    pub characters : String,
+    pub jyutping : String,
+    pub english_definitions : Vec<String>,
+    pub cost : u32,
 }
 
 impl DisplayDictionaryEntry

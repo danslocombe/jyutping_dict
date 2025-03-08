@@ -7,12 +7,51 @@ use compiled_dictionary::CompiledDictionary;
 
 use crate::compiled_dictionary::DisplayDictionaryEntry;
 
-mod compiled_dictionary;
-mod jyutping_splitter;
-mod data_writer;
-mod data_reader;
-mod vbyte;
-mod string_search;
+
+#[macro_export]
+macro_rules! debug_log {
+    ( $( $t:tt )* ) => {
+        $crate::debug_logline(&format!( $( $t )* ));
+    }
+}
+
+#[macro_export]
+macro_rules! error_log {
+    ( $( $t:tt )* ) => {
+        $crate::error_logline(&format!( $( $t )* ));
+    }
+}
+
+pub mod compiled_dictionary;
+pub mod jyutping_splitter;
+pub mod data_writer;
+pub mod data_reader;
+pub mod vbyte;
+pub mod string_search;
+
+static mut DEBUG_LOGGER : Option<Box<dyn DebugLogger>> = None;
+
+pub fn set_debug_logger(logger : Box<dyn DebugLogger>) {
+    // Only should be called once by main thread at init
+    unsafe {
+        DEBUG_LOGGER = Some(logger);
+    }
+}
+
+pub fn debug_logline(logline : &str)
+{
+    unsafe { if let Some(x) = DEBUG_LOGGER.as_ref() { x.log(logline); }}
+}
+
+pub fn error_logline(logline : &str)
+{
+    unsafe { if let Some(x) = DEBUG_LOGGER.as_ref() { x.log_error(logline); }}
+}
+
+pub trait DebugLogger {
+    fn log(&self, logline: &str);
+    fn log_error(&self, logline: &str);
+}
 
 #[derive(Debug, Clone, Copy)]
 pub struct OffsetString {
@@ -20,119 +59,12 @@ pub struct OffsetString {
     pub len: u32,
 }
 
-fn main() {
-    let mut defs = TraditionalToDefinitions::default();
-
-    let test_set = false;
-
-    let (data_path, print_debug) = if test_set {
-        ("../test", true)
-    }
-    else {
-        ("../full", false)
-    };
-
-    // Cedict is
-    // Traditional / Pinyin / English Definition.
-    defs.parse_cedict(&format!("{}/cedict_ts.u8", data_path));
-
-    if (print_debug) {
-        println!("Defs0\n{:#?}", defs);
-    }
-
-    let mut trad_to_jyutping = TraditionalToJyutping::parse(&format!("{}/cccedict-canto-readings-150923.txt", data_path));
-    let mut trad_to_frequency = TraditionalToFrequencies::parse(&format!("{}/frequencies.txt", data_path));
-
-    defs.parse_ccanto(&mut trad_to_jyutping, &mut trad_to_frequency, &format!("{}/cccanto-webdist.txt", data_path));
-
-    if (print_debug) {
-        println!("Defs1\n{:#?}", defs);
-    }
-
-    let dict = Dictionary {
-        trad_to_def : defs,
-        trad_to_jyutping,
-        trad_to_frequency,
-    };
-
-    if print_debug {
-        println!("Data\n{:#?}", dict);
-    }
-
-    //let char = "人";
-
-    //let frequency_data = trad_to_frequency.inner.get(char).unwrap();
-    //let jyutping = trad_to_jyutping.inner.get(char).unwrap();
-    //let def = trad_to_def.inner.get(char).unwrap();
-
-    //println!("{} - {} {:?} - {:?}", char, jyutping, def, frequency_data);
-
-    //let hacky_results = dict.hacky_search("fu2");
-    //println!("fu2 results: \n{:#?}", hacky_results);
-    //return;
-
-    let write_path = format!("{}/test.jyp_dict", data_path);
-    
-    {
-        let compiled_dictionary = CompiledDictionary::from_dictionary(dict);
-
-        println!("Writing to {}", &write_path);
-        let mut data_writer = data_writer::DataWriter::new(&write_path);
-        compiled_dictionary.serialize(&mut data_writer).unwrap();
-        println!("Writing done!");
-    }
-
-    let compiled_dictionary = {
-        println!("Reading from {}", &write_path);
-        let mut f = std::fs::File::open(write_path).unwrap();
-        let mut buffer = Vec::new();
-        f.read_to_end(&mut buffer).unwrap();
-
-        let mut data_reader = data_reader::DataReader::new(&buffer[..]);
-        CompiledDictionary::deserialize(&mut data_reader)
-    };
-
-    if (print_debug) {
-        println!("Compiled Dictionary\n{:#?}", compiled_dictionary);
-    }
-
-    let mut buffer = String::new();
-
-    loop {
-        buffer.clear();
-
-        println!("Query: ");
-        std::io::stdin().read_line(&mut buffer).unwrap();
-
-        let matches = compiled_dictionary.search(&buffer.trim());
-
-        for (match_cost_info, m) in matches
-        {
-            let display = DisplayDictionaryEntry::from_entry(m, &compiled_dictionary);
-            println!("(Match Cost {:?}) - {:#?}", match_cost_info, display);
-        }
-    }
-
-    //let mut buffer = String::new();
-
-    //loop {
-    //    buffer.clear();
-
-    //    println!("Query: ");
-    //    std::io::stdin().read_line(&mut buffer).unwrap();
-
-    //    let results = dict.hacky_search(&buffer);
-    //    println!("{:#?}", results);
-    //}
-
-}
-
 #[derive(Debug)]
 pub struct Dictionary
 {
-    trad_to_def: TraditionalToDefinitions,
-    trad_to_jyutping : TraditionalToJyutping,
-    trad_to_frequency : TraditionalToFrequencies,
+    pub trad_to_def: TraditionalToDefinitions,
+    pub trad_to_jyutping : TraditionalToJyutping,
+    pub trad_to_frequency : TraditionalToFrequencies,
 }
 
 
@@ -198,7 +130,7 @@ impl SearchResult {
 }
 
 #[derive(Default, Debug)]
-struct TraditionalToDefinitions
+pub struct TraditionalToDefinitions
 {
     inner : BTreeMap<String, Vec<String>>,
 }
@@ -317,7 +249,7 @@ impl TraditionalToDefinitions
 }
 
 #[derive(Debug)]
-struct TraditionalToJyutping
+pub struct TraditionalToJyutping
 {
     inner : BTreeMap<String, String>,
     reverse : BTreeMap<String, Vec<String>>,
@@ -390,7 +322,7 @@ impl TraditionalToJyutping
 }
 
 #[derive(Debug)]
-struct TraditionalToFrequencies
+pub struct TraditionalToFrequencies
 {
     inner : BTreeMap<char, FrequencyData>,
 }
@@ -480,7 +412,7 @@ impl TraditionalToFrequencies
 }
 
 #[derive(Debug, Clone, Copy)]
-struct FrequencyData
+pub struct FrequencyData
 {
     count : i32,
     frequency : f64,
