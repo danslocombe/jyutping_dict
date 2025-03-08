@@ -1,4 +1,5 @@
-use std::collections::BTreeSet;
+use core::str;
+use std::{collections::BTreeSet};
 
 use bit_set::BitSet;
 use serde::Serialize;
@@ -12,10 +13,13 @@ pub struct CompiledDictionary
     jyutping_store : JyutpingStore,
 
     entries : Vec<DictionaryEntry>,
+    english_data: Vec<u8>,
+    english_data_starts: Vec<u32>,
 }
 
 pub const FILE_HEADER: &[u8] = b"jyp_dict";
-pub const CURRENT_VERSION: u32 = 1;
+pub const ENGLISH_BLOB_HEADER: &[u8] = b"en_data_";
+pub const CURRENT_VERSION: u32 = 2;
 
 impl CompiledDictionary {
     pub fn from_dictionary(dict : Dictionary) -> Self {
@@ -56,6 +60,11 @@ impl CompiledDictionary {
 
         let mut entries = Vec::new();
 
+        let mut english_data = Vec::new();
+        let mut english_data_starts = Vec::new();
+
+        let mut english_start = 0;
+
         for (traditional_chars, definitions) in dict.trad_to_def.inner
         {
             let mut cost : u32 = 0;
@@ -77,13 +86,24 @@ impl CompiledDictionary {
                 }
             }
 
+            let english_start = english_data_starts.len();
+            for definition in definitions
+            {
+                english_data_starts.push(english_data.len() as u32);
+                english_data.extend_from_slice(definition.as_bytes());
+            }
+            let english_end = english_data_starts.len();
+
             entries.push(DictionaryEntry {
                 characters: char_indexes,
                 jyutpings: jyutpings,
-                english_definitions: definitions,
+                english_start: english_start as u32,
+                english_end: english_end as u32,
                 cost,
             });
         }
+
+        english_data_starts.push(english_data.len() as u32);
 
         entries.sort_by(|x, y| x.cost.cmp(&y.cost));
 
@@ -91,6 +111,8 @@ impl CompiledDictionary {
             character_store,
             jyutping_store,
             entries,
+            english_data,
+            english_data_starts,
         }
     }
 }
@@ -268,22 +290,45 @@ impl CompiledDictionary {
         // Make sure we prefer jyutping matches
         let mut cost: u32 = 1_000;
 
-        // @Perf
-        // Really we should keep all the english text in a big block
-        // then we could do a search over it in its entirety.
-        'outer: for split in s.split_ascii_whitespace()
+        // @Perf do search over enterity instead of individual entries.
+
+        if (entry.english_start == entry.english_end)
         {
-            for (i, def) in entry.english_definitions.iter().enumerate()
+            return None;
+        }
+
+        unsafe {
+            let start = self.english_data_starts[entry.english_start as usize] as usize;
+            let end = self.english_data_starts[entry.english_end as usize] as usize;
+            let block = &self.english_data[start..end];
+            let block_str = unsafe {
+                str::from_utf8_unchecked(block)
+            };
+
+            'outer: for split in s.split_ascii_whitespace()
             {
-                if let Some(pos) = crate::string_search::string_indexof_linear_ignorecase(split, def) {
-                    cost += i as u32 * 1_000;
+                /*
+                for (i, def) in entry.english_definitions.iter().enumerate()
+                {
+                    if let Some(pos) = crate::string_search::string_indexof_linear_ignorecase(split, def) {
+                        cost += i as u32 * 1_000;
+                        cost += pos as u32 * 100;
+                        continue 'outer;
+                    }
+                }
+                */
+
+                // @FIXME entry boundaries etc.
+
+                if let Some(pos) = crate::string_search::string_indexof_linear_ignorecase(split, block_str) {
+                    //cost += i as u32 * 1_000;
                     cost += pos as u32 * 100;
                     continue 'outer;
                 }
-            }
 
-            // No match on this split
-            return None;
+                // No match on this split
+                return None;
+            }
         }
 
         Some(cost)
@@ -358,14 +403,7 @@ impl CompiledDictionary {
     }
 
     pub fn deserialize(reader : &mut DataReader) -> Self {
-        debug_log!("Hello!");
-
         let header = reader.read_bytes_len(8);
-        for x in header
-        {
-            debug_log!("{}", x);
-        }
-
         debug_log!("Header '{}'", std::str::from_utf8(header).expect("Not utf8"));
         assert!(header == FILE_HEADER);
 
@@ -406,22 +444,35 @@ impl CompiledDictionary {
                 entry.jyutpings.push(Jyutping { base, tone });
             }
 
-            let english_count = reader.read_u8();
-            for _ in 0..english_count {
-                // TODO move to offset_string
-                let def = reader.read_string().to_owned();
-                entry.english_definitions.push(def.to_owned());
-            }
+            entry.english_start = reader.read_u32();
+            entry.english_end = reader.read_u32();
 
             entry.cost = reader.read_u32();
 
             entries.push(entry);
         }
 
+        let blob_header = reader.read_bytes_len(8);
+        debug_log!("blob_header '{}'", std::str::from_utf8(blob_header).expect("Not utf8"));
+        assert!(blob_header == ENGLISH_BLOB_HEADER);
+
+        let blob_size = reader.read_u32();
+        let mut english_blob = reader.read_bytes_len(blob_size as usize);
+
+        let mut starts_count = reader.read_u32() as usize;
+        let mut english_data_starts = Vec::with_capacity(starts_count);
+        for _ in 0..starts_count
+        {
+            let start = reader.read_vbyte();
+            english_data_starts.push(start as u32);
+        }
+
         Self {
             character_store,
             jyutping_store,
             entries,
+            english_data: english_blob.to_owned(),
+            english_data_starts,
         }
     }
 
@@ -460,17 +511,24 @@ impl CompiledDictionary {
                 writer.write_u8(j.tone)?;
             }
 
-            assert!(e.english_definitions.len() < 256);
-            writer.write_u8(e.english_definitions.len() as u8)?;
-            for def in &e.english_definitions
-            {
-                // Some dummy offset
-                //writer.write_u32(100);
-                writer.write_string(def)?;
-            }
+            writer.write_u32(e.english_start as u32);
+            writer.write_u32(e.english_end as u32);
 
             writer.write_u32(e.cost)?;
         }
+
+        writer.write_bytes(ENGLISH_BLOB_HEADER)?;
+
+        writer.write_bytes_and_length(&self.english_data)?;
+
+        writer.write_u32(self.english_data_starts.len() as u32)?;
+        for start in &self.english_data_starts
+        {
+            writer.write_vbyte(*start as u64)?;
+        }
+
+        // End padding
+        writer.write_u64(0);
 
         Ok(())
     }
@@ -567,7 +625,8 @@ pub struct DictionaryEntry
     pub characters : Vec<u16>,
     // TODO struct of array members here
     pub jyutpings : Vec<Jyutping>,
-    pub english_definitions : Vec<String>,
+    pub english_start : u32,
+    pub english_end : u32,
     pub cost : u32,
 }
 
@@ -609,10 +668,20 @@ impl DisplayDictionaryEntry
             jyutping.push((j.tone + '0' as u8) as char);
         }
 
+        let mut english_definitions = Vec::with_capacity(entry.english_end as usize - entry.english_start as usize);
+        for i in entry.english_start..entry.english_end
+        {
+            let start = dict.english_data_starts[i as usize] as usize;
+            let end = dict.english_data_starts[i as usize + 1] as usize;
+            let blob = &dict.english_data[start..end];
+            let def = unsafe { std::str::from_utf8_unchecked(blob) }.to_owned();
+            english_definitions.push(def);
+        }
+
         Self {
             characters,
             jyutping,
-            english_definitions: entry.english_definitions.clone(),
+            english_definitions,
             cost : entry.cost,
         }
     }
