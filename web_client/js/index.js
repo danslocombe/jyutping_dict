@@ -10,7 +10,6 @@ var textfield = document.getElementById("entry");
 var resultsfield = document.getElementById("results");
 var explanation = document.getElementById("explanation");
 
-
 Promise.all(
     [
         fetch("test.jyp_dict").then(x => x.arrayBuffer()),
@@ -25,8 +24,7 @@ Promise.all(
     textfield.setAttribute("placeholder", "teacher");
     textfield.focus();
 
-    textfield.addEventListener('input', e => {
-        const prefix = e.target.value;
+    const input_function = prefix => {
         resultsfield.innerHTML = "";
 
         if (prefix.length > 0) {
@@ -37,7 +35,16 @@ Promise.all(
             textfield.setAttribute("placeholder", "");
             explanation.hidden = false;
         }
-    })
+    };
+
+    textfield.addEventListener('input', (e) => input_function(e.target.value));
+
+    var query = url_params.get('q');
+    if (query)
+    {
+        input_function(query);
+        textfield.value = query;
+    }
 })
 
 // Get colouring classes for different translation sources

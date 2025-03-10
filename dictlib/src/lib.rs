@@ -169,12 +169,23 @@ impl TraditionalToDefinitions
             let jyutping_end = rest.find('}').unwrap();
             let jyutping = &rest[1..jyutping_end];
 
-            let english = &rest[jyutping_end+2..];
+            let mut english = &rest[jyutping_end+2..];
 
-            let mut definitions = Vec::new();
+            if let Some(end_comment) = english.find('#')
+            {
+                english = &english[0..end_comment];
+            }
+
+            let mut definitions = Vec::<String>::new();
             for def in english.split("/")
             {
+                let def = def.trim();
                 if (def.len() == 0) {
+                    continue;
+                }
+
+                if (definitions.iter().any(|x| x.eq_ignore_ascii_case(def)))
+                {
                     continue;
                 }
 
@@ -222,12 +233,23 @@ impl TraditionalToDefinitions
 
             let pinyin_end = rest.find(']').unwrap();
 
-            let english = &rest[pinyin_end+2..];
+            let mut english = &rest[pinyin_end+2..];
 
-            let mut definitions = Vec::new();
+            if let Some(end_comment) = english.find('#')
+            {
+                english = &english[0..end_comment];
+            }
+
+            let mut definitions = Vec::<String>::new();
             for def in english.split("/")
             {
+                let def = def.trim();
                 if (def.len() == 0) {
+                    continue;
+                }
+
+                if (definitions.iter().any(|x| x.eq_ignore_ascii_case(def)))
+                {
                     continue;
                 }
 
@@ -237,7 +259,15 @@ impl TraditionalToDefinitions
             //println!("{} - {:?}", traditional, definitions);
 
             if let Some(x) = self.inner.get_mut(traditional) {
-                x.extend(definitions);
+                for new_def in definitions
+                {
+                    if (x.iter().any(|x| x.eq_ignore_ascii_case(&new_def)))
+                    {
+                        continue;
+                    }
+
+                    x.push(new_def);
+                }
             }
             else {
                 self.inner.insert(traditional.to_owned(), definitions);

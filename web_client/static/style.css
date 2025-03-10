@@ -137,10 +137,7 @@ a, .card .legend .word, .card-item .item-title .asterisk {
 
 .card-item .item-english {
 	font-weight: 500;
-	overflow: hidden;
-	text-overflow: ellipsis;
 	max-width: calc(100% - 48px - 1rem);
-	white-space: nowrap;
 }
 
 .card-item .item-toki-pona {

@@ -111,24 +111,6 @@ pub fn _prefix_levenshtein_bs(query: &[u8], target: &[u8]) -> i32
 }
 
 pub fn string_indexof_linear_ignorecase(needle: &str, haystack: &str) -> Option<usize> {
-    //var i: usize = start_index;
-    //const end = haystack.len - needle.len;
-    //while (i <= end) : (i += 1) {
-    //    if (eql(T, haystack[i .. i + needle.len], needle)) return i;
-    //}
-    //return null;
-
-    //if haystack.len() < needle.len() {
-    //    return None;
-    //}
-
-    //let end = haystack.len() - needle.len();
-
-    //for (i, _char) in haystack.char_indices() {
-    //    if (i > end) {
-    //        break;
-    //    }
-
     let needle_bs = needle.as_bytes();
     let haystack_bs = haystack.as_bytes();
 
@@ -142,7 +124,31 @@ pub fn string_indexof_linear_ignorecase(needle: &str, haystack: &str) -> Option<
         // Not actually correct, but good enough
         // the eq_ignore_ascii_case can trigger weird stuff as it may
         // lowercase a non-ascii char.
-        if needle.as_bytes().eq_ignore_ascii_case(&(haystack.as_bytes()[i..i+needle.len()])) {
+
+        // eq_ignore_ascii_case implementation
+        //self.len() == other.len() && iter::zip(self, other).all(|(a, b)| a.eq_ignore_ascii_case(b))
+        //
+        // We expand this out as it's on the hot path
+        // and we want the site to run well in debug builds
+        // but rust's performance here is really not that great
+        // outside release builds.
+
+        let mut is_match = true;
+
+        for j in 0..needle_bs.len()
+        {
+            let c0 = unsafe { needle_bs.as_ptr().offset(j as isize).read() };
+            let c1 = unsafe { haystack_bs.as_ptr().offset(i as isize + j as isize).read() };
+
+            if (!c0.eq_ignore_ascii_case(&c1))
+            {
+                is_match = false;
+                break;
+            }
+        }
+
+        if (is_match)
+        {
             return Some(i);
         }
     }

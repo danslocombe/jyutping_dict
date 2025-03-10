@@ -511,8 +511,8 @@ impl CompiledDictionary {
                 writer.write_u8(j.tone)?;
             }
 
-            writer.write_u32(e.english_start as u32);
-            writer.write_u32(e.english_end as u32);
+            writer.write_u32(e.english_start as u32)?;
+            writer.write_u32(e.english_end as u32)?;
 
             writer.write_u32(e.cost)?;
         }
