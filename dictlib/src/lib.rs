@@ -1,12 +1,7 @@
 #![allow(dead_code)]
 #![allow(unused_parens)]
 
-use std::{collections::BTreeMap, io::Read};
-
-use compiled_dictionary::CompiledDictionary;
-
-use crate::compiled_dictionary::DisplayDictionaryEntry;
-
+use std::collections::BTreeMap;
 
 #[macro_export]
 macro_rules! debug_log {
@@ -278,17 +273,22 @@ impl TraditionalToDefinitions
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub struct TraditionalToJyutping
 {
-    inner : BTreeMap<String, String>,
-    reverse : BTreeMap<String, Vec<String>>,
+    pub inner : BTreeMap<String, Vec<String>>,
+    pub reverse : BTreeMap<String, Vec<String>>,
 }
 
 impl TraditionalToJyutping
 {
     pub fn add(&mut self, chars : &str, jyutping: &str) {
-        self.inner.insert(chars.to_owned(), jyutping.to_owned());
+        if let Some(x) = self.inner.get_mut(chars) {
+            x.push(jyutping.to_owned());
+        }
+        else {
+            self.inner.insert(chars.to_owned(), vec![jyutping.to_owned()]);
+        }
 
         if let Some(x) = self.reverse.get_mut(jyutping) {
             x.push(chars.to_owned());
@@ -300,9 +300,7 @@ impl TraditionalToJyutping
 
     pub fn parse(path : &str) -> Self
     {
-        let mut inner = BTreeMap::new();
-        let mut reverse : BTreeMap<String, Vec<String>> = BTreeMap::new();
-
+        let mut map = Self::default();
         let data = std::fs::read_to_string(path).unwrap();
         for line in data.lines()
         {
@@ -329,25 +327,11 @@ impl TraditionalToJyutping
 
             let jyutping = jyutping_with_brackets[1..jyutping_with_brackets.len() - 1].to_owned();
             //println!("{} - {}", traditional, jyutping);
-            inner.insert(traditional.to_owned(), jyutping);
-            //reverse.insert(jyutping, traditional.to_owned());
+            map.add(traditional, &jyutping);
         }
 
-        for (char, jyutping) in &inner {
-            if let Some(x) = reverse.get_mut(jyutping) {
-                x.push(char.to_owned());
-            }
-            else {
-                reverse.insert(jyutping.to_owned(), vec![char.to_owned()]);
-            }
-        }
-
-        println!("Read {} jyutping romanisations", {inner.len()});
-
-        Self {
-            inner,
-            reverse,
-        }
+        println!("Read {} jyutping romanisations", {map.inner.len()});
+        map
     }
 }
 

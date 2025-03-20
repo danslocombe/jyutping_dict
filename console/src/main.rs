@@ -43,6 +43,13 @@ fn main() {
         trad_to_frequency,
     };
 
+    //for (trad, jyut) in &dict.trad_to_jyutping.inner {
+    //    if (jyut.len() > 1)
+    //    {
+    //        println!("Multi entry {:?} - {:?}", trad, jyut);
+    //    }
+    //}
+
     if print_debug {
         println!("Data\n{:#?}", dict);
     }

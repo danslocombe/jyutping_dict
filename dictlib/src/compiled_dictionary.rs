@@ -1,5 +1,5 @@
 use core::str;
-use std::{collections::BTreeSet};
+use std::collections::BTreeSet;
 
 use bit_set::BitSet;
 use serde::Serialize;
@@ -19,24 +19,26 @@ pub struct CompiledDictionary
 
 pub const FILE_HEADER: &[u8] = b"jyp_dict";
 pub const ENGLISH_BLOB_HEADER: &[u8] = b"en_data_";
-pub const CURRENT_VERSION: u32 = 2;
+pub const CURRENT_VERSION: u32 = 3;
 
 impl CompiledDictionary {
     pub fn from_dictionary(dict : Dictionary) -> Self {
         let mut all_characters : BTreeSet<char> = BTreeSet::new();
         let mut all_jyutping_words : BTreeSet<String> = BTreeSet::new();
 
-        for (characters, jyutping) in dict.trad_to_jyutping.inner.iter() {
+        for (characters, jyutping_sets) in dict.trad_to_jyutping.inner.iter() {
             for c in characters.chars() {
                 all_characters.insert(c);
             }
 
             // TODO Lowercases?
-            for mut word in JyutpingSplitter::new(jyutping) {
-                if (word.len() > 0 && word.chars().last().unwrap().is_ascii_digit()) {
-                    word = &word[0..word.len() - 1];
+            for jyutping in jyutping_sets {
+                for mut word in JyutpingSplitter::new(jyutping) {
+                    if (word.len() > 0 && word.chars().last().unwrap().is_ascii_digit()) {
+                        word = &word[0..word.len() - 1];
+                    }
+                    all_jyutping_words.insert(word.to_owned());
                 }
-                all_jyutping_words.insert(word.to_owned());
             }
         }
 
@@ -77,13 +79,19 @@ impl CompiledDictionary {
                 cost += dict.trad_to_frequency.get_or_default(character).cost;
             }
 
-            let mut jyutpings = Vec::new();
-            if let Some(jyutping_string) = dict.trad_to_jyutping.inner.get(&traditional_chars)
+            let mut mapped_jyutpings = Vec::new();
+            if let Some(jyutping_sets) = dict.trad_to_jyutping.inner.get(&traditional_chars)
             {
-                for word in JyutpingSplitter::new(jyutping_string)
+                let mut mapped_jyutping = Vec::new();
+                for jyutping in jyutping_sets
                 {
-                    jyutpings.push(jyutping_store.get(word).unwrap());
+                    for word in JyutpingSplitter::new(jyutping)
+                    {
+                        mapped_jyutping.push(jyutping_store.get(word).unwrap());
+                    }
                 }
+
+                mapped_jyutpings.push(mapped_jyutping);
             }
 
             let english_start = english_data_starts.len();
@@ -96,7 +104,7 @@ impl CompiledDictionary {
 
             entries.push(DictionaryEntry {
                 characters: char_indexes,
-                jyutpings: jyutpings,
+                jyutping_sets: mapped_jyutpings,
                 english_start: english_start as u32,
                 english_end: english_end as u32,
                 cost,
@@ -219,11 +227,8 @@ impl CompiledDictionary {
         matches
     }
 
-    pub fn matches_query_jyutping(&self, entry: &DictionaryEntry, query_terms : &QueryTerms) -> Option<u32>
-    {
-        if (entry.jyutpings.len() < query_terms.jyutping_terms.len()) {
-            return None;
-        }
+    pub fn matches_jyutping_term(&self, i : usize, entry: &DictionaryEntry, query_terms : &QueryTerms) -> Option<u32> {
+        let jyutping_set = &entry.jyutping_sets[i];
 
         let mut match_cost = 0;
 
@@ -233,7 +238,8 @@ impl CompiledDictionary {
         {
             let mut term_match = false;
 
-            for (i, entry_jyutping) in entry.jyutpings.iter().enumerate()
+
+            for (i, entry_jyutping) in jyutping_set.iter().enumerate()
             {
                 if (jyutping_term.matches.contains(entry_jyutping.base as usize))
                 {
@@ -276,13 +282,38 @@ impl CompiledDictionary {
         //let additional_terms = entry.jyutpings.len() - query_terms.jyutping_matches.len();
         //match_cost += additional_terms as u32 * 10_000;
 
-        for i in 0..entry.jyutpings.len() {
+        for i in 0..jyutping_set.len() {
             if (!entry_jyutping_matches.contains(i)) {
-                match_cost += ((entry.jyutpings.len() + 1) - i) as u32 * 10_000;
+                match_cost += ((jyutping_set.len() + 1) - i) as u32 * 10_000;
             }
         }
 
         Some(match_cost)
+    }
+
+    pub fn matches_query_jyutping(&self, entry: &DictionaryEntry, query_terms : &QueryTerms) -> Option<u32>
+    {
+        if (entry.jyutping_sets.len() < query_terms.jyutping_terms.len()) {
+            return None;
+        }
+
+        let mut best: Option<u32> = None;
+        for i in 0..entry.jyutping_sets.len()
+        {
+            if let Some(x) = self.matches_jyutping_term(i, entry, query_terms) {
+                if let Some(existing) = best {
+                    if x < existing {
+                        best = Some(x);
+                    }
+                }
+                else
+                {
+                    best = Some(x);
+                }
+            }
+        }
+
+        best
     }
 
     pub fn matches_query_english(&self, entry: &DictionaryEntry, s : &str) -> Option<u32>
@@ -437,11 +468,17 @@ impl CompiledDictionary {
                 entry.characters.push(reader.read_vbyte() as u16);
             }
 
-            let jyutping_count = reader.read_u8();
-            for _ in 0..jyutping_count {
-                let base = reader.read_vbyte() as u16;
-                let tone = reader.read_u8();
-                entry.jyutpings.push(Jyutping { base, tone });
+            let jyutping_set_count = reader.read_u8();
+            for _ in 0..jyutping_set_count {
+                let jyutping_count = reader.read_u8();
+                let mut jyutping = Vec::with_capacity(jyutping_count as usize);
+                for _ in 0..jyutping_count {
+                    let base = reader.read_vbyte() as u16;
+                    let tone = reader.read_u8();
+                    jyutping.push(Jyutping { base, tone });
+                }
+
+                entry.jyutping_sets.push(jyutping);
             }
 
             entry.english_start = reader.read_u32();
@@ -503,12 +540,16 @@ impl CompiledDictionary {
                 writer.write_vbyte(*c as u64)?;
             }
 
-            assert!(e.jyutpings.len() < 256);
-            writer.write_u8(e.jyutpings.len() as u8)?;
-            for j in &e.jyutpings
+            assert!(e.jyutping_sets.len() < 256);
+            writer.write_u8(e.jyutping_sets.len() as u8)?;
+            for jyutping_set in &e.jyutping_sets
             {
-                writer.write_vbyte(j.base as u64)?;
-                writer.write_u8(j.tone)?;
+                assert!(jyutping_set.len() < 256);
+                writer.write_u8(jyutping_set.len() as u8)?;
+                for j in jyutping_set {
+                    writer.write_vbyte(j.base as u64)?;
+                    writer.write_u8(j.tone)?;
+                }
             }
 
             writer.write_u32(e.english_start as u32)?;
@@ -624,7 +665,7 @@ pub struct DictionaryEntry
 {
     pub characters : Vec<u16>,
     // TODO struct of array members here
-    pub jyutpings : Vec<Jyutping>,
+    pub jyutping_sets : Vec<Vec<Jyutping>>,
     pub english_start : u32,
     pub english_end : u32,
     pub cost : u32,
@@ -642,7 +683,7 @@ pub struct Result
 pub struct DisplayDictionaryEntry
 {
     pub characters : String,
-    pub jyutping : String,
+    pub jyutping_sets : Vec<String>,
     pub english_definitions : Vec<String>,
     pub cost : u32,
 }
@@ -656,16 +697,21 @@ impl DisplayDictionaryEntry
             characters.push(dict.character_store.characters[*c as usize]);
         }
 
-        let mut jyutping = String::new();
-        for j in &entry.jyutpings
+        let mut jyutping_sets = Vec::with_capacity(entry.jyutping_sets.len());
+        for jyutping_set in &entry.jyutping_sets
         {
-            if (jyutping.len() > 0)
-            {
-                jyutping.push(' ');
+            let mut jyutping = String::new();
+            for j in jyutping_set {
+                if (jyutping.len() > 0)
+                {
+                    jyutping.push(' ');
+                }
+
+                jyutping.push_str(&dict.jyutping_store.base_strings[j.base as usize]);
+                jyutping.push((j.tone + '0' as u8) as char);
             }
 
-            jyutping.push_str(&dict.jyutping_store.base_strings[j.base as usize]);
-            jyutping.push((j.tone + '0' as u8) as char);
+            jyutping_sets.push(jyutping);
         }
 
         let mut english_definitions = Vec::with_capacity(entry.english_end as usize - entry.english_start as usize);
@@ -680,7 +726,7 @@ impl DisplayDictionaryEntry
 
         Self {
             characters,
-            jyutping,
+            jyutping_sets,
             english_definitions,
             cost : entry.cost,
         }
