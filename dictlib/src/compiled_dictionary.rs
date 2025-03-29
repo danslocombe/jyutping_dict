@@ -164,7 +164,7 @@ pub enum MatchType {
 #[derive(Debug)]
 pub struct Match
 {
-    pub cost_info :  MatchCostInfo,
+    pub cost_info : MatchCostInfo,
     pub match_type: MatchType,
     pub entry_id: usize,
 }
@@ -273,7 +273,6 @@ impl CompiledDictionary {
         for jyutping_term in &query_terms.jyutping_terms
         {
             let mut term_match = false;
-
 
             for (i, entry_jyutping) in jyutping_set.iter().enumerate()
             {

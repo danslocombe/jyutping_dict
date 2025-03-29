@@ -90,12 +90,14 @@ function render(prefix, results_string) {
         let jyutping_elem = document.createElement("span");
         jyutping_elem.setAttribute("class", "item-toki-pona");
 
-        let title_jyutping = document.createElement("h3");
-
-        title_jyutping.setAttribute("class", "title");
-        title_jyutping.setAttribute("title", result.source);
-        title_jyutping.innerHTML = result.display_entry.jyutping;
-        jyutping_elem.appendChild(title_jyutping);
+        for (var jyutping of result.display_entry.jyutping_sets)
+        {
+            let title_jyutping = document.createElement("h3");
+            title_jyutping.setAttribute("class", "title");
+            title_jyutping.setAttribute("title", result.source);
+            title_jyutping.innerHTML = jyutping;
+            jyutping_elem.appendChild(title_jyutping);
+        }
 
         title.appendChild(jyutping_elem);
         title.appendChild(traditional_elem);

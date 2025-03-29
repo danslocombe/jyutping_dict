@@ -81,3 +81,16 @@ struct DisplayResult
 
     pub display_entry: DisplayDictionaryEntry,
 }
+
+pub struct HitHighlight
+{
+    pub match_type: MatchType,
+    pub match_spans: Vec<(usize, usize, usize)>,
+}
+
+pub struct HitHighlightSpan
+{
+    pub field_id: usize,
+    pub start: usize,
+    pub end: usize,
+}
