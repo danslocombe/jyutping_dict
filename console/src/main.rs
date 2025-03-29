@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 #![allow(unused_parens)]
 
+use std::io::Write;
 use std::{collections::BTreeMap, io::Read};
 
 use dictlib::compiled_dictionary::CompiledDictionary;
@@ -71,6 +72,12 @@ fn main() {
     {
         let compiled_dictionary = CompiledDictionary::from_dictionary(dict);
 
+        let dump_entries = false;
+        if (dump_entries)
+        {
+            compiled_dictionary.dump_entries("entries_dump.txt");
+        }
+
         println!("Writing to {}", &write_path);
         let mut data_writer = data_writer::DataWriter::new(&write_path);
         compiled_dictionary.serialize(&mut data_writer).unwrap();
@@ -96,15 +103,18 @@ fn main() {
     loop {
         buffer.clear();
 
-        println!("Query: ");
+        println!("=====================");
+        print!("Query: ");
+        std::io::stdout().flush().unwrap();
         std::io::stdin().read_line(&mut buffer).unwrap();
+        println!("\n\n");
 
         let matches = compiled_dictionary.search(&buffer.trim());
 
-        for (match_cost_info, m) in matches
+        for m in matches
         {
-            let display = DisplayDictionaryEntry::from_entry(m, &compiled_dictionary);
-            println!("(Match Cost {:?}) - {:#?}", match_cost_info, display);
+            let display = compiled_dictionary.get_diplay_entry(m.entry_id);
+            println!("(Match {:?})\n{:#?}", m, display);
         }
     }
 

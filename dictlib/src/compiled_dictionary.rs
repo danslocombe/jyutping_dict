@@ -1,5 +1,6 @@
 use core::str;
-use std::collections::BTreeSet;
+use std::{collections::BTreeSet, io::BufWriter};
+use std::io::Write;
 
 use bit_set::BitSet;
 use serde::Serialize;
@@ -32,7 +33,7 @@ impl CompiledDictionary {
             }
 
             // TODO Lowercases?
-            for jyutping in jyutping_sets {
+            for jyutping in &jyutping_sets.inner {
                 for mut word in JyutpingSplitter::new(jyutping) {
                     if (word.len() > 0 && word.chars().last().unwrap().is_ascii_digit()) {
                         word = &word[0..word.len() - 1];
@@ -82,20 +83,20 @@ impl CompiledDictionary {
             let mut mapped_jyutpings = Vec::new();
             if let Some(jyutping_sets) = dict.trad_to_jyutping.inner.get(&traditional_chars)
             {
-                let mut mapped_jyutping = Vec::new();
-                for jyutping in jyutping_sets
+                for jyutping in &jyutping_sets.inner
                 {
+                    let mut mapped_jyutping = Vec::new();
                     for word in JyutpingSplitter::new(jyutping)
                     {
                         mapped_jyutping.push(jyutping_store.get(word).unwrap());
                     }
-                }
 
-                mapped_jyutpings.push(mapped_jyutping);
+                    mapped_jyutpings.push(mapped_jyutping);
+                }
             }
 
             let english_start = english_data_starts.len();
-            for definition in definitions
+            for definition in &definitions.inner
             {
                 english_data_starts.push(english_data.len() as u32);
                 english_data.extend_from_slice(definition.as_bytes());
@@ -123,6 +124,10 @@ impl CompiledDictionary {
             english_data_starts,
         }
     }
+
+    pub fn get_diplay_entry(&self, i: usize) -> DisplayDictionaryEntry {
+        DisplayDictionaryEntry::from_entry(&self.entries[i], self)
+    }
 }
 
 pub struct QueryTerms {
@@ -149,8 +154,23 @@ impl MatchCostInfo {
     }
 }
 
+#[derive(Debug)]
+pub enum MatchType {
+    Jyutping,
+    Traditional,
+    English,
+}
+
+#[derive(Debug)]
+pub struct Match
+{
+    pub cost_info :  MatchCostInfo,
+    pub match_type: MatchType,
+    pub entry_id: usize,
+}
+
 impl CompiledDictionary {
-    pub fn search(&self, s : &str) -> Vec<(MatchCostInfo, &DictionaryEntry)>
+    pub fn search(&self, s : &str) -> Vec<Match>
     {
         let mut jyutping_terms = Vec::new();
         for query_term in s.split_ascii_whitespace()
@@ -171,10 +191,10 @@ impl CompiledDictionary {
             traditional_terms,
         };
 
-        let mut matches: Vec<(MatchCostInfo, &DictionaryEntry)> = Vec::new();
+        let mut matches: Vec<Match> = Vec::new();
 
         //let max = 16;
-        for x in &self.entries
+        for (i, x) in self.entries.iter().enumerate()
         {
             if let Some(match_cost) = self.matches_query_jyutping(x, &query_terms)
             {
@@ -183,7 +203,11 @@ impl CompiledDictionary {
                     static_cost: x.cost,
                 };
 
-                matches.push((cost_info, x));
+                matches.push(Match {
+                    cost_info,
+                    match_type: MatchType::Jyutping,
+                    entry_id: i,
+                });
 
                 //if (matches.len() >= max)
                 //{
@@ -202,7 +226,11 @@ impl CompiledDictionary {
                             static_cost: x.cost,
                         };
 
-                        matches.push((cost_info, x));
+                        matches.push(Match {
+                            cost_info,
+                            match_type: MatchType::English,
+                            entry_id: i,
+                        });
                     }
                 }
 
@@ -214,14 +242,18 @@ impl CompiledDictionary {
                             static_cost: x.cost,
                         };
 
-                        matches.push((cost_info, x));
+                        matches.push(Match {
+                            cost_info,
+                            match_type: MatchType::Traditional,
+                            entry_id: i,
+                        });
                     }
                 }
             }
         }
 
         debug_log!("Internal candidates: {}", matches.len());
-        matches.sort_by(|(x, _), (y, _)| x.total().cmp(&y.total()));
+        matches.sort_by(|(x), (y)| x.cost_info.total().cmp(&y.cost_info.total()));
         matches.truncate(8);
 
         matches
@@ -229,6 +261,10 @@ impl CompiledDictionary {
 
     pub fn matches_jyutping_term(&self, i : usize, entry: &DictionaryEntry, query_terms : &QueryTerms) -> Option<u32> {
         let jyutping_set = &entry.jyutping_sets[i];
+
+        if (jyutping_set.len() < query_terms.jyutping_terms.len()) {
+            return None;
+        }
 
         let mut match_cost = 0;
 
@@ -293,10 +329,6 @@ impl CompiledDictionary {
 
     pub fn matches_query_jyutping(&self, entry: &DictionaryEntry, query_terms : &QueryTerms) -> Option<u32>
     {
-        if (entry.jyutping_sets.len() < query_terms.jyutping_terms.len()) {
-            return None;
-        }
-
         let mut best: Option<u32> = None;
         for i in 0..entry.jyutping_sets.len()
         {
@@ -494,9 +526,9 @@ impl CompiledDictionary {
         assert!(blob_header == ENGLISH_BLOB_HEADER);
 
         let blob_size = reader.read_u32();
-        let mut english_blob = reader.read_bytes_len(blob_size as usize);
+        let english_blob = reader.read_bytes_len(blob_size as usize);
 
-        let mut starts_count = reader.read_u32() as usize;
+        let starts_count = reader.read_u32() as usize;
         let mut english_data_starts = Vec::with_capacity(starts_count);
         for _ in 0..starts_count
         {
@@ -510,6 +542,15 @@ impl CompiledDictionary {
             entries,
             english_data: english_blob.to_owned(),
             english_data_starts,
+        }
+    }
+
+    pub fn dump_entries(&self, path: &str) {
+        let file = std::fs::File::create(path).unwrap();
+        let mut writer = BufWriter::new(file);
+        for entry in &self.entries {
+            let e = DisplayDictionaryEntry::from_entry(entry, self);
+            write!(writer, "{:#?}\n", e).unwrap();
         }
     }
 

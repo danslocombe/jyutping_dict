@@ -83,14 +83,14 @@ impl Dictionary {
 
             if (matches)
             {
-                for characters in v {
+                for characters in &v.inner {
                     let frequency_data = self.trad_to_frequency.get_frequencies(characters);
                     let definitions = self.trad_to_def.inner.get(characters).map(|x| x.clone()).unwrap_or_default();
 
                     let res = SearchResult {
                         characters: characters.to_owned(),
                         jyutping: jyutping.to_owned(),
-                        definitions: definitions,
+                        definitions: definitions.inner,
                         frequency_data: frequency_data.to_owned(),
                     };
 
@@ -127,7 +127,7 @@ impl SearchResult {
 #[derive(Default, Debug)]
 pub struct TraditionalToDefinitions
 {
-    inner : BTreeMap<String, Vec<String>>,
+    inner : BTreeMap<String, StringVecSet>,
 }
 
 impl TraditionalToDefinitions
@@ -171,7 +171,7 @@ impl TraditionalToDefinitions
                 english = &english[0..end_comment];
             }
 
-            let mut definitions = Vec::<String>::new();
+            let mut definitions = StringVecSet::default();
             for def in english.split("/")
             {
                 let def = def.trim();
@@ -179,12 +179,7 @@ impl TraditionalToDefinitions
                     continue;
                 }
 
-                if (definitions.iter().any(|x| x.eq_ignore_ascii_case(def)))
-                {
-                    continue;
-                }
-
-                definitions.push(def.to_owned());
+                definitions.add_clone(def);
             }
 
             if let Some(x) = self.inner.get_mut(traditional) {
@@ -235,7 +230,7 @@ impl TraditionalToDefinitions
                 english = &english[0..end_comment];
             }
 
-            let mut definitions = Vec::<String>::new();
+            let mut definitions = StringVecSet::default();
             for def in english.split("/")
             {
                 let def = def.trim();
@@ -243,26 +238,13 @@ impl TraditionalToDefinitions
                     continue;
                 }
 
-                if (definitions.iter().any(|x| x.eq_ignore_ascii_case(def)))
-                {
-                    continue;
-                }
-
-                definitions.push(def.to_owned());
+                definitions.add_clone(def);
             }
             
             //println!("{} - {:?}", traditional, definitions);
 
             if let Some(x) = self.inner.get_mut(traditional) {
-                for new_def in definitions
-                {
-                    if (x.iter().any(|x| x.eq_ignore_ascii_case(&new_def)))
-                    {
-                        continue;
-                    }
-
-                    x.push(new_def);
-                }
+                x.extend(definitions);
             }
             else {
                 self.inner.insert(traditional.to_owned(), definitions);
@@ -276,25 +258,25 @@ impl TraditionalToDefinitions
 #[derive(Debug, Default)]
 pub struct TraditionalToJyutping
 {
-    pub inner : BTreeMap<String, Vec<String>>,
-    pub reverse : BTreeMap<String, Vec<String>>,
+    pub inner : BTreeMap<String, StringVecSet>,
+    pub reverse : BTreeMap<String, StringVecSet>,
 }
 
 impl TraditionalToJyutping
 {
     pub fn add(&mut self, chars : &str, jyutping: &str) {
         if let Some(x) = self.inner.get_mut(chars) {
-            x.push(jyutping.to_owned());
+            x.add_clone(jyutping);
         }
         else {
-            self.inner.insert(chars.to_owned(), vec![jyutping.to_owned()]);
+            self.inner.insert(chars.to_owned(), StringVecSet::single(jyutping.to_owned()));
         }
 
         if let Some(x) = self.reverse.get_mut(jyutping) {
-            x.push(chars.to_owned());
+            x.add_clone(chars);
         }
         else {
-            self.reverse.insert(jyutping.to_owned(), vec![chars.to_owned()]);
+            self.reverse.insert(jyutping.to_owned(), StringVecSet::single(chars.to_owned()));
         }
     }
 
@@ -432,4 +414,48 @@ pub struct FrequencyData
     frequency : f64,
     cost : u32,
     index : i32,
+}
+
+#[derive(Debug, Clone, Default)]
+pub struct StringVecSet
+{
+    pub inner: Vec<String>,
+}
+
+impl StringVecSet {
+    pub fn single(x: String) -> Self {
+        Self {
+            inner: vec![x],
+        }
+    }
+    pub fn contains(&self, x: &str) -> bool {
+        for xx in &self.inner {
+            if (xx.eq_ignore_ascii_case(x)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    pub fn add_clone(&mut self, val: &str) {
+        if (!self.contains(val))
+        {
+            self.inner.push(val.to_owned());
+        }
+    }
+
+    pub fn add(&mut self, val: String) {
+        if (!self.contains(&val))
+        {
+            self.inner.push(val);
+        }
+    }
+
+    // Similar to Vec::extend, drain other and add to our collection.
+    pub fn extend(&mut self, other: StringVecSet) {
+        for x in other.inner {
+            self.add(x);
+        }
+    }
 }
