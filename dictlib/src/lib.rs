@@ -55,86 +55,68 @@ pub struct OffsetString {
 }
 
 #[derive(Debug)]
+pub struct DictionaryEntry
+{
+    pub cost: u32,
+    pub traditional: String,
+    pub jyutping: String,
+    pub english_sets: StringVecSet,
+}
+
+#[derive(Debug, Default)]
 pub struct Dictionary
 {
-    pub trad_to_def: TraditionalToDefinitions,
-    pub trad_to_jyutping : TraditionalToJyutping,
+    //pub trad_to_def: TraditionalToDefinitions,
+    //pub trad_to_jyutping : TraditionalToJyutping,
     pub trad_to_frequency : TraditionalToFrequencies,
+    pub entries: Vec<DictionaryEntry>,
 }
 
 
 impl Dictionary {
-    pub fn hacky_search(&self, query : &str) -> Vec<SearchResult>{
-        let queries : Vec<String> = query.split(' ').map(|x| x.trim().to_owned()).collect();
+    //pub fn hacky_search(&self, query : &str) -> Vec<SearchResult>{
+    //    let queries : Vec<String> = query.split(' ').map(|x| x.trim().to_owned()).collect();
 
-        println!("Queries {:?}", queries);
+    //    println!("Queries {:?}", queries);
 
-        let mut results = Vec::new();
+    //    let mut results = Vec::new();
 
-        // TODO trie
-        for (jyutping, v) in &self.trad_to_jyutping.reverse
-        {
-            let mut matches = true;
-            for q in &queries {
-                if (!jyutping.contains(q)) {
-                    matches = false;
-                }
-            }
+    //    // TODO trie
+    //    for (jyutping, v) in &self.trad_to_jyutping.reverse
+    //    {
+    //        let mut matches = true;
+    //        for q in &queries {
+    //            if (!jyutping.contains(q)) {
+    //                matches = false;
+    //            }
+    //        }
 
-            if (matches)
-            {
-                for characters in &v.inner {
-                    let frequency_data = self.trad_to_frequency.get_frequencies(characters);
-                    let definitions = self.trad_to_def.inner.get(characters).map(|x| x.clone()).unwrap_or_default();
+    //        if (matches)
+    //        {
+    //            for characters in &v.inner {
+    //                let frequency_data = self.trad_to_frequency.get_frequencies(characters);
+    //                let definitions = self.trad_to_def.inner.get(characters).map(|x| x.clone()).unwrap_or_default();
 
-                    let res = SearchResult {
-                        characters: characters.to_owned(),
-                        jyutping: jyutping.to_owned(),
-                        definitions: definitions.inner,
-                        frequency_data: frequency_data.to_owned(),
-                    };
+    //                let res = SearchResult {
+    //                    characters: characters.to_owned(),
+    //                    jyutping: jyutping.to_owned(),
+    //                    definitions: definitions.inner,
+    //                    frequency_data: frequency_data.to_owned(),
+    //                };
 
-                    results.push(res);
-                }
-            }
-        }
+    //                results.push(res);
+    //            }
+    //        }
+    //    }
 
-        results.sort_by(|x, y| x.cost().cmp(&y.cost()));
+    //    results.sort_by(|x, y| x.cost().cmp(&y.cost()));
 
-        results.into_iter().take(10).collect()
-    }
-}
+    //    results.into_iter().take(10).collect()
+    //}
 
-#[derive(Debug)]
-pub struct SearchResult {
-    characters : String,
-    jyutping : String,
-    definitions : Vec<String>,
-    frequency_data : Vec<FrequencyData>,
-}
-
-impl SearchResult {
-    pub fn cost(&self) -> u32 {
-        let mut sum = 0;
-        for freq in &self.frequency_data {
-            sum += freq.cost;
-        }
-
-        sum
-    }
-}
-
-#[derive(Default, Debug)]
-pub struct TraditionalToDefinitions
-{
-    inner : BTreeMap<String, StringVecSet>,
-}
-
-impl TraditionalToDefinitions
-{
-    pub fn parse_ccanto(&mut self, trad_to_jyutping : &mut TraditionalToJyutping, trad_to_frequency : &mut TraditionalToFrequencies, path : &str)
+    pub fn parse_ccanto(&mut self, path : &str)
     {
-        let size_at_start = self.inner.len();
+        let size_at_start = self.entries.len();
 
         let data = std::fs::read_to_string(path).unwrap();
         for line in data.lines()
@@ -182,25 +164,30 @@ impl TraditionalToDefinitions
                 definitions.add_clone(def);
             }
 
-            if let Some(x) = self.inner.get_mut(traditional) {
-                x.extend(definitions);
-            }
-            else {
-                self.inner.insert(traditional.to_owned(), definitions);
-            }
+            //trad_to_frequency.add_canto(&traditional);
 
-            trad_to_jyutping.add(&traditional, jyutping);
-            trad_to_frequency.add_canto(&traditional);
-
+            self.entries.push(DictionaryEntry {
+                traditional: traditional.to_owned(),
+                jyutping: jyutping.to_owned(),
+                english_sets: definitions,
+                cost: 10_000 * traditional.len() as u32 });
             //println!("{} - {:?}", traditional, definitions);
         }
 
-        println!("Read {} dictionary entries from {}", {self.inner.len() - size_at_start}, path);
+        println!("Read {} dictionary entries from {}", {self.entries.len() - size_at_start}, path);
     }
 
-    pub fn parse_cedict(&mut self, path : &str)
+    pub fn annotate(&mut self, trad_to_jyutping: &TraditionalToJyutping) {
+        for e in &mut self.entries {
+            if let Some(j) = trad_to_jyutping.inner.get(&e.traditional) {
+                e.jyutping = j.inner[0].to_owned();
+            }
+        }
+    }
+
+    pub fn parse_cedict(&mut self, path : &str, trad_to_frequency : &TraditionalToFrequencies)
     {
-        let size_at_start = self.inner.len();
+        let size_at_start = self.entries.len();
 
         let data = std::fs::read_to_string(path).unwrap();
         for line in data.lines()
@@ -240,19 +227,51 @@ impl TraditionalToDefinitions
 
                 definitions.add_clone(def);
             }
+
+            let mut cost = 0;
+            for c in traditional.chars() {
+                cost += trad_to_frequency.get_or_default(c).cost;
+            }
             
             //println!("{} - {:?}", traditional, definitions);
-
-            if let Some(x) = self.inner.get_mut(traditional) {
-                x.extend(definitions);
-            }
-            else {
-                self.inner.insert(traditional.to_owned(), definitions);
-            }
+            self.entries.push(DictionaryEntry {
+                traditional: traditional.to_owned(),
+                jyutping: String::default(),
+                english_sets: definitions,
+                cost });
         }
 
-        println!("Read {} dictionary entries from {}", {self.inner.len() - size_at_start}, path);
+        println!("Read {} dictionary entries from {}", {self.entries.len() - size_at_start}, path);
     }
+}
+
+#[derive(Debug)]
+pub struct SearchResult {
+    characters : String,
+    jyutping : String,
+    definitions : Vec<String>,
+    frequency_data : Vec<FrequencyData>,
+}
+
+impl SearchResult {
+    pub fn cost(&self) -> u32 {
+        let mut sum = 0;
+        for freq in &self.frequency_data {
+            sum += freq.cost;
+        }
+
+        sum
+    }
+}
+
+#[derive(Default, Debug)]
+pub struct TraditionalToDefinitions
+{
+    inner : BTreeMap<String, StringVecSet>,
+}
+
+impl TraditionalToDefinitions
+{
 }
 
 #[derive(Debug, Default)]
@@ -317,7 +336,7 @@ impl TraditionalToJyutping
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub struct TraditionalToFrequencies
 {
     inner : BTreeMap<char, FrequencyData>,
@@ -335,8 +354,8 @@ impl TraditionalToFrequencies
         frequencies
     }
 
-    pub fn get_or_default(&self, characters : char) -> FrequencyData {
-        if let Some(x) = self.inner.get(&characters) {
+    pub fn get_or_default(&self, character : char) -> FrequencyData {
+        if let Some(x) = self.inner.get(&character) {
             *x
         }
         else {

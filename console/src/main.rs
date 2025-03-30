@@ -10,8 +10,6 @@ use dictlib::compiled_dictionary::DisplayDictionaryEntry;
 use dictlib::*;
 
 fn main() {
-    let mut defs = TraditionalToDefinitions::default();
-
     let test_set = false;
 
     let (data_path, print_debug) = if test_set {
@@ -21,28 +19,19 @@ fn main() {
         ("../full", false)
     };
 
+    let mut dict = Dictionary::default();
+
+    let trad_to_frequency = TraditionalToFrequencies::parse(&format!("{}/frequencies.txt", data_path));
+
     // Cedict is
     // Traditional / Pinyin / English Definition.
-    defs.parse_cedict(&format!("{}/cedict_ts.u8", data_path));
-
-    if (print_debug) {
-        println!("Defs0\n{:#?}", defs);
-    }
+    dict.parse_cedict(&format!("{}/cedict_ts.u8", data_path), &trad_to_frequency);
 
     let mut trad_to_jyutping = TraditionalToJyutping::parse(&format!("{}/cccedict-canto-readings-150923.txt", data_path));
-    let mut trad_to_frequency = TraditionalToFrequencies::parse(&format!("{}/frequencies.txt", data_path));
+    // @TODO
+    dict.annotate(&trad_to_jyutping);
 
-    defs.parse_ccanto(&mut trad_to_jyutping, &mut trad_to_frequency, &format!("{}/cccanto-webdist.txt", data_path));
-
-    if (print_debug) {
-        println!("Defs1\n{:#?}", defs);
-    }
-
-    let dict = Dictionary {
-        trad_to_def : defs,
-        trad_to_jyutping,
-        trad_to_frequency,
-    };
+    dict.parse_ccanto(&format!("{}/cccanto-webdist.txt", data_path));
 
     //for (trad, jyut) in &dict.trad_to_jyutping.inner {
     //    if (jyut.len() > 1)
@@ -72,7 +61,7 @@ fn main() {
     {
         let compiled_dictionary = CompiledDictionary::from_dictionary(dict);
 
-        let dump_entries = false;
+        let dump_entries = true;
         if (dump_entries)
         {
             compiled_dictionary.dump_entries("entries_dump.txt");
