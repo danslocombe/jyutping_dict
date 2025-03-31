@@ -146,11 +146,13 @@ a, .card .legend .word, .card-item .item-title .asterisk {
 }
 
 .generated {
-	color: #186b92;
+	font-size: 12px;
+	color: #4d4d4d;
 }
 
-.nima-pu {
-	color: #241f31;
+.nimi-pu {
+	font-size: 12px;
+	color: #4d4d4d;
 }
 
 

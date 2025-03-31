@@ -51,7 +51,6 @@ Promise.all(
 
 // Get colouring classes for different translation sources
 function get_class_by_source(source) {
-    return "nimi-pu";
     if (source === "CEDict") {
         return "generated";
     }
@@ -97,7 +96,8 @@ function render(prefix, results_string) {
         let title = document.createElement("li");
         title.setAttribute("class", "card-item");
         
-        let source_class = get_class_by_source(result.display_entry.entry_source);
+        let source = result.display_entry.entry_source;
+        let source_class = get_class_by_source(source);
 
         let traditional_elem = document.createElement("span");
         traditional_elem.setAttribute("class", "item-english");
@@ -130,7 +130,7 @@ function render(prefix, results_string) {
             similar_elem.setAttribute("class", "card-item");
 
             let english_elem = document.createElement("span");
-            english_elem.setAttribute("class", "item-english" + source_class);
+            english_elem.setAttribute("class", "item-english");
             english_elem.innerHTML = english;
 
             //let toki_elem = document.createElement("span");
@@ -144,8 +144,18 @@ function render(prefix, results_string) {
             card.appendChild(similar_elem);
         }
 
-        //let source_elem = document.createElement("li");
-        //similar_elem.setAttribute("class", "card-item");
+        let source_elem = document.createElement("p");
+        source_elem.setAttribute("class", "item-english " + source_class);
+        if (source === "CEDict")
+        {
+            source_elem.innerText = "(Sourced from CEDict)";
+        }
+        else if (source == "CCanto")
+        {
+            source_elem.innerText = "(Sourced from CC-Canto)";
+        }
+
+        card.appendChild(source_elem);
 
         if (debug) {
             let debug_elem = document.createElement("pre");
