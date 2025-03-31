@@ -24,6 +24,10 @@ module.exports = {
       path.resolve(__dirname, "static")
     ]),
 
+    new CopyPlugin([
+      path.resolve(__dirname, "../full")
+    ]),
+
     new WasmPackPlugin({
       crateDirectory: __dirname,
     }),

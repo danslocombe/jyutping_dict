@@ -5,6 +5,7 @@ use std::io::Write;
 use bit_set::BitSet;
 use serde::Serialize;
 
+use crate::EntrySource;
 use crate::{data_reader::DataReader, data_writer::DataWriter, debug_logline, jyutping_splitter::JyutpingSplitter, Dictionary};
 
 #[derive(Debug)]
@@ -20,7 +21,7 @@ pub struct CompiledDictionary
 
 pub const FILE_HEADER: &[u8] = b"jyp_dict";
 pub const ENGLISH_BLOB_HEADER: &[u8] = b"en_data_";
-pub const CURRENT_VERSION: u32 = 7;
+pub const CURRENT_VERSION: u32 = 8;
 
 impl CompiledDictionary {
     pub fn from_dictionary(mut dict : Dictionary) -> Self {
@@ -66,8 +67,17 @@ impl CompiledDictionary {
 
         for entry in &dict.entries
         {
-            let mut char_indexes = Vec::new();
+            let mut flags: u8 = 0;
+            match entry.source {
+                EntrySource::CEDict => {
+                    flags |= FLAG_SOURCE_CEDICT;
+                }
+                EntrySource::CCanto => {
+                    flags |= FLAG_SOURCE_CCCANTO;
+                }
+            }
 
+            let mut char_indexes = Vec::new();
             for character in entry.traditional.chars()
             {
                 char_indexes.push(character_store.char_to_index(character).expect(&format!("Could not find match for {}", character)));
@@ -94,6 +104,7 @@ impl CompiledDictionary {
                 english_start: english_start as u32,
                 english_end: english_end as u32,
                 cost: entry.cost,
+                flags,
             });
         }
 
@@ -453,6 +464,7 @@ impl CompiledDictionary {
         let mut prev_cost = 0;
         for entry_id in 0..entry_count {
             let mut entry = CompiledDictionaryEntry::default();
+            entry.flags = reader.read_u8();
 
             let char_count = reader.read_u8();
             for _ in 0..char_count {
@@ -558,22 +570,21 @@ impl CompiledDictionary {
             let mut prev_cost = 0;
             for (i, e) in self.entries.iter().enumerate()
             {
-                // ~1mb
-                assert!(e.characters.len() < 256);
+                writer.write_u8(e.flags)?;
+
+                assert!(e.characters.len() < 128);
                 writer.write_u8(e.characters.len() as u8)?;
                 for c in &e.characters
                 {
                     writer.write_u16(*c)?;
                 }
 
-                // ~1.3mb
                 assert!(e.jyutping.len() < 256);
                 writer.write_u8(e.jyutping.len() as u8)?;
                 for j in &e.jyutping {
                     writer.write_u16(j.pack())?;
                 }
 
-                // ~0.3mb
                 assert!(prev_english_start <= e.english_start);
                 prev_english_start = e.english_start;
                 writer.write_u8((e.english_end - e.english_start) as u8)?;
@@ -744,7 +755,11 @@ pub struct CompiledDictionaryEntry
     pub english_start : u32,
     pub english_end : u32,
     pub cost : u32,
+    pub flags: u8,
 }
+
+const FLAG_SOURCE_CEDICT: u8 = 0x1;
+const FLAG_SOURCE_CCCANTO: u8 = 0x2;
 
 pub struct Result
 {
@@ -761,6 +776,7 @@ pub struct DisplayDictionaryEntry
     pub jyutping : String,
     pub english_definitions : Vec<String>,
     pub cost : u32,
+    pub entry_source: EntrySource,
 }
 
 impl DisplayDictionaryEntry
@@ -793,11 +809,22 @@ impl DisplayDictionaryEntry
             english_definitions.push(def);
         }
 
+        let entry_source = if entry.flags & FLAG_SOURCE_CEDICT != 0 {
+            EntrySource::CEDict
+        }
+        else if entry.flags & FLAG_SOURCE_CCCANTO != 0 {
+            EntrySource::CCanto
+        }
+        else {
+            panic!("Unknown data source");
+        };
+
         Self {
             characters,
             jyutping,
             english_definitions,
             cost : entry.cost,
+            entry_source,
         }
     }
 }

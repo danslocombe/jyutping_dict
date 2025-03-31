@@ -3,6 +3,9 @@
 
 use std::collections::BTreeMap;
 
+use jyutping_splitter::JyutpingSplitter;
+use serde::Serialize;
+
 #[macro_export]
 macro_rules! debug_log {
     ( $( $t:tt )* ) => {
@@ -61,6 +64,7 @@ pub struct DictionaryEntry
     pub traditional: String,
     pub jyutping: String,
     pub english_sets: StringVecSet,
+    pub source: EntrySource,
 }
 
 #[derive(Debug, Default)]
@@ -165,13 +169,20 @@ impl Dictionary {
             }
 
             //trad_to_frequency.add_canto(&traditional);
+            let mut jyutping_count = 0;
+            for _ in JyutpingSplitter::new(jyutping) {
+                jyutping_count += 1;
+            }
+
+            let cost = (10_000 + jyutping_count * 1_000) as u32;
 
             self.entries.push(DictionaryEntry {
                 traditional: traditional.to_owned(),
                 jyutping: jyutping.to_owned(),
                 english_sets: definitions,
-                cost: 10_000 * traditional.len() as u32 });
-            //println!("{} - {:?}", traditional, definitions);
+                source: EntrySource::CCanto,
+                cost,
+            });
         }
 
         println!("Read {} dictionary entries from {}", {self.entries.len() - size_at_start}, path);
@@ -238,6 +249,7 @@ impl Dictionary {
                 traditional: traditional.to_owned(),
                 jyutping: String::default(),
                 english_sets: definitions,
+                source: EntrySource::CEDict,
                 cost });
         }
 
@@ -477,4 +489,10 @@ impl StringVecSet {
             self.add(x);
         }
     }
+}
+
+#[derive(Debug, Serialize)]
+pub enum EntrySource {
+    CEDict,
+    CCanto,
 }

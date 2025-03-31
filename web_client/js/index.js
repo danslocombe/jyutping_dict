@@ -10,6 +10,8 @@ var textfield = document.getElementById("entry");
 var resultsfield = document.getElementById("results");
 var explanation = document.getElementById("explanation");
 
+var debug = true;
+
 Promise.all(
     [
         fetch("test.jyp_dict").then(x => x.arrayBuffer()),
@@ -49,6 +51,22 @@ Promise.all(
 
 // Get colouring classes for different translation sources
 function get_class_by_source(source) {
+    return "nimi-pu";
+    if (source === "CEDict") {
+        return "generated";
+    }
+    else if (source === "CCanto") {
+        return "nimi-pu";
+    }
+    //else if (source === "Compounds") {
+        //return "compounds";
+    //}
+    else {
+        return "";
+    }
+}
+
+function get_class_by_source_toki(source) {
     if (source === "Generated") {
         return "generated";
     }
@@ -78,6 +96,8 @@ function render(prefix, results_string) {
     for (let result of results) {
         let title = document.createElement("li");
         title.setAttribute("class", "card-item");
+        
+        let source_class = get_class_by_source(result.display_entry.entry_source);
 
         let traditional_elem = document.createElement("span");
         traditional_elem.setAttribute("class", "item-english");
@@ -94,7 +114,7 @@ function render(prefix, results_string) {
         {
             let title_jyutping = document.createElement("h3");
             title_jyutping.setAttribute("class", "title");
-            title_jyutping.setAttribute("title", result.source);
+            title_jyutping.setAttribute("title", result.display_entry.entry_source);
             //title_jyutping.innerHTML = jyutping;
             title_jyutping.innerHTML = result.display_entry.jyutping;
             jyutping_elem.appendChild(title_jyutping);
@@ -110,7 +130,7 @@ function render(prefix, results_string) {
             similar_elem.setAttribute("class", "card-item");
 
             let english_elem = document.createElement("span");
-            english_elem.setAttribute("class", "item-english");
+            english_elem.setAttribute("class", "item-english" + source_class);
             english_elem.innerHTML = english;
 
             //let toki_elem = document.createElement("span");
@@ -122,6 +142,15 @@ function render(prefix, results_string) {
             //similar_elem.appendChild(toki_elem);
 
             card.appendChild(similar_elem);
+        }
+
+        //let source_elem = document.createElement("li");
+        //similar_elem.setAttribute("class", "card-item");
+
+        if (debug) {
+            let debug_elem = document.createElement("pre");
+            debug_elem.innerText = JSON.stringify(result, null, 2);
+            card.appendChild(debug_elem);
         }
     }
 
