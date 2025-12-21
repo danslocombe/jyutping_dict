@@ -135,7 +135,7 @@ pub struct JyutpingQueryTerm {
     pub match_bit_to_match_cost: Vec<(usize, u32)>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct MatchCostInfo
 {
     pub term_match_cost: u32,
@@ -157,7 +157,7 @@ pub enum MatchType {
     English,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct Match
 {
     pub cost_info : MatchCostInfo,
@@ -322,17 +322,15 @@ impl CompiledDictionary {
         //let additional_terms = entry.jyutpings.len() - query_terms.jyutping_matches.len();
         //match_cost += additional_terms as u32 * 10_000;
 
-        // Calculate inversion count penalty for out-of-order matches
-        let mut inversion_count = 0u32;
+        let mut inversion_cost = 0u32;
         for i in 0..matched_positions.len() {
             for j in (i + 1)..matched_positions.len() {
                 if matched_positions[i] > matched_positions[j] {
-                    inversion_count += 1;
+                    const OUT_OF_ORDER_INVERSION_PENALTY: u32 = 5000;
+                    inversion_cost += OUT_OF_ORDER_INVERSION_PENALTY;
                 }
             }
         }
-        const OUT_OF_ORDER_INVERSION_PENALTY: u32 = 500;
-        let inversion_cost = inversion_count * OUT_OF_ORDER_INVERSION_PENALTY;
 
         let mut unmatched_position_cost = 0u32;
         for i in 0..entry.jyutping.len() {

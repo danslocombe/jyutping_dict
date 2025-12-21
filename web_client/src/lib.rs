@@ -1,4 +1,4 @@
-use dictlib::{compiled_dictionary::{CompiledDictionary, DisplayDictionaryEntry, MatchType}, data_reader::DataReader, DebugLogger};
+use dictlib::{DebugLogger, compiled_dictionary::{CompiledDictionary, DisplayDictionaryEntry, Match, MatchType}, data_reader::DataReader};
 use serde::Serialize;
 use wasm_bindgen::prelude::*;
 
@@ -55,30 +55,19 @@ impl JyutpingSearch {
             let display_entry = self.dict.get_diplay_entry(m.entry_id);
             display_results.push(DisplayResult
             {
-                cost: m.cost_info.total(),
-                match_cost: m.cost_info.match_cost,
-                static_cost: m.cost_info.static_cost,
-                match_type: m.match_type,
-                
+                match_obj: m,
                 display_entry,
             })
         }
 
         serde_json::to_string(&display_results).unwrap()
-        //let results = self.toki_sama.lookup(prefix, &self.pu);
-        //serde_json::to_string(&results).unwrap()
-        //String::default()
     }
 }
 
 #[derive(Serialize)]
 struct DisplayResult
 {
-    pub cost: u32,
-    pub match_cost: u32,
-    pub static_cost: u32,
-    pub match_type: MatchType,
-
+    pub match_obj: Match,
     pub display_entry: DisplayDictionaryEntry,
 }
 

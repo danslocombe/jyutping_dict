@@ -10,7 +10,7 @@ var textfield = document.getElementById("entry");
 var resultsfield = document.getElementById("results");
 var explanation = document.getElementById("explanation");
 
-var debug = true;
+var debug = url_params.get('debug') === '1';
 
 Promise.all(
     [
@@ -158,8 +158,13 @@ function render(prefix, results_string) {
         card.appendChild(source_elem);
 
         if (debug) {
-            let debug_elem = document.createElement("pre");
-            debug_elem.innerText = JSON.stringify(result, null, 2);
+            let debug_elem = document.createElement("div");
+            debug_elem.setAttribute("class", "debug-info");
+            
+            let json_elem = document.createElement("pre");
+            json_elem.innerText = JSON.stringify(result, null, 2);
+            debug_elem.appendChild(json_elem);
+            
             card.appendChild(debug_elem);
         }
     }
