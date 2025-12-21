@@ -138,13 +138,15 @@ pub struct JyutpingQueryTerm {
 #[derive(Debug)]
 pub struct MatchCostInfo
 {
-    pub match_cost: u32,
+    pub term_match_cost: u32,
+    pub unmatched_position_cost: u32,
+    pub inversion_cost: u32,
     pub static_cost: u32,
 }
 
 impl MatchCostInfo {
     pub fn total(&self) -> u32 {
-        self.match_cost + self.static_cost
+        self.term_match_cost + self.unmatched_position_cost + self.inversion_cost + self.static_cost
     }
 }
 
@@ -190,12 +192,9 @@ impl CompiledDictionary {
         //let max = 16;
         for (i, x) in self.entries.iter().enumerate()
         {
-            if let Some(match_cost) = self.matches_jyutping_term(x, &query_terms)
+            if let Some(mut cost_info) = self.matches_jyutping_term(x, &query_terms)
             {
-                let cost_info = MatchCostInfo {
-                    match_cost,
-                    static_cost: x.cost,
-                };
+                cost_info.static_cost = x.cost;
 
                 matches.push(Match {
                     cost_info,
@@ -224,7 +223,9 @@ impl CompiledDictionary {
                         }
 
                         let cost_info = MatchCostInfo {
-                            match_cost,
+                            term_match_cost: match_cost,
+                            unmatched_position_cost: 0,
+                            inversion_cost: 0,
                             static_cost: x.cost,
                         };
 
@@ -240,7 +241,9 @@ impl CompiledDictionary {
                 {
                     if (self.matches_query_traditional(x, &query_terms)) {
                         let cost_info = MatchCostInfo {
-                            match_cost: 0,
+                            term_match_cost: 0,
+                            unmatched_position_cost: 0,
+                            inversion_cost: 0,
                             static_cost: x.cost,
                         };
 
@@ -261,14 +264,15 @@ impl CompiledDictionary {
         matches
     }
 
-    pub fn matches_jyutping_term(&self, entry: &CompiledDictionaryEntry, query_terms : &QueryTerms) -> Option<u32> {
+    pub fn matches_jyutping_term(&self, entry: &CompiledDictionaryEntry, query_terms : &QueryTerms) -> Option<MatchCostInfo> {
         if (entry.jyutping.len() < query_terms.jyutping_terms.len()) {
             return None;
         }
 
-        let mut match_cost = 0;
+        let mut total_term_match_cost = 0;
 
         let mut entry_jyutping_matches = BitSet::new();
+        let mut matched_positions: Vec<usize> = Vec::new();
 
         for jyutping_term in &query_terms.jyutping_terms
         {
@@ -301,8 +305,9 @@ impl CompiledDictionary {
 
                     if (term_match)
                     {
-                        match_cost += term_match_cost;
+                        total_term_match_cost += term_match_cost;
                         entry_jyutping_matches.insert(i);
+                        matched_positions.push(i);
                         break;
                     }
                 }
@@ -317,13 +322,31 @@ impl CompiledDictionary {
         //let additional_terms = entry.jyutpings.len() - query_terms.jyutping_matches.len();
         //match_cost += additional_terms as u32 * 10_000;
 
+        // Calculate inversion count penalty for out-of-order matches
+        let mut inversion_count = 0u32;
+        for i in 0..matched_positions.len() {
+            for j in (i + 1)..matched_positions.len() {
+                if matched_positions[i] > matched_positions[j] {
+                    inversion_count += 1;
+                }
+            }
+        }
+        const OUT_OF_ORDER_INVERSION_PENALTY: u32 = 500;
+        let inversion_cost = inversion_count * OUT_OF_ORDER_INVERSION_PENALTY;
+
+        let mut unmatched_position_cost = 0u32;
         for i in 0..entry.jyutping.len() {
             if (!entry_jyutping_matches.contains(i)) {
-                match_cost += ((entry.jyutping.len() + 1) - i) as u32 * 10_000;
+                unmatched_position_cost += ((entry.jyutping.len() + 1) - i) as u32 * 10_000;
             }
         }
 
-        Some(match_cost)
+        Some(MatchCostInfo {
+            term_match_cost: total_term_match_cost,
+            unmatched_position_cost,
+            inversion_cost,
+            static_cost: 0,
+        })
     }
 
     pub fn matches_query_english(&self, entry: &CompiledDictionaryEntry, s : &str) -> Option<u32>
@@ -646,7 +669,7 @@ impl CompiledDictionary {
         }
 
         // End padding
-        writer.write_u64(0);
+        writer.write_u64(0)?;
 
         Ok(())
     }
