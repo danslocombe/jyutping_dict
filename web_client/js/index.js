@@ -32,10 +32,20 @@ Promise.all(
         if (prefix.length > 0) {
             render(prefix, toki_sama.search(prefix));
             explanation.hidden = true;
+            
+            // Update URL query parameter
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('q', prefix);
+            window.history.replaceState({}, '', newUrl);
         }
         else {
             textfield.setAttribute("placeholder", "");
             explanation.hidden = false;
+            
+            // Remove query parameter when search is empty
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.delete('q');
+            window.history.replaceState({}, '', newUrl);
         }
     };
 
