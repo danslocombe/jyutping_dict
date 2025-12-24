@@ -122,7 +122,7 @@ impl CompiledDictionary {
     pub fn get_display_entry(&self, i: usize) -> DisplayDictionaryEntry {
         DisplayDictionaryEntry::from_entry(&self.entries[i], self)
     }
-    
+
     // Typo backward compatibility - kept for console/tests
     pub fn get_diplay_entry(&self, i: usize) -> DisplayDictionaryEntry {
         self.get_display_entry(i)
@@ -902,8 +902,21 @@ pub struct CompiledDictionaryEntry
     pub flags: u8,
 }
 
-const FLAG_SOURCE_CEDICT: u8 = 0x1;
-const FLAG_SOURCE_CCCANTO: u8 = 0x2;
+impl CompiledDictionaryEntry
+{
+    pub fn get_source(&self) -> EntrySource {
+        if self.flags & FLAG_SOURCE_CEDICT != 0 {
+            EntrySource::CEDict
+        } else if self.flags & FLAG_SOURCE_CCCANTO != 0 {
+            EntrySource::CCanto
+        } else {
+            panic!("Unknown data source");
+        }
+    }
+}
+
+pub const FLAG_SOURCE_CEDICT: u8 = 0x1;
+pub const FLAG_SOURCE_CCCANTO: u8 = 0x2;
 
 pub struct Result
 {
@@ -953,15 +966,7 @@ impl DisplayDictionaryEntry
             english_definitions.push(def);
         }
 
-        let entry_source = if entry.flags & FLAG_SOURCE_CEDICT != 0 {
-            EntrySource::CEDict
-        }
-        else if entry.flags & FLAG_SOURCE_CCCANTO != 0 {
-            EntrySource::CCanto
-        }
-        else {
-            panic!("Unknown data source");
-        };
+        let entry_source = entry.get_source();
 
         Self {
             characters,

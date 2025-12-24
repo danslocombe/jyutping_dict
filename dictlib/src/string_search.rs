@@ -1,4 +1,3 @@
-use core::hash;
 use std::i32;
 
 pub fn local_levenshtein_ascii(query: &str, target: &str) -> i32
