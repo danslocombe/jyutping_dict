@@ -119,7 +119,7 @@ impl CompiledDictionary {
         }
     }
 
-    pub fn get_diplay_entry(&self, i: usize) -> DisplayDictionaryEntry {
+    pub fn get_display_entry(&self, i: usize) -> DisplayDictionaryEntry {
         DisplayDictionaryEntry::from_entry(&self.entries[i], self)
     }
 }
@@ -165,9 +165,8 @@ pub struct Match
     pub cost_info : MatchCostInfo,
     pub match_type: MatchType,
     pub entry_id: usize,
-    /// Spans that matched: (field_index, start_pos, end_pos)
-    /// field_index: 0=traditional, 1=jyutping, 2+=english definitions
-    pub matched_spans: Vec<(usize, usize, usize)>,
+    /// Spans that matched: (start_pos, end_pos)
+    pub matched_spans: Vec<(usize, usize)>,
 }
 
 impl CompiledDictionary {
@@ -436,7 +435,7 @@ impl CompiledDictionary {
         true
     }
 
-    pub fn get_jyutping_matched_spans(&self, entry: &CompiledDictionaryEntry, query_terms: &QueryTerms) -> Vec<(usize, usize, usize)> {
+    pub fn get_jyutping_matched_spans(&self, entry: &CompiledDictionaryEntry, query_terms: &QueryTerms) -> Vec<(usize, usize)> {
         let mut spans = Vec::new();
 
         for (jyutping_idx, entry_jyutping) in entry.jyutping.iter().enumerate() {
@@ -459,13 +458,13 @@ impl CompiledDictionary {
                         .find(|(idx, _)| *idx == entry_jyutping.base as usize)
                         .map(|(_, len)| *len)
                         .unwrap_or(jyutping_term.query_string_without_tone.len());
-                    spans.push((1, pos, pos + base_match_len)); // field 1 is jyutping
+                    spans.push((pos, pos + base_match_len)); // field 1 is jyutping
 
                     // If the query included a tone digit, also highlight the tone
                     if jyutping_term.tone.is_some() {
                         let base_len = self.jyutping_store.base_strings[entry_jyutping.base as usize].len();
                         let tone_pos = pos + base_len;
-                        spans.push((1, tone_pos, tone_pos + 1)); // highlight the tone digit
+                        spans.push((tone_pos, tone_pos + 1)); // highlight the tone digit
                     }
 
                     break;
@@ -476,7 +475,7 @@ impl CompiledDictionary {
         spans
     }
 
-    pub fn get_english_matched_spans(&self, entry: &CompiledDictionaryEntry, query: &str) -> Vec<(usize, usize, usize)> {
+    pub fn get_english_matched_spans(&self, entry: &CompiledDictionaryEntry, query: &str) -> Vec<(usize, usize)> {
         let mut spans = Vec::new();
 
         if entry.english_start == entry.english_end {
@@ -494,8 +493,8 @@ impl CompiledDictionary {
 
             for split in query.split_ascii_whitespace() {
                 if let Some(pos) = crate::string_search::string_indexof_linear_ignorecase(split, def_bytes) {
-                    let field_idx = 2 + (def_idx - entry.english_start) as usize;
-                    spans.push((field_idx, pos, pos + split.len()));
+                    //let field_idx = 2 + (def_idx - entry.english_start) as usize;
+                    spans.push((pos, pos + split.len()));
                 }
             }
         }
@@ -503,12 +502,12 @@ impl CompiledDictionary {
         spans
     }
 
-    pub fn get_traditional_matched_spans(&self, entry: &CompiledDictionaryEntry, query_terms: &QueryTerms) -> Vec<(usize, usize, usize)> {
+    pub fn get_traditional_matched_spans(&self, entry: &CompiledDictionaryEntry, query_terms: &QueryTerms) -> Vec<(usize, usize)> {
         let mut spans = Vec::new();
 
         for (char_idx, char_id) in entry.characters.iter().enumerate() {
             if query_terms.traditional_terms.contains(char_id) {
-                spans.push((0, char_idx, char_idx + 1)); // field 0 is traditional
+                spans.push((char_idx, char_idx + 1));
             }
         }
 

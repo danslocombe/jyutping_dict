@@ -38,7 +38,7 @@ impl JyutpingSearch {
     #[wasm_bindgen(constructor)]
     pub fn new(compiled_data : Vec<u8>) -> Self {
         console_error_panic_hook::set_once();
-        
+
         log!("Hello, received {} bytes", compiled_data.len());
         dictlib::set_debug_logger(Box::new(ConsoleLogger{}));
         let mut data_reader = DataReader::new(&compiled_data);
@@ -54,7 +54,7 @@ impl JyutpingSearch {
         let mut display_results = Vec::new();
         for m in results
         {
-            let display_entry = self.dict.get_diplay_entry(m.entry_id);
+            let display_entry = self.dict.get_display_entry(m.entry_id);
             display_results.push(DisplayResult
             {
                 match_obj: m,
@@ -73,17 +73,4 @@ struct DisplayResult
     pub match_obj: Match,
     pub display_entry: DisplayDictionaryEntry,
     pub query: String,
-}
-
-pub struct HitHighlight
-{
-    pub match_type: MatchType,
-    pub match_spans: Vec<(usize, usize, usize)>,
-}
-
-pub struct HitHighlightSpan
-{
-    pub field_id: usize,
-    pub start: usize,
-    pub end: usize,
 }

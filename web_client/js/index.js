@@ -69,9 +69,6 @@ function get_class_by_source(source) {
     else if (source === "CCanto") {
         return "nimi-pu";
     }
-    //else if (source === "Compounds") {
-        //return "compounds";
-    //}
     else {
         return "";
     }
@@ -79,25 +76,25 @@ function get_class_by_source(source) {
 
 // Highlight matching text based on matched spans
 // matched_spans is an array of [field_index, start_pos, end_pos]
-// field_index: 0=traditional, 1=jyutping, 2+=english definitions
-function highlightText(text, matched_spans, field_index) {
+function highlightText(text, matched_spans) {
     // Find spans that match this field
-    const relevant_spans = matched_spans.filter(span => span[0] === field_index);
+    //const relevant_spans = matched_spans.filter(span => span[0] === field_index);
+  const relevant_spans = matched_spans;
 
     if (relevant_spans.length === 0) {
         return escapeHtml(text);
     }
 
     // Sort spans by start position
-    relevant_spans.sort((a, b) => a[1] - b[1]);
+    relevant_spans.sort((a, b) => a[0] - b[0]);
 
     // Build highlighted text
     let result = '';
     let last_pos = 0;
 
     for (let span of relevant_spans) {
-        const start = span[1];
-        const end = span[2];
+        const start = span[0];
+        const end = span[1];
 
         // Add text before the match
         if (start > last_pos) {
@@ -163,19 +160,26 @@ function render(prefix, results_string) {
 
         let title_traditional = document.createElement("h2");
         title_traditional.setAttribute("class", "title");
-        title_traditional.innerHTML = highlightText(result.display_entry.characters, result.match_obj.matched_spans, 0);
+        let traditional = result.display_entry.characters;
+        if (result.match_obj.match_type === "Traditional") {
+            traditional = highlightText(traditional, result.match_obj.matched_spans);
+        }
+        title_traditional.innerHTML = traditional;
         traditional_elem.appendChild(title_traditional);
 
         let jyutping_elem = document.createElement("span");
         jyutping_elem.setAttribute("class", "item-toki-pona");
 
-        //for (var jyutping of result.display_entry.jyutping_sets)
         {
             let title_jyutping = document.createElement("h3");
             title_jyutping.setAttribute("class", "title");
             title_jyutping.setAttribute("title", result.display_entry.entry_source);
-            //title_jyutping.innerHTML = jyutping;
-            title_jyutping.innerHTML = highlightText(result.display_entry.jyutping, result.match_obj.matched_spans, 1);
+
+            let jyutping = result.display_entry.jyutping;
+            if (result.match_obj.match_type === "Jyutping") {
+              jyutping = highlightText(jyutping, result.match_obj.matched_spans)
+            }
+            title_jyutping.innerHTML = jyutping;
             jyutping_elem.appendChild(title_jyutping);
         }
 
@@ -191,15 +195,12 @@ function render(prefix, results_string) {
 
             let english_elem = document.createElement("span");
             english_elem.setAttribute("class", "item-english indent");
-            english_elem.innerHTML = highlightText(english, result.match_obj.matched_spans, 2 + i);
 
-            //let toki_elem = document.createElement("span");
-            //toki_elem.setAttribute("class", "item-toki-pona " + get_class_by_source(similar.source));
-            //toki_elem.setAttribute("title", similar.source);
-            //toki_elem.innerHTML = similar.toki_pona_string;
+            // TODO highlight
+            english_elem.innerHTML = english;
+            //english_elem.innerHTML = highlightText(english, result.match_obj.matched_spans);
 
             similar_elem.appendChild(english_elem);
-            //similar_elem.appendChild(toki_elem);
 
             card.appendChild(similar_elem);
         }
@@ -228,79 +229,6 @@ function render(prefix, results_string) {
             card.appendChild(debug_elem);
         }
     }
-
-    /*
-    // Create key
-    {
-        let key_elem = document.createElement("li");
-        key_elem.setAttribute("class", "card-item");
-
-        let english_elem = document.createElement("span");
-        english_elem.setAttribute("class", "item-english");
-        english_elem.innerHTML = "English";
-
-        let toki_elem = document.createElement("span");
-        toki_elem.setAttribute("class", "item-toki-pona");
-        toki_elem.innerHTML = "toki pona";
-
-        key_elem.appendChild(english_elem);
-        key_elem.appendChild(toki_elem);
-
-        card.appendChild(key_elem);
-    }
-        */
-
-    // Start rendering results
-    /*
-    for (let result of results) {
-        let title = document.createElement("li");
-        title.setAttribute("class", "card-item");
-
-        let english_elem = document.createElement("span");
-        english_elem.setAttribute("class", "item-english");
-
-        let title_english = document.createElement("h3");
-        title_english.setAttribute("class", "title");
-        title_english.innerHTML = highlight_completion(prefix, result.english_search);
-        english_elem.appendChild(title_english);
-
-        let toki_elem = document.createElement("span");
-        toki_elem.setAttribute("class", "item-toki-pona");
-
-        let title_toki = document.createElement("h3");
-
-        title_toki.setAttribute("class", "title " + get_class_by_source(result.source));
-        title_toki.setAttribute("title", result.source);
-        title_toki.innerHTML = result.original_translation_string;
-        toki_elem.appendChild(title_toki);
-
-        title.appendChild(english_elem);
-        title.appendChild(toki_elem);
-
-        card.appendChild(title);
-
-        for (let similar of result.similar) {
-            let similar_elem = document.createElement("li");
-            similar_elem.setAttribute("class", "card-item");
-
-            let english_elem = document.createElement("span");
-            english_elem.setAttribute("class", "item-english");
-            english_elem.innerHTML = similar.english;
-
-            let toki_elem = document.createElement("span");
-            toki_elem.setAttribute("class", "item-toki-pona " + get_class_by_source(similar.source));
-            toki_elem.setAttribute("title", similar.source);
-            toki_elem.innerHTML = similar.toki_pona_string;
-
-            similar_elem.appendChild(english_elem);
-            similar_elem.appendChild(toki_elem);
-
-            card.appendChild(similar_elem);
-        }
-    }
-
-    resultsfield.appendChild(card);
-    */
 
     resultsfield.appendChild(card);
 }
