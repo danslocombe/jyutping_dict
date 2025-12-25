@@ -982,7 +982,7 @@ impl DisplayDictionaryEntry
 }
 
 #[cfg(test)]
-mod tests {
+pub mod tests {
     use super::*;
 
     #[test]
@@ -1009,7 +1009,7 @@ mod tests {
         }
     }
 
-    fn create_test_dict() -> CompiledDictionary {
+    pub fn create_test_dict() -> CompiledDictionary {
         // Create a minimal test dictionary
         // Characters must be in sorted order!
         let character_store = CharacterStore {

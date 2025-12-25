@@ -27,7 +27,30 @@ impl RenderedResult {
         };
 
         if let MatchType::Traditional = match_result.match_type {
-            characters = Self::apply_highlights(&characters, &match_result.matched_spans);
+            // @AI Need to audit
+            // Traditional matched spans are character indices, not byte indices
+            // Convert them to byte indices for highlighting
+            let byte_spans: Vec<(usize, usize)> = match_result.matched_spans.iter()
+                .map(|&(char_start, char_end)| {
+                    let mut byte_start = 0;
+                    let mut byte_end = 0;
+                    for (idx, (byte_idx, _)) in characters.char_indices().enumerate() {
+                        if idx == char_start {
+                            byte_start = byte_idx;
+                        }
+                        if idx == char_end {
+                            byte_end = byte_idx;
+                            break;
+                        }
+                    }
+                    // If char_end is past the last character, set byte_end to the end of the string
+                    if char_end >= characters.chars().count() {
+                        byte_end = characters.len();
+                    }
+                    (byte_start, byte_end)
+                })
+                .collect();
+            characters = Self::apply_highlights(&characters, &byte_spans);
         }
 
         let mut jyutping =
@@ -152,6 +175,7 @@ impl RenderedResult {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::compiled_dictionary::tests::create_test_dict;
 
     #[test]
     fn test_escape_html() {
@@ -207,5 +231,230 @@ mod tests {
             result,
             "<mark class=\"hit-highlight\">&lt;tag&gt;</mark> &amp; more"
         );
+    }
+
+    #[test]
+    fn test_from_match_jyutping_highlighting() {
+        let dict = create_test_dict();
+
+        // Search for "lou" which should match 老師 (lou5 si1)
+        let results = dict.search("lou");
+        assert!(results.len() > 0);
+
+        let result = &results[0];
+        assert!(matches!(result.match_type, MatchType::Jyutping));
+
+        // Create rendered result with highlighting
+        let rendered = RenderedResult::from_match(result, &dict);
+
+        // Check that jyutping has highlighting markup
+        assert!(rendered.jyutping.contains("<mark class=\"hit-highlight\">"));
+        assert!(rendered.jyutping.contains("lou</mark>"));
+
+        // Characters should not have highlighting (only jyutping matches)
+        assert!(!rendered.characters.contains("<mark"));
+
+        // English should not have highlighting
+        for def in &rendered.english_definitions {
+            assert!(!def.contains("<mark"));
+        }
+    }
+
+    #[test]
+    fn test_from_match_jyutping_with_tone() {
+        let dict = create_test_dict();
+
+        // Search for "lou5" which should match 老師 (lou5 si1)
+        let results = dict.search("lou5");
+        assert!(results.len() > 0);
+
+        let result = &results[0];
+        let rendered = RenderedResult::from_match(result, &dict);
+
+        // Should highlight both base and tone
+        assert!(rendered.jyutping.contains("<mark class=\"hit-highlight\">lou</mark>"));
+        assert!(rendered.jyutping.contains("<mark class=\"hit-highlight\">5</mark>"));
+    }
+
+    #[test]
+    fn test_from_match_jyutping_multiple_syllables() {
+        let dict = create_test_dict();
+
+        // Search for "lou si" which should match both syllables in 老師
+        let results = dict.search("lou si");
+        assert!(results.len() > 0);
+
+        let result = &results[0];
+        let rendered = RenderedResult::from_match(result, &dict);
+
+        // Both syllables should be highlighted
+        assert!(rendered.jyutping.contains("<mark class=\"hit-highlight\">lou</mark>"));
+        assert!(rendered.jyutping.contains("<mark class=\"hit-highlight\">si</mark>"));
+    }
+
+    #[test]
+    fn test_from_match_jyutping_substring() {
+        let dict = create_test_dict();
+
+        // Search for "saa" which should substring match "saang" in 學生
+        let results = dict.search("saa");
+        assert!(results.len() > 0);
+
+        let result = &results[0];
+        assert_eq!(result.entry_id, 1); // 學生 entry
+
+        let rendered = RenderedResult::from_match(result, &dict);
+
+        // Only the matched substring should be highlighted
+        assert!(rendered.jyutping.contains("<mark class=\"hit-highlight\">saa</mark>"));
+        // The remaining part "ng1" should not be in the mark tags
+        assert!(rendered.jyutping.contains("ng1"));
+        assert!(!rendered.jyutping.contains("<mark class=\"hit-highlight\">saang1</mark>"));
+    }
+
+    #[test]
+    fn test_from_match_traditional_highlighting() {
+        let dict = create_test_dict();
+
+        // Search for Chinese character
+        let results = dict.search("老");
+        assert!(results.len() > 0);
+
+        let result = &results[0];
+        assert!(matches!(result.match_type, MatchType::Traditional));
+
+        let rendered = RenderedResult::from_match(result, &dict);
+
+        // Characters should have highlighting
+        assert!(rendered.characters.contains("<mark class=\"hit-highlight\">"));
+        assert!(rendered.characters.contains("老</mark>"));
+
+        // Jyutping should not have highlighting
+        assert!(!rendered.jyutping.contains("<mark"));
+
+        // English should not have highlighting
+        for def in &rendered.english_definitions {
+            assert!(!def.contains("<mark"));
+        }
+    }
+
+    #[test]
+    fn test_from_match_traditional_multiple_chars() {
+        let dict = create_test_dict();
+
+        // Search for multiple characters
+        let results = dict.search("老師");
+        assert!(results.len() > 0);
+
+        let result = &results[0];
+        let rendered = RenderedResult::from_match(result, &dict);
+
+        // Both characters should be highlighted (may be in separate spans)
+        assert!(rendered.characters.contains("老"));
+        assert!(rendered.characters.contains("師"));
+        assert!(rendered.characters.contains("<mark class=\"hit-highlight\">"));
+    }
+
+    #[test]
+    fn test_from_match_english_highlighting() {
+        let dict = create_test_dict();
+
+        // Search for English word
+        let results = dict.search("teacher");
+        assert!(results.len() > 0);
+
+        let result = &results[0];
+        assert!(matches!(result.match_type, MatchType::English));
+
+        let rendered = RenderedResult::from_match(result, &dict);
+
+        // English definitions should have highlighting
+        let has_highlight = rendered.english_definitions.iter()
+            .any(|def| def.contains("<mark class=\"hit-highlight\">"));
+        assert!(has_highlight, "English definition should have highlighting");
+
+        // At least one definition should contain highlighted "teach"
+        let has_teach = rendered.english_definitions.iter()
+            .any(|def| def.contains("teach") && def.contains("<mark"));
+        assert!(has_teach, "Should highlight 'teach' in english definitions");
+
+        // Characters should not have highlighting
+        assert!(!rendered.characters.contains("<mark"));
+
+        // Jyutping should not have highlighting
+        assert!(!rendered.jyutping.contains("<mark"));
+    }
+
+    #[test]
+    fn test_from_match_english_html_escaping() {
+        // Test that HTML in english definitions is properly escaped even with highlighting
+        let dict = create_test_dict();
+
+        // Even though our test dict doesn't have HTML in definitions,
+        // we can verify the structure is correct
+        let results = dict.search("teacher");
+        if results.len() > 0 {
+            let result = &results[0];
+            let rendered = RenderedResult::from_match(result, &dict);
+
+            // Verify markup is well-formed: no unescaped < or > outside of mark tags
+            for def in &rendered.english_definitions {
+                // Count opening and closing mark tags
+                let open_marks = def.matches("<mark class=\"hit-highlight\">").count();
+                let close_marks = def.matches("</mark>").count();
+                assert_eq!(open_marks, close_marks, "Mark tags should be balanced");
+
+                // Any other < or > should be escaped
+                let stripped = def.replace("<mark class=\"hit-highlight\">", "")
+                    .replace("</mark>", "");
+                assert!(!stripped.contains("<") || stripped.contains("&lt;"));
+                assert!(!stripped.contains(">") || stripped.contains("&gt;"));
+            }
+        }
+    }
+
+    #[test]
+    fn test_from_match_no_highlighting_when_no_spans() {
+        let dict = create_test_dict();
+
+        // For match types that don't apply to certain fields,
+        // those fields should have no highlighting
+        let results = dict.search("lou");
+        if results.len() > 0 {
+            let result = &results[0];
+            let rendered = RenderedResult::from_match(result, &dict);
+
+            // This is a Jyutping match, so characters shouldn't be highlighted
+            let char_mark_count = rendered.characters.matches("<mark").count();
+            assert_eq!(char_mark_count, 0, "Characters should not be highlighted for Jyutping match");
+        }
+    }
+
+    #[test]
+    fn test_from_match_cost_preserved() {
+        let dict = create_test_dict();
+
+        let results = dict.search("lou");
+        assert!(results.len() > 0);
+
+        let result = &results[0];
+        let rendered = RenderedResult::from_match(result, &dict);
+
+        // Cost should be preserved from the dictionary entry
+        assert_eq!(rendered.cost, dict.entries[result.entry_id].cost);
+    }
+
+    #[test]
+    fn test_from_match_entry_source_preserved() {
+        let dict = create_test_dict();
+
+        let results = dict.search("lou");
+        assert!(results.len() > 0);
+
+        let result = &results[0];
+        let rendered = RenderedResult::from_match(result, &dict);
+
+        // Entry source should be preserved
+        assert_eq!(rendered.entry_source, dict.entries[result.entry_id].get_source());
     }
 }

@@ -528,7 +528,7 @@ impl StringVecSet {
     }
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, PartialEq)]
 pub enum EntrySource {
     CEDict,
     CCanto,
