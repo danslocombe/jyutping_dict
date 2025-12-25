@@ -10,7 +10,7 @@ impl DataWriter<std::fs::File> {
     pub fn new(path: &str) -> Self {
         let outfile = std::fs::File::create(path).unwrap();
         let inner = BufWriter::new(outfile);
-        Self { 
+        Self {
             write_len: 0,
             inner
         }
@@ -89,31 +89,32 @@ impl<T: std::io::Write> DataWriter<T> {
 
 #[cfg(test)]
 mod tests {
-    //use super::*;
+    use super::*;
 
-    //#[test]
-    //fn write_read_vbyte() {
-    //    let buffer = Vec::new();
-    //    let buffer_writer = BufWriter::new(buffer);
+    #[test]
+    fn write_read_vbyte() {
+        let buffer = Vec::new();
+        let buffer_writer = BufWriter::new(buffer);
 
-    //    let mut writer = DataWriter {
-    //        inner: buffer_writer,
-    //    };
+        let mut writer = DataWriter {
+            write_len: 0,
+            inner: buffer_writer,
+        };
 
-    //    for i in 0..513 {
-    //        writer.write_vbyte(i).unwrap();
-    //    }
+        for i in 0..513 {
+            writer.write_vbyte(i).unwrap();
+        }
 
-    //    for i in 0..2 {
-    //        // Add padding
-    //        writer.write_u32(0).unwrap();
-    //    }
+        for _i in 0..2 {
+            // Add padding
+            writer.write_u32(0).unwrap();
+        }
 
-    //    let mut reader = crate::data_reader::DataReader::new(writer.inner.buffer());
+        let mut reader = crate::data_reader::DataReader::new(writer.inner.buffer());
 
-    //    for i in 0..513 {
-    //        let read = reader.read_vbyte();
-    //        assert_eq!(i as u64, read)
-    //    }
-    //}
+        for i in 0..513 {
+            let read = reader.read_vbyte();
+            assert_eq!(i as u64, read)
+        }
+    }
 }

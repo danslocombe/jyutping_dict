@@ -609,7 +609,7 @@ impl CompiledDictionary {
 
         let mut english_start = 0;
         let mut prev_cost = 0;
-        for entry_id in 0..entry_count {
+        for _ in 0..entry_count {
             let mut entry = CompiledDictionaryEntry::default();
             entry.flags = reader.read_u8();
 
@@ -715,7 +715,7 @@ impl CompiledDictionary {
             writer.write_u32(self.entries.len() as u32)?;
             let mut prev_english_start = 0;
             let mut prev_cost = 0;
-            for (i, e) in self.entries.iter().enumerate()
+            for e in &self.entries
             {
                 writer.write_u8(e.flags)?;
 

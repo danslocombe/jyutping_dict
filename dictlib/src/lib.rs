@@ -72,54 +72,12 @@ pub struct DictionaryEntry
 #[derive(Debug, Default)]
 pub struct Dictionary
 {
-    //pub trad_to_def: TraditionalToDefinitions,
-    //pub trad_to_jyutping : TraditionalToJyutping,
     pub trad_to_frequency : TraditionalToFrequencies,
     pub entries: Vec<DictionaryEntry>,
 }
 
 
 impl Dictionary {
-    //pub fn hacky_search(&self, query : &str) -> Vec<SearchResult>{
-    //    let queries : Vec<String> = query.split(' ').map(|x| x.trim().to_owned()).collect();
-
-    //    println!("Queries {:?}", queries);
-
-    //    let mut results = Vec::new();
-
-    //    // TODO trie
-    //    for (jyutping, v) in &self.trad_to_jyutping.reverse
-    //    {
-    //        let mut matches = true;
-    //        for q in &queries {
-    //            if (!jyutping.contains(q)) {
-    //                matches = false;
-    //            }
-    //        }
-
-    //        if (matches)
-    //        {
-    //            for characters in &v.inner {
-    //                let frequency_data = self.trad_to_frequency.get_frequencies(characters);
-    //                let definitions = self.trad_to_def.inner.get(characters).map(|x| x.clone()).unwrap_or_default();
-
-    //                let res = SearchResult {
-    //                    characters: characters.to_owned(),
-    //                    jyutping: jyutping.to_owned(),
-    //                    definitions: definitions.inner,
-    //                    frequency_data: frequency_data.to_owned(),
-    //                };
-
-    //                results.push(res);
-    //            }
-    //        }
-    //    }
-
-    //    results.sort_by(|x, y| x.cost().cmp(&y.cost()));
-
-    //    results.into_iter().take(10).collect()
-    //}
-
     pub fn parse_ccanto(&mut self, path : &str)
     {
         let size_at_start = self.entries.len();
@@ -248,7 +206,7 @@ impl Dictionary {
             }
 
             cost += cost_heuristic(&definitions.inner);
-            
+
             //println!("{} - {:?}", traditional, definitions);
             self.entries.push(DictionaryEntry {
                 traditional: traditional.to_owned(),
@@ -317,10 +275,6 @@ impl SearchResult {
 pub struct TraditionalToDefinitions
 {
     inner : BTreeMap<String, StringVecSet>,
-}
-
-impl TraditionalToDefinitions
-{
 }
 
 #[derive(Debug, Default)]
@@ -443,7 +397,7 @@ impl TraditionalToFrequencies
             }
 
             // Expect form
-            // index \t character \t count \t cumulative frequency percentile \t pinyin \t english 
+            // index \t character \t count \t cumulative frequency percentile \t pinyin \t english
 
             let (index_str, rest) = line.split_once('\t').unwrap();
             let (character, rest) = rest.split_once('\t').unwrap();
@@ -503,7 +457,7 @@ impl StringVecSet {
             }
         }
 
-        return false;
+        false
     }
 
     pub fn add_clone(&mut self, val: &str) {
