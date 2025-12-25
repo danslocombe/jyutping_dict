@@ -50,10 +50,8 @@ impl RenderedResult {
         let english_definitions = if let MatchType::English = match_result.match_type {
             Self::build_english_definitions_with_highlights(entry, dict, &match_result.matched_spans)
         } else {
-            Self::build_english_definitions(entry, dict)
+            Self::build_english_definitions_with_highlights(entry, dict, &[])
         };
-
-        //let english_definitions = Self::build_english_definitions(entry, dict);
 
         Self {
             characters,
@@ -62,21 +60,6 @@ impl RenderedResult {
             cost: entry.cost,
             entry_source: entry.get_source(),
         }
-    }
-
-    fn build_english_definitions(entry: &CompiledDictionaryEntry, dict: &CompiledDictionary) -> Vec<String> {
-        let mut english_definitions = Vec::with_capacity(
-            entry.english_end as usize - entry.english_start as usize
-        );
-        for i in entry.english_start..entry.english_end {
-            let start = dict.english_data_starts[i as usize] as usize;
-            let end = dict.english_data_starts[i as usize + 1] as usize;
-            let blob = &dict.english_data[start..end];
-            let def = unsafe { std::str::from_utf8_unchecked(blob) }.to_owned();
-            //let def = unsafe { std::str::from_utf8(blob).expect("Error got a non-utf8 blob (nohh)") }.to_owned();
-            english_definitions.push(def);
-        }
-        english_definitions
     }
 
     fn build_english_definitions_with_highlights(
@@ -88,16 +71,12 @@ impl RenderedResult {
             entry.english_end as usize - entry.english_start as usize
         );
 
-        //let mut first_start = dict.english_data_starts[i as usize] as usize;
-
         for i in entry.english_start..entry.english_end {
             let start = dict.english_data_starts[i as usize] as usize;
             let end = dict.english_data_starts[i as usize + 1] as usize;
             let blob = &dict.english_data[start..end];
             let plain_text = unsafe { std::str::from_utf8_unchecked(blob) };
-            //let plain_text = unsafe { std::str::from_utf8(blob).expect("Error got a non-utf8 blob (hh)") };
 
-            // @Perf
             let mut filtered_modified_matches = Vec::with_capacity(matched_spans.len());
             for (span_start_abs, span_end_abs) in matched_spans {
                 if (*span_start_abs < start)
@@ -127,14 +106,15 @@ impl RenderedResult {
             return Self::escape_html(text);
         }
 
-        // Sort spans by start position
-        let mut sorted_spans = matched_spans.to_vec();
-        sorted_spans.sort_by_key(|span| span.0);
+        debug_assert!(matched_spans.is_sorted_by_key(|(x, _)| x));
 
         let mut result = String::new();
         let mut last_pos = 0;
 
-        for (start, end) in sorted_spans {
+        for (start, end) in matched_spans {
+            let start = *start;
+            let end = *end;
+
             // Add text before the match
             if start > last_pos {
                 result.push_str(&Self::escape_html(&text[last_pos..start]));
