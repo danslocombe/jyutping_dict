@@ -996,6 +996,14 @@ impl DisplayDictionaryEntry
 pub mod tests {
     use super::*;
 
+    struct TestStopwatch;
+
+    impl Stopwatch for TestStopwatch {
+        fn elapsed_ms(&self) -> i32 {
+            0
+        }
+    }
+
     #[test]
     pub fn pack_unpack() {
 
@@ -1159,7 +1167,7 @@ pub mod tests {
         let dict = create_test_dict();
 
         // Search with substring should find entries
-        let results = dict.search("saa");
+        let results = dict.search("saa", Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0, "Should find results for substring 'saa' matching 'saang'");
         assert_eq!(results[0].entry_id, 1); // Should match the 學生 entry with saang1
@@ -1174,7 +1182,7 @@ pub mod tests {
         let dict = create_test_dict();
 
         // Search with prefix
-        let results = dict.search("ho");
+        let results = dict.search("ho", Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0, "Should find results for prefix 'ho' matching 'hok'");
         assert_eq!(results[0].entry_id, 1); // Should match the 學生 entry with hok6
@@ -1190,7 +1198,7 @@ pub mod tests {
         assert_eq!(query_term.matches.len(), 0, "Should not match non-existent jyutping");
 
         // Search should return no jyutping matches
-        let results = dict.search("xyz");
+        let results = dict.search("xyz", Box::new(TestStopwatch)).matches;
 
         // May have English matches, but no jyutping matches
         for result in results {
@@ -1458,7 +1466,7 @@ pub mod tests {
         let dict = create_test_dict();
 
         // Search with substring
-        let results = dict.search("saa");
+        let results = dict.search("saa", Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0, "Should find results for substring");
         assert_eq!(results[0].entry_id, 1);
@@ -1482,7 +1490,7 @@ pub mod tests {
         let dict = create_test_dict();
 
         // Search with prefix
-        let results = dict.search("ho");
+        let results = dict.search("ho", Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0, "Should find results for prefix");
         assert_eq!(results[0].entry_id, 1);
@@ -1502,7 +1510,7 @@ pub mod tests {
         let dict = create_test_dict();
 
         // Search with two substring queries
-        let results = dict.search("ho saa");
+        let results = dict.search("ho saa", Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0);
         assert_eq!(results[0].entry_id, 1); // 學生 with "hok6 saang1"
@@ -1565,7 +1573,7 @@ pub mod tests {
         let dict = create_test_dict();
 
         // Search for "lou" should return the teacher entry
-        let results = dict.search("lou");
+        let results = dict.search("lou", Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0, "Should find at least one result");
         assert_eq!(results[0].entry_id, 0);
@@ -1586,7 +1594,7 @@ pub mod tests {
     fn test_integration_english_search() {
         let dict = create_test_dict();
 
-        let results = dict.search("student");
+        let results = dict.search("student", Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0);
         assert_eq!(results[0].entry_id, 1);
@@ -1606,7 +1614,7 @@ pub mod tests {
         eprintln!("Character '老' has id: {:?}", char_id);
         eprintln!("Entry 0 characters: {:?}", dict.entries[0].characters);
 
-        let results = dict.search("老");
+        let results = dict.search("老", Box::new(TestStopwatch)).matches;
 
         // Debug: print what we got
         eprintln!("Search for '老' returned {} results", results.len());
