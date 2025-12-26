@@ -35,6 +35,8 @@ pub mod vbyte;
 pub mod string_search;
 pub mod rendered_result;
 pub mod builder;
+pub mod search;
+pub mod reconstruct_match;
 
 static mut DEBUG_LOGGER : Option<Box<dyn DebugLogger>> = None;
 
