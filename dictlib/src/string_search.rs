@@ -107,6 +107,7 @@ pub fn _prefix_levenshtein_bs(query: &[u8], target: &[u8]) -> i32
 
 pub fn string_indexof_linear_ignorecase(needle: &str, haystack_bs: &[u8]) -> Option<usize> {
     let needle_bs = needle.as_bytes();
+    debug_assert!(needle_bs.len() > 0);
 
     if (haystack_bs.len() < needle_bs.len()) {
         return None;
@@ -114,7 +115,64 @@ pub fn string_indexof_linear_ignorecase(needle: &str, haystack_bs: &[u8]) -> Opt
 
     let end = haystack_bs.len() - needle_bs.len();
 
-    for i in 0..=end {
+    // For first pass with simd
+    // For now we are using u64, should be using
+    // 128bit https://doc.rust-lang.org/beta/core/arch/wasm32/index.html
+    let first_needle_byte = needle_bs[0];
+    let is_first_needle_byte_ascii_letter = (first_needle_byte >= b'a' && first_needle_byte <= b'z') || (first_needle_byte >= b'A' && first_needle_byte <= b'Z');
+
+    let first_pass_key : Option<u64> = if (is_first_needle_byte_ascii_letter)
+    {
+        let x = (first_needle_byte | 0x20) as u64;
+        Some(
+            x << 56 |
+            x << 48 |
+            x << 40 |
+            x << 32 |
+            x << 24 |
+            x << 16 |
+            x << 8 |
+            x << 0
+        )
+    }
+    else {
+        None
+    };
+
+    let mut i = 0;
+    while i <= end {
+        if (i + 8) < end {
+            if let Some(key) = first_pass_key
+            {
+                let read = unsafe { haystack_bs.as_ptr().offset(i as isize).cast::<u64>().read() };
+                const LOWERCASE_MASK : u64 = 0x2020202020202020;
+                let lowercased = read | LOWERCASE_MASK;
+                //let intersected = lowercased & key;
+                // XOR the values - matching bytes become 0x00
+                let xor = lowercased ^ key;
+
+                // Check if any byte is zero using the classic SWAR (SIMD Within A Register) trick
+                // This checks if there's a zero byte without testing each one individually
+                const LO_U64: u64 = 0x0101010101010101;
+                const HI_U64: u64 = 0x8080808080808080;
+
+                let match_mask = (xor.wrapping_sub(LO_U64)) & !xor & HI_U64;
+                let has_match = match_mask != 0;
+
+                if has_match {
+                    // Find first matching position
+                    let byte_offset = match_mask.trailing_zeros() / 8;
+                    i += byte_offset as usize;
+                }
+                else {
+                    i += 8;
+                    continue;
+                }
+            }
+        }
+
+        // Main match loop.
+        //
         // Not actually correct, but good enough
         // the eq_ignore_ascii_case can trigger weird stuff as it may
         // lowercase a non-ascii char.
@@ -145,6 +203,8 @@ pub fn string_indexof_linear_ignorecase(needle: &str, haystack_bs: &[u8]) -> Opt
         {
             return Some(i);
         }
+
+        i += 1;
     }
 
     None
@@ -195,14 +255,14 @@ mod tests {
     {
         // All uppercase needle, lowercase haystack
         assert_eq!(Some(0), string_indexof_linear_ignorecase("HELLO", "hello world".as_bytes()));
-        
+
         // All lowercase needle, uppercase haystack
         assert_eq!(Some(0), string_indexof_linear_ignorecase("hello", "HELLO WORLD".as_bytes()));
-        
+
         // Mixed case variations
         assert_eq!(Some(0), string_indexof_linear_ignorecase("HeLLo", "hEllO WORLD".as_bytes()));
         assert_eq!(Some(6), string_indexof_linear_ignorecase("WoRlD", "HELLO world".as_bytes()));
-        
+
         // Single character matches
         assert_eq!(Some(0), string_indexof_linear_ignorecase("A", "apple".as_bytes()));
         assert_eq!(Some(0), string_indexof_linear_ignorecase("a", "Apple".as_bytes()));
@@ -212,22 +272,16 @@ mod tests {
     #[test]
     fn test_string_indexof_edge_cases()
     {
-        // Empty needle - should match at start
-        assert_eq!(Some(0), string_indexof_linear_ignorecase("", "hello".as_bytes()));
-        
         // Empty haystack with non-empty needle
         assert_eq!(None, string_indexof_linear_ignorecase("hello", "".as_bytes()));
-        
-        // Both empty
-        assert_eq!(Some(0), string_indexof_linear_ignorecase("", "".as_bytes()));
-        
+
         // Needle longer than haystack
         assert_eq!(None, string_indexof_linear_ignorecase("hello world", "hi".as_bytes()));
-        
+
         // Exact match
         assert_eq!(Some(0), string_indexof_linear_ignorecase("test", "test".as_bytes()));
         assert_eq!(Some(0), string_indexof_linear_ignorecase("TeSt", "tEsT".as_bytes()));
-        
+
         // Match at the very end
         assert_eq!(Some(7), string_indexof_linear_ignorecase("end", "at the end".as_bytes()));
         assert_eq!(Some(7), string_indexof_linear_ignorecase("END", "at the end".as_bytes()));
@@ -241,11 +295,11 @@ mod tests {
         assert_eq!(Some(0), string_indexof_linear_ignorecase("Z", "z".as_bytes()));
         assert_eq!(Some(0), string_indexof_linear_ignorecase("a", "A".as_bytes()));
         assert_eq!(Some(0), string_indexof_linear_ignorecase("z", "Z".as_bytes()));
-        
+
         // Mixed with numbers and symbols (should not be affected by case)
         assert_eq!(Some(0), string_indexof_linear_ignorecase("a1b", "A1B".as_bytes()));
         assert_eq!(Some(0), string_indexof_linear_ignorecase("test@123", "TEST@123".as_bytes()));
-        
+
         // Numbers and symbols don't have case
         assert_eq!(Some(0), string_indexof_linear_ignorecase("123", "123".as_bytes()));
         assert_eq!(None, string_indexof_linear_ignorecase("123", "456".as_bytes()));
@@ -257,11 +311,11 @@ mod tests {
         // First occurrence should be returned
         assert_eq!(Some(0), string_indexof_linear_ignorecase("ab", "ababab".as_bytes()));
         assert_eq!(Some(0), string_indexof_linear_ignorecase("AB", "ababab".as_bytes()));
-        
+
         // Multiple occurrences, case insensitive
         assert_eq!(Some(0), string_indexof_linear_ignorecase("hi", "hi HI hi".as_bytes()));
         assert_eq!(Some(0), string_indexof_linear_ignorecase("HI", "hi HI hi".as_bytes()));
-        
+
         // Pattern with repeating characters
         assert_eq!(Some(2), string_indexof_linear_ignorecase("aaa", "bbaaabbb".as_bytes()));
         assert_eq!(Some(2), string_indexof_linear_ignorecase("AAA", "bbaaabbb".as_bytes()));
@@ -276,10 +330,10 @@ mod tests {
         assert_eq!(Some(4), string_indexof_linear_ignorecase("QUICK", haystack.as_bytes()));
         assert_eq!(Some(16), string_indexof_linear_ignorecase("fox", haystack.as_bytes()));
         assert_eq!(Some(35), string_indexof_linear_ignorecase("lazy dog", haystack.as_bytes()));
-        
+
         // Not found in longer string
         assert_eq!(None, string_indexof_linear_ignorecase("cat", haystack.as_bytes()));
-        
+
         // Partial match should not succeed
         assert_eq!(None, string_indexof_linear_ignorecase("foxes", haystack.as_bytes()));
     }
