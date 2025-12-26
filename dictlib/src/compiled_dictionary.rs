@@ -145,14 +145,61 @@ pub struct QueryTerms {
 }
 
 pub struct JyutpingQueryTerm {
-    pub matches: BitSet,
+    pub string_no_tone : String,
     pub tone: Option<u8>,
-    pub match_bit_to_match_cost: Vec<(usize, u32)>,
-    pub match_bit_to_match_length: Vec<(usize, usize)>, // Maps match bit index to actual matched string length
-    pub query_string_without_tone: String,
+
+    pub matches: BitSet,
+    pub match_bit_to_match_cost: Vec<(i32, u32)>,
 }
 
-#[derive(Debug, Serialize)]
+impl JyutpingQueryTerm {
+    pub fn create(s : &str, jyutping_store: &JyutpingStore) -> Self
+    {
+        debug_assert!(s.len() > 0);
+
+        let (s, tone) = parse_jyutping(s);
+
+        let mut matches = BitSet::new();
+        let mut match_bit_to_match_cost = Vec::new();
+
+        debug_assert!(jyutping_store.base_strings.len() < std::i32::MAX as usize);
+
+        for (i, jyutping_string) in jyutping_store.base_strings.iter().enumerate()
+        {
+            if (jyutping_string.eq_ignore_ascii_case(s))
+            {
+                matches.insert(i);
+                continue;
+            }
+
+            if crate::string_search::string_indexof_linear_ignorecase(s, jyutping_string.as_bytes()).is_some()
+            {
+                let match_cost = (jyutping_string.len() - s.len()) as u32 * JYUTPING_PARTIAL_MATCH_PENALTY_K;
+                match_bit_to_match_cost.push((i as i32, match_cost));
+                matches.insert(i);
+                continue;
+            }
+
+            // Warning: Noisy
+            let dist = crate::string_search::prefix_levenshtein_ascii(s, jyutping_string);
+            if (dist < 2) {
+                let match_cost = dist as u32 * JYUTPING_PREFIX_LEVENSHTEIN_PENALTY_K;
+                match_bit_to_match_cost.push((i as i32, match_cost));
+                matches.insert(i);
+                continue;
+            }
+        }
+
+        Self {
+            string_no_tone: s.to_owned(),
+            tone,
+            matches,
+            match_bit_to_match_cost,
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, Serialize)]
 pub struct MatchCostInfo
 {
     pub term_match_cost: u32,
@@ -167,20 +214,24 @@ impl MatchCostInfo {
     }
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Clone, Copy, Serialize)]
 pub enum MatchType {
     Jyutping,
     Traditional,
     English,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Clone, Copy, Serialize)]
 pub struct Match
 {
     pub cost_info : MatchCostInfo,
     pub match_type: MatchType,
     pub entry_id: usize,
-    /// Spans that matched: (start_pos, end_pos)
+}
+
+#[derive(Debug, Serialize)]
+pub struct MatchWithHitInfo {
+    pub match_obj: Match,
     pub matched_spans: Vec<(usize, usize)>,
 }
 
@@ -195,7 +246,7 @@ pub struct Timings {
 
 #[derive(Debug, Default, Serialize)]
 pub struct SearchResult {
-    pub matches : Vec<Match>,
+    pub matches : Vec<MatchWithHitInfo>,
     pub timings: Timings,
 }
 
@@ -204,10 +255,10 @@ impl CompiledDictionary {
     {
         let mut result = SearchResult::default();
 
-        let mut jyutping_terms = Vec::new();
+        let mut jyutping_query_terms = Vec::new();
         for query_term in s.split_ascii_whitespace()
         {
-            jyutping_terms.push(self.get_jyutping_query_term(query_term));
+            jyutping_query_terms.push(JyutpingQueryTerm::create(query_term, &self.jyutping_store));
         }
 
         result.timings.jyutping_pre_ms = stopwatch.elapsed_ms();
@@ -223,7 +274,7 @@ impl CompiledDictionary {
         result.timings.traditional_pre_ms = stopwatch.elapsed_ms();
 
         let query_terms = QueryTerms {
-            jyutping_terms,
+            jyutping_terms: jyutping_query_terms,
             traditional_terms,
         };
 
@@ -235,13 +286,10 @@ impl CompiledDictionary {
             {
                 cost_info.static_cost = x.cost;
 
-                let matched_spans = self.get_jyutping_matched_spans(x, &query_terms);
-
                 matches.push(Match {
                     cost_info,
                     match_type: MatchType::Jyutping,
                     entry_id: i,
-                    matched_spans,
                 });
             }
             else
@@ -266,13 +314,10 @@ impl CompiledDictionary {
                             static_cost: x.cost,
                         };
 
-                        let matched_spans = self.get_english_matched_spans(x, s);
-
                         matches.push(Match {
                             cost_info,
                             match_type: MatchType::English,
                             entry_id: i,
-                            matched_spans,
                         });
                     }
                 }
@@ -287,13 +332,10 @@ impl CompiledDictionary {
                             static_cost: x.cost,
                         };
 
-                        let matched_spans = self.get_traditional_matched_spans(x, &query_terms);
-
                         matches.push(Match {
                             cost_info,
                             match_type: MatchType::Traditional,
                             entry_id: i,
-                            matched_spans,
                         });
                     }
                 }
@@ -306,9 +348,31 @@ impl CompiledDictionary {
         matches.sort_by(|(x), (y)| x.cost_info.total().cmp(&y.cost_info.total()));
         matches.truncate(8);
 
+        //let matched_spans = self.get_jyutping_matched_spans(x, &query_terms);
+
+        //let matched_spans = self.get_english_matched_spans(x, s);
+
+        //let matched_spans = self.get_traditional_matched_spans(x, &query_terms);
+
         result.timings.rank = stopwatch.elapsed_ms();
 
-        result.matches = matches;
+        let mut matches_with_hit_info = Vec::with_capacity(matches.len());
+        for m in matches
+        {
+            let entry = &self.entries[m.entry_id];
+            let matched_spans = match m.match_type {
+                MatchType::Jyutping => self.get_jyutping_matched_spans(entry, &query_terms),
+                MatchType::Traditional => self.get_traditional_matched_spans(entry, &query_terms),
+                MatchType::English => self.get_english_matched_spans(entry, s),
+            };
+
+            matches_with_hit_info.push(MatchWithHitInfo {
+                match_obj: m,
+                matched_spans,
+            })
+        }
+
+        result.matches = matches_with_hit_info;
 
         result
     }
@@ -325,6 +389,7 @@ impl CompiledDictionary {
 
         let mut total_term_match_cost = 0;
 
+        // @Perf should not be dynamic, pool maybe?
         let mut entry_jyutping_matches = BitSet::new();
         let mut matched_positions: Vec<usize> = Vec::new();
 
@@ -338,7 +403,7 @@ impl CompiledDictionary {
                 {
                     let mut term_match_cost = 0;
                     for (match_bit, cost) in &jyutping_term.match_bit_to_match_cost {
-                        if (*match_bit == entry_jyutping.base as usize) {
+                        if (*match_bit == entry_jyutping.base as i32) {
                             term_match_cost = *cost;
                             // Break out of finding term_match_cost.
                             break;
@@ -475,35 +540,37 @@ impl CompiledDictionary {
 
         for (jyutping_idx, entry_jyutping) in entry.jyutping.iter().enumerate() {
             for jyutping_term in &query_terms.jyutping_terms {
-                if jyutping_term.matches.contains(entry_jyutping.base as usize) {
-                    // Compute position in the jyutping string
-                    // The display format is "base1 base2 base3" where each base includes a tone digit
-                    let mut pos = 0;
-                    for i in 0..jyutping_idx {
-                        pos += self.jyutping_store.base_strings[entry.jyutping[i].base as usize].len();
-                        pos += 1; // tone digit
-                        pos += 1; // space separator
-                    }
+                // @TODO Rewrite bad AI code
+                ////if jyutping_term.matches.contains(entry_jyutping.base as usize) {
 
-                    // Highlight the matched base portion using actual matched length
-                    // For exact/substring matches, this equals query length
-                    // For Levenshtein matches, this uses the actual dictionary entry length
-                    let base_match_len = jyutping_term.match_bit_to_match_length
-                        .iter()
-                        .find(|(idx, _)| *idx == entry_jyutping.base as usize)
-                        .map(|(_, len)| *len)
-                        .unwrap_or(jyutping_term.query_string_without_tone.len());
-                    spans.push((pos, pos + base_match_len)); // field 1 is jyutping
+                //    // Compute position in the jyutping string
+                //    // The display format is "base1 base2 base3" where each base includes a tone digit
+                //    let mut pos = 0;
+                //    for i in 0..jyutping_idx {
+                //        pos += self.jyutping_store.base_strings[entry.jyutping[i].base as usize].len();
+                //        pos += 1; // tone digit
+                //        pos += 1; // space separator
+                //    }
 
-                    // If the query included a tone digit, also highlight the tone
-                    if jyutping_term.tone.is_some() {
-                        let base_len = self.jyutping_store.base_strings[entry_jyutping.base as usize].len();
-                        let tone_pos = pos + base_len;
-                        spans.push((tone_pos, tone_pos + 1)); // highlight the tone digit
-                    }
+                //    // Highlight the matched base portion using actual matched length
+                //    // For exact/substring matches, this equals query length
+                //    // For Levenshtein matches, this uses the actual dictionary entry length
+                //    let base_match_len = jyutping_term.match_bit_to_match_length
+                //        .iter()
+                //        .find(|(idx, _)| *idx == entry_jyutping.base as usize)
+                //        .map(|(_, len)| *len)
+                //        .unwrap_or(jyutping_term.query_string_without_tone.len());
+                //    spans.push((pos, pos + base_match_len)); // field 1 is jyutping
 
-                    break;
-                }
+                //    // If the query included a tone digit, also highlight the tone
+                //    if jyutping_term.tone.is_some() {
+                //        let base_len = self.jyutping_store.base_strings[entry_jyutping.base as usize].len();
+                //        let tone_pos = pos + base_len;
+                //        spans.push((tone_pos, tone_pos + 1)); // highlight the tone digit
+                //    }
+
+                //    break;
+                //}
             }
         }
 
@@ -550,64 +617,6 @@ impl CompiledDictionary {
         }
 
         spans
-    }
-
-    pub fn get_jyutping_query_term(&self, mut s : &str) -> JyutpingQueryTerm
-    {
-        let mut tone : Option<u8> = None;
-
-        let bs = s.as_bytes();
-        if (bs.len() > 0)
-        {
-            if bs[bs.len() - 1].is_ascii_digit() {
-                tone = Some(bs[bs.len() - 1] - b'0');
-                s = unsafe { std::str::from_utf8_unchecked(&bs[0..bs.len()-1])};
-            }
-        }
-
-        let mut matches = BitSet::new();
-        let mut match_bit_to_match_cost = Vec::new();
-        let mut match_bit_to_match_length = Vec::new();
-
-        for (i, jyutping_string) in self.jyutping_store.base_strings.iter().enumerate()
-        {
-            if (jyutping_string.eq_ignore_ascii_case(s))
-            {
-                //debug_log!("'{}' matches {}", s, jyutping_string);
-                matches.insert(i);
-                match_bit_to_match_length.push((i, s.len())); // Highlight only the query length for exact matches
-                continue;
-            }
-
-            if crate::string_search::string_indexof_linear_ignorecase(s, jyutping_string.as_bytes()).is_some()
-            {
-                let match_cost = (jyutping_string.len() - s.len()) as u32 * JYUTPING_PARTIAL_MATCH_PENALTY_K;
-                //debug_log!("'{}' matches {} with cost {}", s, jyutping_string, match_cost);
-                match_bit_to_match_cost.push((i, match_cost));
-                match_bit_to_match_length.push((i, s.len())); // Highlight only the query length for substring matches
-                matches.insert(i);
-                continue;
-            }
-
-            // Too noisy
-            let dist = crate::string_search::prefix_levenshtein_ascii(s, jyutping_string);
-            if (dist < 2) {
-                let match_cost = dist as u32 * JYUTPING_PREFIX_LEVENSHTEIN_PENALTY_K;
-                //println!("'{}' fuzzy matches {} with cost {}", s, jyutping_string, match_cost);
-                match_bit_to_match_cost.push((i, match_cost));
-                match_bit_to_match_length.push((i, s.len())); // Highlight only the query length for fuzzy matches
-                matches.insert(i);
-                continue;
-            }
-        }
-
-        JyutpingQueryTerm {
-            matches,
-            tone,
-            match_bit_to_match_cost,
-            match_bit_to_match_length,
-            query_string_without_tone: s.to_string(),
-        }
     }
 
     pub fn deserialize(reader : &mut DataReader) -> Self {
@@ -999,6 +1008,20 @@ impl DisplayDictionaryEntry
             entry_source,
         }
     }
+}
+
+fn parse_jyutping(mut s : &str) -> (&str, Option<u8>) {
+    debug_assert!(s.len() > 0);
+
+    let mut tone : Option<u8> = None;
+
+    let bs = s.as_bytes();
+    if bs[bs.len() - 1].is_ascii_digit() {
+        tone = Some(bs[bs.len() - 1] - b'0');
+        s = unsafe { std::str::from_utf8_unchecked(&bs[0..bs.len()-1])};
+    }
+
+    (s, tone)
 }
 
 #[cfg(test)]

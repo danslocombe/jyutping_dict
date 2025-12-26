@@ -1,5 +1,5 @@
 use serde::Serialize;
-use crate::compiled_dictionary::{CompiledDictionary, CompiledDictionaryEntry, Match, MatchType};
+use crate::compiled_dictionary::{CompiledDictionary, CompiledDictionaryEntry, Match, MatchType, MatchWithHitInfo};
 use crate::EntrySource;
 
 /// A dictionary entry with pre-rendered and highlighted fields ready for display
@@ -14,8 +14,8 @@ pub struct RenderedResult {
 
 impl RenderedResult {
     /// Create a rendered result from a match, with hit highlighting applied
-    pub fn from_match(match_result: &Match, dict: &CompiledDictionary) -> Self {
-        let entry = &dict.entries[match_result.entry_id];
+    pub fn from_match(match_result: &MatchWithHitInfo, dict: &CompiledDictionary) -> Self {
+        let entry = &dict.entries[match_result.match_obj.entry_id];
 
         let mut characters =
         {
@@ -26,7 +26,7 @@ impl RenderedResult {
             characters
         };
 
-        if let MatchType::Traditional = match_result.match_type {
+        if let MatchType::Traditional = match_result.match_obj.match_type {
             // @AI Need to audit
             // Traditional matched spans are character indices, not byte indices
             // Convert them to byte indices for highlighting
@@ -66,11 +66,11 @@ impl RenderedResult {
             jyutping
         };
 
-        if let MatchType::Jyutping = match_result.match_type {
+        if let MatchType::Jyutping = match_result.match_obj.match_type {
             jyutping = Self::apply_highlights(&jyutping, &match_result.matched_spans);
         }
 
-        let english_definitions = if let MatchType::English = match_result.match_type {
+        let english_definitions = if let MatchType::English = match_result.match_obj.match_type {
             Self::build_english_definitions_with_highlights(entry, dict, &match_result.matched_spans)
         } else {
             Self::build_english_definitions_with_highlights(entry, dict, &[])

@@ -1,4 +1,4 @@
-use dictlib::{DebugLogger, Stopwatch, compiled_dictionary::{CompiledDictionary, Match, Timings}, data_reader::DataReader, rendered_result::RenderedResult};
+use dictlib::{DebugLogger, Stopwatch, compiled_dictionary::{CompiledDictionary, Match, MatchWithHitInfo, Timings}, data_reader::DataReader, rendered_result::RenderedResult};
 use serde::Serialize;
 use wasm_bindgen::prelude::*;
 
@@ -80,7 +80,7 @@ impl JyutpingSearch {
 #[derive(Serialize)]
 struct DisplayResult
 {
-    pub match_obj: Match,
+    pub match_obj: MatchWithHitInfo,
     pub rendered_entry: RenderedResult,
     pub query: String,
 }

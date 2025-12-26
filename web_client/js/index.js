@@ -74,53 +74,6 @@ function get_class_by_source(source) {
     }
 }
 
-// Highlight matching text based on matched spans
-// matched_spans is an array of [field_index, start_pos, end_pos]
-function highlightText(text, matched_spans) {
-    // Find spans that match this field
-    //const relevant_spans = matched_spans.filter(span => span[0] === field_index);
-  const relevant_spans = matched_spans;
-
-    if (relevant_spans.length === 0) {
-        return escapeHtml(text);
-    }
-
-    // Sort spans by start position
-    relevant_spans.sort((a, b) => a[0] - b[0]);
-
-    // Build highlighted text
-    let result = '';
-    let last_pos = 0;
-
-    for (let span of relevant_spans) {
-        const start = span[0];
-        const end = span[1];
-
-        // Add text before the match
-        if (start > last_pos) {
-            result += escapeHtml(text.substring(last_pos, start));
-        }
-
-        // Add highlighted match
-        result += '<mark class="hit-highlight">' + escapeHtml(text.substring(start, end)) + '</mark>';
-        last_pos = end;
-    }
-
-    // Add remaining text
-    if (last_pos < text.length) {
-        result += escapeHtml(text.substring(last_pos));
-    }
-
-    return result;
-}
-
-// Escape HTML special characters
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
 // Render a search result
 function render(prefix, results_string) {
     const search_result = JSON.parse(results_string)
