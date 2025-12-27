@@ -45,6 +45,20 @@ impl<'a> Iterator for JyutpingSplitter<'a>
     }
 }
 
+pub fn parse_jyutping_tone(mut s : &str) -> (&str, Option<u8>) {
+    debug_assert!(s.len() > 0);
+
+    let mut tone : Option<u8> = None;
+
+    let bs = s.as_bytes();
+    if bs[bs.len() - 1].is_ascii_digit() {
+        tone = Some(bs[bs.len() - 1] - b'0');
+        s = unsafe { std::str::from_utf8_unchecked(&bs[0..bs.len()-1])};
+    }
+
+    (s, tone)
+}
+
 #[cfg(test)]
 mod tests
 {

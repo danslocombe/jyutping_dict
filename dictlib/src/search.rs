@@ -11,7 +11,7 @@ pub const OUT_OF_ORDER_INVERSION_PENALTY: u32 = 8_000;
 pub const UNMATCHED_JYUTPING_PENALTY: u32 = 10_000;
 pub const JYUTPING_PARTIAL_MATCH_PENALTY_K : u32 = 12_000;
 pub const JYUTPING_PREFIX_LEVENSHTEIN_PENALTY_K: u32 = 20_000;
-pub
+
 pub const ENGLISH_BASE_PENALTY: u32 = 1_000;
 pub const NON_ASCII_MATCH_IN_ENGLISH_PENALTY: u32 = 8_000;
 pub const ENGLISH_POS_OFFSET_PENALTY_K: u32 = 100;
@@ -36,7 +36,7 @@ impl JyutpingQueryTerm {
     {
         debug_assert!(s.len() > 0);
 
-        let (s, tone) = parse_jyutping(s);
+        let (s, tone) = crate::jyutping_splitter::parse_jyutping_tone(s);
 
         let mut matches = BitSet::new();
         let mut match_bit_to_match_cost = Vec::new();

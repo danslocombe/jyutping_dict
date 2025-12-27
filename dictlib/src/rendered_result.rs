@@ -1,8 +1,8 @@
 use serde::Serialize;
-use crate::compiled_dictionary::{CompiledDictionary, CompiledDictionaryEntry, Match, MatchType, MatchWithHitInfo};
 use crate::EntrySource;
+use crate::compiled_dictionary::*;
+use crate::search::*;
 
-/// A dictionary entry with pre-rendered and highlighted fields ready for display
 #[derive(Debug, Serialize)]
 pub struct RenderedResult {
     pub characters: String,
