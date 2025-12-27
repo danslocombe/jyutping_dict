@@ -1160,4 +1160,55 @@ pub mod tests {
             assert_eq!(chars[*start], '老');
         }
     }
+
+    #[test]
+    pub fn test_aa_baa() {
+        // Create a minimal test dictionary
+        // Characters must be in sorted order!
+        let character_store = CharacterStore {
+            characters: vec!['學', '師', '生', '老'], // sorted order
+        };
+
+        let jyutping_store = JyutpingStore {
+            base_strings: vec![
+                "aa".to_string(),
+                "baa".to_string(),
+            ],
+        };
+
+        let entries = vec![
+            CompiledDictionaryEntry {
+                characters: vec![0, 1],
+                jyutping: vec![
+                    Jyutping { base: 0, tone: 3 },
+                    Jyutping { base: 1, tone: 1 },
+                ],
+                english_start: 0,
+                english_end: 1,
+                cost: 0,
+                flags: FLAG_SOURCE_CEDICT,
+            }
+        ];
+
+        let english_data = b"father".to_vec();
+        let english_data_starts = vec![0, 6];
+
+        let dict = CompiledDictionary {
+            character_store,
+            jyutping_store,
+            entries,
+            english_data,
+            english_data_starts,
+        };
+
+        // Should be exact match
+        let res = dict.search("aa baa", Box::new(TestStopwatch));
+        assert_eq!(1, res.matches.len());
+        assert_eq!(0, res.matches[0].match_obj.cost_info.total());
+
+        // Should be exact match
+        let res = dict.search("aa3 baa1", Box::new(TestStopwatch));
+        assert_eq!(1, res.matches.len());
+        assert_eq!(0, res.matches[0].match_obj.cost_info.total());
+    }
 }

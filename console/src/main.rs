@@ -88,7 +88,7 @@ fn main() {
 
         for m in result.matches
         {
-            let display = compiled_dictionary.get_diplay_entry(m.entry_id);
+            let display = compiled_dictionary.get_diplay_entry(m.match_obj.entry_id);
             println!("(Match {:?})\n{:#?}", m, display);
         }
     }

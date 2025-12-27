@@ -279,7 +279,8 @@ impl CompiledDictionary {
 
         for jyutping_term in &query_terms.jyutping_terms
         {
-            let mut term_match = false;
+            //let mut term_match = false;
+            let mut best_term_match: Option<(usize, u32)> = None;
 
             for (i, entry_jyutping) in entry.jyutping.iter().enumerate()
             {
@@ -294,6 +295,7 @@ impl CompiledDictionary {
                         }
                     }
 
+                    let mut term_match = false;
                     if let Some(t) = jyutping_term.tone
                     {
                         if t == entry_jyutping.tone
@@ -308,15 +310,25 @@ impl CompiledDictionary {
 
                     if (term_match)
                     {
-                        total_term_match_cost += term_match_cost;
-                        entry_jyutping_matches.insert(i);
-                        matched_positions.push(i);
-                        break;
+                        let mut should_update = best_term_match.is_none();
+                        if let Some((_, existing_best_cost)) = best_term_match {
+                            should_update = term_match_cost < existing_best_cost;
+                        }
+
+                        if (should_update) {
+                            best_term_match = Some((i, term_match_cost));
+                        }
                     }
                 }
             }
 
-            if (!term_match)
+            if let Some((best_match, best_cost)) = best_term_match
+            {
+                total_term_match_cost += best_cost;
+                entry_jyutping_matches.insert(best_match);
+                matched_positions.push(best_match);
+            }
+            else
             {
                 return None;
             }
