@@ -8,6 +8,9 @@ pub struct Builder
     pub entries: Vec<DictionaryEntry>,
 }
 
+pub const MAX_STATIC_COST_F : f32 = 7_000.0;
+pub const MAX_STATIC_COST   : u32 = 7_000;
+
 impl Builder {
     pub fn parse_ccanto(&mut self, path : &str)
     {
@@ -149,6 +152,18 @@ impl Builder {
 
         println!("Read {} dictionary entries from {}", {self.entries.len() - size_at_start}, path);
     }
+
+    pub fn apply_additional_heuristics(&mut self)
+    {
+        for e in &mut self.entries
+        {
+            // No jyutping, probably not a good entry
+            if (e.jyutping.is_empty())
+            {
+                e.cost += 10_000;
+            }
+        }
+    }
 }
 
 enum Heuristic
@@ -158,13 +173,13 @@ enum Heuristic
 }
 
 const HEURISTICS : &[(Heuristic, u32)] = &[
-    (Heuristic::ContainsTerms(&["abbr."]), 5000),
-    (Heuristic::DoesNotContainTerms(&["M:", "CL:"]), 5000),
-    (Heuristic::ContainsTerms(&["Surname", "surname"]), 2000),
-    (Heuristic::DoesNotContainTerms(&["(Cantonese)"]), 2000),
-    (Heuristic::ContainsTerms(&["Confucius"]), 5000),
-    (Heuristic::ContainsTerms(&["Dynasty", "Dynasties"]), 5000),
-    (Heuristic::ContainsTerms(&["(Buddhism)"]), 5000),
+    (Heuristic::ContainsTerms(&["abbr."]), 5_000),
+    (Heuristic::DoesNotContainTerms(&["M:", "CL:"]), 5_000),
+    (Heuristic::ContainsTerms(&["Surname", "surname"]), 2_000),
+    (Heuristic::DoesNotContainTerms(&["(Cantonese)"]), 2_000),
+    (Heuristic::ContainsTerms(&["Confucius"]), 5_000),
+    (Heuristic::ContainsTerms(&["Dynasty", "Dynasties"]), 5_000),
+    (Heuristic::ContainsTerms(&["(Buddhism)"]), 5_000),
 ];
 
 fn cost_heuristic(english_definitions: &[String]) -> u32
@@ -311,7 +326,7 @@ impl TraditionalToFrequencies
                 index : self.inner.len() as i32 + 1,
                 count: 0,
                 frequency: 0.0,
-                cost: 64_000,
+                cost: MAX_STATIC_COST,
             }
         }
     }
@@ -355,7 +370,7 @@ impl TraditionalToFrequencies
             last_cumulative_frequency_percentile = cumulative_frequency_percentile;
 
             let cost = -1_000.0 * frequency.ln();
-            let cost = cost.clamp(1.0, 64_000.0) as u32;
+            let cost = cost.clamp(1.0, MAX_STATIC_COST_F) as u32;
 
             let data = FrequencyData {
                 count, frequency, index, cost,

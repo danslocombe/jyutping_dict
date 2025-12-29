@@ -42,6 +42,8 @@ fn main() {
             println!("Data\n{:#?}", builder);
         }
 
+        builder.apply_additional_heuristics();
+
         let write_path = format!("{}/test.jyp_dict", data_path);
 
         let built_dictionary = CompiledDictionary::from_builder(builder);
