@@ -65,7 +65,7 @@ impl Builder {
                 jyutping_count += 1;
             }
 
-            let mut cost = (10_000 + jyutping_count * 1_000) as u32;
+            let mut cost = (15_000 + jyutping_count * 1_000) as u32;
             cost += cost_heuristic(&definitions.inner);
 
             self.entries.push(DictionaryEntry {
@@ -151,36 +151,56 @@ impl Builder {
     }
 }
 
+enum Heuristic
+{
+    ContainsTerms(&'static [&'static str]),
+    DoesNotContainTerms(&'static [&'static str]),
+}
+
+const HEURISTICS : &[(Heuristic, u32)] = &[
+    (Heuristic::ContainsTerms(&["abbr."]), 5000),
+    (Heuristic::DoesNotContainTerms(&["M:", "CL:"]), 5000),
+    (Heuristic::ContainsTerms(&["Surname", "surname"]), 2000),
+    (Heuristic::DoesNotContainTerms(&["(Cantonese)"]), 2000),
+    (Heuristic::ContainsTerms(&["Confucius"]), 5000),
+    (Heuristic::ContainsTerms(&["Dynasty", "Dynasties"]), 5000),
+    (Heuristic::ContainsTerms(&["(Buddhism)"]), 5000),
+];
+
 fn cost_heuristic(english_definitions: &[String]) -> u32
 {
-    let from_number_of_defs: u32 = 1000 - english_definitions.len().min(10) as u32 * 100;
+    //let from_number_of_defs: u32 = 1000 - english_definitions.len().min(10) as u32 * 100;
 
-    let mut from_abbr = 0;
-    for def in english_definitions {
-        if (def.contains("abbr. for")) {
-            from_abbr += from_number_of_defs;
+    let mut cost = 0;
+
+    for (heuristic, c) in HEURISTICS {
+        match heuristic {
+            Heuristic::ContainsTerms(terms) => {
+                if (matches_terms(terms, english_definitions)) {
+                    cost += c;
+                }
+            },
+            Heuristic::DoesNotContainTerms(terms) => {
+                if (!matches_terms(terms, english_definitions)) {
+                    cost += c;
+                }
+            }
         }
     }
 
-    // Has classifier is good
-    let mut has_classifier = false;
-    for def in english_definitions {
-        if (def.contains("M:") || def.contains("CL:")) {
-            has_classifier = true;
+    cost
+}
+
+fn matches_terms(needles: &[&str], heystacks: &[String]) -> bool {
+    for needle in needles {
+        for heystack in heystacks {
+            if (heystack.contains(needle)) {
+                return true;
+            }
         }
     }
 
-    let from_classifier = if has_classifier { 0 } else { 5000 };
-
-    // Surname is bad
-    let mut from_surname = 0;
-    for def in english_definitions {
-        if (def.contains("surname") || def.contains("Surname")) {
-            from_surname += 2000;
-        }
-    }
-
-    from_number_of_defs + from_abbr + from_classifier + from_surname
+    false
 }
 
 #[derive(Debug)]
