@@ -181,79 +181,164 @@ function render(prefix, results_string) {
 
 // Helper function to make jyutping terms clickable
 function makeJyutpingClickable(jyutpingHtml) {
-    // Parse the HTML to preserve <mark> tags
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = jyutpingHtml;
+    const container = document.createElement('div');
+    container.innerHTML = jyutpingHtml;
     
-    // Process each text node and wrap jyutping syllables in links
-    function processNode(node) {
-        if (node.nodeType === Node.TEXT_NODE) {
-            const text = node.textContent;
-            const syllables = text.split(/\s+/).filter(s => s.length > 0);
-            
-            if (syllables.length > 1 || (syllables.length === 1 && syllables[0].length > 0)) {
-                const fragment = document.createDocumentFragment();
-                const parts = text.split(/(\s+)/);
-                
-                parts.forEach(part => {
-                    if (part.trim().length > 0) {
-                        const link = document.createElement('a');
-                        link.href = `?q=${encodeURIComponent(part)}`;
-                        link.textContent = part;
-                        link.className = 'jyutping-link';
-                        fragment.appendChild(link);
-                    } else if (part.length > 0) {
-                        fragment.appendChild(document.createTextNode(part));
-                    }
-                });
-                
-                node.parentNode.replaceChild(fragment, node);
-            } else if (syllables.length === 1) {
-                const link = document.createElement('a');
-                link.href = `?q=${encodeURIComponent(syllables[0])}`;
-                link.textContent = text;
-                link.className = 'jyutping-link';
-                node.parentNode.replaceChild(link, node);
-            }
-        } else if (node.nodeType === Node.ELEMENT_NODE) {
-            // Recursively process child nodes
-            Array.from(node.childNodes).forEach(child => processNode(child));
-        }
-    }
+    const result = document.createElement('div');
+    wrapJyutpingSyllables(container, result);
     
-    Array.from(tempDiv.childNodes).forEach(child => processNode(child));
-    return tempDiv.innerHTML;
+    return result.innerHTML;
 }
 
 // Helper function to make traditional characters clickable
 function makeCharactersClickable(charactersHtml) {
-    // Parse the HTML to preserve <mark> tags
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = charactersHtml;
+    const container = document.createElement('div');
+    container.innerHTML = charactersHtml;
     
-    // Process each text node and wrap characters in links
-    function processNode(node) {
-        if (node.nodeType === Node.TEXT_NODE) {
-            const text = node.textContent;
-            if (text.length > 0) {
-                const fragment = document.createDocumentFragment();
-                
-                for (const char of text) {
-                    const link = document.createElement('a');
-                    link.href = `?q=${encodeURIComponent(char)}`;
-                    link.textContent = char;
-                    link.className = 'character-link';
-                    fragment.appendChild(link);
-                }
-                
-                node.parentNode.replaceChild(fragment, node);
-            }
-        } else if (node.nodeType === Node.ELEMENT_NODE) {
-            // Recursively process child nodes
-            Array.from(node.childNodes).forEach(child => processNode(child));
+    const result = document.createElement('div');
+    wrapCharacters(container, result);
+    
+    return result.innerHTML;
+}
+
+// Wrap jyutping syllables in links, preserving markup like <mark> tags
+function wrapJyutpingSyllables(sourceNode, targetNode) {
+    let currentLink = null;
+    let currentText = '';
+    
+    function flushLink() {
+        if (currentLink && currentText.trim().length > 0) {
+            currentLink.href = `?q=${encodeURIComponent(currentText.trim())}`;
+            targetNode.appendChild(currentLink);
+            currentLink = null;
+            currentText = '';
         }
     }
     
-    Array.from(tempDiv.childNodes).forEach(child => processNode(child));
-    return tempDiv.innerHTML;
+    function processNode(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const text = node.textContent;
+            const parts = text.split(/(\s+)/);
+            
+            for (let part of parts) {
+                if (part.trim().length > 0) {
+                    // Start a new link if needed
+                    if (!currentLink) {
+                        currentLink = document.createElement('a');
+                        currentLink.className = 'jyutping-link';
+                    }
+                    currentLink.appendChild(document.createTextNode(part));
+                    currentText += part;
+                } else if (part.length > 0) {
+                    // Whitespace - flush current link and add whitespace
+                    flushLink();
+                    targetNode.appendChild(document.createTextNode(part));
+                }
+            }
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            // Clone element and add to current link (or create new link if needed)
+            if (!currentLink) {
+                currentLink = document.createElement('a');
+                currentLink.className = 'jyutping-link';
+            }
+            
+            const clonedElement = document.createElement(node.tagName);
+            for (let attr of node.attributes) {
+                clonedElement.setAttribute(attr.name, attr.value);
+            }
+            
+            // Process children into the cloned element
+            for (let child of node.childNodes) {
+                processNodeIntoElement(child, clonedElement);
+            }
+            
+            currentLink.appendChild(clonedElement);
+        }
+    }
+    
+    function processNodeIntoElement(node, targetElement) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            targetElement.appendChild(document.createTextNode(node.textContent));
+            currentText += node.textContent;
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            const clonedElement = document.createElement(node.tagName);
+            for (let attr of node.attributes) {
+                clonedElement.setAttribute(attr.name, attr.value);
+            }
+            for (let child of node.childNodes) {
+                processNodeIntoElement(child, clonedElement);
+            }
+            targetElement.appendChild(clonedElement);
+        }
+    }
+    
+    for (let child of sourceNode.childNodes) {
+        processNode(child);
+    }
+    
+    flushLink();
+}
+
+// Wrap each character in a link, preserving markup like <mark> tags  
+function wrapCharacters(sourceNode, targetNode) {
+    function processNode(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const text = node.textContent;
+            for (let char of text) {
+                const link = document.createElement('a');
+                link.href = `?q=${encodeURIComponent(char)}`;
+                link.className = 'character-link';
+                link.textContent = char;
+                targetNode.appendChild(link);
+            }
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            // For character wrapping, we need to wrap content within marks
+            const clonedElement = document.createElement(node.tagName);
+            for (let attr of node.attributes) {
+                clonedElement.setAttribute(attr.name, attr.value);
+            }
+            
+            // Process children into links within the element
+            for (let child of node.childNodes) {
+                if (child.nodeType === Node.TEXT_NODE) {
+                    for (let char of child.textContent) {
+                        const link = document.createElement('a');
+                        link.href = `?q=${encodeURIComponent(char)}`;
+                        link.className = 'character-link';
+                        link.textContent = char;
+                        clonedElement.appendChild(link);
+                    }
+                } else {
+                    processNodeIntoElement(child, clonedElement);
+                }
+            }
+            
+            targetNode.appendChild(clonedElement);
+        }
+    }
+    
+    function processNodeIntoElement(node, targetElement) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            for (let char of node.textContent) {
+                const link = document.createElement('a');
+                link.href = `?q=${encodeURIComponent(char)}`;
+                link.className = 'character-link';
+                link.textContent = char;
+                targetElement.appendChild(link);
+            }
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            const clonedElement = document.createElement(node.tagName);
+            for (let attr of node.attributes) {
+                clonedElement.setAttribute(attr.name, attr.value);
+            }
+            for (let child of node.childNodes) {
+                processNodeIntoElement(child, clonedElement);
+            }
+            targetElement.appendChild(clonedElement);
+        }
+    }
+    
+    for (let child of sourceNode.childNodes) {
+        processNode(child);
+    }
 }
