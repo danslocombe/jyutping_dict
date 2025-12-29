@@ -1,12 +1,15 @@
 #![allow(dead_code)]
 #![allow(unused_parens)]
 #![allow(static_mut_refs)]
+#![allow(non_upper_case_globals)]
 
 #![allow(clippy::collapsible_if)]
 #![allow(clippy::collapsible_else_if)]
 #![allow(clippy::len_zero)]
 #![allow(clippy::identity_op)]
 #![allow(clippy::needless_range_loop)]
+
+#![feature(thread_local)]
 
 use std::time::Instant;
 

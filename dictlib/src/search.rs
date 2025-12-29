@@ -1,4 +1,5 @@
 use core::str;
+use std::cell::RefCell;
 
 use bit_set::BitSet;
 use serde::Serialize;
@@ -262,7 +263,15 @@ impl CompiledDictionary {
 
         result
     }
+}
 
+#[thread_local]
+static mut  s_entry_jyutping_matches : Option<BitSet> = None;
+
+#[thread_local]
+static mut s_matched_positions : Option<Vec<usize>> = None;
+
+impl CompiledDictionary {
     pub fn matches_jyutping_term(&self, entry: &CompiledDictionaryEntry, query_terms : &QueryTerms) -> Option<MatchCostInfo> {
         // If no jyutping terms in query, this is not a jyutping match
         if query_terms.jyutping_terms.is_empty() {
@@ -275,13 +284,25 @@ impl CompiledDictionary {
 
         let mut total_term_match_cost = 0;
 
-        // @Perf should not be dynamic, pool maybe?
-        let mut entry_jyutping_matches = BitSet::new();
-        let mut matched_positions: Vec<usize> = Vec::new();
+
+        // We are storing this in a thread_local to try and avoid dynamic
+       // allocations as much as possible.
+        unsafe {
+            if (s_entry_jyutping_matches.is_none()) {
+                s_entry_jyutping_matches = Some(BitSet::new());
+            }
+            if (s_matched_positions.is_none()) {
+                s_matched_positions = Some(Vec::with_capacity(1024));
+            }
+        }
+
+        let entry_jyutping_matches = unsafe { s_entry_jyutping_matches.as_mut().unwrap() };
+        let matched_positions = unsafe { s_matched_positions.as_mut().unwrap() };
+        entry_jyutping_matches.clear();
+        matched_positions.clear();
 
         for jyutping_term in &query_terms.jyutping_terms
         {
-            //let mut term_match = false;
             let mut best_term_match: Option<(usize, u32)> = None;
 
             for (i, entry_jyutping) in entry.jyutping.iter().enumerate()
