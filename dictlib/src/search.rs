@@ -190,23 +190,8 @@ impl CompiledDictionary {
                 let force_english = false;
                 if (s.len() > 2 || force_english)
                 {
-                    if let Some(mut match_cost) = self.matches_query_english(x, s)
+                    if let Some(cost_info) = self.matches_query_english(x, s)
                     {
-                        for c in s.chars() {
-                            if (!c.is_ascii()) {
-                                // Non-ascii match, probably a chinese character
-                                // match within an english description
-                                match_cost += NON_ASCII_MATCH_IN_ENGLISH_PENALTY;
-                            }
-                        }
-
-                        let cost_info = MatchCostInfo {
-                            term_match_cost: match_cost,
-                            unmatched_position_cost: 0,
-                            inversion_cost: 0,
-                            static_cost: x.cost,
-                        };
-
                         matches.push(Match {
                             cost_info,
                             match_type: MatchType::English,
@@ -286,7 +271,7 @@ impl CompiledDictionary {
 
 
         // We are storing this in a thread_local to try and avoid dynamic
-       // allocations as much as possible.
+        // allocations as much as possible.
         unsafe {
             if (s_entry_jyutping_matches.is_none()) {
                 s_entry_jyutping_matches = Some(BitSet::new());
@@ -360,14 +345,7 @@ impl CompiledDictionary {
         //let additional_terms = entry.jyutpings.len() - query_terms.jyutping_matches.len();
         //match_cost += additional_terms as u32 * 10_000;
 
-        let mut inversion_cost = 0u32;
-        for i in 0..matched_positions.len() {
-            for j in (i + 1)..matched_positions.len() {
-                if matched_positions[i] > matched_positions[j] {
-                    inversion_cost += OUT_OF_ORDER_INVERSION_PENALTY;
-                }
-            }
-        }
+        let inversion_cost = cost_inversions(&matched_positions);
 
         let mut unmatched_position_cost = 0u32;
         for i in 0..entry.jyutping.len() {
@@ -383,11 +361,13 @@ impl CompiledDictionary {
             static_cost: 0,
         })
     }
+}
 
-    pub fn matches_query_english(&self, entry: &CompiledDictionaryEntry, s : &str) -> Option<u32>
+impl CompiledDictionary {
+    pub fn matches_query_english(&self, entry: &CompiledDictionaryEntry, s : &str) -> Option<MatchCostInfo>
     {
         // Make sure we prefer jyutping matches
-        let mut cost: u32 = ENGLISH_BASE_PENALTY;
+        let mut match_cost: u32 = ENGLISH_BASE_PENALTY;
 
         // @Perf do search over enterity instead of individual entries.
 
@@ -400,14 +380,25 @@ impl CompiledDictionary {
         let end = self.english_data_starts[entry.english_end as usize] as usize;
         let block = &self.english_data[start..end];
 
+        // We are storing this in a thread_local to try and avoid dynamic
+        // allocations as much as possible.
+        unsafe {
+            if (s_matched_positions.is_none()) {
+                s_matched_positions = Some(Vec::with_capacity(1024));
+            }
+        }
+
+        let matched_positions = unsafe { s_matched_positions.as_mut().unwrap() };
+        matched_positions.clear();
+
         for split in s.split_ascii_whitespace()
         {
             /*
             for (i, def) in entry.english_definitions.iter().enumerate()
             {
                 if let Some(pos) = crate::string_search::string_indexof_linear_ignorecase(split, def) {
-                    cost += i as u32 * 1_000;
-                    cost += pos as u32 * 100;
+                    match_cost += i as u32 * 1_000;
+                    match_cost += pos as u32 * 100;
                     continue 'outer;
                 }
             }
@@ -416,8 +407,8 @@ impl CompiledDictionary {
             // @FIXME entry boundaries etc.
 
             if let Some(pos) = crate::string_search::string_indexof_linear_ignorecase(split, block) {
-                //cost += i as u32 * 1_000;
-                cost += pos as u32 * ENGLISH_POS_OFFSET_PENALTY_K;
+                matched_positions.push(pos);
+                match_cost += pos as u32 * ENGLISH_POS_OFFSET_PENALTY_K;
 
                 if (pos == 0)  {
                     continue;
@@ -430,7 +421,7 @@ impl CompiledDictionary {
                 }
 
                 // Match in the middle of a word
-                cost += ENGLISH_MIDDLE_OF_WORD_PENALTY;
+                match_cost += ENGLISH_MIDDLE_OF_WORD_PENALTY;
                 continue;
             }
 
@@ -438,7 +429,23 @@ impl CompiledDictionary {
             return None;
         }
 
-        Some(cost)
+        let inversion_cost = cost_inversions(&matched_positions);
+
+        for c in s.chars() {
+            if (!c.is_ascii()) {
+                // Non-ascii match, probably a chinese character
+                // match within an english description
+                match_cost += NON_ASCII_MATCH_IN_ENGLISH_PENALTY;
+            }
+        }
+
+
+        Some(MatchCostInfo {
+            term_match_cost: match_cost,
+            unmatched_position_cost: 0,
+            inversion_cost,
+            static_cost: entry.cost,
+        })
     }
 
     pub fn matches_query_traditional(&self, entry: &CompiledDictionaryEntry, query_terms : &QueryTerms) -> bool
@@ -453,4 +460,19 @@ impl CompiledDictionary {
 
         true
     }
+}
+
+
+pub fn cost_inversions(matched_positions: &[usize]) -> u32
+{
+    let mut cost = 0u32;
+    for i in 0..matched_positions.len() {
+        for j in (i + 1)..matched_positions.len() {
+            if matched_positions[i] > matched_positions[j] {
+                cost += OUT_OF_ORDER_INVERSION_PENALTY;
+            }
+        }
+    }
+
+    cost
 }
