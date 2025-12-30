@@ -51,7 +51,6 @@ a, .card .legend .word, .card-item .item-title .asterisk {
 	padding: 1rem;
 	padding-left: 2.75rem;
 	font-size: 18px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 468px) {
@@ -70,7 +69,6 @@ a, .card .legend .word, .card-item .item-title .asterisk {
 #entry:focus {
 	border: 2px solid #6366f1;
 	outline: none;
-	box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 .entry-label {
@@ -146,7 +144,6 @@ a, .card .legend .word, .card-item .item-title .asterisk {
     border-radius: 1rem;
     margin-bottom: 1rem;
     background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card-item {
@@ -212,4 +209,32 @@ a, .card .legend .word, .card-item .item-title .asterisk {
 
 .jyutping-link:active, .character-link:active {
 	opacity: 0.5;
+}
+
+.load-more-btn {
+	width: 50%;
+	padding: 0.5rem 1.0rem;
+	margin: 0 auto 1rem auto;
+	display: block;
+	background-color: #9092d9;
+	color: white;
+	border: none;
+	border-radius: 0.75rem;
+	font-size: 16px;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.load-more-btn:hover {
+	background-color: #797bbf;
+}
+
+.load-more-btn:active {
+	background-color: #797bbf;
+}
+
+@media (min-width: 468px) {
+	.load-more-btn {
+		width: 13rem;
+	}
 }
