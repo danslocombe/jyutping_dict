@@ -12,16 +12,17 @@ fn main() {
 
     let build = args.iter().any(|x| x.eq_ignore_ascii_case("build"));
     let test_set = args.iter().any(|x| x.eq_ignore_ascii_case("test_set"));
+    let no_query = args.iter().any(|x| x.eq_ignore_ascii_case("no_query"));
 
-    let (data_path, print_debug) = if test_set {
-        ("../test", true)
+    let (data_path, name, print_debug) = if test_set {
+        ("../test", "test", true)
     }
     else {
-        ("../full", false)
+        ("../full", "full", false)
     };
 
 
-    let write_path = format!("{}/test.jyp_dict", data_path);
+    let index_path = format!("{}/{}.jyp_dict", data_path, name);
 
     if (build)
     {
@@ -44,8 +45,6 @@ fn main() {
 
         builder.apply_additional_heuristics();
 
-        let write_path = format!("{}/test.jyp_dict", data_path);
-
         let built_dictionary = CompiledDictionary::from_builder(builder);
 
         let dump_entries = false;
@@ -54,15 +53,16 @@ fn main() {
             built_dictionary.dump_entries("entries_dump.txt");
         }
 
-        println!("Writing to {}", &write_path);
-        let mut data_writer = data_writer::DataWriter::new(&write_path);
+        println!("Writing to {}", &index_path);
+        let mut data_writer = data_writer::DataWriter::new(&index_path);
         built_dictionary.serialize(&mut data_writer).unwrap();
         println!("Writing done!");
+        
     }
 
     let compiled_dictionary = {
-        println!("Reading from {}", &write_path);
-        let mut f = std::fs::File::open(write_path).unwrap();
+        println!("Reading from {}", &index_path);
+        let mut f = std::fs::File::open(index_path).unwrap();
         let mut buffer = Vec::new();
         f.read_to_end(&mut buffer).unwrap();
 
@@ -75,6 +75,12 @@ fn main() {
     }
 
     let mut buffer = String::new();
+
+    if (no_query)
+    {
+        println!("'no_query' specified - exiting");
+        return;
+    }
 
     loop {
         buffer.clear();

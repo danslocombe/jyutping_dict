@@ -12,7 +12,7 @@ var explanation = document.getElementById("explanation");
 
 var debug = url_params.get('debug') === '1';
 
-fetch("test.jyp_dict", { cache: 'force-cache' })
+fetch("full.jyp_dict", { cache: 'force-cache' })
     .then(response => {
         if (!response.ok) {
             throw new Error(`Failed to fetch dictionary blob: ${response.status} ${response.statusText}`);
