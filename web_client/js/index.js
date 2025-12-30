@@ -33,7 +33,8 @@ fetch("full.jyp_dict", { cache: 'force-cache' })
         resultsfield.innerHTML = "";
 
         if (prefix.length > 0) {
-            render(prefix, jyutping_search.search(prefix));
+            const max_results = 12;
+            render(prefix, jyutping_search.search(prefix, max_results));
             explanation.hidden = true;
 
             // Update URL query parameter

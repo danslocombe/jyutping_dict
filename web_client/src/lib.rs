@@ -52,9 +52,9 @@ impl JyutpingSearch {
         }
     }
 
-    pub fn search(&self, prefix : &str) -> String {
+    pub fn search(&self, prefix : &str, max_results: usize) -> String {
         let stopwatch = Box::new(WasmStopwatch::new());
-        let results = self.dict.search(prefix, stopwatch);
+        let results = self.dict.search(prefix, max_results, stopwatch);
 
         let mut display_results = Vec::new();
         for m in results.matches

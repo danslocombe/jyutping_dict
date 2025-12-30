@@ -698,7 +698,7 @@ pub mod tests {
         let dict = create_test_dict();
 
         // Search with substring should find entries
-        let results = dict.search("saa", Box::new(TestStopwatch)).matches;
+        let results = dict.search("saa", 8, Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0, "Should find results for substring 'saa' matching 'saang'");
         assert_eq!(results[0].match_obj.entry_id, 1); // Should match the 學生 entry with saang1
@@ -713,7 +713,7 @@ pub mod tests {
         let dict = create_test_dict();
 
         // Search with prefix
-        let results = dict.search("ho", Box::new(TestStopwatch)).matches;
+        let results = dict.search("ho", 8, Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0, "Should find results for prefix 'ho' matching 'hok'");
         assert_eq!(results[0].match_obj.entry_id, 1); // Should match the 學生 entry with hok6
@@ -729,7 +729,7 @@ pub mod tests {
         assert_eq!(query_term.matches.len(), 0, "Should not match non-existent jyutping");
 
         // Search should return no jyutping matches
-        let results = dict.search("xyz", Box::new(TestStopwatch)).matches;
+        let results = dict.search("xyz", 8, Box::new(TestStopwatch)).matches;
 
         // May have English matches, but no jyutping matches
         for result in results {
@@ -989,7 +989,7 @@ pub mod tests {
         let dict = create_test_dict();
 
         // Search with substring
-        let results = dict.search("saa", Box::new(TestStopwatch)).matches;
+        let results = dict.search("saa", 8, Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0, "Should find results for substring");
         assert_eq!(results[0].match_obj.entry_id, 1);
@@ -1013,7 +1013,7 @@ pub mod tests {
         let dict = create_test_dict();
 
         // Search with prefix
-        let results = dict.search("ho", Box::new(TestStopwatch)).matches;
+        let results = dict.search("ho", 8, Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0, "Should find results for prefix");
         assert_eq!(results[0].match_obj.entry_id, 1);
@@ -1033,7 +1033,7 @@ pub mod tests {
         let dict = create_test_dict();
 
         // Search with two substring queries
-        let results = dict.search("ho saa", Box::new(TestStopwatch)).matches;
+        let results = dict.search("ho saa", 8, Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0);
         assert_eq!(results[0].match_obj.entry_id, 1); // 學生 with "hok6 saang1"
@@ -1096,7 +1096,7 @@ pub mod tests {
         let dict = create_test_dict();
 
         // Search for "lou" should return the teacher entry
-        let results = dict.search("lou", Box::new(TestStopwatch)).matches;
+        let results = dict.search("lou", 8, Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0, "Should find at least one result");
         assert_eq!(results[0].match_obj.entry_id, 0);
@@ -1117,7 +1117,7 @@ pub mod tests {
     fn test_integration_english_search() {
         let dict = create_test_dict();
 
-        let results = dict.search("student", Box::new(TestStopwatch)).matches;
+        let results = dict.search("student", 8, Box::new(TestStopwatch)).matches;
 
         assert!(results.len() > 0);
         assert_eq!(results[0].match_obj.entry_id, 1);
@@ -1137,7 +1137,7 @@ pub mod tests {
         eprintln!("Character '老' has id: {:?}", char_id);
         eprintln!("Entry 0 characters: {:?}", dict.entries[0].characters);
 
-        let results = dict.search("老", Box::new(TestStopwatch)).matches;
+        let results = dict.search("老", 8, Box::new(TestStopwatch)).matches;
 
         // Debug: print what we got
         eprintln!("Search for '老' returned {} results", results.len());
@@ -1202,14 +1202,14 @@ pub mod tests {
         };
 
         // Should be exact match
-        let res = dict.search("aa baa", Box::new(TestStopwatch));
+        let res = dict.search("aa baa", 8, Box::new(TestStopwatch));
         assert_eq!(1, res.matches.len());
         assert_eq!(0, res.matches[0].match_obj.cost_info.total());
         assert_eq!(2, res.matches[0].matched_spans.len());
         assert_eq!((0, 2), res.matches[0].matched_spans[0]);
         assert_eq!((4, 7), res.matches[0].matched_spans[1]);
 
-        let res = dict.search("aa ba", Box::new(TestStopwatch));
+        let res = dict.search("aa ba", 8, Box::new(TestStopwatch));
         assert_eq!(1, res.matches.len());
         assert_eq!(2500, res.matches[0].match_obj.cost_info.total());
         assert_eq!(2, res.matches[0].matched_spans.len());
@@ -1217,7 +1217,7 @@ pub mod tests {
         assert_eq!((4, 6), res.matches[0].matched_spans[1]);
 
         // Should be exact match
-        let res = dict.search("aa3 baa1", Box::new(TestStopwatch));
+        let res = dict.search("aa3 baa1", 8, Box::new(TestStopwatch));
         assert_eq!(1, res.matches.len());
         assert_eq!(0, res.matches[0].match_obj.cost_info.total());
         assert_eq!(1, res.matches[0].matched_spans.len());

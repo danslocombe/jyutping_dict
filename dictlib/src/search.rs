@@ -142,10 +142,11 @@ pub struct Timings {
 pub struct SearchResult {
     pub matches : Vec<MatchWithHitInfo>,
     pub timings: Timings,
+    pub internal_candidates: usize,
 }
 
 impl CompiledDictionary {
-    pub fn search(&self, s : &str, stopwatch: Box<dyn Stopwatch>) -> SearchResult
+    pub fn search(&self, s : &str, max_results: usize, stopwatch: Box<dyn Stopwatch>) -> SearchResult
     {
         let mut result = SearchResult::default();
 
@@ -223,9 +224,11 @@ impl CompiledDictionary {
 
         result.timings.full_match = stopwatch.elapsed_ms();
 
-        debug_log!("Internal candidates: {}", matches.len());
+        result.internal_candidates = matches.len();
+        debug_log!("Internal candidates: {}", result.internal_candidates);
+
         matches.sort_by(|(x), (y)| x.cost_info.total().cmp(&y.cost_info.total()));
-        matches.truncate(8);
+        matches.truncate(max_results);
 
         result.timings.rank = stopwatch.elapsed_ms();
 

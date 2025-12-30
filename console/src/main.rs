@@ -92,7 +92,7 @@ fn main() {
         println!("\n\n");
 
         let stopwatch = Box::new(NativeStopwatch::new());
-        let result = compiled_dictionary.search(&buffer.trim(), stopwatch);
+        let result = compiled_dictionary.search(&buffer.trim(), 5, stopwatch);
 
         for m in result.matches
         {

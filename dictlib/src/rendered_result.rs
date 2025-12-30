@@ -246,7 +246,7 @@ mod tests {
         let dict = create_test_dict();
 
         // Search for "lou" which should match 老師 (lou5 si1)
-        let results = dict.search("lou", Box::new(TestStopwatch)).matches;
+        let results = dict.search("lou", 8, Box::new(TestStopwatch)).matches;
         assert!(results.len() > 0);
 
         let result = &results[0];
@@ -273,7 +273,7 @@ mod tests {
         let dict = create_test_dict();
 
         // Search for "lou5" which should match 老師 (lou5 si1)
-        let results = dict.search("lou5", Box::new(TestStopwatch)).matches;
+        let results = dict.search("lou5", 8, Box::new(TestStopwatch)).matches;
         assert!(results.len() > 0);
 
         let result = &results[0];
@@ -288,7 +288,7 @@ mod tests {
         let dict = create_test_dict();
 
         // Search for "lou si" which should match both syllables in 老師
-        let results = dict.search("lou si", Box::new(TestStopwatch)).matches;
+        let results = dict.search("lou si", 8, Box::new(TestStopwatch)).matches;
         assert!(results.len() > 0);
 
         let result = &results[0];
@@ -304,7 +304,7 @@ mod tests {
         let dict = create_test_dict();
 
         // Search for "saa" which should substring match "saang" in 學生
-        let results = dict.search("saa", Box::new(TestStopwatch)).matches;
+        let results = dict.search("saa", 8, Box::new(TestStopwatch)).matches;
         assert!(results.len() > 0);
 
         let result = &results[0];
@@ -324,7 +324,7 @@ mod tests {
         let dict = create_test_dict();
 
         // Search for Chinese character
-        let results = dict.search("老", Box::new(TestStopwatch)).matches;
+        let results = dict.search("老", 8, Box::new(TestStopwatch)).matches;
         assert!(results.len() > 0);
 
         let result = &results[0];
@@ -350,7 +350,7 @@ mod tests {
         let dict = create_test_dict();
 
         // Search for multiple characters
-        let results = dict.search("老師", Box::new(TestStopwatch)).matches;
+        let results = dict.search("老師", 8, Box::new(TestStopwatch)).matches;
         assert!(results.len() > 0);
 
         let result = &results[0];
@@ -367,7 +367,7 @@ mod tests {
         let dict = create_test_dict();
 
         // Search for English word
-        let results = dict.search("teacher", Box::new(TestStopwatch)).matches;
+        let results = dict.search("teacher", 8, Box::new(TestStopwatch)).matches;
         assert!(results.len() > 0);
 
         let result = &results[0];
@@ -397,7 +397,7 @@ mod tests {
         let dict = create_test_dict();
 
         // Search for English word with duplicate - should merge overlapping spans
-        let results = dict.search("teacher teacher", Box::new(TestStopwatch)).matches;
+        let results = dict.search("teacher teacher", 8, Box::new(TestStopwatch)).matches;
         assert!(results.len() > 0);
 
         let result = &results[0];
@@ -417,7 +417,7 @@ mod tests {
 
         // Even though our test dict doesn't have HTML in definitions,
         // we can verify the structure is correct
-        let results = dict.search("teacher", Box::new(TestStopwatch)).matches;
+        let results = dict.search("teacher", 8, Box::new(TestStopwatch)).matches;
         if results.len() > 0 {
             let result = &results[0];
             let rendered = RenderedResult::from_match(result, &dict);
@@ -444,7 +444,7 @@ mod tests {
 
         // For match types that don't apply to certain fields,
         // those fields should have no highlighting
-        let results = dict.search("lou", Box::new(TestStopwatch)).matches;
+        let results = dict.search("lou", 8, Box::new(TestStopwatch)).matches;
         if results.len() > 0 {
             let result = &results[0];
             let rendered = RenderedResult::from_match(result, &dict);
@@ -459,7 +459,7 @@ mod tests {
     fn test_from_match_cost_preserved() {
         let dict = create_test_dict();
 
-        let results = dict.search("lou", Box::new(TestStopwatch)).matches;
+        let results = dict.search("lou", 8, Box::new(TestStopwatch)).matches;
         assert!(results.len() > 0);
 
         let result = &results[0];
@@ -473,7 +473,7 @@ mod tests {
     fn test_from_match_entry_source_preserved() {
         let dict = create_test_dict();
 
-        let results = dict.search("lou", Box::new(TestStopwatch)).matches;
+        let results = dict.search("lou", 8, Box::new(TestStopwatch)).matches;
         assert!(results.len() > 0);
 
         let result = &results[0];
