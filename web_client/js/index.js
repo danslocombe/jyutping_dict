@@ -197,7 +197,7 @@ function render(results_string) {
             const input_function_for_load_more = () => {
                 resultsfield.innerHTML = "";
                 const results_string = jyutping_search.search(currentQuery, currentMaxResults);
-                render(currentQuery, results_string);
+                render(results_string);
             };
             input_function_for_load_more();
         };
