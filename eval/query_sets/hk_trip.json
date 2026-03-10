@@ -1,0 +1,3824 @@
+[
+  {
+    "id": 5001,
+    "query": "nei5 hou2 maa3",
+    "category": "hk_greetings",
+    "description": "How are you?",
+    "expected_jyutping": [
+      "nei5 hou2 maa3"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "How are you"
+    ]
+  },
+  {
+    "id": 5002,
+    "query": "zou2 san4",
+    "category": "hk_greetings",
+    "description": "Good morning",
+    "expected_jyutping": [
+      "zou2 san4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Good morning"
+    ]
+  },
+  {
+    "id": 5003,
+    "query": "maan5 ngon1",
+    "category": "hk_greetings",
+    "description": "Good night (ending statement not greeting)",
+    "expected_jyutping": [
+      "maan5 ngon1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Good night"
+    ]
+  },
+  {
+    "id": 5004,
+    "query": "wai3",
+    "category": "hk_greetings",
+    "description": "Hi (formal)",
+    "expected_jyutping": [
+      "wai3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Hi"
+    ]
+  },
+  {
+    "id": 5005,
+    "query": "wai2",
+    "category": "hk_greetings",
+    "description": "Hello (phone)",
+    "expected_jyutping": [
+      "wai2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Hello"
+    ]
+  },
+  {
+    "id": 5006,
+    "query": "m4 goi1",
+    "category": "hk_greetings",
+    "description": "Thank you (non significant, doing a favour, not spending money)",
+    "expected_jyutping": [
+      "m4 goi1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Thank you"
+    ]
+  },
+  {
+    "id": 5007,
+    "query": "do1 ze6",
+    "category": "hk_greetings",
+    "description": "Thank you (when money is involved; when someone congratulates you)",
+    "expected_jyutping": [
+      "do1 ze6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Thank you"
+    ]
+  },
+  {
+    "id": 5008,
+    "query": "m4 goi1 saai3",
+    "category": "hk_greetings",
+    "description": "Thank you very much (small favour, no money)",
+    "expected_jyutping": [
+      "m4 goi1 saai3"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Thank you very much"
+    ]
+  },
+  {
+    "id": 5009,
+    "query": "do1 ze6 saai3",
+    "category": "hk_greetings",
+    "description": "Thank you very much (when money is involved, when someone congratulates you)",
+    "expected_jyutping": [
+      "do1 ze6 saai3"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Thank you very much"
+    ]
+  },
+  {
+    "id": 5010,
+    "query": "deoi3 m4 zyu6",
+    "category": "hk_greetings",
+    "description": "Sorry (for breaking something)",
+    "expected_jyutping": [
+      "deoi3 m4 zyu6"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Sorry"
+    ]
+  },
+  {
+    "id": 5011,
+    "query": "baai1 baai3",
+    "category": "hk_greetings",
+    "description": "Bye (informal)",
+    "expected_jyutping": [
+      "baai1 baai3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Bye"
+    ]
+  },
+  {
+    "id": 5012,
+    "query": "zoi3 gin3",
+    "category": "hk_greetings",
+    "description": "Goodbye (more formal) (again see)",
+    "expected_jyutping": [
+      "zoi3 gin3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Goodbye"
+    ]
+  },
+  {
+    "id": 5013,
+    "query": "m4 sai2 haak3 hei3",
+    "category": "hk_greetings",
+    "description": "You're welcome! (no need to be polite)",
+    "expected_jyutping": [
+      "m4 sai2 haak3 hei3"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "You're welcome"
+    ]
+  },
+  {
+    "id": 5014,
+    "query": "sik6 zo2 faan6 mei6",
+    "category": "hk_greetings",
+    "description": "Have you eaten yet? (You alright - type greeting)",
+    "expected_jyutping": [
+      "sik6 zo2 faan6 mei6"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Have you eaten yet"
+    ]
+  },
+  {
+    "id": 5015,
+    "query": "m4 sai2",
+    "category": "hk_greetings",
+    "description": "No need",
+    "expected_jyutping": [
+      "m4 sai2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "No need"
+    ]
+  },
+  {
+    "id": 5016,
+    "query": "ngo5 hai6",
+    "category": "hk_core",
+    "description": "I am",
+    "expected_jyutping": [
+      "ngo5 hai6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "I am"
+    ]
+  },
+  {
+    "id": 5017,
+    "query": "nei5",
+    "category": "hk_core",
+    "description": "You",
+    "expected_jyutping": [
+      "nei5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "You"
+    ]
+  },
+  {
+    "id": 5018,
+    "query": "ngo5 dei6",
+    "category": "hk_core",
+    "description": "We / Us",
+    "expected_jyutping": [
+      "ngo5 dei6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "We"
+    ]
+  },
+  {
+    "id": 5019,
+    "query": "keoi5",
+    "category": "hk_core",
+    "description": "He / She / It",
+    "expected_jyutping": [
+      "keoi5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "He"
+    ]
+  },
+  {
+    "id": 5020,
+    "query": "keoi5 dei6",
+    "category": "hk_core",
+    "description": "They / Them (plural not nonbinary or could be nonbinary I guess)",
+    "expected_jyutping": [
+      "keoi5 dei6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "They"
+    ]
+  },
+  {
+    "id": 5021,
+    "query": "ni1 go3",
+    "category": "hk_core",
+    "description": "This",
+    "expected_jyutping": [
+      "ni1 go3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "This"
+    ]
+  },
+  {
+    "id": 5022,
+    "query": "go2 go3",
+    "category": "hk_core",
+    "description": "That",
+    "expected_jyutping": [
+      "go2 go3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "That"
+    ]
+  },
+  {
+    "id": 5023,
+    "query": "daai6",
+    "category": "hk_core",
+    "description": "Big / Large",
+    "expected_jyutping": [
+      "daai6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Big"
+    ]
+  },
+  {
+    "id": 5024,
+    "query": "zung1",
+    "category": "hk_core",
+    "description": "Medium / Middle",
+    "expected_jyutping": [
+      "zung1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Medium"
+    ]
+  },
+  {
+    "id": 5025,
+    "query": "sai3",
+    "category": "hk_core",
+    "description": "Small / few",
+    "expected_jyutping": [
+      "sai3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Small"
+    ]
+  },
+  {
+    "id": 5026,
+    "query": "hou2 do1",
+    "category": "hk_core",
+    "description": "Many",
+    "expected_jyutping": [
+      "hou2 do1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Many"
+    ]
+  },
+  {
+    "id": 5027,
+    "query": "soeng2",
+    "category": "hk_core",
+    "description": "To want to",
+    "expected_jyutping": [
+      "soeng2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "want to"
+    ]
+  },
+  {
+    "id": 5028,
+    "query": "jiu3",
+    "category": "hk_core",
+    "description": "To need",
+    "expected_jyutping": [
+      "jiu3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "need"
+    ]
+  },
+  {
+    "id": 5029,
+    "query": "soeng2 jiu3",
+    "category": "hk_core",
+    "description": "[I/He/She] Would like",
+    "expected_jyutping": [
+      "soeng2 jiu3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "[I"
+    ]
+  },
+  {
+    "id": 5030,
+    "query": "ho2 ji5",
+    "category": "hk_core",
+    "description": "Can",
+    "expected_jyutping": [
+      "ho2 ji5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Can"
+    ]
+  },
+  {
+    "id": 5031,
+    "query": "jau5",
+    "category": "hk_core",
+    "description": "To have",
+    "expected_jyutping": [
+      "jau5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "have"
+    ]
+  },
+  {
+    "id": 5032,
+    "query": "mou5",
+    "category": "hk_core",
+    "description": "To not have",
+    "expected_jyutping": [
+      "mou5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "not have"
+    ]
+  },
+  {
+    "id": 5033,
+    "query": "jau5 mou5",
+    "category": "hk_core",
+    "description": "Do (you) have?",
+    "expected_jyutping": [
+      "jau5 mou5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Do"
+    ]
+  },
+  {
+    "id": 5034,
+    "query": "heoi3",
+    "category": "hk_core",
+    "description": "To go (to a place)",
+    "expected_jyutping": [
+      "heoi3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "go"
+    ]
+  },
+  {
+    "id": 5035,
+    "query": "lei4",
+    "category": "hk_core",
+    "description": "To come",
+    "expected_jyutping": [
+      "lei4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "come"
+    ]
+  },
+  {
+    "id": 5036,
+    "query": "zung1 ji3",
+    "category": "hk_core",
+    "description": "To like",
+    "expected_jyutping": [
+      "zung1 ji3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "like"
+    ]
+  },
+  {
+    "id": 5037,
+    "query": "m4 zung1 ji3",
+    "category": "hk_core",
+    "description": "To not like",
+    "expected_jyutping": [
+      "m4 zung1 ji3"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "not like"
+    ]
+  },
+  {
+    "id": 5038,
+    "query": "tai2",
+    "category": "hk_core",
+    "description": "To look / watch / read",
+    "expected_jyutping": [
+      "tai2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "look"
+    ]
+  },
+  {
+    "id": 5039,
+    "query": "teng1",
+    "category": "hk_core",
+    "description": "To listen",
+    "expected_jyutping": [
+      "teng1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "listen"
+    ]
+  },
+  {
+    "id": 5040,
+    "query": "zou6",
+    "category": "hk_core",
+    "description": "To do",
+    "expected_jyutping": [
+      "zou6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "do"
+    ]
+  },
+  {
+    "id": 5041,
+    "query": "man6",
+    "category": "hk_core",
+    "description": "To ask",
+    "expected_jyutping": [
+      "man6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "ask"
+    ]
+  },
+  {
+    "id": 5042,
+    "query": "bong1",
+    "category": "hk_core",
+    "description": "To help",
+    "expected_jyutping": [
+      "bong1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "help"
+    ]
+  },
+  {
+    "id": 5043,
+    "query": "nam2",
+    "category": "hk_core",
+    "description": "To think",
+    "expected_jyutping": [
+      "nam2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "think"
+    ]
+  },
+  {
+    "id": 5044,
+    "query": "maai5",
+    "category": "hk_core",
+    "description": "To buy",
+    "expected_jyutping": [
+      "maai5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "buy"
+    ]
+  },
+  {
+    "id": 5045,
+    "query": "jam2",
+    "category": "hk_core",
+    "description": "To drink",
+    "expected_jyutping": [
+      "jam2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "drink"
+    ]
+  },
+  {
+    "id": 5046,
+    "query": "sik6",
+    "category": "hk_core",
+    "description": "To eat",
+    "expected_jyutping": [
+      "sik6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "eat"
+    ]
+  },
+  {
+    "id": 5047,
+    "query": "gong2",
+    "category": "hk_core",
+    "description": "To speak (eg a language) / to explain",
+    "expected_jyutping": [
+      "gong2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "speak"
+    ]
+  },
+  {
+    "id": 5048,
+    "query": "wan2",
+    "category": "hk_core",
+    "description": "Find",
+    "expected_jyutping": [
+      "wan2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Find"
+    ]
+  },
+  {
+    "id": 5049,
+    "query": "lo2",
+    "category": "hk_core",
+    "description": "Take / get",
+    "expected_jyutping": [
+      "lo2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Take"
+    ]
+  },
+  {
+    "id": 5050,
+    "query": "gaan2",
+    "category": "hk_core",
+    "description": "Choose (Pick one out of options)",
+    "expected_jyutping": [
+      "gaan2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Choose"
+    ]
+  },
+  {
+    "id": 5051,
+    "query": "di1",
+    "category": "hk_core",
+    "description": "Some (of an uncountable item or plural)",
+    "expected_jyutping": [
+      "di1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Some"
+    ]
+  },
+  {
+    "id": 5052,
+    "query": "me1",
+    "category": "hk_core",
+    "description": "(adverb) what?",
+    "expected_jyutping": [
+      "me1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ]
+  },
+  {
+    "id": 5053,
+    "query": "dim2 gaai2",
+    "category": "hk_core",
+    "description": "Why ( in question)",
+    "expected_jyutping": [
+      "dim2 gaai2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Why"
+    ]
+  },
+  {
+    "id": 5054,
+    "query": "jan1 wai6",
+    "category": "hk_core",
+    "description": "Because (giving reasons)",
+    "expected_jyutping": [
+      "jan1 wai6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Because"
+    ]
+  },
+  {
+    "id": 5055,
+    "query": "bin1 dou6",
+    "category": "hk_core",
+    "description": "Where",
+    "expected_jyutping": [
+      "bin1 dou6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Where"
+    ]
+  },
+  {
+    "id": 5056,
+    "query": "gei2 si4",
+    "category": "hk_core",
+    "description": "When",
+    "expected_jyutping": [
+      "gei2 si4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "When"
+    ]
+  },
+  {
+    "id": 5057,
+    "query": "bin1 go3",
+    "category": "hk_core",
+    "description": "Who / Which one",
+    "expected_jyutping": [
+      "bin1 go3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Who"
+    ]
+  },
+  {
+    "id": 5058,
+    "query": "gei2 do1",
+    "category": "hk_core",
+    "description": "How many?",
+    "expected_jyutping": [
+      "gei2 do1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "How many"
+    ]
+  },
+  {
+    "id": 5059,
+    "query": "maa3",
+    "category": "hk_core",
+    "description": "Yes / no question particle",
+    "expected_jyutping": [
+      "maa3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Yes"
+    ]
+  },
+  {
+    "id": 5060,
+    "query": "daan6 hai6",
+    "category": "hk_core",
+    "description": "But, however",
+    "expected_jyutping": [
+      "daan6 hai6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "But, however"
+    ]
+  },
+  {
+    "id": 5061,
+    "query": "dak1",
+    "category": "hk_core",
+    "description": "Ok got it!",
+    "expected_jyutping": [
+      "dak1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Ok got it"
+    ]
+  },
+  {
+    "id": 5062,
+    "query": "ho2 nang4",
+    "category": "hk_core",
+    "description": "Maybe",
+    "expected_jyutping": [
+      "ho2 nang4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Maybe"
+    ]
+  },
+  {
+    "id": 5063,
+    "query": "dou1",
+    "category": "hk_core",
+    "description": "All, every / both, also / Even",
+    "expected_jyutping": [
+      "dou1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "All, every"
+    ]
+  },
+  {
+    "id": 5064,
+    "query": "ji5 soeng6",
+    "category": "hk_core",
+    "description": "More than; Above",
+    "expected_jyutping": [
+      "ji5 soeng6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "More than; Above"
+    ]
+  },
+  {
+    "id": 5065,
+    "query": "m4 gan3",
+    "category": "hk_core",
+    "description": "Not enough",
+    "expected_jyutping": [
+      "m4 gan3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Not enough"
+    ]
+  },
+  {
+    "id": 5066,
+    "query": "gau3",
+    "category": "hk_core",
+    "description": "Enough / sufficient",
+    "expected_jyutping": [
+      "gau3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Enough"
+    ]
+  },
+  {
+    "id": 5067,
+    "query": "ji4 gaa1",
+    "category": "hk_core",
+    "description": "Right now; now; this moment (adverb)",
+    "expected_jyutping": [
+      "ji4 gaa1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Right now; now; this moment"
+    ]
+  },
+  {
+    "id": 5068,
+    "query": "do1 di1",
+    "category": "hk_core",
+    "description": "A bit more",
+    "expected_jyutping": [
+      "do1 di1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "bit more"
+    ]
+  },
+  {
+    "id": 5069,
+    "query": "cing2",
+    "category": "hk_core",
+    "description": "formal / please",
+    "expected_jyutping": [
+      "cing2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "formal"
+    ]
+  },
+  {
+    "id": 5070,
+    "query": "jat1",
+    "category": "hk_numbers",
+    "description": "One",
+    "expected_jyutping": [
+      "jat1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "One"
+    ]
+  },
+  {
+    "id": 5071,
+    "query": "ji6",
+    "category": "hk_numbers",
+    "description": "Two",
+    "expected_jyutping": [
+      "ji6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Two"
+    ]
+  },
+  {
+    "id": 5072,
+    "query": "saam1",
+    "category": "hk_numbers",
+    "description": "Three",
+    "expected_jyutping": [
+      "saam1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Three"
+    ]
+  },
+  {
+    "id": 5073,
+    "query": "sei3",
+    "category": "hk_numbers",
+    "description": "Four",
+    "expected_jyutping": [
+      "sei3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Four"
+    ]
+  },
+  {
+    "id": 5074,
+    "query": "ng5",
+    "category": "hk_numbers",
+    "description": "Five",
+    "expected_jyutping": [
+      "ng5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Five"
+    ]
+  },
+  {
+    "id": 5075,
+    "query": "luk6",
+    "category": "hk_numbers",
+    "description": "Six",
+    "expected_jyutping": [
+      "luk6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Six"
+    ]
+  },
+  {
+    "id": 5076,
+    "query": "cat1",
+    "category": "hk_numbers",
+    "description": "Seven",
+    "expected_jyutping": [
+      "cat1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Seven"
+    ]
+  },
+  {
+    "id": 5077,
+    "query": "baat3",
+    "category": "hk_numbers",
+    "description": "Eight",
+    "expected_jyutping": [
+      "baat3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Eight"
+    ]
+  },
+  {
+    "id": 5078,
+    "query": "gau2",
+    "category": "hk_numbers",
+    "description": "Nine",
+    "expected_jyutping": [
+      "gau2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Nine"
+    ]
+  },
+  {
+    "id": 5079,
+    "query": "sap6",
+    "category": "hk_numbers",
+    "description": "Ten",
+    "expected_jyutping": [
+      "sap6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Ten"
+    ]
+  },
+  {
+    "id": 5080,
+    "query": "dim2 sam1",
+    "category": "hk_food",
+    "description": "Dim sum",
+    "expected_jyutping": [
+      "dim2 sam1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Dim sum"
+    ]
+  },
+  {
+    "id": 5081,
+    "query": "haa1 gaau2",
+    "category": "hk_food",
+    "description": "Shrimp Dumpling",
+    "expected_jyutping": [
+      "haa1 gaau2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Shrimp Dumpling"
+    ]
+  },
+  {
+    "id": 5082,
+    "query": "siu1 maai2",
+    "category": "hk_food",
+    "description": "Steamed Dumpling (Shiu Mai)",
+    "expected_jyutping": [
+      "siu1 maai2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Steamed Dumpling"
+    ]
+  },
+  {
+    "id": 5083,
+    "query": "haa1 coeng2",
+    "category": "hk_food",
+    "description": "Shrimp Rice Noodle Roll",
+    "expected_jyutping": [
+      "haa1 coeng2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Shrimp Rice Noodle Roll"
+    ]
+  },
+  {
+    "id": 5084,
+    "query": "caa4",
+    "category": "hk_food",
+    "description": "Tea",
+    "expected_jyutping": [
+      "caa4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Tea"
+    ]
+  },
+  {
+    "id": 5085,
+    "query": "seoi2",
+    "category": "hk_food",
+    "description": "Water",
+    "expected_jyutping": [
+      "seoi2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Water"
+    ]
+  },
+  {
+    "id": 5086,
+    "query": "gaa3 fe1",
+    "category": "hk_food",
+    "description": "Coffee",
+    "expected_jyutping": [
+      "gaa3 fe1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Coffee"
+    ]
+  },
+  {
+    "id": 5087,
+    "query": "naai5 caa4",
+    "category": "hk_food",
+    "description": "Milk Tea",
+    "expected_jyutping": [
+      "naai5 caa4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Milk Tea"
+    ]
+  },
+  {
+    "id": 5088,
+    "query": "zan1 zyu1 naai5 caa4",
+    "category": "hk_food",
+    "description": "Bubble Tea",
+    "expected_jyutping": [
+      "zan1 zyu1 naai5 caa4"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Bubble Tea"
+    ]
+  },
+  {
+    "id": 5089,
+    "query": "faan6",
+    "category": "hk_food",
+    "description": "Rice / Meal",
+    "expected_jyutping": [
+      "faan6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Rice"
+    ]
+  },
+  {
+    "id": 5090,
+    "query": "gai1 juk6",
+    "category": "hk_food",
+    "description": "Chicken (meat)",
+    "expected_jyutping": [
+      "gai1 juk6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Chicken"
+    ]
+  },
+  {
+    "id": 5091,
+    "query": "ngau4 juk6",
+    "category": "hk_food",
+    "description": "Beef",
+    "expected_jyutping": [
+      "ngau4 juk6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Beef"
+    ]
+  },
+  {
+    "id": 5092,
+    "query": "dau6 fu6",
+    "category": "hk_food",
+    "description": "Tofu",
+    "expected_jyutping": [
+      "dau6 fu6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Tofu"
+    ]
+  },
+  {
+    "id": 5093,
+    "query": "jyu2",
+    "category": "hk_food",
+    "description": "Fish",
+    "expected_jyutping": [
+      "jyu2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Fish"
+    ]
+  },
+  {
+    "id": 5094,
+    "query": "tong1",
+    "category": "hk_food",
+    "description": "Soup",
+    "expected_jyutping": [
+      "tong1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Soup"
+    ]
+  },
+  {
+    "id": 5095,
+    "query": "coi3",
+    "category": "hk_food",
+    "description": "Vegetable; Dish",
+    "expected_jyutping": [
+      "coi3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Vegetable; Dish"
+    ]
+  },
+  {
+    "id": 5096,
+    "query": "daan2",
+    "category": "hk_food",
+    "description": "Egg",
+    "expected_jyutping": [
+      "daan2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Egg"
+    ]
+  },
+  {
+    "id": 5097,
+    "query": "sik6 zaai1",
+    "category": "hk_food",
+    "description": "To be a vegetarian",
+    "expected_jyutping": [
+      "sik6 zaai1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "be a vegetarian"
+    ]
+  },
+  {
+    "id": 5098,
+    "query": "dung3",
+    "category": "hk_food",
+    "description": "Cold / Iced",
+    "expected_jyutping": [
+      "dung3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Cold"
+    ]
+  },
+  {
+    "id": 5099,
+    "query": "jit6",
+    "category": "hk_food",
+    "description": "Hot",
+    "expected_jyutping": [
+      "jit6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Hot"
+    ]
+  },
+  {
+    "id": 5100,
+    "query": "caau2",
+    "category": "hk_food",
+    "description": "To (stir) fry",
+    "expected_jyutping": [
+      "caau2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "To"
+    ]
+  },
+  {
+    "id": 5101,
+    "query": "zing1",
+    "category": "hk_food",
+    "description": "To steam",
+    "expected_jyutping": [
+      "zing1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "steam"
+    ]
+  },
+  {
+    "id": 5102,
+    "query": "maai5 sung3",
+    "category": "hk_food",
+    "description": "Buying groceries",
+    "expected_jyutping": [
+      "maai5 sung3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Buying groceries"
+    ]
+  },
+  {
+    "id": 5103,
+    "query": "san1 sin1",
+    "category": "hk_food",
+    "description": "Fresh",
+    "expected_jyutping": [
+      "san1 sin1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Fresh"
+    ]
+  },
+  {
+    "id": 5104,
+    "query": "zyu2 faan6",
+    "category": "hk_food",
+    "description": "Cook a meal",
+    "expected_jyutping": [
+      "zyu2 faan6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Cook a meal"
+    ]
+  },
+  {
+    "id": 5105,
+    "query": "dei6 tit3",
+    "category": "hk_transport",
+    "description": "Subway",
+    "expected_jyutping": [
+      "dei6 tit3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Subway"
+    ]
+  },
+  {
+    "id": 5106,
+    "query": "baa1 si2",
+    "category": "hk_transport",
+    "description": "Bus",
+    "expected_jyutping": [
+      "baa1 si2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Bus"
+    ]
+  },
+  {
+    "id": 5107,
+    "query": "dik1 si2",
+    "category": "hk_transport",
+    "description": "Taxi",
+    "expected_jyutping": [
+      "dik1 si2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Taxi"
+    ]
+  },
+  {
+    "id": 5108,
+    "query": "fo2 ce1",
+    "category": "hk_transport",
+    "description": "Train",
+    "expected_jyutping": [
+      "fo2 ce1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Train"
+    ]
+  },
+  {
+    "id": 5109,
+    "query": "haang4 lou6",
+    "category": "hk_transport",
+    "description": "To walk",
+    "expected_jyutping": [
+      "haang4 lou6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "walk"
+    ]
+  },
+  {
+    "id": 5110,
+    "query": "daap3 ce1",
+    "category": "hk_transport",
+    "description": "To ride a car (or take a bus / tube)",
+    "expected_jyutping": [
+      "daap3 ce1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "ride a car"
+    ]
+  },
+  {
+    "id": 5111,
+    "query": "baat3 daat6 tung1",
+    "category": "hk_transport",
+    "description": "Octopus (card)",
+    "expected_jyutping": [
+      "baat3 daat6 tung1"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Octopus"
+    ]
+  },
+  {
+    "id": 5112,
+    "query": "zaam6",
+    "category": "hk_transport",
+    "description": "Stop; Station",
+    "expected_jyutping": [
+      "zaam6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Stop; Station"
+    ]
+  },
+  {
+    "id": 5113,
+    "query": "haa6 go3 zaam6",
+    "category": "hk_transport",
+    "description": "Next stop",
+    "expected_jyutping": [
+      "haa6 go3 zaam6"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Next stop"
+    ]
+  },
+  {
+    "id": 5114,
+    "query": "sin3",
+    "category": "hk_transport",
+    "description": "Line (as in a metro line) or thread / string / wire",
+    "expected_jyutping": [
+      "sin3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Line"
+    ]
+  },
+  {
+    "id": 5115,
+    "query": "paai4 deoi2",
+    "category": "hk_transport",
+    "description": "Queue (verb)",
+    "expected_jyutping": [
+      "paai4 deoi2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Queue"
+    ]
+  },
+  {
+    "id": 5116,
+    "query": "soeng5 ce1",
+    "category": "hk_transport",
+    "description": "Get on the vehicle",
+    "expected_jyutping": [
+      "soeng5 ce1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Get on the vehicle"
+    ]
+  },
+  {
+    "id": 5117,
+    "query": "lok6 ce1",
+    "category": "hk_transport",
+    "description": "Get off / out of a vehicle",
+    "expected_jyutping": [
+      "lok6 ce1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Get off"
+    ]
+  },
+  {
+    "id": 5118,
+    "query": "zyun3 ce1",
+    "category": "hk_transport",
+    "description": "Change / transfer (on transport)",
+    "expected_jyutping": [
+      "zyun3 ce1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Change"
+    ]
+  },
+  {
+    "id": 5119,
+    "query": "jap6 cin2",
+    "category": "hk_transport",
+    "description": "Top up (eg a metro card)",
+    "expected_jyutping": [
+      "jap6 cin2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Top up"
+    ]
+  },
+  {
+    "id": 5120,
+    "query": "bik1",
+    "category": "hk_transport",
+    "description": "Crowded, push squeeze",
+    "expected_jyutping": [
+      "bik1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Crowded, push squeeze"
+    ]
+  },
+  {
+    "id": 5121,
+    "query": "sak1 ce1",
+    "category": "hk_transport",
+    "description": "Traffic jam",
+    "expected_jyutping": [
+      "sak1 ce1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Traffic jam"
+    ]
+  },
+  {
+    "id": 5122,
+    "query": "m4 goi1 ze3 ze3",
+    "category": "hk_transport",
+    "description": "Please let me through",
+    "expected_jyutping": [
+      "m4 goi1 ze3 ze3"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Please let me through"
+    ]
+  },
+  {
+    "id": 5123,
+    "query": "gong2 bai6",
+    "category": "hk_money",
+    "description": "Hong Kong dollar",
+    "expected_jyutping": [
+      "gong2 bai6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Hong Kong dollar"
+    ]
+  },
+  {
+    "id": 5124,
+    "query": "gei2 cin2",
+    "category": "hk_money",
+    "description": "How much is it?",
+    "expected_jyutping": [
+      "gei2 cin2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "How much is it"
+    ]
+  },
+  {
+    "id": 5125,
+    "query": "saam1 man1",
+    "category": "hk_money",
+    "description": "Three dollars",
+    "expected_jyutping": [
+      "saam1 man1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Three dollars"
+    ]
+  },
+  {
+    "id": 5126,
+    "query": "hou4",
+    "category": "hk_money",
+    "description": "Ten cent denomination",
+    "expected_jyutping": [
+      "hou4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Ten cent denomination"
+    ]
+  },
+  {
+    "id": 5127,
+    "query": "sin1",
+    "category": "hk_money",
+    "description": "Cent piece",
+    "expected_jyutping": [
+      "sin1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Cent piece"
+    ]
+  },
+  {
+    "id": 5128,
+    "query": "zaau2 cin2",
+    "category": "hk_money",
+    "description": "Give me the change",
+    "expected_jyutping": [
+      "zaau2 cin2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Give me the change"
+    ]
+  },
+  {
+    "id": 5129,
+    "query": "gaau1 doi2",
+    "category": "hk_money",
+    "description": "Plastic bag",
+    "expected_jyutping": [
+      "gaau1 doi2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Plastic bag"
+    ]
+  },
+  {
+    "id": 5130,
+    "query": "zit3",
+    "category": "hk_money",
+    "description": "Discount",
+    "expected_jyutping": [
+      "zit3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Discount"
+    ]
+  },
+  {
+    "id": 5131,
+    "query": "jau5 cin2",
+    "category": "hk_money",
+    "description": "Rich, has money",
+    "expected_jyutping": [
+      "jau5 cin2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Rich, has money"
+    ]
+  },
+  {
+    "id": 5132,
+    "query": "cin4 min6",
+    "category": "hk_directions",
+    "description": "Front",
+    "expected_jyutping": [
+      "cin4 min6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Front"
+    ]
+  },
+  {
+    "id": 5133,
+    "query": "hau6 min6",
+    "category": "hk_directions",
+    "description": "Back",
+    "expected_jyutping": [
+      "hau6 min6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Back"
+    ]
+  },
+  {
+    "id": 5134,
+    "query": "soeng6 min6",
+    "category": "hk_directions",
+    "description": "Top",
+    "expected_jyutping": [
+      "soeng6 min6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Top"
+    ]
+  },
+  {
+    "id": 5135,
+    "query": "haa6 min6",
+    "category": "hk_directions",
+    "description": "Bottom",
+    "expected_jyutping": [
+      "haa6 min6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Bottom"
+    ]
+  },
+  {
+    "id": 5136,
+    "query": "zo2 bin1",
+    "category": "hk_directions",
+    "description": "Left",
+    "expected_jyutping": [
+      "zo2 bin1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Left"
+    ]
+  },
+  {
+    "id": 5137,
+    "query": "jau6 bin1",
+    "category": "hk_directions",
+    "description": "Right",
+    "expected_jyutping": [
+      "jau6 bin1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Right"
+    ]
+  },
+  {
+    "id": 5138,
+    "query": "zung1 gan1",
+    "category": "hk_directions",
+    "description": "Inside",
+    "expected_jyutping": [
+      "zung1 gan1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Inside"
+    ]
+  },
+  {
+    "id": 5139,
+    "query": "ceot1 min6",
+    "category": "hk_directions",
+    "description": "Outside",
+    "expected_jyutping": [
+      "ceot1 min6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Outside"
+    ]
+  },
+  {
+    "id": 5140,
+    "query": "jap6 min6",
+    "category": "hk_directions",
+    "description": "inside",
+    "expected_jyutping": [
+      "jap6 min6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "inside"
+    ]
+  },
+  {
+    "id": 5141,
+    "query": "dei6 zi2",
+    "category": "hk_directions",
+    "description": "Address",
+    "expected_jyutping": [
+      "dei6 zi2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Address"
+    ]
+  },
+  {
+    "id": 5142,
+    "query": "fu6 gan6",
+    "category": "hk_directions",
+    "description": "Nearby / in the vicinity",
+    "expected_jyutping": [
+      "fu6 gan6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Nearby"
+    ]
+  },
+  {
+    "id": 5143,
+    "query": "jyun5",
+    "category": "hk_directions",
+    "description": "Far",
+    "expected_jyutping": [
+      "jyun5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Far"
+    ]
+  },
+  {
+    "id": 5144,
+    "query": "kan5",
+    "category": "hk_directions",
+    "description": "Near",
+    "expected_jyutping": [
+      "kan5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Near"
+    ]
+  },
+  {
+    "id": 5145,
+    "query": "Deoi3 min6",
+    "category": "hk_directions",
+    "description": "Opposite (positional)",
+    "expected_jyutping": [
+      "Deoi3 min6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Opposite"
+    ]
+  },
+  {
+    "id": 5146,
+    "query": "ngan4 hong4",
+    "category": "hk_directions",
+    "description": "Bank",
+    "expected_jyutping": [
+      "ngan4 hong4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Bank"
+    ]
+  },
+  {
+    "id": 5147,
+    "query": "gung1 jyun2",
+    "category": "hk_directions",
+    "description": "Park",
+    "expected_jyutping": [
+      "gung1 jyun2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Park"
+    ]
+  },
+  {
+    "id": 5148,
+    "query": "soeng1 coeng4",
+    "category": "hk_directions",
+    "description": "Shopping Mall",
+    "expected_jyutping": [
+      "soeng1 coeng4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Shopping Mall"
+    ]
+  },
+  {
+    "id": 5149,
+    "query": "ci3 so2",
+    "category": "hk_directions",
+    "description": "Toilet",
+    "expected_jyutping": [
+      "ci3 so2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Toilet"
+    ]
+  },
+  {
+    "id": 5150,
+    "query": "m4 ming4",
+    "category": "hk_communication",
+    "description": "Don't understand",
+    "expected_jyutping": [
+      "m4 ming4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Don't understand"
+    ]
+  },
+  {
+    "id": 5151,
+    "query": "me1 ji3 si1",
+    "category": "hk_communication",
+    "description": "What (does it) mean?",
+    "expected_jyutping": [
+      "me1 ji3 si1"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "What"
+    ]
+  },
+  {
+    "id": 5152,
+    "query": "ngaam1",
+    "category": "hk_communication",
+    "description": "Correct!",
+    "expected_jyutping": [
+      "ngaam1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Correct"
+    ]
+  },
+  {
+    "id": 5153,
+    "query": "co3",
+    "category": "hk_communication",
+    "description": "Wrong!",
+    "expected_jyutping": [
+      "co3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Wrong"
+    ]
+  },
+  {
+    "id": 5154,
+    "query": "m4 zi1",
+    "category": "hk_communication",
+    "description": "Don't know",
+    "expected_jyutping": [
+      "m4 zi1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Don't know"
+    ]
+  },
+  {
+    "id": 5155,
+    "query": "mat1 je5",
+    "category": "hk_communication",
+    "description": "Is What? part of question - Casual",
+    "expected_jyutping": [
+      "mat1 je5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Is What? part of question - Casual"
+    ]
+  },
+  {
+    "id": 5156,
+    "query": "m4 goi1",
+    "category": "hk_communication",
+    "description": "Excuse me / Thank you (in the context of someone serving you)",
+    "expected_jyutping": [
+      "m4 goi1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Excuse me"
+    ]
+  },
+  {
+    "id": 5157,
+    "query": "gam1 jat6",
+    "category": "hk_time",
+    "description": "Today",
+    "expected_jyutping": [
+      "gam1 jat6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Today"
+    ]
+  },
+  {
+    "id": 5158,
+    "query": "kam4 jat6",
+    "category": "hk_time",
+    "description": "Yesterday",
+    "expected_jyutping": [
+      "kam4 jat6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Yesterday"
+    ]
+  },
+  {
+    "id": 5159,
+    "query": "ting1 jat6",
+    "category": "hk_time",
+    "description": "Tomorrow",
+    "expected_jyutping": [
+      "ting1 jat6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Tomorrow"
+    ]
+  },
+  {
+    "id": 5160,
+    "query": "soeng6 zau3",
+    "category": "hk_time",
+    "description": "Morning",
+    "expected_jyutping": [
+      "soeng6 zau3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Morning"
+    ]
+  },
+  {
+    "id": 5161,
+    "query": "haa6 zau3",
+    "category": "hk_time",
+    "description": "Afternoon",
+    "expected_jyutping": [
+      "haa6 zau3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Afternoon"
+    ]
+  },
+  {
+    "id": 5162,
+    "query": "je6 maan6",
+    "category": "hk_time",
+    "description": "Evening / night",
+    "expected_jyutping": [
+      "je6 maan6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Evening"
+    ]
+  },
+  {
+    "id": 5163,
+    "query": "si4 gaan3",
+    "category": "hk_time",
+    "description": "Time",
+    "expected_jyutping": [
+      "si4 gaan3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Time"
+    ]
+  },
+  {
+    "id": 5164,
+    "query": "lai5 baai3 jat1",
+    "category": "hk_time",
+    "description": "Monday",
+    "expected_jyutping": [
+      "lai5 baai3 jat1"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Monday"
+    ]
+  },
+  {
+    "id": 5165,
+    "query": "jat1 bun3",
+    "category": "hk_time",
+    "description": "Half",
+    "expected_jyutping": [
+      "jat1 bun3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Half"
+    ]
+  },
+  {
+    "id": 5166,
+    "query": "jat1 zan6 gaan1",
+    "category": "hk_time",
+    "description": "Later (time from now)",
+    "expected_jyutping": [
+      "jat1 zan6 gaan1"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Later"
+    ]
+  },
+  {
+    "id": 5167,
+    "query": "tau4 sin1",
+    "category": "hk_time",
+    "description": "Just now",
+    "expected_jyutping": [
+      "tau4 sin1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Just now"
+    ]
+  },
+  {
+    "id": 5168,
+    "query": "fan1 zung1",
+    "category": "hk_time",
+    "description": "Minute (time)",
+    "expected_jyutping": [
+      "fan1 zung1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Minute"
+    ]
+  },
+  {
+    "id": 5169,
+    "query": "Gei2 noi6",
+    "category": "hk_time",
+    "description": "How long (duration)",
+    "expected_jyutping": [
+      "Gei2 noi6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "How long"
+    ]
+  },
+  {
+    "id": 5170,
+    "query": "tung3",
+    "category": "hk_medical",
+    "description": "Ache",
+    "expected_jyutping": [
+      "tung3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Ache"
+    ]
+  },
+  {
+    "id": 5171,
+    "query": "hau4 lung4",
+    "category": "hk_medical",
+    "description": "Throat",
+    "expected_jyutping": [
+      "hau4 lung4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Throat"
+    ]
+  },
+  {
+    "id": 5172,
+    "query": "tou5",
+    "category": "hk_medical",
+    "description": "Belly / stomach",
+    "expected_jyutping": [
+      "tou5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Belly"
+    ]
+  },
+  {
+    "id": 5173,
+    "query": "tou4",
+    "category": "hk_medical",
+    "description": "Head",
+    "expected_jyutping": [
+      "tou4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Head"
+    ]
+  },
+  {
+    "id": 5174,
+    "query": "goek3",
+    "category": "hk_medical",
+    "description": "Foot",
+    "expected_jyutping": [
+      "goek3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Foot"
+    ]
+  },
+  {
+    "id": 5175,
+    "query": "san2",
+    "category": "hk_medical",
+    "description": "Hand",
+    "expected_jyutping": [
+      "san2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Hand"
+    ]
+  },
+  {
+    "id": 5176,
+    "query": "gam2 mou6",
+    "category": "hk_medical",
+    "description": "Have a cold",
+    "expected_jyutping": [
+      "gam2 mou6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Have a cold"
+    ]
+  },
+  {
+    "id": 5177,
+    "query": "faat3 siu1",
+    "category": "hk_medical",
+    "description": "Have a fever",
+    "expected_jyutping": [
+      "faat3 siu1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Have a fever"
+    ]
+  },
+  {
+    "id": 5178,
+    "query": "m4 syu1 fuk6",
+    "category": "hk_medical",
+    "description": "To be unwell",
+    "expected_jyutping": [
+      "m4 syu1 fuk6"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "be unwell"
+    ]
+  },
+  {
+    "id": 5179,
+    "query": "tai2 ji1 sang1",
+    "category": "hk_medical",
+    "description": "See a doctor",
+    "expected_jyutping": [
+      "tai2 ji1 sang1"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "See a doctor"
+    ]
+  },
+  {
+    "id": 5180,
+    "query": "pang4 jau5",
+    "category": "hk_people",
+    "description": "Friend",
+    "expected_jyutping": [
+      "pang4 jau5"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Friend"
+    ]
+  },
+  {
+    "id": 5181,
+    "query": "jan4",
+    "category": "hk_people",
+    "description": "Person, People",
+    "expected_jyutping": [
+      "jan4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Person, People"
+    ]
+  },
+  {
+    "id": 5182,
+    "query": "jing1 man2",
+    "category": "hk_people",
+    "description": "English (language)",
+    "expected_jyutping": [
+      "jing1 man2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "English"
+    ]
+  },
+  {
+    "id": 5183,
+    "query": "zung1 man2",
+    "category": "hk_people",
+    "description": "Chinese (language)",
+    "expected_jyutping": [
+      "zung1 man2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Chinese"
+    ]
+  },
+  {
+    "id": 5184,
+    "query": "maau1",
+    "category": "hk_people",
+    "description": "Cat",
+    "expected_jyutping": [
+      "maau1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Cat"
+    ]
+  },
+  {
+    "id": 5185,
+    "query": "gau2",
+    "category": "hk_people",
+    "description": "Dog",
+    "expected_jyutping": [
+      "gau2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Dog"
+    ]
+  },
+  {
+    "id": 5186,
+    "query": "Tin1 hei3",
+    "category": "hk_people",
+    "description": "Weather",
+    "expected_jyutping": [
+      "Tin1 hei3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Weather"
+    ]
+  },
+  {
+    "id": 5187,
+    "query": "leng3",
+    "category": "hk_people",
+    "description": "Beautiful",
+    "expected_jyutping": [
+      "leng3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Beautiful"
+    ]
+  },
+  {
+    "id": 5188,
+    "query": "lek1",
+    "category": "hk_people",
+    "description": "Smart / good at something",
+    "expected_jyutping": [
+      "lek1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Smart"
+    ]
+  },
+  {
+    "id": 5189,
+    "query": "gui6",
+    "category": "hk_people",
+    "description": "Tired",
+    "expected_jyutping": [
+      "gui6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Tired"
+    ]
+  },
+  {
+    "id": 5190,
+    "query": "maai4 daan1",
+    "category": "hk_food",
+    "description": "Bill please / Check please",
+    "expected_jyutping": [
+      "maai4 daan1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Bill please"
+    ]
+  },
+  {
+    "id": 5191,
+    "query": "caan1 paai2",
+    "category": "hk_food",
+    "description": "Menu",
+    "expected_jyutping": [
+      "caan1 paai2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Menu"
+    ]
+  },
+  {
+    "id": 5192,
+    "query": "laat6",
+    "category": "hk_food",
+    "description": "Spicy",
+    "expected_jyutping": [
+      "laat6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Spicy"
+    ]
+  },
+  {
+    "id": 5193,
+    "query": "m4 laat6",
+    "category": "hk_food",
+    "description": "Not spicy",
+    "expected_jyutping": [
+      "m4 laat6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Not spicy"
+    ]
+  },
+  {
+    "id": 5194,
+    "query": "caa1 siu1",
+    "category": "hk_food",
+    "description": "Char siu (BBQ pork)",
+    "expected_jyutping": [
+      "caa1 siu1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Char siu"
+    ]
+  },
+  {
+    "id": 5195,
+    "query": "wan4 tan1 min6",
+    "category": "hk_food",
+    "description": "Wonton noodles",
+    "expected_jyutping": [
+      "wan4 tan1 min6"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Wonton noodles"
+    ]
+  },
+  {
+    "id": 5196,
+    "query": "daan6 taat1",
+    "category": "hk_food",
+    "description": "Egg tart",
+    "expected_jyutping": [
+      "daan6 taat1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Egg tart"
+    ]
+  },
+  {
+    "id": 5197,
+    "query": "bo1 lo4 baau1",
+    "category": "hk_food",
+    "description": "Pineapple bun",
+    "expected_jyutping": [
+      "bo1 lo4 baau1"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Pineapple bun"
+    ]
+  },
+  {
+    "id": 5198,
+    "query": "siu1 ngo4",
+    "category": "hk_food",
+    "description": "Roast goose",
+    "expected_jyutping": [
+      "siu1 ngo4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Roast goose"
+    ]
+  },
+  {
+    "id": 5199,
+    "query": "zuk1",
+    "category": "hk_food",
+    "description": "Congee / rice porridge",
+    "expected_jyutping": [
+      "zuk1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Congee"
+    ]
+  },
+  {
+    "id": 5200,
+    "query": "daai6 paai4 dong3",
+    "category": "hk_food",
+    "description": "Dai pai dong (street food stall)",
+    "expected_jyutping": [
+      "daai6 paai4 dong3"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Dai pai dong"
+    ]
+  },
+  {
+    "id": 5201,
+    "query": "gau3 meng6",
+    "category": "hk_communication",
+    "description": "Help!",
+    "expected_jyutping": [
+      "gau3 meng6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Help"
+    ]
+  },
+  {
+    "id": 5202,
+    "query": "dim2 heoi3",
+    "category": "hk_directions",
+    "description": "How do I get to...?",
+    "expected_jyutping": [
+      "dim2 heoi3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "How do I get to"
+    ]
+  },
+  {
+    "id": 5203,
+    "query": "zyun3 zo2",
+    "category": "hk_directions",
+    "description": "Turn left",
+    "expected_jyutping": [
+      "zyun3 zo2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Turn left"
+    ]
+  },
+  {
+    "id": 5204,
+    "query": "zyun3 jau6",
+    "category": "hk_directions",
+    "description": "Turn right",
+    "expected_jyutping": [
+      "zyun3 jau6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Turn right"
+    ]
+  },
+  {
+    "id": 5205,
+    "query": "jat1 zik6 haang4",
+    "category": "hk_directions",
+    "description": "Go straight",
+    "expected_jyutping": [
+      "jat1 zik6 haang4"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Go straight"
+    ]
+  },
+  {
+    "id": 5206,
+    "query": "gei1 coeng4",
+    "category": "hk_directions",
+    "description": "Airport",
+    "expected_jyutping": [
+      "gei1 coeng4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Airport"
+    ]
+  },
+  {
+    "id": 5207,
+    "query": "zau2 dim3",
+    "category": "hk_directions",
+    "description": "Hotel",
+    "expected_jyutping": [
+      "zau2 dim3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Hotel"
+    ]
+  },
+  {
+    "id": 5208,
+    "query": "ji1 jyun2",
+    "category": "hk_directions",
+    "description": "Hospital",
+    "expected_jyutping": [
+      "ji1 jyun2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Hospital"
+    ]
+  },
+  {
+    "id": 5209,
+    "query": "joek6 fong4",
+    "category": "hk_directions",
+    "description": "Pharmacy",
+    "expected_jyutping": [
+      "joek6 fong4"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Pharmacy"
+    ]
+  },
+  {
+    "id": 5210,
+    "query": "jap6 zyu6",
+    "category": "hk_hotel",
+    "description": "Check in",
+    "expected_jyutping": [
+      "jap6 zyu6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Check in"
+    ]
+  },
+  {
+    "id": 5211,
+    "query": "teoi3 fong2",
+    "category": "hk_hotel",
+    "description": "Check out",
+    "expected_jyutping": [
+      "teoi3 fong2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Check out"
+    ]
+  },
+  {
+    "id": 5212,
+    "query": "fong2",
+    "category": "hk_hotel",
+    "description": "Room",
+    "expected_jyutping": [
+      "fong2"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Room"
+    ]
+  },
+  {
+    "id": 5213,
+    "query": "fong2 kaa1",
+    "category": "hk_hotel",
+    "description": "Key / key card",
+    "expected_jyutping": [
+      "fong2 kaa1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Key"
+    ]
+  },
+  {
+    "id": 5214,
+    "query": "taai3 gwai3",
+    "category": "hk_money",
+    "description": "Too expensive",
+    "expected_jyutping": [
+      "taai3 gwai3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Too expensive"
+    ]
+  },
+  {
+    "id": 5215,
+    "query": "tai2 haa5 sin1",
+    "category": "hk_money",
+    "description": "Just looking",
+    "expected_jyutping": [
+      "tai2 haa5 sin1"
+    ],
+    "accept_top_n": 2,
+    "tags": [
+      "hk_trip",
+      "multi_syllable"
+    ],
+    "definition_contains": [
+      "Just looking"
+    ]
+  },
+  {
+    "id": 5216,
+    "query": "sap6 jat1",
+    "category": "hk_numbers",
+    "description": "Eleven",
+    "expected_jyutping": [
+      "sap6 jat1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Eleven"
+    ]
+  },
+  {
+    "id": 5217,
+    "query": "ji6 sap6",
+    "category": "hk_numbers",
+    "description": "Twenty",
+    "expected_jyutping": [
+      "ji6 sap6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Twenty"
+    ]
+  },
+  {
+    "id": 5218,
+    "query": "ng5 sap6",
+    "category": "hk_numbers",
+    "description": "Fifty",
+    "expected_jyutping": [
+      "ng5 sap6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Fifty"
+    ]
+  },
+  {
+    "id": 5219,
+    "query": "baak3",
+    "category": "hk_numbers",
+    "description": "Hundred",
+    "expected_jyutping": [
+      "baak3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Hundred"
+    ]
+  },
+  {
+    "id": 5220,
+    "query": "cin1",
+    "category": "hk_numbers",
+    "description": "Thousand",
+    "expected_jyutping": [
+      "cin1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Thousand"
+    ]
+  },
+  {
+    "id": 5221,
+    "query": "faa1 sang1",
+    "category": "hk_communication",
+    "description": "Peanuts",
+    "expected_jyutping": [
+      "faa1 sang1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Peanuts"
+    ]
+  },
+  {
+    "id": 5222,
+    "query": "jam2 bui1",
+    "category": "hk_people",
+    "description": "Cheers! (drinking)",
+    "expected_jyutping": [
+      "jam2 bui1"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Cheers"
+    ]
+  },
+  {
+    "id": 5223,
+    "query": "laang5 hei3",
+    "category": "hk_people",
+    "description": "Air conditioning",
+    "expected_jyutping": [
+      "laang5 hei3"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Air conditioning"
+    ]
+  },
+  {
+    "id": 5224,
+    "query": "cam4 mun6",
+    "category": "hk_people",
+    "description": "Humid / muggy",
+    "expected_jyutping": [
+      "cam4 mun6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "two_syllable"
+    ],
+    "definition_contains": [
+      "Humid"
+    ]
+  },
+  {
+    "id": 5225,
+    "query": "juk6",
+    "category": "hk_food",
+    "description": "Meat",
+    "expected_jyutping": [
+      "juk6"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "hk_trip",
+      "single_syllable"
+    ],
+    "definition_contains": [
+      "Meat"
+    ]
+  }
+]
