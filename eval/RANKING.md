@@ -60,20 +60,21 @@ everyday Cantonese word from a Classical or Mandarin-only term:
 
 ### The eval suite was overstating quality
 
-Blind spots found in `run_eval.py` and the query sets (**fixed — see "3. Strict
-scoring" below**):
+Blind spots found in `run_eval.py` and the query sets:
 
-- `_match_result` accepts a hit if `expected_jyutping` matches, ignoring
-  characters entirely. **148 of 983 queries scored as p@1 return a character that
-  is not in `expected_characters`** — e.g. `gong2` returns 港 not 講, `money`
-  returns 角, `hello` returns 喂.
-- `hk_trip.json` (225 cases, 23% of the suite) has **no `expected_characters`
-  field at all**, which also produces false negatives.
-- Test IDs 800-816 are **duplicated** between `shorter_entry.json` and
+- **[fixed]** `_match_result` accepts a hit if `expected_jyutping` matches,
+  ignoring characters entirely. **148 of 983 queries scored as p@1 return a
+  character that is not in `expected_characters`** — e.g. `gong2` returns 港 not
+  講, `money` returns 角, `hello` returns 喂. See "3. Strict scoring" below.
+- **[fixed]** `hk_trip.json` (225 cases, 23% of the suite) has **no
+  `expected_characters` field at all**, which also produces false negatives.
+- **[open]** Test IDs 800-816 are **duplicated** between `shorter_entry.json` and
   `tone_fuzzy.json`. `load_baseline` keys by id, so 13 cases are silently dropped
   and baseline diffs compare mismatched cases.
-- Composite coverage was thin: 478 of 650 base queries were single-token, only 5
-  expected a 3-character term, and none expected 4+.
+- **[mostly addressed]** Composite coverage was thin: 478 of 650 base queries
+  were single-token, only 5 expected a 3-character term, and none expected 4+.
+  `spoken_corpus` (1,346 cases) and `pin_jam` (300) are multi-syllable, but the
+  *core* set is unchanged.
 
 An independent check against a personal Anki deck (691 terms) measured **72% p@1
 tone-insensitive**, against the suite's reported 94%. By syllable count:
