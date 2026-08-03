@@ -127,9 +127,11 @@ question is resolved.
       independently-licensed spoken-Cantonese frequency signal. The latter is
       preferable: a graded frequency would beat a boolean, and would attack the
       saturation problem directly rather than compensating for it.
-- [ ] Build a larger, harder query set for validation, **not derived from
-      words.hk** (that data now feeds the ranker, so validating against it would
-      be circular).
+      **Candidate found:** the LIHKG frequency list (MIT, 139,621 word forms,
+      665M tokens) — see "Signals evaluated" below.
+- [x] Build a larger, harder query set for validation, **not derived from
+      words.hk** — see `spoken_corpus.json` below.
+- [ ] Fix syllable-order insensitivity (see "Order insensitivity" below).
 - [ ] Add a strict p@1 metric requiring a character match, to surface the 148
       hidden failures.
 - [ ] Backfill `expected_characters` in `hk_trip.json`.
@@ -153,3 +155,129 @@ question is resolved.
   Override to `console/target/release/console.exe`.
 - The console reads relative data paths, so run it from the `console/` directory.
 - Any change to static cost is also a change to the length signal.
+- **Never validate a ranking signal against a query set derived from that same
+  signal.** This is why the words.hk prior could not be validated on words.hk
+  data, and why `spoken_corpus.json` is built from HKCanCor rather than from
+  LIHKG — LIHKG is the next candidate ranking signal, so it must stay out of the
+  eval sets or the same circularity returns one step removed.
+
+---
+
+# The `spoken_corpus` query set
+
+`eval/build_spoken_corpus_eval.py` -> `eval/query_sets/spoken_corpus.json`
+(1,346 cases, ids 7001+).
+
+## Why HKCanCor
+
+Every other query set is either hand-authored or derived from data that now
+feeds the ranker. HKCanCor is independent of every ranking signal in the project:
+30 hours of spontaneous Cantonese conversation recorded 1997-98, hand
+transcribed, segmented and romanised. **CC BY 4.0**, obtained via `pycantonese`
+(`pip install pycantonese`) — no vendored data, so nothing new to license.
+
+It is also a better model of the actual complaint than a homophone-pair set:
+every case is a word a real person actually said, looked up by the jyutping they
+actually said it with.
+
+## Construction
+
+Every case is guaranteed to be a **ranking** test, never a coverage test — the
+headword exists in the project's own Cantonese sources *and* the queried reading
+is one those sources record for it. Of 1,641 candidate words, 189 were dropped as
+absent from the dictionary and 106 because the corpus pronunciation was not a
+recorded reading (that is the 變調 case, and belongs in `pin_jam.json`). So a
+failure here can only mean "ranked too low", never "missing". This matters: in
+the Anki investigation 268 of 691 apparent failures turned out to be absent
+entries, and that ambiguity is designed out here.
+
+`expected_jyutping` is deliberately omitted. `run_eval._match_result` accepts a
+hit on jyutping alone, which lets a homophone of the intended word score as a
+pass — precisely the failure mode under test.
+
+Difficulty is **not** obtained by cherry-picking currently-failing queries, which
+would overfit the set to today's ranker. Each case instead carries a
+`competitors` count and tags, so the set can be sliced by difficulty after the
+fact and stays valid as the ranker changes.
+
+## Baseline (current ranker, words.hk prior enabled)
+
+| Slice | n | p@1 | p@3 |
+|---|---|---|---|
+| all | 1346 | 96.9% | 99.9% |
+| **0 competitors** | 1143 | **99.6%** | 99.9% |
+| **1-2 competitors** | 194 | **83.0%** | 100% |
+| **>=3 competitors** | 9 | **55.6%** | 100% |
+| `hard` (competitors, variants excluded) | 166 | 84.9% | 100% |
+| `variant_risk` | 37 | 67.6% | 100% |
+
+Frequency band and syllable count barely move the number (96-98% across all
+bands). **Competition is the entire story**, and it reproduces the reported
+complaint as a clean gradient: a word is found reliably until something else
+shares its reading, and then it is not.
+
+As with `pin_jam`, p@3 is ~100% everywhere. The entry is always retrieved and
+merely demoted, so this is a scoring problem, not a retrieval problem.
+
+## The `variant_risk` tag
+
+Roughly a fifth of the failures were pairs like 部份/部分, 說話/説話, 痴線/黐線 —
+alternative spellings of one word, where whichever ranks first is arguably fine.
+Counting these as errors would flatter or punish a change for no real reason, so
+same-reading rivals whose English glosses overlap (Jaccard >= 0.3) are tagged
+`variant_risk` and excluded from the `hard` slice. They fail far more often than
+average (67.6% vs 96.9%), which is itself evidence the tag is picking out a real
+category. **Use the `hard` slice (166 cases, 84.9%) as the headline number.**
+
+## Order insensitivity (new bug)
+
+The set surfaced a distinct defect. Querying `gei2 baak3` returns 百幾, 幾十百 and
+others, but **幾百 — an exact, complete match for that reading — is not in the top
+20 at all**, despite `幾百 ... {gei2 baak3}` being present in
+`cccanto-webdist.txt`. Same shape for `jat1 maan6` (returns 萬一 over 一萬) and
+`zau6 gam2` (returns 噉就 over 就噉).
+
+Syllables appear to be matched as a set rather than a sequence, with no penalty
+for reordering, and something then suppresses the in-order match entirely. This
+is independent of the frequency/saturation issue and is likely a cheap, high-
+value fix.
+
+---
+
+# Signals evaluated
+
+## LIHKG frequency list — recommended next step
+
+`https://raw.githubusercontent.com/AlienKevin/cantonese_frequency_list/56ec4da0963ad1842e755eb1e430df708803c0e2/freq.tsv`
+
+**MIT licensed**, 139,621 word forms over 665,680,302 tokens, TSV `word\tcount`,
+no header. No jyutping — join via rime-cantonese `word.csv`/`char.csv`.
+
+Validated against 15 known failure pairs: **12 separate correctly**, 0 have both
+sides absent. 劏房 11,745 vs 惝恍 **0**; 不勝 1,513 vs 畢昇 2; 夾錢 4,438 vs 合錢 5.
+The 3 that go the "wrong" way are 米舖/米鋪 and 大棚/大棒 (orthographic variants,
+either defensible) and 單于/善於 (LIHKG is arguably right).
+
+The decisive measurement: frequency spans 10,836,313 down to 1. At the current
+`MAX_STATIC_COST` of 7,000, **99.9% of words still saturate**; at 20,000 only
+10.9% do; at 50,000, none. **The saturation is an artifact of the clamp value,
+not of the data** — so this signal can attack the root cause rather than
+compensating for it, and being MIT it also dissolves the words.hk licence
+blocker.
+
+Use `freq.tsv`, **not** `wordhk_freq.tsv` — the latter is filtered by words.hk
+vocabulary and would reintroduce both the circularity and the licence problem.
+
+## Other sources checked
+
+- **Wiktionary via kaikki.org** (CC BY-SA 4.0) — only 3,864 Cantonese rows, most
+  bare hanzi with no gloss. Far smaller than expected; weak as an oracle.
+- **Cifu** (`gwinterstein/Cifu`) — has a uniquely valuable spoken-vs-written
+  frequency split, but is **GPL-3.0**. LIHKG covers the same need under MIT.
+- **rime-cantonese `word.csv`** has a `pron_rank` column (預設/常用/罕見/棄用) —
+  a free commonness signal the project does not currently use. `variant.csv`
+  marks non-Cantonese-native characters.
+- Confirmed dead: `words.hk/static/all.csv.gz`,
+  `words.hk/static/datasets/corpus_word_frequency.csv`,
+  `dumps.wikimedia.org/yuewiki/`, `github.com/kfcd/cantondict`,
+  `github.com/mahavivo/cantonese-wordlist`.

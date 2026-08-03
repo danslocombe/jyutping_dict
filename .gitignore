@@ -2,3 +2,5 @@
 full/rime-word.csv
 full/wordshk-*.csv.gz
 full/wordshk-headwords*.txt
+full/lihkg-freq.tsv
+full/kaikki-*.jsonl.gz
