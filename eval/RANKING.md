@@ -8,10 +8,12 @@ Contents:
 
 - [Diagnosis](#diagnosis) — why the frequency model fails
 - [Work done](#work-done) — the pin_jam set, the words.hk prior, strict scoring,
-  order sensitivity, the LIHKG word-frequency prior
+  the LIHKG word-frequency prior
 - [Open items](#open-items)
 - [Full-suite A/B](#full-suite-ab-the-wordshk-prior) — measured effect of the prior
 - [The `spoken_corpus` query set](#the-spoken_corpus-query-set) — independent validation set
+- [Order insensitivity](#order-insensitivity-diagnosed-and-fixed) — and the
+  [`order_pairs` set](#the-order_pairs-query-set-evalbuild_order_pairs_evalpy)
 - [Signals evaluated](#signals-evaluated) — datasets checked, licences, what to use next
 - [Gotchas](#gotchas) — **read before running the harness**
 
@@ -259,9 +261,9 @@ failed for a different reason:
    character) and a word cost has no length term at all, so two-character words
    undercut one-character ones.
 3. *Capping that replacement below the per-character increment.* Barely helped
-   (34 regressions vs 36), which falsified the length hypothesis and pointed at
-   the real culprit: applying it at build time reaches **every** match path,
-   including the English one, where matching is definition *substring*
+   (20 entries lost #1 against 21), which falsified the length hypothesis and
+   pointed at the real culprit: applying it at build time reaches **every** match
+   path, including the English one, where matching is definition *substring*
    containment with no notion of consuming the entry. 西瓜 beat 水 for "water";
    工作 fell five places for "work"; 新, 兄弟, 父爸 all regressed.
 
@@ -270,20 +272,22 @@ it out of `cost` and apply it at **search time**, gated on the query accounting
 for the entry in full, in order, and with exact term matches. Under that gate
 every candidate has the same character count, so the discount expresses salience
 alone, and the English path is untouched by construction. Adding
-`term_match_cost == 0` to the gate took regressions from 18 to 11 by stopping
-the discount rescuing a *fuzzy* match over an exact one (文明 was beating 唔明
-for `m4 ming4`).
+`term_match_cost == 0` to the gate took entries losing #1 from 14 to 10 by
+stopping the discount rescuing a *fuzzy* match over an exact one (文明 was beating
+唔明 for `m4 ming4`).
 
-Effect of each gate, measured on the full suite:
+Effect of each gate, measured on the full suite. Counts are p@1 crossings against
+the baseline; note `run_suite_report.py --compare` prints larger figures because
+it counts *any* rank movement (see Gotchas).
 
-| variant | TOTAL p@1 | improved | regressed | net |
+| variant | TOTAL p@1 | gained #1 | lost #1 | net |
 |---|---|---|---|---|
 | baseline (words.hk prior only) | 91.6% | — | — | — |
-| build-time replacement | 92.2% | 55 | 36 | +19 |
-| build-time, capped at 3,000 | 92.0% | 49 | 34 | +12 |
-| search-time, full-consumption gate | 92.2% | 38 | 18 | +19 |
-| search-time, + exact-term gate | 92.3% | 34 | 11 | +20 |
-| **+ step 800 (shipped)** | **92.4%** | **33** | **6** | **+24** |
+| build-time replacement | 92.2% | 40 | 21 | +19 |
+| build-time, capped at 3,000 | 92.0% | 32 | 20 | +12 |
+| search-time, full-consumption gate | 92.2% | 33 | 14 | +19 |
+| search-time, + exact-term gate | 92.3% | 30 | 10 | +20 |
+| **+ step 800 (shipped)** | **92.4%** | **30** | **6** | **+24** |
 
 `FREQUENCY_DISCOUNT_STEP` swept at 300 / 500 / 800 / 1200 -> 92.3 / 92.3 / **92.4**
 / 92.2. Flat-topped around 800; 1,200 starts saturating again.
@@ -372,6 +376,13 @@ on replacing the character frequency table with LIHKG single-character counts.
 ---
 
 ## Full-suite A/B: the words.hk prior
+
+**Historical.** These are *lenient* scores over an older 2,629-case suite (note
+`hk_trip` at 225 cases, since reduced to 199), taken before the strict-scoring
+fix in item 3. They are not comparable with the numbers elsewhere in this
+document, and are kept only for the relative effect of the prior. For the current
+measurement — including whether the LIHKG prior makes this one redundant, which
+it does not — see "4. LIHKG whole-word frequency prior" above.
 
 Complete suite, 2,629 cases, release build, toggled via
 `WORDSHK_ATTESTED_BONUS` (search-time, so no index rebuild is needed to A/B it).
@@ -467,7 +478,12 @@ would overfit the set to today's ranker. Each case instead carries a
 `competitors` count and tags, so the set can be sliced by difficulty after the
 fact and stays valid as the ranker changes.
 
-### Baseline (current ranker, words.hk prior enabled)
+### Baseline at the time this set was built (words.hk prior only)
+
+Superseded as a measure of the ranker — the order fix and the LIHKG prior both
+landed afterwards — but kept because the *shape* is the finding, and the shape has
+not changed. Current figures for the same slices are `all` 98.3%, `hard` 93.4%,
+`variant_risk` 70.3%.
 
 | Slice | n | p@1 | p@3 |
 |---|---|---|---|
@@ -493,10 +509,17 @@ alternative spellings of one word, where whichever ranks first is arguably fine.
 Counting these as errors would flatter or punish a change for no real reason, so
 same-reading rivals whose English glosses overlap (Jaccard >= 0.3) are tagged
 `variant_risk` and excluded from the `hard` slice. They fail far more often than
-average (67.6% vs 96.9%), which is itself evidence the tag is picking out a real
-category. **Use the `hard` slice (166 cases, 84.9%) as the headline number.**
+average — 70.3% against 98.3% overall on the current ranker — which is itself
+evidence the tag is picking out a real category. **Use the `hard` slice (166
+cases, currently 93.4%) as the headline number.**
 
-### Order insensitivity — diagnosed and fixed
+The LIHKG prior sharpened this: all 6 of its regressions are variant pairs, and
+they are cases where the corpus prefers the spelling the query set does *not*
+assert. See the open item on revisiting single-spelling ground truth.
+
+---
+
+## Order insensitivity (diagnosed and fixed)
 
 The set surfaced a distinct defect: `jat1 maan6` returned 萬一 above 一萬, and
 `zau6 gam2` returned 噉就 above 就噉.
@@ -557,7 +580,7 @@ All other sets unchanged. Regression tests:
 `test_traditional_match_out_of_order_is_penalised`,
 `test_traditional_match_requires_every_character`.
 
-### The `order_pairs` query set (`eval/build_order_pairs_eval.py`)
+## The `order_pairs` query set (`eval/build_order_pairs_eval.py`)
 
 400 cases sampled from 4,097 permutation groups. The dictionary supplies its own
 ground truth: any two headwords whose readings are permutations of each other
@@ -636,6 +659,10 @@ vocabulary and would reintroduce both the circularity and the licence problem.
   `run_suite_report.py` defaults to the release build for this reason. When
   using `run_eval.py` directly, override `CONSOLE_EXE` to
   `console/target/release/console.exe` and rebuild first.
+- **`--compare` counts any rank movement, not p@1 crossings.** Its "N improved,
+  M regressed" line includes cases like 2 -> 4, so those counts do not reconcile
+  with the p@1 column; only its "net" figure does. Quote p@1 crossings when
+  quoting p@1.
 - The console reads relative data paths, so run it from the `console/` directory.
   Build the index with `console.exe build no_query` (bare words, not flags), and
   check it prints "Writing done!" — a truncated index panics in `vbyte.rs` on the
