@@ -147,6 +147,56 @@ question is resolved.
       attested prior because they also parse as jyutping, so a promoted jyutping
       match displaces the intended English one.
 
+---
+
+# Full-suite A/B: the words.hk prior
+
+Complete suite, 2,629 cases, release build, toggled via
+`WORDSHK_ATTESTED_BONUS` (search-time, so no index rebuild is needed to A/B it).
+
+| Query set | n | p@1 off | p@1 on | Δ |
+|---|---|---|---|---|
+| `query_set` (core) | 650 | 94.3% | 94.8% | +0.5 |
+| `spoken_corpus` | 1346 | 94.7% | **96.9%** | **+2.2** |
+| ‑ `hard` slice | 166 | 69.3% | **84.9%** | **+15.6** |
+| `pin_jam` | 300 | 82.0% | **84.7%** | **+2.7** |
+| `hk_trip` | 225 | 91.1% | 92.0% | +0.9 |
+| `ccanto_boost` | 30 | 86.7% | 86.7% | 0 |
+| `tone_fuzzy` | 13 | 92.3% | 100% | +7.7 |
+| `exact_vs_prefix_extended` | 40 | 100% | 100% | 0 |
+| `shorter_entry` | 25 | 100% | 100% | 0 |
+| **TOTAL** | **2629** | **92.8%** | **94.5%** | **+1.7** |
+
+MRR 0.957 → 0.966. Misses 1.0% → 0.9%. p@3 unchanged at 98.7% — as expected,
+since the prior only reorders results that were already being retrieved.
+
+Per query: **60 improved, 11 regressed, net +44 at p@1.**
+
+The important number is the `hard` slice of `spoken_corpus`: **69.3% → 84.9%**.
+That set is built from HKCanCor and shares no data with words.hk, so this is the
+first genuinely independent confirmation that the prior works — the earlier
+sweep could only be run on sets that were partly derived from the same source.
+The gain concentrates exactly where predicted: cases where another headword
+competes for the same reading. Sets with no homophone competition (`shorter_entry`,
+`exact_vs_prefix_extended`) do not move at all, which is the correct outcome.
+
+## The 11 regressions
+
+- `hot`, `sun` — the known English-path defect. Both parse as jyutping, so a
+  promoted jyutping match displaces the intended English result. Tracked below.
+- `jat1 maan6` (一萬), `zau6 gam2` (就噉) — the prior **amplifies** the order
+  insensitivity bug. Both orderings are attested words, so the bonus applies to
+  both and there is no ordering signal left to break the tie. Fixing the order
+  bug should recover these.
+- The remainder (`cung4 mou1`, `san4 neoi2`, `syut3 waa6`, `uk1 cyun1` ...) are
+  rank 1→2 or 2→3 moves between orthographic variants, of the 部份/部分 kind.
+
+Reproduce with `files/suite/run_suite.py` in the session workspace; it chunks
+the batch at 600 to stay under `run_batch_queries`'s hardcoded `timeout=300`,
+which the full suite would otherwise exceed silently.
+
+---
+
 ## Gotchas
 
 - `run_eval.CONSOLE_EXE` points at the **debug** build and `run_batch_queries`
