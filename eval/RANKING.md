@@ -7,6 +7,7 @@ and composite terms.
 Contents:
 
 - [Diagnosis](#diagnosis) — why the frequency model fails
+- [Total gain](#total-gain-measured-not-subtracted) — net effect of the workstream
 - [Work done](#work-done) — the pin_jam set, the words.hk prior, strict scoring,
   the LIHKG word-frequency prior
 - [Open items](#open-items)
@@ -21,6 +22,11 @@ Current state — strict, character-verified, 3,003 cases across 9 sets:
 **TOTAL p@1 92.4%**, MRR 0.953. Core is the weak set at 79.8% and is where the
 reported symptom lives. Numbers predating the strict-scoring fix are lenient and
 not comparable with these.
+
+**Net effect of the whole workstream: 89.3% -> 92.4% p@1 (+3.1), MRR 0.935 ->
+0.953.** See [Total gain](#total-gain-measured-not-subtracted) — the figure has to
+be *measured*, not obtained by subtracting the first number in this document from
+the last.
 
 Rebuilding the generated query sets needs `pip install -r eval/requirements.txt`.
 
@@ -103,6 +109,64 @@ Importantly, that check also **corrected an earlier assumption**: of the terms t
 failed, only 1 was a true ranking failure. 268 were simply absent from the source
 dictionaries. Multi-syllable failure is mostly a data coverage problem, not a
 ranking problem — so ranking work should be measured on terms known to exist.
+
+## Total gain (measured, not subtracted)
+
+**The headline numbers in this document cannot be subtracted from one another.**
+Two things changed underneath them during the work:
+
+- **The metric changed.** Item 3 made scoring character-strict, which dropped the
+  reported number by ~4pp *without any change to the ranker* — it stopped
+  crediting homophones as hits.
+- **The suite changed.** `order_pairs` (+400) and `spoken_corpus` (+1,346) were
+  added, and `hk_trip` went from 225 cases to 199 as its ground truth was fixed.
+
+So the only honest figure is the **pre-work ranker scored by the current suite**.
+Measured by building the branch point in a worktree and running today's harness
+against it:
+
+| set | n | before | after | Δ |
+|---|---|---|---|---|
+| query_set (core) | 650 | 75.4% | **79.8%** | **+4.5** |
+| spoken_corpus | 1346 | 94.7% | **98.3%** | **+3.6** |
+| ‑ `hard` slice | 166 | 69.3% | **93.4%** | **+24.1** |
+| pin_jam | 300 | 82.0% | **85.3%** | **+3.3** |
+| hk_trip | 199 | 84.9% | **87.9%** | **+3.0** |
+| tone_fuzzy | 13 | 92.3% | **100.0%** | **+7.7** |
+| order_pairs | 400 | 99.8% | 99.5% | **-0.2** |
+| ccanto_boost | 30 | 86.7% | 86.7% | 0 |
+| exact_vs_prefix_extended | 40 | 100.0% | 100.0% | 0 |
+| shorter_entry | 25 | 100.0% | 100.0% | 0 |
+| **TOTAL** | **3003** | **89.3%** | **92.4%** | **+3.1** |
+
+MRR 0.935 -> 0.953. The `hard` slice of `spoken_corpus` — the cases where a real
+competitor shares the reading, i.e. the reported complaint in its purest form —
+is where the work actually landed: **69.3% -> 93.4%**.
+
+**`order_pairs` is the one set that got worse, and the cause is worth recording.**
+The pre-work ranker scores 99.8%; so does the current ranker with
+`WORDSHK_ATTESTED_BONUS = 0`. The ordering defect fixed in "Order insensitivity"
+was therefore not pre-existing — **it was introduced by the words.hk prior**,
+whose 8,000 bonus exactly cancelled the 8,000 inversion penalty. That fix
+recovered 88.5% -> 99.5%, but one case is still short of the 99.8% the ranker had
+before the prior existed. A prior that has to be gated on three separate
+conditions to stay safe is a prior worth re-examining.
+
+To reproduce (~3 minutes):
+
+    git worktree add ../ceot_maau_base $(git merge-base main HEAD)   # b0eecab
+    # copy the *current* eval/ over it, so both rankers face the same
+    # query sets and the same (strict) scoring:
+    Copy-Item -Recurse -Force eval\* ..\ceot_maau_base\eval\
+    cd ..\ceot_maau_base\console
+    cargo build --release
+    ..\console\target\release\console.exe build no_query   # must print "Writing done!"
+    cd ..
+    python eval\run_suite_report.py --save eval\results\baseline_today.json
+
+The source dictionaries are tracked, and the branch point predates both priors,
+so the worktree builds a genuine "before" index with no extra data files. Remove
+it afterwards with `git worktree remove ../ceot_maau_base --force`.
 
 ## Work done
 
@@ -579,6 +643,14 @@ All other sets unchanged. Regression tests:
 `test_traditional_match_in_order_is_free`,
 `test_traditional_match_out_of_order_is_penalised`,
 `test_traditional_match_requires_every_character`.
+
+**Later measurement: this defect was self-inflicted.** The pre-work ranker scores
+99.8% on `order_pairs`, and so does the current ranker with
+`WORDSHK_ATTESTED_BONUS = 0`. Half 1 above was therefore introduced wholesale by
+the words.hk prior, and half 2 (the order-blind character path) cost almost
+nothing on this set on its own. The fix recovered 88.5% -> 99.5%, still one case
+short of the 99.8% the ranker had before the prior existed — that case is the
+prior's residual cost. See [Total gain](#total-gain-measured-not-subtracted).
 
 ## The `order_pairs` query set (`eval/build_order_pairs_eval.py`)
 
