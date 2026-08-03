@@ -105,6 +105,7 @@ impl Builder {
                 english_sets: definitions,
                 source: EntrySource::CCanto,
                 cost,
+                attested: false,
             });
         }
 
@@ -175,7 +176,8 @@ impl Builder {
                 jyutping: String::default(),
                 english_sets: definitions,
                 source: EntrySource::CEDict,
-                cost });
+                cost,
+                attested: false });
         }
 
         println!("Read {} dictionary entries from {}", {self.entries.len() - size_at_start}, path);
@@ -191,6 +193,43 @@ impl Builder {
                 e.cost += 10_000;
             }
         }
+    }
+
+    /// Mark entries attested in words.hk, a hand-curated Cantonese dictionary.
+    ///
+    /// Character frequency cannot distinguish a word Cantonese speakers actually
+    /// use from a Classical or Mandarin-only term that is frequent in written
+    /// corpora, so obscure entries outrank everyday ones (畢昇 over 不勝, 惝恍
+    /// over 劏房). Membership is recorded as a flag rather than folded into the
+    /// cost here because static cost also carries the length signal; the search
+    /// applies the bonus only where it cannot disturb length ordering.
+    ///
+    /// The file is one traditional headword per line and is optional, so a build
+    /// without it behaves exactly as before.
+    pub fn mark_attested_words(&mut self, path : &str)
+    {
+        let data = match std::fs::read_to_string(path) {
+            Ok(d) => d,
+            Err(_) => {
+                println!("No attested word list at {}, skipping", path);
+                return;
+            }
+        };
+
+        let attested : std::collections::HashSet<&str> =
+            data.lines().map(|l| l.trim()).filter(|l| !l.is_empty()).collect();
+
+        let mut marked = 0;
+        for e in &mut self.entries
+        {
+            if (attested.contains(e.traditional.as_str()))
+            {
+                e.attested = true;
+                marked += 1;
+            }
+        }
+
+        println!("Marked {} entries attested in {} ({} headwords)", marked, path, attested.len());
     }
 }
 
@@ -254,6 +293,8 @@ pub struct DictionaryEntry
     pub jyutping: String,
     pub english_sets: StringVecSet,
     pub source: EntrySource,
+    /// Whether the word appears in a curated Cantonese dictionary (words.hk).
+    pub attested: bool,
 }
 
 #[derive(Debug, Default)]

@@ -76,6 +76,10 @@ impl CompiledDictionary {
                 }
             }
 
+            if entry.attested {
+                flags |= FLAG_ATTESTED;
+            }
+
             let mut char_indexes = Vec::new();
             for character in entry.traditional.chars()
             {
@@ -457,10 +461,16 @@ impl CompiledDictionaryEntry
             panic!("Unknown data source");
         }
     }
+
+    /// Whether this word appears in a curated Cantonese dictionary (words.hk).
+    pub fn is_attested(&self) -> bool {
+        self.flags & FLAG_ATTESTED != 0
+    }
 }
 
 pub const FLAG_SOURCE_CEDICT: u8 = 0x1;
 pub const FLAG_SOURCE_CCCANTO: u8 = 0x2;
+pub const FLAG_ATTESTED: u8 = 0x4;
 
 pub struct Result
 {

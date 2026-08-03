@@ -1,0 +1,4530 @@
+[
+  {
+    "id": 6001,
+    "query": "jat1 mei2",
+    "category": "pin_jam",
+    "description": "一味 - colloquial 6->2 tone change of jat1 mei6",
+    "expected_characters": [
+      "一味"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6002,
+    "query": "soeng5 lau2",
+    "category": "pin_jam",
+    "description": "上樓 - colloquial 4->2 tone change of soeng5 lau4",
+    "expected_characters": [
+      "上樓"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6003,
+    "query": "soeng5 lin2",
+    "category": "pin_jam",
+    "description": "上鏈 - colloquial 6->2 tone change of soeng5 lin6",
+    "expected_characters": [
+      "上鏈"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6004,
+    "query": "haa6 pun2",
+    "category": "pin_jam",
+    "description": "下盤 - colloquial 4->2 tone change of haa6 pun4",
+    "expected_characters": [
+      "下盤"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6005,
+    "query": "bat1 sing1",
+    "category": "pin_jam",
+    "description": "不勝 - colloquial 3->1 tone change of bat1 sing3",
+    "expected_characters": [
+      "不勝"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6006,
+    "query": "zung1 neoi2",
+    "category": "pin_jam",
+    "description": "中女 - colloquial 5->2 tone change of zung1 neoi5",
+    "expected_characters": [
+      "中女"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6007,
+    "query": "zung1 ngan2",
+    "category": "pin_jam",
+    "description": "中銀 - colloquial 4->2 tone change of zung1 ngan4",
+    "expected_characters": [
+      "中銀"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6008,
+    "query": "zyu2 deoi2",
+    "category": "pin_jam",
+    "description": "主隊 - colloquial 6->2 tone change of zyu2 deoi6",
+    "expected_characters": [
+      "主隊"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6009,
+    "query": "jyu5 gaap2",
+    "category": "pin_jam",
+    "description": "乳鴿 - colloquial 3->2 tone change of jyu5 gaap3",
+    "expected_characters": [
+      "乳鴿"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6010,
+    "query": "zeng2 hou2",
+    "category": "pin_jam",
+    "description": "井號 - colloquial 6->2 tone change of zeng2 hou6",
+    "expected_characters": [
+      "井號"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6011,
+    "query": "aa3 ji1",
+    "category": "pin_jam",
+    "description": "亞姨 - colloquial 4->1 tone change of aa3 ji4",
+    "expected_characters": [
+      "亞姨",
+      "阿姨"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6012,
+    "query": "jan4 mat2",
+    "category": "pin_jam",
+    "description": "人物 - colloquial 6->2 tone change of jan4 mat6",
+    "expected_characters": [
+      "人物"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6013,
+    "query": "jan4 min2",
+    "category": "pin_jam",
+    "description": "人面 - colloquial 6->2 tone change of jan4 min6",
+    "expected_characters": [
+      "人面"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6014,
+    "query": "puk1 zyun2",
+    "category": "pin_jam",
+    "description": "仆轉 - colloquial 3->2 tone change of puk1 zyun3",
+    "expected_characters": [
+      "仆轉"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6015,
+    "query": "sin1 neoi2",
+    "category": "pin_jam",
+    "description": "仙女 - colloquial 5->2 tone change of sin1 neoi5",
+    "expected_characters": [
+      "仙女"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6016,
+    "query": "ling6 oi2",
+    "category": "pin_jam",
+    "description": "令嬡 - colloquial 3->2 tone change of ling6 oi3",
+    "expected_characters": [
+      "令嬡",
+      "令愛"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6017,
+    "query": "gin6 tau2",
+    "category": "pin_jam",
+    "description": "件頭 - colloquial 4->2 tone change of gin6 tau4",
+    "expected_characters": [
+      "件頭"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6018,
+    "query": "fong2 pei2",
+    "category": "pin_jam",
+    "description": "仿皮 - colloquial 4->2 tone change of fong2 pei4",
+    "expected_characters": [
+      "仿皮"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6019,
+    "query": "dai1 wai2",
+    "category": "pin_jam",
+    "description": "低位 - colloquial 6->2 tone change of dai1 wai6",
+    "expected_characters": [
+      "低位"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6020,
+    "query": "pin4 ji2",
+    "category": "pin_jam",
+    "description": "便宜 - colloquial 4->2 tone change of pin4 ji4",
+    "expected_characters": [
+      "便宜"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6021,
+    "query": "seon3 ce2",
+    "category": "pin_jam",
+    "description": "信邪 - colloquial 4->2 tone change of seon3 ce4",
+    "expected_characters": [
+      "信邪"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6022,
+    "query": "fu2 cung1",
+    "category": "pin_jam",
+    "description": "俯衝 - colloquial 3->1 tone change of fu2 cung3",
+    "expected_characters": [
+      "俯衝"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6023,
+    "query": "dou2 mou2",
+    "category": "pin_jam",
+    "description": "倒模 - colloquial 4->2 tone change of dou2 mou4",
+    "expected_characters": [
+      "倒模"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6024,
+    "query": "hau6 wok2",
+    "category": "pin_jam",
+    "description": "候鑊 - colloquial 6->2 tone change of hau6 wok6",
+    "expected_characters": [
+      "候鑊"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6025,
+    "query": "zou6 mui2",
+    "category": "pin_jam",
+    "description": "做媒 - colloquial 4->2 tone change of zou6 mui4",
+    "expected_characters": [
+      "做媒"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6026,
+    "query": "so4 neoi2",
+    "category": "pin_jam",
+    "description": "傻女 - colloquial 5->2 tone change of so4 neoi5",
+    "expected_characters": [
+      "傻女"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6027,
+    "query": "so4 po2",
+    "category": "pin_jam",
+    "description": "傻婆 - colloquial 4->2 tone change of so4 po4",
+    "expected_characters": [
+      "傻婆"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6028,
+    "query": "king1 gai2",
+    "category": "pin_jam",
+    "description": "傾計 - colloquial 3->2 tone change of king1 gai3",
+    "expected_characters": [
+      "傾計"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6029,
+    "query": "leng1 mui1",
+    "category": "pin_jam",
+    "description": "僆妹 - colloquial 6->1 tone change of leng1 mui6",
+    "expected_characters": [
+      "僆妹"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6030,
+    "query": "sin1 ling2",
+    "category": "pin_jam",
+    "description": "先令 - colloquial 6->2 tone change of sin1 ling6",
+    "expected_characters": [
+      "先令"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6031,
+    "query": "jap6 jau2",
+    "category": "pin_jam",
+    "description": "入油 - colloquial 4->2 tone change of jap6 jau4",
+    "expected_characters": [
+      "入油"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6032,
+    "query": "noi6 lung2",
+    "category": "pin_jam",
+    "description": "內籠 - colloquial 4->2 tone change of noi6 lung4",
+    "expected_characters": [
+      "內籠"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6033,
+    "query": "loeng5 fan2",
+    "category": "pin_jam",
+    "description": "兩份 - colloquial 6->2 tone change of loeng5 fan6",
+    "expected_characters": [
+      "兩份"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6034,
+    "query": "gim1 deoi2",
+    "category": "pin_jam",
+    "description": "兼隊 - colloquial 6->2 tone change of gim1 deoi6",
+    "expected_characters": [
+      "兼隊"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6035,
+    "query": "mou5 min2",
+    "category": "pin_jam",
+    "description": "冇面 - colloquial 6->2 tone change of mou5 min6",
+    "expected_characters": [
+      "冇面"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6036,
+    "query": "laang5 can1",
+    "category": "pin_jam",
+    "description": "冷嚫 - colloquial 3->1 tone change of laang5 can3",
+    "expected_characters": [
+      "冷嚫"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6037,
+    "query": "ceot1 dau2",
+    "category": "pin_jam",
+    "description": "出痘 - colloquial 6->2 tone change of ceot1 dau6",
+    "expected_characters": [
+      "出痘"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6038,
+    "query": "ceot1 cung1",
+    "category": "pin_jam",
+    "description": "出銃 - colloquial 3->1 tone change of ceot1 cung3",
+    "expected_characters": [
+      "出銃"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6039,
+    "query": "fan1 guk2",
+    "category": "pin_jam",
+    "description": "分局 - colloquial 6->2 tone change of fan1 guk6",
+    "expected_characters": [
+      "分局"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6040,
+    "query": "cit3 pin2",
+    "category": "pin_jam",
+    "description": "切片 - colloquial 3->2 tone change of cit3 pin3",
+    "expected_characters": [
+      "切片"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6041,
+    "query": "lit6 deoi2",
+    "category": "pin_jam",
+    "description": "列隊 - colloquial 6->2 tone change of lit6 deoi6",
+    "expected_characters": [
+      "列隊"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6042,
+    "query": "gwaat3 jau2",
+    "category": "pin_jam",
+    "description": "刮友 - colloquial 5->2 tone change of gwaat3 jau5",
+    "expected_characters": [
+      "刮友"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6043,
+    "query": "cin4 nin2",
+    "category": "pin_jam",
+    "description": "前年 - colloquial 4->2 tone change of cin4 nin4",
+    "expected_characters": [
+      "前年"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6044,
+    "query": "cin4 mun2",
+    "category": "pin_jam",
+    "description": "前門 - colloquial 4->2 tone change of cin4 mun4",
+    "expected_characters": [
+      "前門"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6045,
+    "query": "tong1 fong2",
+    "category": "pin_jam",
+    "description": "劏房 - colloquial 4->2 tone change of tong1 fong4",
+    "expected_characters": [
+      "劏房"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6046,
+    "query": "gaa1 hou2",
+    "category": "pin_jam",
+    "description": "加號 - colloquial 6->2 tone change of gaa1 hou6",
+    "expected_characters": [
+      "加號"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6047,
+    "query": "bin2 ngaak2",
+    "category": "pin_jam",
+    "description": "匾額 - colloquial 6->2 tone change of bin2 ngaak6",
+    "expected_characters": [
+      "匾額",
+      "扁額"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6048,
+    "query": "bun3 lou2",
+    "category": "pin_jam",
+    "description": "半路 - colloquial 6->2 tone change of bun3 lou6",
+    "expected_characters": [
+      "半路"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6049,
+    "query": "kaa1 si2",
+    "category": "pin_jam",
+    "description": "卡士 - colloquial 6->2 tone change of kaa1 si6",
+    "expected_characters": [
+      "卡士"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6050,
+    "query": "faan2 paai1",
+    "category": "pin_jam",
+    "description": "反派 - colloquial 3->1 tone change of faan2 paai3",
+    "expected_characters": [
+      "反派"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6051,
+    "query": "suk1 fu2",
+    "category": "pin_jam",
+    "description": "叔父 - colloquial 6->2 tone change of suk1 fu6",
+    "expected_characters": [
+      "叔父"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6052,
+    "query": "gu2 wun2",
+    "category": "pin_jam",
+    "description": "古玩 - colloquial 6->2 tone change of gu2 wun6",
+    "expected_characters": [
+      "古玩"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6053,
+    "query": "ming4 paai2",
+    "category": "pin_jam",
+    "description": "名牌 - colloquial 4->2 tone change of ming4 paai4",
+    "expected_characters": [
+      "名牌"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6054,
+    "query": "ming4 ngaak2",
+    "category": "pin_jam",
+    "description": "名額 - colloquial 6->2 tone change of ming4 ngaak6",
+    "expected_characters": [
+      "名額"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6055,
+    "query": "kap1 pun2",
+    "category": "pin_jam",
+    "description": "吸盤 - colloquial 4->2 tone change of kap1 pun4",
+    "expected_characters": [
+      "吸盤"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6056,
+    "query": "taai1 gep2",
+    "category": "pin_jam",
+    "description": "呔夾 - colloquial 6->2 tone change of taai1 gep6",
+    "expected_characters": [
+      "呔夾"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6057,
+    "query": "mei6 dip2",
+    "category": "pin_jam",
+    "description": "味碟 - colloquial 6->2 tone change of mei6 dip6",
+    "expected_characters": [
+      "味碟"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6058,
+    "query": "gu1 lei1",
+    "category": "pin_jam",
+    "description": "咕哩 - colloquial 5->1 tone change of gu1 lei5",
+    "expected_characters": [
+      "咕哩"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6059,
+    "query": "m4 dou2",
+    "category": "pin_jam",
+    "description": "唔到 - colloquial 3->2 tone change of m4 dou3",
+    "expected_characters": [
+      "唔到"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6060,
+    "query": "doeng1 dei2",
+    "category": "pin_jam",
+    "description": "啄地 - colloquial 6->2 tone change of doeng1 dei6",
+    "expected_characters": [
+      "啄地"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6061,
+    "query": "ngaam1 ngaa2",
+    "category": "pin_jam",
+    "description": "啱牙 - colloquial 4->2 tone change of ngaam1 ngaa4",
+    "expected_characters": [
+      "啱牙"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6062,
+    "query": "juk1 can1",
+    "category": "pin_jam",
+    "description": "喐親 - colloquial 3->1 tone change of juk1 can3",
+    "expected_characters": [
+      "喐親"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6063,
+    "query": "sin4 jyu1",
+    "category": "pin_jam",
+    "description": "單于 - colloquial 4->1 tone change of sin4 jyu4",
+    "expected_characters": [
+      "單于"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6064,
+    "query": "gaa1 jyu2",
+    "category": "pin_jam",
+    "description": "嘉魚 - colloquial 4->2 tone change of gaa1 jyu4",
+    "expected_characters": [
+      "嘉魚"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6065,
+    "query": "sei3 tiu2",
+    "category": "pin_jam",
+    "description": "四條 - colloquial 4->2 tone change of sei3 tiu4",
+    "expected_characters": [
+      "四條"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6066,
+    "query": "wai4 noi2",
+    "category": "pin_jam",
+    "description": "圍內 - colloquial 6->2 tone change of wai4 noi6",
+    "expected_characters": [
+      "圍內"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6067,
+    "query": "jyun4 tai2",
+    "category": "pin_jam",
+    "description": "圓蹄 - colloquial 4->2 tone change of jyun4 tai4",
+    "expected_characters": [
+      "元蹄",
+      "圓蹄"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6068,
+    "query": "tou2 jau2",
+    "category": "pin_jam",
+    "description": "土魷 - colloquial 4->2 tone change of tou2 jau4",
+    "expected_characters": [
+      "土魷"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6069,
+    "query": "dei6 wu2",
+    "category": "pin_jam",
+    "description": "地糊 - colloquial 4->2 tone change of dei6 wu4",
+    "expected_characters": [
+      "地糊"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6070,
+    "query": "co5 jyut2",
+    "category": "pin_jam",
+    "description": "坐月 - colloquial 6->2 tone change of co5 jyut6",
+    "expected_characters": [
+      "坐月"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6071,
+    "query": "zap1 dou2",
+    "category": "pin_jam",
+    "description": "執到 - colloquial 3->2 tone change of zap1 dou3",
+    "expected_characters": [
+      "執到"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6072,
+    "query": "zap1 cau2",
+    "category": "pin_jam",
+    "description": "執籌 - colloquial 4->2 tone change of zap1 cau4",
+    "expected_characters": [
+      "執籌"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6073,
+    "query": "tong4 haak2",
+    "category": "pin_jam",
+    "description": "堂客 - colloquial 3->2 tone change of tong4 haak3",
+    "expected_characters": [
+      "堂客"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6074,
+    "query": "gin1 dou2",
+    "category": "pin_jam",
+    "description": "堅道 - colloquial 6->2 tone change of gin1 dou6",
+    "expected_characters": [
+      "堅道"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6075,
+    "query": "tong4 ngo2",
+    "category": "pin_jam",
+    "description": "塘鵝 - colloquial 4->2 tone change of tong4 ngo4",
+    "expected_characters": [
+      "塘鵝"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6076,
+    "query": "mak6 jin2",
+    "category": "pin_jam",
+    "description": "墨硯 - colloquial 6->2 tone change of mak6 jin6",
+    "expected_characters": [
+      "墨硯"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6077,
+    "query": "sau6 mei2",
+    "category": "pin_jam",
+    "description": "壽眉 - colloquial 4->2 tone change of sau6 mei4",
+    "expected_characters": [
+      "壽眉"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6078,
+    "query": "daai6 gai2",
+    "category": "pin_jam",
+    "description": "大偈 - colloquial 6->2 tone change of daai6 gai6",
+    "expected_characters": [
+      "大偈"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6079,
+    "query": "daai6 paang2",
+    "category": "pin_jam",
+    "description": "大朋 - colloquial 4->2 tone change of daai6 paang4",
+    "expected_characters": [
+      "大朋",
+      "大棚",
+      "大鵬"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6080,
+    "query": "daai6 loek2",
+    "category": "pin_jam",
+    "description": "大略 - colloquial 6->2 tone change of daai6 loek6",
+    "expected_characters": [
+      "大略"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6081,
+    "query": "daai6 deoi2",
+    "category": "pin_jam",
+    "description": "大隊 - colloquial 6->2 tone change of daai6 deoi6",
+    "expected_characters": [
+      "大憝",
+      "大隊"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6082,
+    "query": "tin1 hau2",
+    "category": "pin_jam",
+    "description": "天候 - colloquial 6->2 tone change of tin1 hau6",
+    "expected_characters": [
+      "天候",
+      "天后"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6083,
+    "query": "joeng1 hong2",
+    "category": "pin_jam",
+    "description": "央行 - colloquial 4->2 tone change of joeng1 hong4",
+    "expected_characters": [
+      "央行"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6084,
+    "query": "gaap3 cin2",
+    "category": "pin_jam",
+    "description": "夾錢 - colloquial 4->2 tone change of gaap3 cin4",
+    "expected_characters": [
+      "夾錢"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6085,
+    "query": "neoi5 jan2",
+    "category": "pin_jam",
+    "description": "女人 - colloquial 4->2 tone change of neoi5 jan4",
+    "expected_characters": [
+      "女人"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6086,
+    "query": "kam5 mou2",
+    "category": "pin_jam",
+    "description": "妗母 - colloquial 5->2 tone change of kam5 mou5",
+    "expected_characters": [
+      "妗母"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6087,
+    "query": "gu1 zoeng2",
+    "category": "pin_jam",
+    "description": "姑丈 - colloquial 6->2 tone change of gu1 zoeng6",
+    "expected_characters": [
+      "姑丈"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6088,
+    "query": "ji4 zoeng2",
+    "category": "pin_jam",
+    "description": "姨丈 - colloquial 6->2 tone change of ji4 zoeng6",
+    "expected_characters": [
+      "儀仗",
+      "姨丈"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6089,
+    "query": "jan1 can1",
+    "category": "pin_jam",
+    "description": "姻親 - colloquial 3->1 tone change of jan1 can3",
+    "expected_characters": [
+      "姻親"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6090,
+    "query": "jyun2 zyun2",
+    "category": "pin_jam",
+    "description": "婉轉 - colloquial 3->2 tone change of jyun2 zyun3",
+    "expected_characters": [
+      "婉轉"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6091,
+    "query": "gaa3 neoi2",
+    "category": "pin_jam",
+    "description": "嫁女 - colloquial 5->2 tone change of gaa3 neoi5",
+    "expected_characters": [
+      "嫁女"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6092,
+    "query": "maa1 jip2",
+    "category": "pin_jam",
+    "description": "孖葉 - colloquial 6->2 tone change of maa1 jip6",
+    "expected_characters": [
+      "孖葉"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6093,
+    "query": "zi6 joeng2",
+    "category": "pin_jam",
+    "description": "字樣 - colloquial 6->2 tone change of zi6 joeng6",
+    "expected_characters": [
+      "字樣"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6094,
+    "query": "hok6 tong2",
+    "category": "pin_jam",
+    "description": "學堂 - colloquial 4->2 tone change of hok6 tong4",
+    "expected_characters": [
+      "學堂"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6095,
+    "query": "hok6 ngaak2",
+    "category": "pin_jam",
+    "description": "學額 - colloquial 6->2 tone change of hok6 ngaak6",
+    "expected_characters": [
+      "學額"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6096,
+    "query": "laai1 mei1",
+    "category": "pin_jam",
+    "description": "孻尾 - colloquial 5->1 tone change of laai1 mei5",
+    "expected_characters": [
+      "孻尾",
+      "拉美"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6097,
+    "query": "sau2 je2",
+    "category": "pin_jam",
+    "description": "守夜 - colloquial 6->2 tone change of sau2 je6",
+    "expected_characters": [
+      "守夜"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6098,
+    "query": "ding6 ngaak2",
+    "category": "pin_jam",
+    "description": "定額 - colloquial 6->2 tone change of ding6 ngaak6",
+    "expected_characters": [
+      "定額"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6099,
+    "query": "siu1 je2",
+    "category": "pin_jam",
+    "description": "宵夜 - colloquial 6->2 tone change of siu1 je6",
+    "expected_characters": [
+      "宵夜",
+      "消夜"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6100,
+    "query": "sat6 waa2",
+    "category": "pin_jam",
+    "description": "實話 - colloquial 6->2 tone change of sat6 waa6",
+    "expected_characters": [
+      "實話"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6101,
+    "query": "ning4 jyun2",
+    "category": "pin_jam",
+    "description": "寧願 - colloquial 6->2 tone change of ning4 jyun6",
+    "expected_characters": [
+      "寧縣",
+      "寧願"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6102,
+    "query": "deoi3 ham2",
+    "category": "pin_jam",
+    "description": "對撼 - colloquial 6->2 tone change of deoi3 ham6",
+    "expected_characters": [
+      "對撼"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6103,
+    "query": "siu2 ji2",
+    "category": "pin_jam",
+    "description": "小二 - colloquial 6->2 tone change of siu2 ji6",
+    "expected_characters": [
+      "小二"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6104,
+    "query": "zim1 tau2",
+    "category": "pin_jam",
+    "description": "尖頭 - colloquial 4->2 tone change of zim1 tau4",
+    "expected_characters": [
+      "尖頭"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6105,
+    "query": "si2 pin2",
+    "category": "pin_jam",
+    "description": "屎片 - colloquial 3->2 tone change of si2 pin3",
+    "expected_characters": [
+      "屎片"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6106,
+    "query": "cang4 min2",
+    "category": "pin_jam",
+    "description": "層面 - colloquial 6->2 tone change of cang4 min6",
+    "expected_characters": [
+      "層面"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6107,
+    "query": "ceon4 coeng2",
+    "category": "pin_jam",
+    "description": "巡場 - colloquial 4->2 tone change of ceon4 coeng4",
+    "expected_characters": [
+      "巡場"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6108,
+    "query": "zo2 leon2",
+    "category": "pin_jam",
+    "description": "左輪 - colloquial 4->2 tone change of zo2 leon4",
+    "expected_characters": [
+      "左輪"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6109,
+    "query": "caa1 mui1",
+    "category": "pin_jam",
+    "description": "差妹 - colloquial 6->1 tone change of caa1 mui6",
+    "expected_characters": [
+      "差妹"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6110,
+    "query": "caa1 ngaak2",
+    "category": "pin_jam",
+    "description": "差額 - colloquial 6->2 tone change of caa1 ngaak6",
+    "expected_characters": [
+      "差額"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6111,
+    "query": "bong1 baan2",
+    "category": "pin_jam",
+    "description": "幫辦 - colloquial 6->2 tone change of bong1 baan6",
+    "expected_characters": [
+      "幫辦"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6112,
+    "query": "jau3 neoi2",
+    "category": "pin_jam",
+    "description": "幼女 - colloquial 5->2 tone change of jau3 neoi5",
+    "expected_characters": [
+      "幼女"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6113,
+    "query": "gei2 cin2",
+    "category": "pin_jam",
+    "description": "幾錢 - colloquial 4->2 tone change of gei2 cin4",
+    "expected_characters": [
+      "幾錢"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6114,
+    "query": "dai2 paai2",
+    "category": "pin_jam",
+    "description": "底牌 - colloquial 4->2 tone change of dai2 paai4",
+    "expected_characters": [
+      "底牌"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6115,
+    "query": "jin4 laam2",
+    "category": "pin_jam",
+    "description": "延攬 - colloquial 5->2 tone change of jin4 laam5",
+    "expected_characters": [
+      "延攬"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6116,
+    "query": "daan6 wong2",
+    "category": "pin_jam",
+    "description": "彈簧 - colloquial 4->2 tone change of daan6 wong4",
+    "expected_characters": [
+      "彈簧"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6117,
+    "query": "hau6 jyun2",
+    "category": "pin_jam",
+    "description": "後園 - colloquial 4->2 tone change of hau6 jyun4",
+    "expected_characters": [
+      "後園",
+      "後緣"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6118,
+    "query": "hau6 nin2",
+    "category": "pin_jam",
+    "description": "後年 - colloquial 4->2 tone change of hau6 nin4",
+    "expected_characters": [
+      "後年"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6119,
+    "query": "dak1 man2",
+    "category": "pin_jam",
+    "description": "德文 - colloquial 4->2 tone change of dak1 man4",
+    "expected_characters": [
+      "得文",
+      "德文"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6120,
+    "query": "gwaan3 faan2",
+    "category": "pin_jam",
+    "description": "慣犯 - colloquial 6->2 tone change of gwaan3 faan6",
+    "expected_characters": [
+      "慣犯"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6121,
+    "query": "hei3 kiu2",
+    "category": "pin_jam",
+    "description": "戲橋 - colloquial 4->2 tone change of hei3 kiu4",
+    "expected_characters": [
+      "戲橋"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6122,
+    "query": "daa2 waai2",
+    "category": "pin_jam",
+    "description": "打壞 - colloquial 6->2 tone change of daa2 waai6",
+    "expected_characters": [
+      "打壞"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6123,
+    "query": "daa2 jiu2",
+    "category": "pin_jam",
+    "description": "打擾 - colloquial 5->2 tone change of daa2 jiu5",
+    "expected_characters": [
+      "打擾"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6124,
+    "query": "daa2 dip2",
+    "category": "pin_jam",
+    "description": "打碟 - colloquial 6->2 tone change of daa2 dip6",
+    "expected_characters": [
+      "打碟"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6125,
+    "query": "daa2 zoek2",
+    "category": "pin_jam",
+    "description": "打雀 - colloquial 3->2 tone change of daa2 zoek3",
+    "expected_characters": [
+      "打雀"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6126,
+    "query": "tok3 pun2",
+    "category": "pin_jam",
+    "description": "托盤 - colloquial 4->2 tone change of tok3 pun4",
+    "expected_characters": [
+      "托盤"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6127,
+    "query": "zit3 jin2",
+    "category": "pin_jam",
+    "description": "折現 - colloquial 6->2 tone change of zit3 jin6",
+    "expected_characters": [
+      "折現"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6128,
+    "query": "to1 dou2",
+    "category": "pin_jam",
+    "description": "拖艔 - colloquial 6->2 tone change of to1 dou6",
+    "expected_characters": [
+      "拖艔"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6129,
+    "query": "kut3 hou2",
+    "category": "pin_jam",
+    "description": "括號 - colloquial 6->2 tone change of kut3 hou6",
+    "expected_characters": [
+      "括號"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6130,
+    "query": "ping3 pun2",
+    "category": "pin_jam",
+    "description": "拼盤 - colloquial 4->2 tone change of ping3 pun4",
+    "expected_characters": [
+      "拼盤"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6131,
+    "query": "zit3 bou2",
+    "category": "pin_jam",
+    "description": "捷報 - colloquial 3->2 tone change of zit3 bou3",
+    "expected_characters": [
+      "捷報"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6132,
+    "query": "zip3 hap1",
+    "category": "pin_jam",
+    "description": "接洽 - colloquial 6->1 tone change of zip3 hap6",
+    "expected_characters": [
+      "接合",
+      "接洽"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6133,
+    "query": "gaan2 lau2",
+    "category": "pin_jam",
+    "description": "揀樓 - colloquial 4->2 tone change of gaan2 lau4",
+    "expected_characters": [
+      "揀樓"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6134,
+    "query": "caap3 tau2",
+    "category": "pin_jam",
+    "description": "插頭 - colloquial 4->2 tone change of caap3 tau4",
+    "expected_characters": [
+      "插頭"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6135,
+    "query": "daap3 toi2",
+    "category": "pin_jam",
+    "description": "搭檯 - colloquial 4->2 tone change of daap3 toi4",
+    "expected_characters": [
+      "搭檯"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6136,
+    "query": "laau1 mui1",
+    "category": "pin_jam",
+    "description": "撈妹 - colloquial 6->1 tone change of laau1 mui6",
+    "expected_characters": [
+      "撈妹"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6137,
+    "query": "maak3 min2",
+    "category": "pin_jam",
+    "description": "擘面 - colloquial 6->2 tone change of maak3 min6",
+    "expected_characters": [
+      "擘面"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6138,
+    "query": "zi1 hong2",
+    "category": "pin_jam",
+    "description": "支行 - colloquial 4->2 tone change of zi1 hong4",
+    "expected_characters": [
+      "支行"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6139,
+    "query": "sau1 dou2",
+    "category": "pin_jam",
+    "description": "收到 - colloquial 3->2 tone change of sau1 dou3",
+    "expected_characters": [
+      "收到"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6140,
+    "query": "sau1 cin2",
+    "category": "pin_jam",
+    "description": "收錢 - colloquial 4->2 tone change of sau1 cin4",
+    "expected_characters": [
+      "收錢"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6141,
+    "query": "sou3 ngaak2",
+    "category": "pin_jam",
+    "description": "數額 - colloquial 6->2 tone change of sou3 ngaak6",
+    "expected_characters": [
+      "數額"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6142,
+    "query": "ce4 min2",
+    "category": "pin_jam",
+    "description": "斜面 - colloquial 6->2 tone change of ce4 min6",
+    "expected_characters": [
+      "斜面"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6143,
+    "query": "zaam2 laam2",
+    "category": "pin_jam",
+    "description": "斬纜 - colloquial 6->2 tone change of zaam2 laam6",
+    "expected_characters": [
+      "斬纜"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6144,
+    "query": "san1 noeng2",
+    "category": "pin_jam",
+    "description": "新娘 - colloquial 4->2 tone change of san1 noeng4",
+    "expected_characters": [
+      "新娘"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6145,
+    "query": "san1 man2",
+    "category": "pin_jam",
+    "description": "新聞 - colloquial 4->2 tone change of san1 man4",
+    "expected_characters": [
+      "新民",
+      "新聞"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6146,
+    "query": "syun4 leot2",
+    "category": "pin_jam",
+    "description": "旋律 - colloquial 6->2 tone change of syun4 leot6",
+    "expected_characters": [
+      "旋律"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6147,
+    "query": "sing1 pun2",
+    "category": "pin_jam",
+    "description": "星盤 - colloquial 4->2 tone change of sing1 pun4",
+    "expected_characters": [
+      "升盤",
+      "星盤"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6148,
+    "query": "saai3 laang1",
+    "category": "pin_jam",
+    "description": "晒冷 - colloquial 5->1 tone change of saai3 laang5",
+    "expected_characters": [
+      "晒冷"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6149,
+    "query": "long6 juk2",
+    "category": "pin_jam",
+    "description": "晾肉 - colloquial 6->2 tone change of long6 juk6",
+    "expected_characters": [
+      "晾肉"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6150,
+    "query": "saai3 paang2",
+    "category": "pin_jam",
+    "description": "曬棚 - colloquial 4->2 tone change of saai3 paang4",
+    "expected_characters": [
+      "曬棚"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6151,
+    "query": "syu1 min2",
+    "category": "pin_jam",
+    "description": "書面 - colloquial 6->2 tone change of syu1 min6",
+    "expected_characters": [
+      "書面"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6152,
+    "query": "jau5 min2",
+    "category": "pin_jam",
+    "description": "有面 - colloquial 6->2 tone change of jau5 min6",
+    "expected_characters": [
+      "有面"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6153,
+    "query": "cung4 mou1",
+    "category": "pin_jam",
+    "description": "松毛 - colloquial 4->1 tone change of cung4 mou4",
+    "expected_characters": [
+      "松毛"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6154,
+    "query": "gwo2 laan1",
+    "category": "pin_jam",
+    "description": "果欄 - colloquial 4->1 tone change of gwo2 laan4",
+    "expected_characters": [
+      "果欄"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6155,
+    "query": "gan1 hou2",
+    "category": "pin_jam",
+    "description": "根號 - colloquial 6->2 tone change of gan1 hou6",
+    "expected_characters": [
+      "根號"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6156,
+    "query": "tai1 deoi2",
+    "category": "pin_jam",
+    "description": "梯隊 - colloquial 6->2 tone change of tai1 deoi6",
+    "expected_characters": [
+      "梯隊"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6157,
+    "query": "ji2 lung2",
+    "category": "pin_jam",
+    "description": "椅籠 - colloquial 4->2 tone change of ji2 lung4",
+    "expected_characters": [
+      "椅籠"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6158,
+    "query": "aa1 caa1",
+    "category": "pin_jam",
+    "description": "椏杈 - colloquial 3->1 tone change of aa1 caa3",
+    "expected_characters": [
+      "椏杈"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6159,
+    "query": "joeng4 tou2",
+    "category": "pin_jam",
+    "description": "楊桃 - colloquial 4->2 tone change of joeng4 tou4",
+    "expected_characters": [
+      "楊桃",
+      "羊桃",
+      "陽桃"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6160,
+    "query": "gei1 pou2",
+    "category": "pin_jam",
+    "description": "機舖 - colloquial 3->2 tone change of gei1 pou3",
+    "expected_characters": [
+      "機舖"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6161,
+    "query": "jim4 se2",
+    "category": "pin_jam",
+    "description": "檐蛇 - colloquial 4->2 tone change of jim4 se4",
+    "expected_characters": [
+      "檐蛇",
+      "蚺蛇",
+      "鹽蛇"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6162,
+    "query": "go1 dip2",
+    "category": "pin_jam",
+    "description": "歌碟 - colloquial 6->2 tone change of go1 dip6",
+    "expected_characters": [
+      "歌碟"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6163,
+    "query": "zing3 jat2",
+    "category": "pin_jam",
+    "description": "正日 - colloquial 6->2 tone change of zing3 jat6",
+    "expected_characters": [
+      "正日"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6164,
+    "query": "sei2 jyu2",
+    "category": "pin_jam",
+    "description": "死魚 - colloquial 4->2 tone change of sei2 jyu4",
+    "expected_characters": [
+      "死魚"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6165,
+    "query": "seoi2 min2",
+    "category": "pin_jam",
+    "description": "水面 - colloquial 6->2 tone change of seoi2 min6",
+    "expected_characters": [
+      "水面"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6166,
+    "query": "cam4 nik1",
+    "category": "pin_jam",
+    "description": "沉溺 - colloquial 6->1 tone change of cam4 nik6",
+    "expected_characters": [
+      "沉溺"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6167,
+    "query": "saa1 leot2",
+    "category": "pin_jam",
+    "description": "沙律 - colloquial 6->2 tone change of saa1 leot6",
+    "expected_characters": [
+      "沙律"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6168,
+    "query": "jau4 jau2",
+    "category": "pin_jam",
+    "description": "油油 - colloquial 4->2 tone change of jau4 jau4",
+    "expected_characters": [
+      "悠悠",
+      "油油"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6169,
+    "query": "bo1 dei2",
+    "category": "pin_jam",
+    "description": "波地 - colloquial 6->2 tone change of bo1 dei6",
+    "expected_characters": [
+      "波地"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6170,
+    "query": "taai3 man2",
+    "category": "pin_jam",
+    "description": "泰文 - colloquial 4->2 tone change of taai3 man4",
+    "expected_characters": [
+      "泰文"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6171,
+    "query": "sai2 doi2",
+    "category": "pin_jam",
+    "description": "洗袋 - colloquial 6->2 tone change of sai2 doi6",
+    "expected_characters": [
+      "洗袋"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6172,
+    "query": "gaam2 hou2",
+    "category": "pin_jam",
+    "description": "減號 - colloquial 6->2 tone change of gaam2 hou6",
+    "expected_characters": [
+      "減號"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6173,
+    "query": "waat6 ngaa2",
+    "category": "pin_jam",
+    "description": "滑牙 - colloquial 4->2 tone change of waat6 ngaa4",
+    "expected_characters": [
+      "滑牙"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6174,
+    "query": "waat6 tau2",
+    "category": "pin_jam",
+    "description": "滑頭 - colloquial 4->2 tone change of waat6 tau4",
+    "expected_characters": [
+      "滑頭"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6175,
+    "query": "gwan2 se2",
+    "category": "pin_jam",
+    "description": "滾瀉 - colloquial 3->2 tone change of gwan2 se3",
+    "expected_characters": [
+      "滾瀉"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6176,
+    "query": "cat1 jau2",
+    "category": "pin_jam",
+    "description": "漆油 - colloquial 4->2 tone change of cat1 jau4",
+    "expected_characters": [
+      "漆油"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6177,
+    "query": "fui1 ci2",
+    "category": "pin_jam",
+    "description": "灰匙 - colloquial 4->2 tone change of fui1 ci4",
+    "expected_characters": [
+      "灰匙"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6178,
+    "query": "fui1 zeon2",
+    "category": "pin_jam",
+    "description": "灰燼 - colloquial 6->2 tone change of fui1 zeon6",
+    "expected_characters": [
+      "灰燼"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6179,
+    "query": "caau2 lau2",
+    "category": "pin_jam",
+    "description": "炒樓 - colloquial 4->2 tone change of caau2 lau4",
+    "expected_characters": [
+      "炒樓"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6180,
+    "query": "ziu3 joeng2",
+    "category": "pin_jam",
+    "description": "照樣 - colloquial 6->2 tone change of ziu3 joeng6",
+    "expected_characters": [
+      "照樣"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6181,
+    "query": "hung4 jan2",
+    "category": "pin_jam",
+    "description": "熊人 - colloquial 4->2 tone change of hung4 jan4",
+    "expected_characters": [
+      "熊人"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6182,
+    "query": "siu1 mei2",
+    "category": "pin_jam",
+    "description": "燒味 - colloquial 6->2 tone change of siu1 mei6",
+    "expected_characters": [
+      "燒味"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6183,
+    "query": "baan2 min2",
+    "category": "pin_jam",
+    "description": "版面 - colloquial 6->2 tone change of baan2 min6",
+    "expected_characters": [
+      "版面"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6184,
+    "query": "ngau4 ho2",
+    "category": "pin_jam",
+    "description": "牛河 - colloquial 4->2 tone change of ngau4 ho4",
+    "expected_characters": [
+      "牛河"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6185,
+    "query": "ngau4 deon1",
+    "category": "pin_jam",
+    "description": "牛頓 - colloquial 6->1 tone change of ngau4 deon6",
+    "expected_characters": [
+      "牛頓"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6186,
+    "query": "jin6 ngan2",
+    "category": "pin_jam",
+    "description": "現銀 - colloquial 4->2 tone change of jin6 ngan4",
+    "expected_characters": [
+      "現銀"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6187,
+    "query": "waan4 min2",
+    "category": "pin_jam",
+    "description": "環面 - colloquial 6->2 tone change of waan4 min6",
+    "expected_characters": [
+      "環面"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6188,
+    "query": "caan2 po2",
+    "category": "pin_jam",
+    "description": "產婆 - colloquial 4->2 tone change of caan2 po4",
+    "expected_characters": [
+      "產婆"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6189,
+    "query": "gaat6 zaat2",
+    "category": "pin_jam",
+    "description": "甴曱 - colloquial 6->2 tone change of gaat6 zaat6",
+    "expected_characters": [
+      "甴曱"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6190,
+    "query": "loek6 loek2",
+    "category": "pin_jam",
+    "description": "略略 - colloquial 6->2 tone change of loek6 loek6",
+    "expected_characters": [
+      "略略"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6191,
+    "query": "waa6 mei2",
+    "category": "pin_jam",
+    "description": "畫眉 - colloquial 4->2 tone change of waa6 mei4",
+    "expected_characters": [
+      "畫眉"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6192,
+    "query": "ji6 joeng2",
+    "category": "pin_jam",
+    "description": "異樣 - colloquial 6->2 tone change of ji6 joeng6",
+    "expected_characters": [
+      "異樣"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6193,
+    "query": "din1 po2",
+    "category": "pin_jam",
+    "description": "癲婆 - colloquial 4->2 tone change of din1 po4",
+    "expected_characters": [
+      "癲婆"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6194,
+    "query": "baak6 laam2",
+    "category": "pin_jam",
+    "description": "白欖 - colloquial 5->2 tone change of baak6 laam5",
+    "expected_characters": [
+      "白欖"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6195,
+    "query": "pei4 pou2",
+    "category": "pin_jam",
+    "description": "皮袍 - colloquial 4->2 tone change of pei4 pou4",
+    "expected_characters": [
+      "皮袍"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6196,
+    "query": "pun4 jiu2",
+    "category": "pin_jam",
+    "description": "盤繞 - colloquial 5->2 tone change of pun4 jiu5",
+    "expected_characters": [
+      "盤繞"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6197,
+    "query": "maang4 kei2",
+    "category": "pin_jam",
+    "description": "盲棋 - colloquial 4->2 tone change of maang4 kei4",
+    "expected_characters": [
+      "盲棋"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6198,
+    "query": "soeng1 cing1",
+    "category": "pin_jam",
+    "description": "相稱 - colloquial 3->1 tone change of soeng1 cing3",
+    "expected_characters": [
+      "相稱"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_1",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6199,
+    "query": "mei4 kim2",
+    "category": "pin_jam",
+    "description": "眉鉗 - colloquial 4->2 tone change of mei4 kim4",
+    "expected_characters": [
+      "眉鉗"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6200,
+    "query": "ngaan5 baak2",
+    "category": "pin_jam",
+    "description": "眼白 - colloquial 6->2 tone change of ngaan5 baak6",
+    "expected_characters": [
+      "眼白"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6201,
+    "query": "tai2 je2",
+    "category": "pin_jam",
+    "description": "睇夜 - colloquial 6->2 tone change of tai2 je6",
+    "expected_characters": [
+      "睇夜"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6202,
+    "query": "zi1 jyun2",
+    "category": "pin_jam",
+    "description": "知縣 - colloquial 6->2 tone change of zi1 jyun6",
+    "expected_characters": [
+      "知縣"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6203,
+    "query": "ngaang6 pun2",
+    "category": "pin_jam",
+    "description": "硬盤 - colloquial 4->2 tone change of ngaang6 pun4",
+    "expected_characters": [
+      "硬盤"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6204,
+    "query": "seoi3 ngan2",
+    "category": "pin_jam",
+    "description": "碎銀 - colloquial 4->2 tone change of seoi3 ngan4",
+    "expected_characters": [
+      "碎銀"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6205,
+    "query": "ci4 tau2",
+    "category": "pin_jam",
+    "description": "磁頭 - colloquial 4->2 tone change of ci4 tau4",
+    "expected_characters": [
+      "磁頭",
+      "詞頭"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6206,
+    "query": "san4 neoi2",
+    "category": "pin_jam",
+    "description": "神女 - colloquial 5->2 tone change of san4 neoi5",
+    "expected_characters": [
+      "神女"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6207,
+    "query": "wo4 zoek2",
+    "category": "pin_jam",
+    "description": "禾雀 - colloquial 3->2 tone change of wo4 zoek3",
+    "expected_characters": [
+      "禾雀"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6208,
+    "query": "cing3 to2",
+    "category": "pin_jam",
+    "description": "秤砣 - colloquial 4->2 tone change of cing3 to4",
+    "expected_characters": [
+      "秤坨",
+      "秤砣"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6209,
+    "query": "gou2 gin2",
+    "category": "pin_jam",
+    "description": "稿件 - colloquial 6->2 tone change of gou2 gin6",
+    "expected_characters": [
+      "稿件"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6210,
+    "query": "wo1 leon2",
+    "category": "pin_jam",
+    "description": "窩輪 - colloquial 4->2 tone change of wo1 leon4",
+    "expected_characters": [
+      "渦輪",
+      "窩輪"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6211,
+    "query": "lap6 lyun2",
+    "category": "pin_jam",
+    "description": "立亂 - colloquial 6->2 tone change of lap6 lyun6",
+    "expected_characters": [
+      "立亂"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6212,
+    "query": "bat1 tou2",
+    "category": "pin_jam",
+    "description": "筆套 - colloquial 3->2 tone change of bat1 tou3",
+    "expected_characters": [
+      "筆套"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6213,
+    "query": "bat1 doi2",
+    "category": "pin_jam",
+    "description": "筆袋 - colloquial 6->2 tone change of bat1 doi6",
+    "expected_characters": [
+      "筆袋"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6214,
+    "query": "mai5 pou2",
+    "category": "pin_jam",
+    "description": "米舖 - colloquial 3->2 tone change of mai5 pou3",
+    "expected_characters": [
+      "米舖"
+    ],
+    "accept_top_n": 1,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_2"
+    ]
+  },
+  {
+    "id": 6215,
+    "query": "fok3 gaa1 pei1",
+    "category": "pin_jam",
+    "description": "㺢㹢狓 - colloquial 4->1 tone change of fok3 gaa1 pei4",
+    "expected_characters": [
+      "㺢㹢狓"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_1",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6216,
+    "query": "jat1 go3 jan1",
+    "category": "pin_jam",
+    "description": "一個人 - colloquial 4->1 tone change of jat1 go3 jan4",
+    "expected_characters": [
+      "一個人"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_1",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6217,
+    "query": "jat1 jin4 tong2",
+    "category": "pin_jam",
+    "description": "一言堂 - colloquial 4->2 tone change of jat1 jin4 tong4",
+    "expected_characters": [
+      "一言堂"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6218,
+    "query": "saam1 kap6 dai2",
+    "category": "pin_jam",
+    "description": "三及第 - colloquial 6->2 tone change of saam1 kap6 dai6",
+    "expected_characters": [
+      "三及第"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6219,
+    "query": "bat1 jiu3 min2",
+    "category": "pin_jam",
+    "description": "不要面 - colloquial 6->2 tone change of bat1 jiu3 min6",
+    "expected_characters": [
+      "不要面"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6220,
+    "query": "gau2 tou5 jyu2",
+    "category": "pin_jam",
+    "description": "九肚魚 - colloquial 4->2 tone change of gau2 tou5 jyu4",
+    "expected_characters": [
+      "九肚魚"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6221,
+    "query": "ji6 daa2 luk2",
+    "category": "pin_jam",
+    "description": "二打六 - colloquial 6->2 tone change of ji6 daa2 luk6",
+    "expected_characters": [
+      "二打六"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6222,
+    "query": "ng5 lau5 jyu2",
+    "category": "pin_jam",
+    "description": "五柳魚 - colloquial 4->2 tone change of ng5 lau5 jyu4",
+    "expected_characters": [
+      "五柳魚"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6223,
+    "query": "doi6 biu2 deoi2",
+    "category": "pin_jam",
+    "description": "代表隊 - colloquial 6->2 tone change of doi6 biu2 deoi6",
+    "expected_characters": [
+      "代表隊"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6224,
+    "query": "zim3 pin4 ji2",
+    "category": "pin_jam",
+    "description": "佔便宜 - colloquial 4->2 tone change of zim3 pin4 ji4",
+    "expected_characters": [
+      "佔便宜"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6225,
+    "query": "gwat6 tau4 hong2",
+    "category": "pin_jam",
+    "description": "倔頭巷 - colloquial 6->2 tone change of gwat6 tau4 hong6",
+    "expected_characters": [
+      "倔頭巷"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6226,
+    "query": "gaa1 si1 pou2",
+    "category": "pin_jam",
+    "description": "傢俬舖 - colloquial 3->2 tone change of gaa1 si1 pou3",
+    "expected_characters": [
+      "傢俬舖"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6227,
+    "query": "sin1 go2 paai2",
+    "category": "pin_jam",
+    "description": "先嗰排 - colloquial 4->2 tone change of sin1 go2 paai4",
+    "expected_characters": [
+      "先嗰排"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6228,
+    "query": "lam1 pung4 tau2",
+    "category": "pin_jam",
+    "description": "冧篷頭 - colloquial 4->2 tone change of lam1 pung4 tau4",
+    "expected_characters": [
+      "冧篷頭"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6229,
+    "query": "gwaat3 cou1 lung2",
+    "category": "pin_jam",
+    "description": "刮粗龍 - colloquial 4->2 tone change of gwaat3 cou1 lung4",
+    "expected_characters": [
+      "刮粗龍"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6230,
+    "query": "jan3 zi6 gaak2",
+    "category": "pin_jam",
+    "description": "印字格 - colloquial 3->2 tone change of jan3 zi6 gaak3",
+    "expected_characters": [
+      "印字格"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6231,
+    "query": "hau2 seoi2 mei1",
+    "category": "pin_jam",
+    "description": "口水尾 - colloquial 5->1 tone change of hau2 seoi2 mei5",
+    "expected_characters": [
+      "口水尾"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_5_1",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6232,
+    "query": "tung4 uk1 zyu2",
+    "category": "pin_jam",
+    "description": "同屋住 - colloquial 6->2 tone change of tung4 uk1 zyu6",
+    "expected_characters": [
+      "同屋住"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6233,
+    "query": "gaa3 fe1 mui1",
+    "category": "pin_jam",
+    "description": "咖啡妹 - colloquial 6->1 tone change of gaa3 fe1 mui6",
+    "expected_characters": [
+      "咖啡妹"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_1",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6234,
+    "query": "nim6 hau2 wong2",
+    "category": "pin_jam",
+    "description": "唸口簧 - colloquial 4->2 tone change of nim6 hau2 wong4",
+    "expected_characters": [
+      "唸口簧",
+      "唸口黃"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6235,
+    "query": "daan1 kei5 jan2",
+    "category": "pin_jam",
+    "description": "單企人 - colloquial 4->2 tone change of daan1 kei5 jan4",
+    "expected_characters": [
+      "單企人"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6236,
+    "query": "sei3 ngaan5 po2",
+    "category": "pin_jam",
+    "description": "四眼婆 - colloquial 4->2 tone change of sei3 ngaan5 po4",
+    "expected_characters": [
+      "四眼婆"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6237,
+    "query": "wai4 tau4 waa2",
+    "category": "pin_jam",
+    "description": "圍頭話 - colloquial 6->2 tone change of wai4 tau4 waa6",
+    "expected_characters": [
+      "圍頭話"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6238,
+    "query": "tong4 bin1 hok2",
+    "category": "pin_jam",
+    "description": "塘邊鶴 - colloquial 6->2 tone change of tong4 bin1 hok6",
+    "expected_characters": [
+      "塘邊鶴"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6239,
+    "query": "si6 do1 fong2",
+    "category": "pin_jam",
+    "description": "士多房 - colloquial 4->2 tone change of si6 do1 fong4",
+    "expected_characters": [
+      "士多房"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6240,
+    "query": "daai6 hau4 laam2",
+    "category": "pin_jam",
+    "description": "大喉欖 - colloquial 5->2 tone change of daai6 hau4 laam5",
+    "expected_characters": [
+      "大喉欖"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6241,
+    "query": "daai6 kut3 hou2",
+    "category": "pin_jam",
+    "description": "大括號 - colloquial 6->2 tone change of daai6 kut3 hou6",
+    "expected_characters": [
+      "大括號"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6242,
+    "query": "daai6 daat3 dei2",
+    "category": "pin_jam",
+    "description": "大笪地 - colloquial 6->2 tone change of daai6 daat3 dei6",
+    "expected_characters": [
+      "大笪地"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6243,
+    "query": "daai6 goek3 jau2",
+    "category": "pin_jam",
+    "description": "大腳友 - colloquial 5->2 tone change of daai6 goek3 jau5",
+    "expected_characters": [
+      "大腳友"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6244,
+    "query": "hou2 ji3 si1",
+    "category": "pin_jam",
+    "description": "好意思 - colloquial 3->1 tone change of hou2 ji3 si3",
+    "expected_characters": [
+      "好意思"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_3_1",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6245,
+    "query": "mui4 jan4 po2",
+    "category": "pin_jam",
+    "description": "媒人婆 - colloquial 4->2 tone change of mui4 jan4 po4",
+    "expected_characters": [
+      "媒人婆"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6246,
+    "query": "si2 fat1 lung1",
+    "category": "pin_jam",
+    "description": "屎忽窿 - colloquial 4->1 tone change of si2 fat1 lung4",
+    "expected_characters": [
+      "屎忽窿"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_1",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6247,
+    "query": "zo2 hau2 jyu2",
+    "category": "pin_jam",
+    "description": "左口魚 - colloquial 4->2 tone change of zo2 hau2 jyu4",
+    "expected_characters": [
+      "左口魚"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6248,
+    "query": "gwong2 fu2 waa2",
+    "category": "pin_jam",
+    "description": "廣府話 - colloquial 6->2 tone change of gwong2 fu2 waa6",
+    "expected_characters": [
+      "廣府話"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6249,
+    "query": "hau6 dai2 je1",
+    "category": "pin_jam",
+    "description": "後底爺 - colloquial 4->1 tone change of hau6 dai2 je4",
+    "expected_characters": [
+      "後底爺"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_1",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6250,
+    "query": "laai1 ding1 man2",
+    "category": "pin_jam",
+    "description": "拉丁文 - colloquial 4->2 tone change of laai1 ding1 man4",
+    "expected_characters": [
+      "拉丁文"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6251,
+    "query": "zuk1 ji1 jan1",
+    "category": "pin_jam",
+    "description": "捉伊人 - colloquial 4->1 tone change of zuk1 ji1 jan4",
+    "expected_characters": [
+      "捉伊人"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_1",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6252,
+    "query": "bok3 ceot1 wai2",
+    "category": "pin_jam",
+    "description": "搏出位 - colloquial 6->2 tone change of bok3 ceot1 wai6",
+    "expected_characters": [
+      "搏出位"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6253,
+    "query": "but6 go3 leon2",
+    "category": "pin_jam",
+    "description": "撥個輪 - colloquial 4->2 tone change of but6 go3 leon4",
+    "expected_characters": [
+      "撥個輪"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6254,
+    "query": "sou2 baak6 laam2",
+    "category": "pin_jam",
+    "description": "數白欖 - colloquial 5->2 tone change of sou2 baak6 laam5",
+    "expected_characters": [
+      "數白欖"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6255,
+    "query": "san1 nin4 tau2",
+    "category": "pin_jam",
+    "description": "新年頭 - colloquial 4->2 tone change of san1 nin4 tau4",
+    "expected_characters": [
+      "新年頭"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6256,
+    "query": "ji6 laai1 gaa2",
+    "category": "pin_jam",
+    "description": "易拉架 - colloquial 3->2 tone change of ji6 laai1 gaa3",
+    "expected_characters": [
+      "易拉架"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6257,
+    "query": "nyun5 seoi2 doi2",
+    "category": "pin_jam",
+    "description": "暖水袋 - colloquial 6->2 tone change of nyun5 seoi2 doi6",
+    "expected_characters": [
+      "暖水袋"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6258,
+    "query": "jau5 gei2 ho2",
+    "category": "pin_jam",
+    "description": "有幾何 - colloquial 4->2 tone change of jau5 gei2 ho4",
+    "expected_characters": [
+      "有幾何"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6259,
+    "query": "dung1 fung1 lo2",
+    "category": "pin_jam",
+    "description": "東風螺 - colloquial 4->2 tone change of dung1 fung1 lo4",
+    "expected_characters": [
+      "東風螺"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6260,
+    "query": "caa4 gaa1 zaak2",
+    "category": "pin_jam",
+    "description": "查家宅 - colloquial 6->2 tone change of caa4 gaa1 zaak6",
+    "expected_characters": [
+      "查家宅"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6261,
+    "query": "so1 fu4 lei2",
+    "category": "pin_jam",
+    "description": "梳乎厘 - colloquial 4->2 tone change of so1 fu4 lei4",
+    "expected_characters": [
+      "梳乎厘"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6262,
+    "query": "waang4 aa1 coeng2",
+    "category": "pin_jam",
+    "description": "橫丫腸 - colloquial 4->2 tone change of waang4 aa1 coeng4",
+    "expected_characters": [
+      "橫丫腸"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6263,
+    "query": "sei2 sei2 haa2",
+    "category": "pin_jam",
+    "description": "死死下 - colloquial 6->2 tone change of sei2 sei2 haa6",
+    "expected_characters": [
+      "死死下"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6264,
+    "query": "jau4 maa4 dei2",
+    "category": "pin_jam",
+    "description": "油麻地 - colloquial 6->2 tone change of jau4 maa4 dei6",
+    "expected_characters": [
+      "油麻地"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6265,
+    "query": "sai2 maa5 laam2",
+    "category": "pin_jam",
+    "description": "洗馬欖 - colloquial 5->2 tone change of sai2 maa5 laam5",
+    "expected_characters": [
+      "洗馬欖"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6266,
+    "query": "siu1 fong4 guk2",
+    "category": "pin_jam",
+    "description": "消防局 - colloquial 6->2 tone change of siu1 fong4 guk6",
+    "expected_characters": [
+      "消防局"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6267,
+    "query": "jeon6 waat6 jau2",
+    "category": "pin_jam",
+    "description": "潤滑油 - colloquial 4->2 tone change of jeon6 waat6 jau4",
+    "expected_characters": [
+      "潤滑油"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6268,
+    "query": "zyu2 faan6 po2",
+    "category": "pin_jam",
+    "description": "煮飯婆 - colloquial 4->2 tone change of zyu2 faan6 po4",
+    "expected_characters": [
+      "煮飯婆"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6269,
+    "query": "laan6 dou2 ji2",
+    "category": "pin_jam",
+    "description": "爛賭二 - colloquial 6->2 tone change of laan6 dou2 ji6",
+    "expected_characters": [
+      "爛賭二"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6270,
+    "query": "sai1 fei1 lei2",
+    "category": "pin_jam",
+    "description": "犀飛利 - colloquial 6->2 tone change of sai1 fei1 lei6",
+    "expected_characters": [
+      "犀飛利"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6271,
+    "query": "nei4 hau4 tou2",
+    "category": "pin_jam",
+    "description": "獼猴桃 - colloquial 4->2 tone change of nei4 hau4 tou4",
+    "expected_characters": [
+      "獼猴桃"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6272,
+    "query": "waan2 maa5 lau1",
+    "category": "pin_jam",
+    "description": "玩馬騮 - colloquial 4->1 tone change of waan2 maa5 lau4",
+    "expected_characters": [
+      "玩馬騮"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_1",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6273,
+    "query": "faan1 gwai2 mui1",
+    "category": "pin_jam",
+    "description": "番鬼妹 - colloquial 6->1 tone change of faan1 gwai2 mui6",
+    "expected_characters": [
+      "番鬼妹"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_1",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6274,
+    "query": "faat3 go3 leon2",
+    "category": "pin_jam",
+    "description": "發個輪 - colloquial 4->2 tone change of faat3 go3 leon4",
+    "expected_characters": [
+      "發個輪"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6275,
+    "query": "faat3 seoi2 lau2",
+    "category": "pin_jam",
+    "description": "發水樓 - colloquial 4->2 tone change of faat3 seoi2 lau4",
+    "expected_characters": [
+      "發水樓"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6276,
+    "query": "faat3 lou5 pei2",
+    "category": "pin_jam",
+    "description": "發老脾 - colloquial 4->2 tone change of faat3 lou5 pei4",
+    "expected_characters": [
+      "發老脾"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6277,
+    "query": "baak6 gaap3 lung2",
+    "category": "pin_jam",
+    "description": "白鴿籠 - colloquial 4->2 tone change of baak6 gaap3 lung4",
+    "expected_characters": [
+      "白鴿籠"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6278,
+    "query": "ngaan5 jap1 mou1",
+    "category": "pin_jam",
+    "description": "眼挹毛 - colloquial 4->1 tone change of ngaan5 jap1 mou4",
+    "expected_characters": [
+      "眼挹毛"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_1",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6279,
+    "query": "san4 zyu2 paai2",
+    "category": "pin_jam",
+    "description": "神主牌 - colloquial 4->2 tone change of san4 zyu2 paai4",
+    "expected_characters": [
+      "神主牌"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6280,
+    "query": "si1 zung1 mui1",
+    "category": "pin_jam",
+    "description": "私鐘妹 - colloquial 6->1 tone change of si1 zung1 mui6",
+    "expected_characters": [
+      "私鐘妹"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_1",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6281,
+    "query": "seoi3 mou6 guk2",
+    "category": "pin_jam",
+    "description": "稅務局 - colloquial 6->2 tone change of seoi3 mou6 guk6",
+    "expected_characters": [
+      "稅務局"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6282,
+    "query": "mai5 kei4 lam2",
+    "category": "pin_jam",
+    "description": "米其林 - colloquial 4->2 tone change of mai5 kei4 lam4",
+    "expected_characters": [
+      "米其林"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6283,
+    "query": "faan1 tau4 po2",
+    "category": "pin_jam",
+    "description": "翻頭婆 - colloquial 4->2 tone change of faan1 tau4 po4",
+    "expected_characters": [
+      "翻頭婆"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6284,
+    "query": "jin1 zi1 goek2",
+    "category": "pin_jam",
+    "description": "胭脂腳 - colloquial 3->2 tone change of jin1 zi1 goek3",
+    "expected_characters": [
+      "胭脂腳"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_3"
+    ]
+  },
+  {
+    "id": 6285,
+    "query": "jat1 lau4 jat1 fung2",
+    "category": "pin_jam",
+    "description": "一樓一鳯 - colloquial 6->2 tone change of jat1 lau4 jat1 fung6",
+    "expected_characters": [
+      "一樓一鳯",
+      "一樓一鳳"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6286,
+    "query": "zyu2 tai4 gung1 jyun2",
+    "category": "pin_jam",
+    "description": "主題公園 - colloquial 4->2 tone change of zyu2 tai4 gung1 jyun4",
+    "expected_characters": [
+      "主題公園"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6287,
+    "query": "baat3 gwaa3 san1 man2",
+    "category": "pin_jam",
+    "description": "八卦新聞 - colloquial 4->2 tone change of baat3 gwaa3 san1 man4",
+    "expected_characters": [
+      "八卦新聞"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6288,
+    "query": "bak1 ging1 tin4 aap2",
+    "category": "pin_jam",
+    "description": "北京填鴨 - colloquial 3->2 tone change of bak1 ging1 tin4 aap3",
+    "expected_characters": [
+      "北京填鴨"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6289,
+    "query": "bun3 gan1 baat3 loeng2",
+    "category": "pin_jam",
+    "description": "半斤八両 - colloquial 5->2 tone change of bun3 gan1 baat3 loeng5",
+    "expected_characters": [
+      "半斤八両",
+      "半斤八兩"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6290,
+    "query": "gou3 zam2 tau4 zong2",
+    "category": "pin_jam",
+    "description": "告枕頭狀 - colloquial 6->2 tone change of gou3 zam2 tau4 zong6",
+    "expected_characters": [
+      "告枕頭狀"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6291,
+    "query": "cou4 dou3 caak3 lau2",
+    "category": "pin_jam",
+    "description": "嘈到拆樓 - colloquial 4->2 tone change of cou4 dou3 caak3 lau4",
+    "expected_characters": [
+      "嘈到拆樓"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6292,
+    "query": "do1 bat1 sing1 sou2",
+    "category": "pin_jam",
+    "description": "多不勝數 - colloquial 3->2 tone change of do1 bat1 sing1 sou3",
+    "expected_characters": [
+      "多不勝數"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6293,
+    "query": "taai3 ping4 san1 si2",
+    "category": "pin_jam",
+    "description": "太平紳士 - colloquial 6->2 tone change of taai3 ping4 san1 si6",
+    "expected_characters": [
+      "太平紳士"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6294,
+    "query": "liu4 liu4 ho2 sou2",
+    "category": "pin_jam",
+    "description": "寥寥可數 - colloquial 3->2 tone change of liu4 liu4 ho2 sou3",
+    "expected_characters": [
+      "寥寥可數"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_3_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6295,
+    "query": "siu2 gaa1 bik1 juk2",
+    "category": "pin_jam",
+    "description": "小家碧玉 - colloquial 6->2 tone change of siu2 gaa1 bik1 juk6",
+    "expected_characters": [
+      "小家碧玉"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6296,
+    "query": "jung4 jan4 zi6 jiu2",
+    "category": "pin_jam",
+    "description": "庸人自擾 - colloquial 5->2 tone change of jung4 jan4 zi6 jiu5",
+    "expected_characters": [
+      "庸人自擾"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_5_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6297,
+    "query": "paau1 zyun1 jan5 juk2",
+    "category": "pin_jam",
+    "description": "拋磚引玉 - colloquial 6->2 tone change of paau1 zyun1 jan5 juk6",
+    "expected_characters": [
+      "拋磚引玉"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6298,
+    "query": "hoi2 dai2 laau4 jyut2",
+    "category": "pin_jam",
+    "description": "海底撈月 - colloquial 6->2 tone change of hoi2 dai2 laau4 jyut6",
+    "expected_characters": [
+      "海底撈月"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_6_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6299,
+    "query": "bou1 seoi2 san1 man2",
+    "category": "pin_jam",
+    "description": "煲水新聞 - colloquial 4->2 tone change of bou1 seoi2 san1 man4",
+    "expected_characters": [
+      "煲水新聞"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_4"
+    ]
+  },
+  {
+    "id": 6300,
+    "query": "saang1 seoi2 wu6 tau2",
+    "category": "pin_jam",
+    "description": "生水芋頭 - colloquial 4->2 tone change of saang1 seoi2 wu6 tau4",
+    "expected_characters": [
+      "生水芋頭"
+    ],
+    "accept_top_n": 3,
+    "tags": [
+      "pin_jam",
+      "shift_4_2",
+      "syl_4"
+    ]
+  }
+]

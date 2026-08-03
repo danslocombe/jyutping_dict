@@ -69,6 +69,8 @@ fn main() {
 
         builder.apply_additional_heuristics();
 
+        builder.mark_attested_words(&format!("{}/wordshk-headwords.txt", data_path));
+
         let built_dictionary = CompiledDictionary::from_builder(builder);
 
         let dump_entries = false;

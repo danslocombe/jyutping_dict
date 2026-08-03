@@ -17,6 +17,13 @@ pub const JYUTPING_COMPLETION_PENALTY_K : u32 = 4_000;
 pub const JYUTPING_PREFIX_LEVENSHTEIN_PENALTY_K: u32 = 20_000;
 pub const JYUTPING_TONE_MISMATCH_PENALTY: u32 = 16_000;
 
+/// Cost reduction for entries attested in a curated Cantonese dictionary.
+///
+/// Applied only when the query accounts for the entry in full. Static cost
+/// carries both salience and length, so an unconditional bonus lets a longer
+/// attested word displace a shorter exact match (天氣 over 天).
+pub const WORDSHK_ATTESTED_BONUS: u32 = 8_000;
+
 pub const ENGLISH_BASE_PENALTY: u32 = 5_000;
 pub const NON_ASCII_MATCH_IN_ENGLISH_PENALTY: u32 = 8_000;
 pub const ENGLISH_POS_OFFSET_PENALTY_K: u32 = 100;
@@ -185,6 +192,10 @@ impl CompiledDictionary {
             {
                 cost_info.static_cost = x.cost;
 
+                if (x.is_attested() && cost_info.unmatched_position_cost == 0) {
+                    cost_info.static_cost = cost_info.static_cost.saturating_sub(WORDSHK_ATTESTED_BONUS);
+                }
+
                 matches.push(Match {
                     cost_info,
                     match_type: MatchType::Jyutping,
@@ -209,11 +220,17 @@ impl CompiledDictionary {
                 if (!query_terms.traditional_terms.is_empty())
                 {
                     if (self.matches_query_traditional(x, &query_terms)) {
+                        let mut static_cost = x.cost;
+
+                        if (x.is_attested() && x.characters.len() == query_terms.traditional_terms.len()) {
+                            static_cost = static_cost.saturating_sub(WORDSHK_ATTESTED_BONUS);
+                        }
+
                         let cost_info = MatchCostInfo {
                             term_match_cost: 0,
                             unmatched_position_cost: 0,
                             inversion_cost: 0,
-                            static_cost: x.cost,
+                            static_cost,
                         };
 
                         matches.push(Match {
