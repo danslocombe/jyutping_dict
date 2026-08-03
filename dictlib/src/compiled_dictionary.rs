@@ -5,7 +5,7 @@ use std::io::Write;
 use serde::Serialize;
 
 use crate::EntrySource;
-use crate::{data_reader::DataReader, data_writer::DataWriter, jyutping_splitter::JyutpingSplitter, builder::Builder};
+use crate::{data_reader::DataReader, data_writer::DataWriter, jyutping_splitter::JyutpingSplitter, builder::Builder, builder::MAX_FREQUENCY_DISCOUNT_BAND, builder::FREQUENCY_DISCOUNT_STEP};
 
 #[derive(Debug)]
 pub struct CompiledDictionary
@@ -20,7 +20,11 @@ pub struct CompiledDictionary
 
 pub const FILE_HEADER: &[u8] = b"jyp_dict";
 pub const ENGLISH_BLOB_HEADER: &[u8] = b"en_data_";
-pub const CURRENT_VERSION: u32 = 8;
+// v9 gives the top 5 bits of each entry's `flags` a meaning (whole-word
+// frequency band). The byte layout is unchanged, but an index built before v9
+// has zeros there and would silently score as "word never seen in the corpus",
+// so the version is bumped to force a rebuild rather than quietly mis-rank.
+pub const CURRENT_VERSION: u32 = 9;
 
 impl CompiledDictionary {
     pub fn from_builder(mut dict : Builder) -> Self {
@@ -79,6 +83,8 @@ impl CompiledDictionary {
             if entry.attested {
                 flags |= FLAG_ATTESTED;
             }
+
+            flags |= entry.frequency_discount_band.min(MAX_FREQUENCY_DISCOUNT_BAND) << FREQUENCY_DISCOUNT_SHIFT;
 
             let mut char_indexes = Vec::new();
             for character in entry.traditional.chars()
@@ -466,11 +472,23 @@ impl CompiledDictionaryEntry
     pub fn is_attested(&self) -> bool {
         self.flags & FLAG_ATTESTED != 0
     }
+
+    /// How much cheaper this entry's whole-word corpus frequency makes it than
+    /// the sum of its character frequencies. 0 when the word is not in the
+    /// corpus, or is no more common than its characters suggest.
+    pub fn frequency_discount(&self) -> u32 {
+        ((self.flags & FREQUENCY_DISCOUNT_MASK) >> FREQUENCY_DISCOUNT_SHIFT) as u32 * FREQUENCY_DISCOUNT_STEP
+    }
 }
 
 pub const FLAG_SOURCE_CEDICT: u8 = 0x1;
 pub const FLAG_SOURCE_CCCANTO: u8 = 0x2;
 pub const FLAG_ATTESTED: u8 = 0x4;
+
+/// The top 5 bits of `flags` hold the whole-word frequency discount band, so
+/// widening the flag set means shrinking this mask and rebuilding the index.
+pub const FREQUENCY_DISCOUNT_MASK: u8 = 0xF8;
+pub const FREQUENCY_DISCOUNT_SHIFT: u32 = 3;
 
 pub struct Result
 {

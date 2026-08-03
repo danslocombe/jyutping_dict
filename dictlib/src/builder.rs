@@ -11,6 +11,13 @@ pub struct Builder
 pub const MAX_STATIC_COST_F : f32 = 7_000.0;
 pub const MAX_STATIC_COST   : u32 = 7_000;
 
+/// Largest whole-word frequency discount band. The band lives in the 5 spare
+/// bits of the compiled entry's `flags`, so it must fit in 31.
+pub const MAX_FREQUENCY_DISCOUNT_BAND : u8 = 31;
+
+/// Cost granularity of one frequency discount band.
+pub const FREQUENCY_DISCOUNT_STEP : u32 = 800;
+
 /// Per-character cost override for high-frequency Cantonese-specific characters
 /// that have no Mandarin equivalent and no entry in the frequency file.
 pub const CANTO_HIGH_FREQ_COST: u32 = 1_000;
@@ -96,6 +103,7 @@ impl Builder {
             for c in traditional.chars() {
                 cost += trad_to_frequency.get_or_default(c).cost;
             }
+            let frequency_cost = cost;
             cost += cost_heuristic(&definitions.inner);
             cost = cost.saturating_sub(CCANTO_DISCOUNT);
 
@@ -106,6 +114,8 @@ impl Builder {
                 source: EntrySource::CCanto,
                 cost,
                 attested: false,
+                frequency_cost,
+                frequency_discount_band: 0,
             });
         }
 
@@ -168,6 +178,7 @@ impl Builder {
                 cost += trad_to_frequency.get_or_default(c).cost;
             }
 
+            let frequency_cost = cost;
             cost += cost_heuristic(&definitions.inner);
 
             //println!("{} - {:?}", traditional, definitions);
@@ -177,7 +188,9 @@ impl Builder {
                 english_sets: definitions,
                 source: EntrySource::CEDict,
                 cost,
-                attested: false });
+                attested: false,
+                frequency_cost,
+                frequency_discount_band: 0 });
         }
 
         println!("Read {} dictionary entries from {}", {self.entries.len() - size_at_start}, path);
@@ -193,6 +206,56 @@ impl Builder {
                 e.cost += 10_000;
             }
         }
+    }
+
+    /// Record how much cheaper a whole-word corpus frequency makes each entry
+    /// than the sum of its character frequencies.
+    ///
+    /// Summing character costs says nothing about how common the *word* is, so
+    /// 劏房 (11,745 occurrences) and 惝恍 (zero) score alike. Both costs come from
+    /// the same `-1000 * ln(frequency)` curve, so their difference is meaningful;
+    /// the absolute word cost is not, because a character sum also carries the
+    /// length signal and a whole-word cost has no length term at all.
+    ///
+    /// Only reductions are recorded. A word attested even once would otherwise
+    /// cost more than a word absent from the corpus entirely, since the fallback
+    /// character sum is bounded by `MAX_STATIC_COST` per character while a hapax
+    /// word is not. Keeping only the reduction makes the corpus a source of
+    /// evidence *for* salience and never against it.
+    ///
+    /// Like `mark_attested_words` this deliberately stays out of `cost`. Applying
+    /// it at build time reaches every match path, including the English one,
+    /// where matching is definition *substring* containment with no notion of
+    /// consuming the entry: discounting common compounds there let 西瓜 beat 水
+    /// for "water" and 工作 fall five places for "work". The search applies the
+    /// discount only where the query accounts for the entry in full, so all
+    /// competing entries have the same character count and the discount can
+    /// express salience alone.
+    ///
+    /// The list is optional, so a build without it behaves exactly as before.
+    pub fn mark_word_frequencies(&mut self, frequencies : &WordFrequencies)
+    {
+        if (frequencies.inner.is_empty()) {
+            return;
+        }
+
+        let total = frequencies.total();
+        let mut marked = 0;
+        for e in &mut self.entries
+        {
+            if let Some(count) = frequencies.inner.get(&e.traditional) {
+                let word_cost = WordFrequencies::cost(*count, total);
+                let discount = e.frequency_cost.saturating_sub(word_cost);
+                let band = (discount / FREQUENCY_DISCOUNT_STEP).min(MAX_FREQUENCY_DISCOUNT_BAND as u32) as u8;
+
+                if (band > 0) {
+                    e.frequency_discount_band = band;
+                    marked += 1;
+                }
+            }
+        }
+
+        println!("Marked {} entries with a whole-word frequency discount", marked);
     }
 
     /// Mark entries attested in words.hk, a hand-curated Cantonese dictionary.
@@ -295,6 +358,79 @@ pub struct DictionaryEntry
     pub source: EntrySource,
     /// Whether the word appears in a curated Cantonese dictionary (words.hk).
     pub attested: bool,
+    /// The part of `cost` derived from character frequency, kept separately so
+    /// that it can be compared against a whole-word frequency.
+    pub frequency_cost: u32,
+    /// How much cheaper the whole-word corpus frequency makes this entry than
+    /// its character sum, in units of `FREQUENCY_DISCOUNT_STEP`. 0 when unknown.
+    /// See `Builder::mark_word_frequencies`.
+    pub frequency_discount_band: u8,
+}
+
+/// Whole-word corpus counts, keyed by traditional headword.
+///
+/// The static cost model sums *character* frequencies, so it has no notion of
+/// how common a word is. That is the root of the reported ranking complaint:
+/// 劏房 and 惝恍 are built from comparably rare characters and score alike, even
+/// though one is everyday Hong Kong vocabulary and the other appears zero times
+/// in 665 million tokens of Cantonese forum text.
+///
+/// Format is one `word\tcount` per line, no header.
+#[derive(Debug, Default)]
+pub struct WordFrequencies
+{
+    pub inner: std::collections::HashMap<String, u64>,
+}
+
+impl WordFrequencies
+{
+    pub fn parse(path : &str) -> Self
+    {
+        let data = match std::fs::read_to_string(path) {
+            Ok(d) => d,
+            Err(_) => {
+                println!("No word frequency list at {}, skipping", path);
+                return Self::default();
+            }
+        };
+
+        let mut inner = std::collections::HashMap::new();
+        for line in data.lines()
+        {
+            if (line.is_empty() || line.starts_with('#')) {
+                continue;
+            }
+
+            if let Some((word, count_str)) = line.split_once('\t') {
+                if let Ok(count) = count_str.trim().parse::<u64>() {
+                    if (!word.is_empty() && count > 0) {
+                        inner.insert(word.to_owned(), count);
+                    }
+                }
+            }
+        }
+
+        println!("Read {} word frequencies", inner.len());
+
+        Self { inner }
+    }
+
+    /// Map a raw count onto a static cost.
+    ///
+    /// Deliberately the same `-1000 * ln(frequency)` curve the character model
+    /// uses, so word-derived and character-derived costs live on one scale and
+    /// can be compared directly.
+    pub fn cost(count : u64, total : u64) -> u32
+    {
+        let frequency = (count as f64) / (total as f64);
+        let cost = -1_000.0 * frequency.ln();
+        cost.clamp(1.0, u32::MAX as f64) as u32
+    }
+
+    pub fn total(&self) -> u64
+    {
+        self.inner.values().sum()
+    }
 }
 
 #[derive(Debug, Default)]
@@ -514,5 +650,110 @@ impl TraditionalToFrequencies
         }
 
         println!("Added {} Cantonese character cost overrides (tier1={}, tier2={})", count, CANTO_HIGH_FREQ_COST, tier2_cost);
+    }
+}
+
+#[cfg(test)]
+mod tests
+{
+    use super::*;
+
+    fn entry(traditional : &str, frequency_cost : u32) -> DictionaryEntry
+    {
+        DictionaryEntry {
+            traditional: traditional.to_owned(),
+            jyutping: String::default(),
+            english_sets: StringVecSet::default(),
+            source: EntrySource::CEDict,
+            cost: frequency_cost,
+            attested: false,
+            frequency_cost,
+            frequency_discount_band: 0,
+        }
+    }
+
+    /// `WordFrequencies::total` is the sum of the map, so a fixture needs enough
+    /// padding for the probabilities to be realistic.
+    fn frequencies(pairs : &[(&str, u64)], total : u64) -> WordFrequencies
+    {
+        let mut inner : std::collections::HashMap<String, u64> =
+            pairs.iter().map(|(w, c)| ((*w).to_owned(), *c)).collect();
+
+        inner.insert("\u{0}padding".to_owned(), total - inner.values().sum::<u64>());
+
+        WordFrequencies { inner }
+    }
+
+    #[test]
+    fn test_word_cost_matches_the_character_cost_curve()
+    {
+        // Both models are -1000 * ln(frequency), so a word ten times commoner
+        // costs ln(10) * 1000 less. Sharing the curve is what makes a word cost
+        // and a character cost comparable enough to subtract.
+        let sparse = WordFrequencies::cost(100, 1_000_000);
+        let common = WordFrequencies::cost(1_000, 1_000_000);
+
+        assert_eq!(sparse - common, 2_303);
+    }
+
+    #[test]
+    fn test_discount_records_how_much_cheaper_the_whole_word_is()
+    {
+        // 8,000 of character cost against a word cost of -1000*ln(1/1000) = 6,907.
+        let mut builder = Builder::default();
+        builder.entries.push(entry("劏房", 8_000));
+        builder.mark_word_frequencies(&frequencies(&[("劏房", 1_000)], 1_000_000));
+
+        let expected = (8_000 - 6_907) / FREQUENCY_DISCOUNT_STEP;
+        assert_eq!(builder.entries[0].frequency_discount_band as u32, expected);
+    }
+
+    #[test]
+    fn test_a_word_rarer_than_its_characters_is_not_penalised()
+    {
+        // The character sum is bounded by MAX_STATIC_COST per character but a
+        // word cost is not, so almost every rare word looks "worse" than its
+        // characters. Recording that would make the corpus evidence against
+        // salience, so only reductions count.
+        let mut builder = Builder::default();
+        builder.entries.push(entry("惝恍", 3_000));
+        builder.mark_word_frequencies(&frequencies(&[("惝恍", 1)], 1_000_000));
+
+        assert_eq!(builder.entries[0].frequency_discount_band, 0);
+    }
+
+    #[test]
+    fn test_words_absent_from_the_corpus_are_untouched()
+    {
+        let mut builder = Builder::default();
+        builder.entries.push(entry("噚日", 12_000));
+        builder.mark_word_frequencies(&frequencies(&[("尋日", 60_000)], 1_000_000));
+
+        assert_eq!(builder.entries[0].frequency_discount_band, 0);
+    }
+
+    #[test]
+    fn test_discount_band_is_clamped_to_the_five_bits_available()
+    {
+        // The band shares a u8 with the source and attested flags.
+        let mut builder = Builder::default();
+        builder.entries.push(entry("的", u32::MAX));
+        builder.mark_word_frequencies(&frequencies(&[("的", 500_000)], 1_000_000));
+
+        assert_eq!(builder.entries[0].frequency_discount_band, MAX_FREQUENCY_DISCOUNT_BAND);
+    }
+
+    #[test]
+    fn test_marking_frequencies_leaves_cost_alone()
+    {
+        // The discount is applied at search time, where it can be gated on the
+        // query accounting for the entry in full. Folding it into cost here
+        // would also reach the English path, which matches definition
+        // substrings and let 西瓜 outrank 水 for "water".
+        let mut builder = Builder::default();
+        builder.entries.push(entry("西瓜", 12_000));
+        builder.mark_word_frequencies(&frequencies(&[("西瓜", 15_000)], 1_000_000));
+
+        assert_eq!(builder.entries[0].cost, 12_000);
     }
 }

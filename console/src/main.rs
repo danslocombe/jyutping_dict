@@ -71,6 +71,9 @@ fn main() {
 
         builder.mark_attested_words(&format!("{}/wordshk-headwords.txt", data_path));
 
+        let word_frequencies = dictlib::builder::WordFrequencies::parse(&format!("{}/lihkg-freq.tsv", data_path));
+        builder.mark_word_frequencies(&word_frequencies);
+
         let built_dictionary = CompiledDictionary::from_builder(builder);
 
         let dump_entries = false;

@@ -7,7 +7,8 @@ and composite terms.
 Contents:
 
 - [Diagnosis](#diagnosis) — why the frequency model fails
-- [Work done](#work-done) — the pin_jam set, the words.hk prior, strict scoring
+- [Work done](#work-done) — the pin_jam set, the words.hk prior, strict scoring,
+  order sensitivity, the LIHKG word-frequency prior
 - [Open items](#open-items)
 - [Full-suite A/B](#full-suite-ab-the-wordshk-prior) — measured effect of the prior
 - [The `spoken_corpus` query set](#the-spoken_corpus-query-set) — independent validation set
@@ -15,7 +16,7 @@ Contents:
 - [Gotchas](#gotchas) — **read before running the harness**
 
 Current state — strict, character-verified, 3,003 cases across 9 sets:
-**TOTAL p@1 91.6%**, MRR 0.948. Core is the weak set at 78.8% and is where the
+**TOTAL p@1 92.4%**, MRR 0.953. Core is the weak set at 79.8% and is where the
 reported symptom lives. Numbers predating the strict-scoring fix are lenient and
 not comparable with these.
 
@@ -25,6 +26,12 @@ Rebuilding the generated query sets needs `pip install -r eval/requirements.txt`
     python eval/build_spoken_corpus_eval.py
     python eval/build_order_pairs_eval.py
     python eval/backfill_hk_trip.py
+
+Fetching the ranking inputs (see [Signals evaluated](#signals-evaluated) for
+licences — the words.hk one is not redistributable and is gitignored):
+
+    python eval/fetch_lihkg_freq.py       # MIT, pinned to a commit
+    python eval/build_wordshk_headwords.py
 
 Running the harness:
 
@@ -215,14 +222,122 @@ reported bug verbatim: `gong2` -> 港 #1 with 講 #2; `dou1` -> 刀 #1 with 都 
 previously invisible.** Treat 78.8% as core's true score; earlier numbers in this
 document above this section are lenient and not comparable.
 
+### 4. LIHKG whole-word frequency prior
+
+`eval/fetch_lihkg_freq.py` -> `full/lihkg-freq.tsv` (MIT, 139,621 forms,
+665,680,302 tokens, pinned to a commit). Parsed by `WordFrequencies` in
+`builder.rs`; the build skips the signal cleanly if the file is absent.
+
+**The problem.** Static cost sums *character* frequencies, so it has no notion of
+how common a **word** is. 劏房 (11,745 occurrences, everyday Hong Kong
+vocabulary) and 惝恍 (zero occurrences) are built from comparably rare characters
+and scored alike — 惝恍 actually won. This is the composite-term half of the
+original complaint.
+
+**The cost.** `-1000 * ln(count / total)`, deliberately the *same curve the
+character model already uses*, so a word cost and a character sum are directly
+comparable and their difference is meaningful.
+
+**Only the difference is meaningful.** The absolute word cost is not usable: a
+character sum is bounded by `MAX_STATIC_COST` per character, whereas a word cost
+is unbounded, so almost every word looks "worse" than its own characters. The
+builder therefore records `char_sum - word_cost` when positive and nothing
+otherwise, making the corpus evidence *for* salience and never against it.
+Quantised into the 5 spare bits of the compiled entry's `flags` in steps of
+`FREQUENCY_DISCOUNT_STEP` (800). Index format version 8 -> 9.
+
+**Three wrong designs preceded this one**, all worth recording because each
+failed for a different reason:
+
+1. *Absolute frequency bands* (band = log2 of raw count, 700 cost per band).
+   Common words land in bands 14–24, so the discount was 9,800–16,800 against
+   static costs of only 7,000–20,000 and `static_cost` floored to **0** for
+   nearly every result. The same saturation disease as the `MAX_STATIC_COST`
+   clamp, from the opposite end.
+2. *Replacing the character sum with the word cost at build time.* Scale-correct,
+   but a character sum also carries the **length** signal (~6,700 per extra
+   character) and a word cost has no length term at all, so two-character words
+   undercut one-character ones.
+3. *Capping that replacement below the per-character increment.* Barely helped
+   (34 regressions vs 36), which falsified the length hypothesis and pointed at
+   the real culprit: applying it at build time reaches **every** match path,
+   including the English one, where matching is definition *substring*
+   containment with no notion of consuming the entry. 西瓜 beat 水 for "water";
+   工作 fell five places for "work"; 新, 兄弟, 父爸 all regressed.
+
+**The fix that worked** is the same one that made the words.hk prior safe: keep
+it out of `cost` and apply it at **search time**, gated on the query accounting
+for the entry in full, in order, and with exact term matches. Under that gate
+every candidate has the same character count, so the discount expresses salience
+alone, and the English path is untouched by construction. Adding
+`term_match_cost == 0` to the gate took regressions from 18 to 11 by stopping
+the discount rescuing a *fuzzy* match over an exact one (文明 was beating 唔明
+for `m4 ming4`).
+
+Effect of each gate, measured on the full suite:
+
+| variant | TOTAL p@1 | improved | regressed | net |
+|---|---|---|---|---|
+| baseline (words.hk prior only) | 91.6% | — | — | — |
+| build-time replacement | 92.2% | 55 | 36 | +19 |
+| build-time, capped at 3,000 | 92.0% | 49 | 34 | +12 |
+| search-time, full-consumption gate | 92.2% | 38 | 18 | +19 |
+| search-time, + exact-term gate | 92.3% | 34 | 11 | +20 |
+| **+ step 800 (shipped)** | **92.4%** | **33** | **6** | **+24** |
+
+`FREQUENCY_DISCOUNT_STEP` swept at 300 / 500 / 800 / 1200 -> 92.3 / 92.3 / **92.4**
+/ 92.2. Flat-topped around 800; 1,200 starts saturating again.
+
+Result — strict, character-verified, both priors enabled:
+
+| set | n | p@1 | p@3 | miss | MRR |
+|---|---|---|---|---|---|
+| ccanto_boost | 30 | 86.7% | 90.0% | 3.3% | 0.896 |
+| exact_vs_prefix_extended | 40 | 100.0% | 100.0% | 0.0% | 1.000 |
+| hk_trip | 199 | 87.9% | 97.5% | 0.5% | 0.926 |
+| order_pairs | 400 | 99.5% | 100.0% | 0.0% | 0.998 |
+| pin_jam | 300 | 85.3% | 99.7% | 0.0% | 0.924 |
+| query_set (core) | 650 | **79.8%** | 92.3% | 2.9% | 0.865 |
+| shorter_entry | 25 | 100.0% | 100.0% | 0.0% | 1.000 |
+| spoken_corpus | 1346 | 98.3% | 99.9% | 0.1% | 0.991 |
+| tone_fuzzy | 13 | 100.0% | 100.0% | 0.0% | 1.000 |
+| **TOTAL** | **3003** | **92.4%** | **98.0%** | **0.7%** | **0.953** |
+
+**Does LIHKG subsume the words.hk prior?** No. Measured by setting
+`WORDSHK_ATTESTED_BONUS = 0`:
+
+| prior | TOTAL p@1 | MRR |
+|---|---|---|
+| words.hk only (previous baseline) | 91.6% | 0.948 |
+| LIHKG only | 91.2% | 0.945 |
+| both (shipped) | **92.4%** | **0.953** |
+
+They are complementary: words.hk knows *whether* a string is a Cantonese word,
+LIHKG knows *how common* it is, and LIHKG's segmenter misses many colloquial
+compounds (唔明 is simply absent, presumably split into 唔 + 明). So the licence
+blocker is not dissolved — but an MIT-only build is now viable at 91.2%, only
+0.4pp below the old words.hk-only baseline.
+
+**All 6 remaining regressions are orthographic variants**, not ranking failures,
+and all are rank 1 -> 2. The corpus prefers a different spelling of the same word
+from the one the query set asserts: 尋日 62,370 vs 噚日 2,306; 故仔 12,551 vs 古仔
+5,053; 癡線 12,352 vs 黐線 2,266. This is the `variant_risk` phenomenon already
+tagged in `spoken_corpus`, and it is arguable the ranker is now right and the
+expectation is wrong.
+
+**Not fixed by this work:** single-character queries. For a one-character entry
+the whole-word cost *is* the character cost, so the discount is always zero.
+`gong2` still ranks 港 over 講 and `dou1` still ranks 刀 over 都. See the open item
+on replacing the character frequency table with LIHKG single-character counts.
+
 ## Open items
 
-- [ ] Resolve the words.hk licence question, or replace the prior with an
-      independently-licensed spoken-Cantonese frequency signal. The latter is
-      preferable: a graded frequency would beat a boolean, and would attack the
-      saturation problem directly rather than compensating for it.
-      **Candidate found:** the LIHKG frequency list (MIT, 139,621 word forms,
-      665M tokens) — see "Signals evaluated" below.
+- [ ] Resolve the words.hk licence question. The LIHKG prior below is MIT and
+      independent, but it does **not** subsume words.hk: dropping words.hk costs
+      1.2pp (92.4% -> 91.2%). A licence-clean build is now viable at 91.2%,
+      within 0.4pp of the old words.hk-only baseline of 91.6%.
+- [x] Replace the boolean prior with a graded frequency signal — see
+      "4. LIHKG whole-word frequency prior" below.
 - [x] Build a larger, harder query set for validation, **not derived from
       words.hk** — see `spoken_corpus.json` below.
 - [x] Fix syllable-order insensitivity (see "Order insensitivity" below).
@@ -233,13 +348,26 @@ document above this section are lenient and not comparable.
 - [ ] Port the coverage-vs-ranking split (does the entry exist at all?) into
       `run_eval.py`, so data gaps stop being reported as ranking failures.
 - [ ] Rescale the frequency model so fewer characters hit `MAX_STATIC_COST`. This
-      is the root cause; everything above compensates for it.
+      is the root cause; the priors compensate for it.
+- [ ] **Use LIHKG single-character counts as the character frequency table.** The
+      current table is Mandarin-derived, which is why `gong2` still ranks 港 over
+      講 and `dou1` still ranks 刀 over 都 even after item 4: for a
+      single-character entry the whole-word cost *is* the character cost, so the
+      discount is zero and item 4 cannot reach these cases. LIHKG has 講 at
+      2,254,491 against 港 at 203,788, and 都 far above 刀 — the data to fix them
+      is already fetched. This changes the length baseline, so it needs its own
+      A/B.
 - [ ] Add a relevance floor. With no cost cutoff, sentence-like queries return
       absurd results (`keoi5 hai6 ngo5 aa3 maa1` returns
       中華人民共和國香港特別行政區 at cost 1,146,805).
 - [ ] Investigate the English match path. `hot` and `sun` regressed under the
       attested prior because they also parse as jyutping, so a promoted jyutping
-      match displaces the intended English one.
+      match displaces the intended English one. Item 4 also had to be kept off
+      this path entirely — see below.
+- [ ] Revisit the eval's single-spelling ground truth. The 6 remaining item-4
+      regressions are all orthographic variants where the corpus disagrees with
+      the set's chosen spelling (尋日 62,370 vs 噚日 2,306). Arguably the ranker is
+      right and the expectation is wrong.
 
 ---
 
@@ -450,9 +578,11 @@ The 2 residual failures are rank-2 near misses (p@3 is 100%, misses 0%).
 
 ## Signals evaluated
 
-### LIHKG frequency list — recommended next step
+### LIHKG frequency list — shipped, see "4. LIHKG whole-word frequency prior"
 
 `https://raw.githubusercontent.com/AlienKevin/cantonese_frequency_list/56ec4da0963ad1842e755eb1e430df708803c0e2/freq.tsv`
+
+Fetch with `python eval/fetch_lihkg_freq.py`.
 
 **MIT licensed**, 139,621 word forms over 665,680,302 tokens, TSV `word\tcount`,
 no header. No jyutping — join via rime-cantonese `word.csv`/`char.csv`.
@@ -465,9 +595,13 @@ either defensible) and 單于/善於 (LIHKG is arguably right).
 The decisive measurement: frequency spans 10,836,313 down to 1. At the current
 `MAX_STATIC_COST` of 7,000, **99.9% of words still saturate**; at 20,000 only
 10.9% do; at 50,000, none. **The saturation is an artifact of the clamp value,
-not of the data** — so this signal can attack the root cause rather than
-compensating for it, and being MIT it also dissolves the words.hk licence
-blocker.
+not of the data.**
+
+Two expectations from this section turned out to be wrong once measured, both
+recorded in section 4: it did **not** dissolve the words.hk licence blocker
+(dropping words.hk still costs 1.2pp), and it could not be used to attack the
+`MAX_STATIC_COST` clamp directly, because a raw word cost carries no length term
+and so cannot simply replace a character sum.
 
 Use `freq.tsv`, **not** `wordhk_freq.tsv` — the latter is filtered by words.hk
 vocabulary and would reintroduce both the circularity and the licence problem.
@@ -503,7 +637,20 @@ vocabulary and would reintroduce both the circularity and the licence problem.
   using `run_eval.py` directly, override `CONSOLE_EXE` to
   `console/target/release/console.exe` and rebuild first.
 - The console reads relative data paths, so run it from the `console/` directory.
+  Build the index with `console.exe build no_query` (bare words, not flags), and
+  check it prints "Writing done!" — a truncated index panics in `vbyte.rs` on the
+  next read.
+- **Any change to the compiled format needs `CURRENT_VERSION` bumping and the
+  index rebuilding.** `flags` is a single `u8`: bits 0–2 are the source and
+  attested flags, bits 3–7 are the frequency discount band. Adding a flag means
+  shrinking `FREQUENCY_DISCOUNT_MASK`.
 - Any change to static cost is also a change to the length signal.
+- **A ranking signal folded into `cost` at build time reaches every match path,
+  including the English one.** The English path matches definition *substrings*
+  and has no notion of consuming the entry, so a salience discount there promotes
+  long compounds over the basic word (西瓜 over 水 for "water"). Signals that only
+  make sense for whole-entry matches belong in `search.rs`, behind the
+  full-consumption gate.
 - **Never validate a ranking signal against a query set derived from that same
   signal.** This is why the words.hk prior could not be validated on words.hk
   data, and why `spoken_corpus.json` is built from HKCanCor rather than from

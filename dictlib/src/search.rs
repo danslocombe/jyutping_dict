@@ -203,6 +203,18 @@ impl CompiledDictionary {
                     cost_info.static_cost = cost_info.static_cost.saturating_sub(WORDSHK_ATTESTED_BONUS);
                 }
 
+                // Gated identically, and for two more reasons: under this gate
+                // every candidate has the same character count, so the discount
+                // is a pure salience signal that cannot reorder entries by
+                // length; and requiring an exact term match stops it rescuing a
+                // fuzzy match over an exact one, which had cost 唔明 the top spot
+                // for `m4 ming4` to a tone-fuzzy match on 文明.
+                if (cost_info.term_match_cost == 0
+                    && cost_info.unmatched_position_cost == 0
+                    && cost_info.inversion_cost == 0) {
+                    cost_info.static_cost = cost_info.static_cost.saturating_sub(x.frequency_discount());
+                }
+
                 matches.push(Match {
                     cost_info,
                     match_type: MatchType::Jyutping,
@@ -233,6 +245,13 @@ impl CompiledDictionary {
                             && x.characters.len() == query_terms.traditional_terms.len()
                             && inversion_cost == 0) {
                             static_cost = static_cost.saturating_sub(WORDSHK_ATTESTED_BONUS);
+                        }
+
+                        // Same gate as above; this path has no fuzzy term
+                        // matching, so term_match_cost is always 0 here.
+                        if (x.characters.len() == query_terms.traditional_terms.len()
+                            && inversion_cost == 0) {
+                            static_cost = static_cost.saturating_sub(x.frequency_discount());
                         }
 
                         let cost_info = MatchCostInfo {
