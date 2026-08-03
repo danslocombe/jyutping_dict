@@ -535,7 +535,7 @@ impl DisplayDictionaryEntry
 #[cfg(test)]
 pub mod tests {
     use crate::Stopwatch;
-    use crate::search::{JYUTPING_NON_PERFECT_MATCH, JYUTPING_COMPLETION_PENALTY_K, JYUTPING_PARTIAL_MATCH_PENALTY_K, JYUTPING_TONE_MISMATCH_PENALTY, JyutpingQueryTerm, MatchType, QueryTerms};
+    use crate::search::{JYUTPING_NON_PERFECT_MATCH, JYUTPING_COMPLETION_PENALTY_K, JYUTPING_PARTIAL_MATCH_PENALTY_K, JYUTPING_TONE_MISMATCH_PENALTY, OUT_OF_ORDER_INVERSION_PENALTY, JyutpingQueryTerm, MatchType, QueryTerms};
 
     use super::*;
 
@@ -1479,5 +1479,47 @@ pub mod tests {
             assert!(!text.chars().last().unwrap().is_ascii_digit(),
                 "Tone-mismatched span '{}' should not end with tone digit", text);
         }
+    }
+
+    #[test]
+    fn test_traditional_match_in_order_is_free() {
+        let dict = create_test_dict();
+
+        // 老師 queried as 老 then 師, the order the entry itself records.
+        let query_terms = QueryTerms {
+            jyutping_terms: vec![],
+            traditional_terms: vec![3, 1],
+        };
+
+        assert_eq!(dict.matches_query_traditional(&dict.entries[0], &query_terms), Some(0));
+    }
+
+    #[test]
+    fn test_traditional_match_out_of_order_is_penalised() {
+        let dict = create_test_dict();
+
+        // 師老 -- the same characters, the wrong way round. This used to be a
+        // plain containment test, so it matched at exactly the same cost as the
+        // correct order and 萬一 outranked 一萬 for the query 一萬.
+        let query_terms = QueryTerms {
+            jyutping_terms: vec![],
+            traditional_terms: vec![1, 3],
+        };
+
+        assert_eq!(dict.matches_query_traditional(&dict.entries[0], &query_terms),
+                   Some(OUT_OF_ORDER_INVERSION_PENALTY));
+    }
+
+    #[test]
+    fn test_traditional_match_requires_every_character() {
+        let dict = create_test_dict();
+
+        // 學 (index 0) is not in 老師.
+        let query_terms = QueryTerms {
+            jyutping_terms: vec![],
+            traditional_terms: vec![3, 0],
+        };
+
+        assert_eq!(dict.matches_query_traditional(&dict.entries[0], &query_terms), None);
     }
 }

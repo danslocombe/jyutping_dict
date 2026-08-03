@@ -192,7 +192,14 @@ impl CompiledDictionary {
             {
                 cost_info.static_cost = x.cost;
 
-                if (x.is_attested() && cost_info.unmatched_position_cost == 0) {
+                // The bonus is a prior on "this is a real word"; the order the
+                // user typed is direct evidence. A prior must not overturn
+                // evidence, so an out-of-order match does not collect it --
+                // without this, an attested inverted entry (8,000 bonus) exactly
+                // cancels one inverted pair (8,000 penalty) and wins the tie.
+                if (x.is_attested()
+                    && cost_info.unmatched_position_cost == 0
+                    && cost_info.inversion_cost == 0) {
                     cost_info.static_cost = cost_info.static_cost.saturating_sub(WORDSHK_ATTESTED_BONUS);
                 }
 
@@ -219,17 +226,19 @@ impl CompiledDictionary {
 
                 if (!query_terms.traditional_terms.is_empty())
                 {
-                    if (self.matches_query_traditional(x, &query_terms)) {
+                    if let Some(inversion_cost) = self.matches_query_traditional(x, &query_terms) {
                         let mut static_cost = x.cost;
 
-                        if (x.is_attested() && x.characters.len() == query_terms.traditional_terms.len()) {
+                        if (x.is_attested()
+                            && x.characters.len() == query_terms.traditional_terms.len()
+                            && inversion_cost == 0) {
                             static_cost = static_cost.saturating_sub(WORDSHK_ATTESTED_BONUS);
                         }
 
                         let cost_info = MatchCostInfo {
                             term_match_cost: 0,
                             unmatched_position_cost: 0,
-                            inversion_cost: 0,
+                            inversion_cost,
                             static_cost,
                         };
 
@@ -497,17 +506,43 @@ impl CompiledDictionary {
         })
     }
 
-    pub fn matches_query_traditional(&self, entry: &CompiledDictionaryEntry, query_terms : &QueryTerms) -> bool
+    /// Returns the inversion cost of matching the query's characters against
+    /// `entry`, or `None` if any query character is absent.
+    ///
+    /// This used to be a plain set-containment test, which made the character
+    /// path order-blind: searching 一萬 matched 萬一 just as well, at identical
+    /// cost. Query terms are claimed left to right against the earliest
+    /// unclaimed occurrence, mirroring `matches_jyutping_term`, so the
+    /// positions handed to `cost_inversions` mean the same thing on both paths.
+    pub fn matches_query_traditional(&self, entry: &CompiledDictionaryEntry, query_terms : &QueryTerms) -> Option<u32>
     {
+        let mut matched_positions = Vec::with_capacity(query_terms.traditional_terms.len());
+        let mut claimed = Vec::with_capacity(query_terms.traditional_terms.len());
+
         for c_id in query_terms.traditional_terms.iter()
         {
-            if (!entry.characters.contains(c_id))
+            let mut found = None;
+            for (i, entry_char) in entry.characters.iter().enumerate()
             {
-                return false
+                if (claimed.contains(&i)) {
+                    continue;
+                }
+                if (entry_char == c_id) {
+                    found = Some(i);
+                    break;
+                }
+            }
+
+            match found {
+                Some(i) => {
+                    claimed.push(i);
+                    matched_positions.push(i);
+                }
+                None => return None,
             }
         }
 
-        true
+        Some(cost_inversions(&matched_positions))
     }
 }
 

@@ -1,0 +1,7250 @@
+[
+  {
+    "id": 9001,
+    "query": "aa2 hau2",
+    "category": "order_pairs",
+    "description": "aa2 hau2 in this order is 啞口; competing orders 口啞 (hau2 aa2)",
+    "expected_characters": [
+      "啞口"
+    ],
+    "expected_jyutping": [
+      "aa2 hau2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9002,
+    "query": "hau2 aa2",
+    "category": "order_pairs",
+    "description": "hau2 aa2 in this order is 口啞; competing orders 啞口 (aa2 hau2)",
+    "expected_characters": [
+      "口啞"
+    ],
+    "expected_jyutping": [
+      "hau2 aa2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9003,
+    "query": "aat3 zi2",
+    "category": "order_pairs",
+    "description": "aat3 zi2 in this order is 遏止; competing orders 指壓 (zi2 aat3)",
+    "expected_characters": [
+      "遏止"
+    ],
+    "expected_jyutping": [
+      "aat3 zi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9004,
+    "query": "zi2 aat3",
+    "category": "order_pairs",
+    "description": "zi2 aat3 in this order is 指壓; competing orders 遏止 (aat3 zi2)",
+    "expected_characters": [
+      "指壓"
+    ],
+    "expected_jyutping": [
+      "zi2 aat3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9005,
+    "query": "baai3 zai3",
+    "category": "order_pairs",
+    "description": "baai3 zai3 in this order is 拜祭; competing orders 祭拜 (zai3 baai3)",
+    "expected_characters": [
+      "拜祭"
+    ],
+    "expected_jyutping": [
+      "baai3 zai3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9006,
+    "query": "zai3 baai3",
+    "category": "order_pairs",
+    "description": "zai3 baai3 in this order is 祭拜; competing orders 拜祭 (baai3 zai3)",
+    "expected_characters": [
+      "祭拜"
+    ],
+    "expected_jyutping": [
+      "zai3 baai3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9007,
+    "query": "baak6 piu3",
+    "category": "order_pairs",
+    "description": "baak6 piu3 in this order is 白票; competing orders 漂白 (piu3 baak6)",
+    "expected_characters": [
+      "白票"
+    ],
+    "expected_jyutping": [
+      "baak6 piu3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9008,
+    "query": "piu3 baak6",
+    "category": "order_pairs",
+    "description": "piu3 baak6 in this order is 漂白; competing orders 白票 (baak6 piu3)",
+    "expected_characters": [
+      "漂白"
+    ],
+    "expected_jyutping": [
+      "piu3 baak6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9009,
+    "query": "baan2 pei4",
+    "category": "order_pairs",
+    "description": "baan2 pei4 in this order is 板皮; competing orders 皮板 (pei4 baan2)",
+    "expected_characters": [
+      "板皮"
+    ],
+    "expected_jyutping": [
+      "baan2 pei4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9010,
+    "query": "pei4 baan2",
+    "category": "order_pairs",
+    "description": "pei4 baan2 in this order is 皮板; competing orders 板皮 (baan2 pei4)",
+    "expected_characters": [
+      "皮板"
+    ],
+    "expected_jyutping": [
+      "pei4 baan2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9011,
+    "query": "baau1 gwo2",
+    "category": "order_pairs",
+    "description": "baau1 gwo2 in this order is 包裹; competing orders 裹包 (gwo2 baau1)",
+    "expected_characters": [
+      "包裹"
+    ],
+    "expected_jyutping": [
+      "baau1 gwo2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9012,
+    "query": "gwo2 baau1",
+    "category": "order_pairs",
+    "description": "gwo2 baau1 in this order is 裹包; competing orders 包裹 (baau1 gwo2)",
+    "expected_characters": [
+      "裹包"
+    ],
+    "expected_jyutping": [
+      "gwo2 baau1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9013,
+    "query": "bak1 hoi2",
+    "category": "order_pairs",
+    "description": "bak1 hoi2 in this order is 北海; competing orders 海北 (hoi2 bak1)",
+    "expected_characters": [
+      "北海"
+    ],
+    "expected_jyutping": [
+      "bak1 hoi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9014,
+    "query": "hoi2 bak1",
+    "category": "order_pairs",
+    "description": "hoi2 bak1 in this order is 海北; competing orders 北海 (bak1 hoi2)",
+    "expected_characters": [
+      "海北"
+    ],
+    "expected_jyutping": [
+      "hoi2 bak1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9015,
+    "query": "bat1 gau2 cin4",
+    "category": "order_pairs",
+    "description": "bat1 gau2 cin4 in this order is 不久前; competing orders 前不久 (cin4 bat1 gau2)",
+    "expected_characters": [
+      "不久前"
+    ],
+    "expected_jyutping": [
+      "bat1 gau2 cin4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9016,
+    "query": "cin4 bat1 gau2",
+    "category": "order_pairs",
+    "description": "cin4 bat1 gau2 in this order is 前不久; competing orders 不久前 (bat1 gau2 cin4)",
+    "expected_characters": [
+      "前不久"
+    ],
+    "expected_jyutping": [
+      "cin4 bat1 gau2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9017,
+    "query": "bat1 gung1",
+    "category": "order_pairs",
+    "description": "bat1 gung1 in this order is 不公/不恭/筆供; competing orders 工筆 (gung1 bat1)",
+    "expected_characters": [
+      "不公",
+      "不恭",
+      "筆供"
+    ],
+    "expected_jyutping": [
+      "bat1 gung1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9018,
+    "query": "gung1 bat1",
+    "category": "order_pairs",
+    "description": "gung1 bat1 in this order is 工筆; competing orders 不公/不恭/筆供 (bat1 gung1)",
+    "expected_characters": [
+      "工筆"
+    ],
+    "expected_jyutping": [
+      "gung1 bat1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9019,
+    "query": "bat1 zim1",
+    "category": "order_pairs",
+    "description": "bat1 zim1 in this order is 筆尖; competing orders 呫嗶/呫畢 (zim1 bat1)",
+    "expected_characters": [
+      "筆尖"
+    ],
+    "expected_jyutping": [
+      "bat1 zim1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9020,
+    "query": "zim1 bat1",
+    "category": "order_pairs",
+    "description": "zim1 bat1 in this order is 呫嗶/呫畢; competing orders 筆尖 (bat1 zim1)",
+    "expected_characters": [
+      "呫嗶",
+      "呫畢"
+    ],
+    "expected_jyutping": [
+      "zim1 bat1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9021,
+    "query": "bei3 man4",
+    "category": "order_pairs",
+    "description": "bei3 man4 in this order is 祕聞; competing orders 文秘 (man4 bei3)",
+    "expected_characters": [
+      "祕聞"
+    ],
+    "expected_jyutping": [
+      "bei3 man4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9022,
+    "query": "man4 bei3",
+    "category": "order_pairs",
+    "description": "man4 bei3 in this order is 文秘; competing orders 祕聞 (bei3 man4)",
+    "expected_characters": [
+      "文秘"
+    ],
+    "expected_jyutping": [
+      "man4 bei3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9023,
+    "query": "bin1 zam1",
+    "category": "order_pairs",
+    "description": "bin1 zam1 in this order is 砭針; competing orders 針砭 (zam1 bin1)",
+    "expected_characters": [
+      "砭針"
+    ],
+    "expected_jyutping": [
+      "bin1 zam1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9024,
+    "query": "zam1 bin1",
+    "category": "order_pairs",
+    "description": "zam1 bin1 in this order is 針砭; competing orders 砭針 (bin1 zam1)",
+    "expected_characters": [
+      "針砭"
+    ],
+    "expected_jyutping": [
+      "zam1 bin1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9025,
+    "query": "bing1 dim2",
+    "category": "order_pairs",
+    "description": "bing1 dim2 in this order is 冰點; competing orders 點兵 (dim2 bing1)",
+    "expected_characters": [
+      "冰點"
+    ],
+    "expected_jyutping": [
+      "bing1 dim2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9026,
+    "query": "dim2 bing1",
+    "category": "order_pairs",
+    "description": "dim2 bing1 in this order is 點兵; competing orders 冰點 (bing1 dim2)",
+    "expected_characters": [
+      "點兵"
+    ],
+    "expected_jyutping": [
+      "dim2 bing1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9027,
+    "query": "biu1 ding6",
+    "category": "order_pairs",
+    "description": "biu1 ding6 in this order is 標定; competing orders 定標 (ding6 biu1)",
+    "expected_characters": [
+      "標定"
+    ],
+    "expected_jyutping": [
+      "biu1 ding6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9028,
+    "query": "ding6 biu1",
+    "category": "order_pairs",
+    "description": "ding6 biu1 in this order is 定標; competing orders 標定 (biu1 ding6)",
+    "expected_characters": [
+      "定標"
+    ],
+    "expected_jyutping": [
+      "ding6 biu1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9029,
+    "query": "bo1 jam1",
+    "category": "order_pairs",
+    "description": "bo1 jam1 in this order is 波音; competing orders 音波 (jam1 bo1)",
+    "expected_characters": [
+      "波音"
+    ],
+    "expected_jyutping": [
+      "bo1 jam1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9030,
+    "query": "jam1 bo1",
+    "category": "order_pairs",
+    "description": "jam1 bo1 in this order is 音波; competing orders 波音 (bo1 jam1)",
+    "expected_characters": [
+      "音波"
+    ],
+    "expected_jyutping": [
+      "jam1 bo1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9031,
+    "query": "bou2 dai2",
+    "category": "order_pairs",
+    "description": "bou2 dai2 in this order is 保底/寶坻; competing orders 抵補 (dai2 bou2)",
+    "expected_characters": [
+      "保底",
+      "寶坻"
+    ],
+    "expected_jyutping": [
+      "bou2 dai2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9032,
+    "query": "dai2 bou2",
+    "category": "order_pairs",
+    "description": "dai2 bou2 in this order is 抵補; competing orders 保底/寶坻 (bou2 dai2)",
+    "expected_characters": [
+      "抵補"
+    ],
+    "expected_jyutping": [
+      "dai2 bou2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9033,
+    "query": "bou2 sik1",
+    "category": "order_pairs",
+    "description": "bou2 sik1 in this order is 保釋/補色; competing orders 骰寶 (sik1 bou2)",
+    "expected_characters": [
+      "保釋",
+      "補色"
+    ],
+    "expected_jyutping": [
+      "bou2 sik1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9034,
+    "query": "sik1 bou2",
+    "category": "order_pairs",
+    "description": "sik1 bou2 in this order is 骰寶; competing orders 保釋/補色 (bou2 sik1)",
+    "expected_characters": [
+      "骰寶"
+    ],
+    "expected_jyutping": [
+      "sik1 bou2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9035,
+    "query": "bou3 mok6",
+    "category": "order_pairs",
+    "description": "bou3 mok6 in this order is 報幕/布幕; competing orders 幕布 (mok6 bou3)",
+    "expected_characters": [
+      "報幕",
+      "布幕"
+    ],
+    "expected_jyutping": [
+      "bou3 mok6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9036,
+    "query": "mok6 bou3",
+    "category": "order_pairs",
+    "description": "mok6 bou3 in this order is 幕布; competing orders 報幕/布幕 (bou3 mok6)",
+    "expected_characters": [
+      "幕布"
+    ],
+    "expected_jyutping": [
+      "mok6 bou3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9037,
+    "query": "bou6 maan6",
+    "category": "order_pairs",
+    "description": "bou6 maan6 in this order is 暴漫; competing orders 慢步/漫步 (maan6 bou6)",
+    "expected_characters": [
+      "暴漫"
+    ],
+    "expected_jyutping": [
+      "bou6 maan6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9038,
+    "query": "maan6 bou6",
+    "category": "order_pairs",
+    "description": "maan6 bou6 in this order is 慢步/漫步; competing orders 暴漫 (bou6 maan6)",
+    "expected_characters": [
+      "慢步",
+      "漫步"
+    ],
+    "expected_jyutping": [
+      "maan6 bou6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9039,
+    "query": "bui3 ji2",
+    "category": "order_pairs",
+    "description": "bui3 ji2 in this order is 背倚; competing orders 椅背 (ji2 bui3)",
+    "expected_characters": [
+      "背倚"
+    ],
+    "expected_jyutping": [
+      "bui3 ji2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9040,
+    "query": "ji2 bui3",
+    "category": "order_pairs",
+    "description": "ji2 bui3 in this order is 椅背; competing orders 背倚 (bui3 ji2)",
+    "expected_characters": [
+      "椅背"
+    ],
+    "expected_jyutping": [
+      "ji2 bui3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9041,
+    "query": "si6 bun3 gung1 pui5",
+    "category": "order_pairs",
+    "description": "si6 bun3 gung1 pui5 in this order is 事半功倍; competing orders 事倍功半 (si6 pui5 gung1 bun3)",
+    "expected_characters": [
+      "事半功倍"
+    ],
+    "expected_jyutping": [
+      "si6 bun3 gung1 pui5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9042,
+    "query": "si6 pui5 gung1 bun3",
+    "category": "order_pairs",
+    "description": "si6 pui5 gung1 bun3 in this order is 事倍功半; competing orders 事半功倍 (si6 bun3 gung1 pui5)",
+    "expected_characters": [
+      "事倍功半"
+    ],
+    "expected_jyutping": [
+      "si6 pui5 gung1 bun3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9043,
+    "query": "caa4 faa1",
+    "category": "order_pairs",
+    "description": "caa4 faa1 in this order is 茶花; competing orders 花茶 (faa1 caa4)",
+    "expected_characters": [
+      "茶花"
+    ],
+    "expected_jyutping": [
+      "caa4 faa1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9044,
+    "query": "faa1 caa4",
+    "category": "order_pairs",
+    "description": "faa1 caa4 in this order is 花茶; competing orders 茶花 (caa4 faa1)",
+    "expected_characters": [
+      "花茶"
+    ],
+    "expected_jyutping": [
+      "faa1 caa4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9045,
+    "query": "caak3 zoeng3",
+    "category": "order_pairs",
+    "description": "caak3 zoeng3 in this order is 拆賬; competing orders 賬冊 (zoeng3 caak3)",
+    "expected_characters": [
+      "拆賬"
+    ],
+    "expected_jyutping": [
+      "caak3 zoeng3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9046,
+    "query": "zoeng3 caak3",
+    "category": "order_pairs",
+    "description": "zoeng3 caak3 in this order is 賬冊; competing orders 拆賬 (caak3 zoeng3)",
+    "expected_characters": [
+      "賬冊"
+    ],
+    "expected_jyutping": [
+      "zoeng3 caak3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9047,
+    "query": "cai4 zing2",
+    "category": "order_pairs",
+    "description": "cai4 zing2 in this order is 齊整; competing orders 整齊 (zing2 cai4)",
+    "expected_characters": [
+      "齊整"
+    ],
+    "expected_jyutping": [
+      "cai4 zing2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9048,
+    "query": "zing2 cai4",
+    "category": "order_pairs",
+    "description": "zing2 cai4 in this order is 整齊; competing orders 齊整 (cai4 zing2)",
+    "expected_characters": [
+      "整齊"
+    ],
+    "expected_jyutping": [
+      "zing2 cai4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9049,
+    "query": "cang4 ngaam4",
+    "category": "order_pairs",
+    "description": "cang4 ngaam4 in this order is 層巖; competing orders 岩層/巖層 (ngaam4 cang4)",
+    "expected_characters": [
+      "層巖"
+    ],
+    "expected_jyutping": [
+      "cang4 ngaam4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9050,
+    "query": "ngaam4 cang4",
+    "category": "order_pairs",
+    "description": "ngaam4 cang4 in this order is 岩層/巖層; competing orders 層巖 (cang4 ngaam4)",
+    "expected_characters": [
+      "岩層",
+      "巖層"
+    ],
+    "expected_jyutping": [
+      "ngaam4 cang4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9051,
+    "query": "ce1 fu3",
+    "category": "order_pairs",
+    "description": "ce1 fu3 in this order is 車庫; competing orders 庫車 (fu3 ce1)",
+    "expected_characters": [
+      "車庫"
+    ],
+    "expected_jyutping": [
+      "ce1 fu3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9052,
+    "query": "fu3 ce1",
+    "category": "order_pairs",
+    "description": "fu3 ce1 in this order is 庫車; competing orders 車庫 (ce1 fu3)",
+    "expected_characters": [
+      "庫車"
+    ],
+    "expected_jyutping": [
+      "fu3 ce1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9053,
+    "query": "ceoi2 dou6",
+    "category": "order_pairs",
+    "description": "ceoi2 dou6 in this order is 取道; competing orders 盜取 (dou6 ceoi2)",
+    "expected_characters": [
+      "取道"
+    ],
+    "expected_jyutping": [
+      "ceoi2 dou6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9054,
+    "query": "dou6 ceoi2",
+    "category": "order_pairs",
+    "description": "dou6 ceoi2 in this order is 盜取; competing orders 取道 (ceoi2 dou6)",
+    "expected_characters": [
+      "盜取"
+    ],
+    "expected_jyutping": [
+      "dou6 ceoi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9055,
+    "query": "ceon4 jau4",
+    "category": "order_pairs",
+    "description": "ceon4 jau4 in this order is 巡遊; competing orders 由旬 (jau4 ceon4)",
+    "expected_characters": [
+      "巡遊"
+    ],
+    "expected_jyutping": [
+      "ceon4 jau4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9056,
+    "query": "jau4 ceon4",
+    "category": "order_pairs",
+    "description": "jau4 ceon4 in this order is 由旬; competing orders 巡遊 (ceon4 jau4)",
+    "expected_characters": [
+      "由旬"
+    ],
+    "expected_jyutping": [
+      "jau4 ceon4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9057,
+    "query": "ceot1 teoi3",
+    "category": "order_pairs",
+    "description": "ceot1 teoi3 in this order is 黜退; competing orders 退出 (teoi3 ceot1)",
+    "expected_characters": [
+      "黜退"
+    ],
+    "expected_jyutping": [
+      "ceot1 teoi3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9058,
+    "query": "teoi3 ceot1",
+    "category": "order_pairs",
+    "description": "teoi3 ceot1 in this order is 退出; competing orders 黜退 (ceot1 teoi3)",
+    "expected_characters": [
+      "退出"
+    ],
+    "expected_jyutping": [
+      "teoi3 ceot1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9059,
+    "query": "ci3 dai6",
+    "category": "order_pairs",
+    "description": "ci3 dai6 in this order is 次第; competing orders 第次 (dai6 ci3)",
+    "expected_characters": [
+      "次第"
+    ],
+    "expected_jyutping": [
+      "ci3 dai6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9060,
+    "query": "dai6 ci3",
+    "category": "order_pairs",
+    "description": "dai6 ci3 in this order is 第次; competing orders 次第 (ci3 dai6)",
+    "expected_characters": [
+      "第次"
+    ],
+    "expected_jyutping": [
+      "dai6 ci3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9061,
+    "query": "ci4 jin4",
+    "category": "order_pairs",
+    "description": "ci4 jin4 in this order is 遲延; competing orders 延遲/言詞/言辭 (jin4 ci4)",
+    "expected_characters": [
+      "遲延"
+    ],
+    "expected_jyutping": [
+      "ci4 jin4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9062,
+    "query": "jin4 ci4",
+    "category": "order_pairs",
+    "description": "jin4 ci4 in this order is 延遲/言詞/言辭; competing orders 遲延 (ci4 jin4)",
+    "expected_characters": [
+      "延遲",
+      "言詞",
+      "言辭"
+    ],
+    "expected_jyutping": [
+      "jin4 ci4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9063,
+    "query": "cik1 hot3",
+    "category": "order_pairs",
+    "description": "cik1 hot3 in this order is 叱喝; competing orders 喝叱/喝斥 (hot3 cik1)",
+    "expected_characters": [
+      "叱喝"
+    ],
+    "expected_jyutping": [
+      "cik1 hot3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9064,
+    "query": "hot3 cik1",
+    "category": "order_pairs",
+    "description": "hot3 cik1 in this order is 喝叱/喝斥; competing orders 叱喝 (cik1 hot3)",
+    "expected_characters": [
+      "喝叱",
+      "喝斥"
+    ],
+    "expected_jyutping": [
+      "hot3 cik1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9065,
+    "query": "cin4 si1 hau6 soeng2",
+    "category": "order_pairs",
+    "description": "cin4 si1 hau6 soeng2 in this order is 前思后想; competing orders 思前想後 (si1 cin4 soeng2 hau6)",
+    "expected_characters": [
+      "前思后想"
+    ],
+    "expected_jyutping": [
+      "cin4 si1 hau6 soeng2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9066,
+    "query": "si1 cin4 soeng2 hau6",
+    "category": "order_pairs",
+    "description": "si1 cin4 soeng2 hau6 in this order is 思前想後; competing orders 前思后想 (cin4 si1 hau6 soeng2)",
+    "expected_characters": [
+      "思前想後"
+    ],
+    "expected_jyutping": [
+      "si1 cin4 soeng2 hau6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9067,
+    "query": "cing1 fung1 ming4 jyut6",
+    "category": "order_pairs",
+    "description": "cing1 fung1 ming4 jyut6 in this order is 清風明月; competing orders 明月清風 (ming4 jyut6 cing1 fung1)",
+    "expected_characters": [
+      "清風明月"
+    ],
+    "expected_jyutping": [
+      "cing1 fung1 ming4 jyut6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9068,
+    "query": "ming4 jyut6 cing1 fung1",
+    "category": "order_pairs",
+    "description": "ming4 jyut6 cing1 fung1 in this order is 明月清風; competing orders 清風明月 (cing1 fung1 ming4 jyut6)",
+    "expected_characters": [
+      "明月清風"
+    ],
+    "expected_jyutping": [
+      "ming4 jyut6 cing1 fung1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9069,
+    "query": "cing1 nin4",
+    "category": "order_pairs",
+    "description": "cing1 nin4 in this order is 青年; competing orders 年青 (nin4 cing1)",
+    "expected_characters": [
+      "青年"
+    ],
+    "expected_jyutping": [
+      "cing1 nin4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9070,
+    "query": "nin4 cing1",
+    "category": "order_pairs",
+    "description": "nin4 cing1 in this order is 年青; competing orders 青年 (cing1 nin4)",
+    "expected_characters": [
+      "年青"
+    ],
+    "expected_jyutping": [
+      "nin4 cing1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9071,
+    "query": "cing4 gei1",
+    "category": "order_pairs",
+    "description": "cing4 gei1 in this order is 氰基; competing orders 基情 (gei1 cing4)",
+    "expected_characters": [
+      "氰基"
+    ],
+    "expected_jyutping": [
+      "cing4 gei1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9072,
+    "query": "gei1 cing4",
+    "category": "order_pairs",
+    "description": "gei1 cing4 in this order is 基情; competing orders 氰基 (cing4 gei1)",
+    "expected_characters": [
+      "基情"
+    ],
+    "expected_jyutping": [
+      "gei1 cing4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9073,
+    "query": "cing4 tin1",
+    "category": "order_pairs",
+    "description": "cing4 tin1 in this order is 晴天; competing orders 天晴 (tin1 cing4)",
+    "expected_characters": [
+      "晴天"
+    ],
+    "expected_jyutping": [
+      "cing4 tin1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9074,
+    "query": "tin1 cing4",
+    "category": "order_pairs",
+    "description": "tin1 cing4 in this order is 天晴; competing orders 晴天 (cing4 tin1)",
+    "expected_characters": [
+      "天晴"
+    ],
+    "expected_jyutping": [
+      "tin1 cing4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9075,
+    "query": "ciu4 sing3",
+    "category": "order_pairs",
+    "description": "ciu4 sing3 in this order is 朝聖; competing orders 聖朝 (sing3 ciu4)",
+    "expected_characters": [
+      "朝聖"
+    ],
+    "expected_jyutping": [
+      "ciu4 sing3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9076,
+    "query": "sing3 ciu4",
+    "category": "order_pairs",
+    "description": "sing3 ciu4 in this order is 聖朝; competing orders 朝聖 (ciu4 sing3)",
+    "expected_characters": [
+      "聖朝"
+    ],
+    "expected_jyutping": [
+      "sing3 ciu4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9077,
+    "query": "coeng1 loeng6",
+    "category": "order_pairs",
+    "description": "coeng1 loeng6 in this order is 蹌踉; competing orders 踉蹡 (loeng6 coeng1)",
+    "expected_characters": [
+      "蹌踉"
+    ],
+    "expected_jyutping": [
+      "coeng1 loeng6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9078,
+    "query": "loeng6 coeng1",
+    "category": "order_pairs",
+    "description": "loeng6 coeng1 in this order is 踉蹡; competing orders 蹌踉 (coeng1 loeng6)",
+    "expected_characters": [
+      "踉蹡"
+    ],
+    "expected_jyutping": [
+      "loeng6 coeng1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9079,
+    "query": "coeng4 faat3",
+    "category": "order_pairs",
+    "description": "coeng4 faat3 in this order is 長髮; competing orders 法場/發祥 (faat3 coeng4)",
+    "expected_characters": [
+      "長髮"
+    ],
+    "expected_jyutping": [
+      "coeng4 faat3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9080,
+    "query": "faat3 coeng4",
+    "category": "order_pairs",
+    "description": "faat3 coeng4 in this order is 法場/發祥; competing orders 長髮 (coeng4 faat3)",
+    "expected_characters": [
+      "法場",
+      "發祥"
+    ],
+    "expected_jyutping": [
+      "faat3 coeng4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9081,
+    "query": "coeng4 sing4",
+    "category": "order_pairs",
+    "description": "coeng4 sing4 in this order is 長城; competing orders 城牆 (sing4 coeng4)",
+    "expected_characters": [
+      "長城"
+    ],
+    "expected_jyutping": [
+      "coeng4 sing4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9082,
+    "query": "sing4 coeng4",
+    "category": "order_pairs",
+    "description": "sing4 coeng4 in this order is 城牆; competing orders 長城 (coeng4 sing4)",
+    "expected_characters": [
+      "城牆"
+    ],
+    "expected_jyutping": [
+      "sing4 coeng4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9083,
+    "query": "coi2 wan4",
+    "category": "order_pairs",
+    "description": "coi2 wan4 in this order is 彩雲; competing orders 雲彩 (wan4 coi2)",
+    "expected_characters": [
+      "彩雲"
+    ],
+    "expected_jyutping": [
+      "coi2 wan4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9084,
+    "query": "wan4 coi2",
+    "category": "order_pairs",
+    "description": "wan4 coi2 in this order is 雲彩; competing orders 彩雲 (coi2 wan4)",
+    "expected_characters": [
+      "雲彩"
+    ],
+    "expected_jyutping": [
+      "wan4 coi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9085,
+    "query": "so1 coi4 zoeng6 ji6",
+    "category": "order_pairs",
+    "description": "so1 coi4 zoeng6 ji6 in this order is 疏財仗義; competing orders 仗義疏財 (zoeng6 ji6 so1 coi4)",
+    "expected_characters": [
+      "疏財仗義"
+    ],
+    "expected_jyutping": [
+      "so1 coi4 zoeng6 ji6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9086,
+    "query": "zoeng6 ji6 so1 coi4",
+    "category": "order_pairs",
+    "description": "zoeng6 ji6 so1 coi4 in this order is 仗義疏財; competing orders 疏財仗義 (so1 coi4 zoeng6 ji6)",
+    "expected_characters": [
+      "仗義疏財"
+    ],
+    "expected_jyutping": [
+      "zoeng6 ji6 so1 coi4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9087,
+    "query": "cong4 gau3 naap6 wu1",
+    "category": "order_pairs",
+    "description": "cong4 gau3 naap6 wu1 in this order is 藏垢納污; competing orders 藏污納垢 (cong4 wu1 naap6 gau3)",
+    "expected_characters": [
+      "藏垢納污"
+    ],
+    "expected_jyutping": [
+      "cong4 gau3 naap6 wu1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9088,
+    "query": "cong4 wu1 naap6 gau3",
+    "category": "order_pairs",
+    "description": "cong4 wu1 naap6 gau3 in this order is 藏污納垢; competing orders 藏垢納污 (cong4 gau3 naap6 wu1)",
+    "expected_characters": [
+      "藏污納垢"
+    ],
+    "expected_jyutping": [
+      "cong4 wu1 naap6 gau3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9089,
+    "query": "cou3 mai5",
+    "category": "order_pairs",
+    "description": "cou3 mai5 in this order is 糙米; competing orders 米醋 (mai5 cou3)",
+    "expected_characters": [
+      "糙米"
+    ],
+    "expected_jyutping": [
+      "cou3 mai5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9090,
+    "query": "mai5 cou3",
+    "category": "order_pairs",
+    "description": "mai5 cou3 in this order is 米醋; competing orders 糙米 (cou3 mai5)",
+    "expected_characters": [
+      "米醋"
+    ],
+    "expected_jyutping": [
+      "mai5 cou3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9091,
+    "query": "cung4 jyun4",
+    "category": "order_pairs",
+    "description": "cung4 jyun4 in this order is 松原; competing orders 蚖蟲 (jyun4 cung4)",
+    "expected_characters": [
+      "松原"
+    ],
+    "expected_jyutping": [
+      "cung4 jyun4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9092,
+    "query": "jyun4 cung4",
+    "category": "order_pairs",
+    "description": "jyun4 cung4 in this order is 蚖蟲; competing orders 松原 (cung4 jyun4)",
+    "expected_characters": [
+      "蚖蟲"
+    ],
+    "expected_jyutping": [
+      "jyun4 cung4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9093,
+    "query": "cyu5 gwong1",
+    "category": "order_pairs",
+    "description": "cyu5 gwong1 in this order is 曙光; competing orders 光柱 (gwong1 cyu5)",
+    "expected_characters": [
+      "曙光"
+    ],
+    "expected_jyutping": [
+      "cyu5 gwong1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9094,
+    "query": "gwong1 cyu5",
+    "category": "order_pairs",
+    "description": "gwong1 cyu5 in this order is 光柱; competing orders 曙光 (cyu5 gwong1)",
+    "expected_characters": [
+      "光柱"
+    ],
+    "expected_jyutping": [
+      "gwong1 cyu5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9095,
+    "query": "cyun4 gaa1",
+    "category": "order_pairs",
+    "description": "cyun4 gaa1 in this order is 傳家/全家; competing orders 家傳 (gaa1 cyun4)",
+    "expected_characters": [
+      "傳家",
+      "全家"
+    ],
+    "expected_jyutping": [
+      "cyun4 gaa1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9096,
+    "query": "gaa1 cyun4",
+    "category": "order_pairs",
+    "description": "gaa1 cyun4 in this order is 家傳; competing orders 傳家/全家 (cyun4 gaa1)",
+    "expected_characters": [
+      "家傳"
+    ],
+    "expected_jyutping": [
+      "gaa1 cyun4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9097,
+    "query": "cyun4 zik1",
+    "category": "order_pairs",
+    "description": "cyun4 zik1 in this order is 全職; competing orders 積存 (zik1 cyun4)",
+    "expected_characters": [
+      "全職"
+    ],
+    "expected_jyutping": [
+      "cyun4 zik1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9098,
+    "query": "zik1 cyun4",
+    "category": "order_pairs",
+    "description": "zik1 cyun4 in this order is 積存; competing orders 全職 (cyun4 zik1)",
+    "expected_characters": [
+      "積存"
+    ],
+    "expected_jyutping": [
+      "zik1 cyun4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9099,
+    "query": "daai2 zi2",
+    "category": "order_pairs",
+    "description": "daai2 zi2 in this order is 帶子; competing orders 紙帶 (zi2 daai2)",
+    "expected_characters": [
+      "帶子"
+    ],
+    "expected_jyutping": [
+      "daai2 zi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9100,
+    "query": "zi2 daai2",
+    "category": "order_pairs",
+    "description": "zi2 daai2 in this order is 紙帶; competing orders 帶子 (daai2 zi2)",
+    "expected_characters": [
+      "紙帶"
+    ],
+    "expected_jyutping": [
+      "zi2 daai2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9101,
+    "query": "daai6 ji1",
+    "category": "order_pairs",
+    "description": "daai6 ji1 in this order is 大姨/大衣; competing orders 醫大 (ji1 daai6)",
+    "expected_characters": [
+      "大姨",
+      "大衣"
+    ],
+    "expected_jyutping": [
+      "daai6 ji1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9102,
+    "query": "ji1 daai6",
+    "category": "order_pairs",
+    "description": "ji1 daai6 in this order is 醫大; competing orders 大姨/大衣 (daai6 ji1)",
+    "expected_characters": [
+      "醫大"
+    ],
+    "expected_jyutping": [
+      "ji1 daai6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9103,
+    "query": "daai6 zoeng3",
+    "category": "order_pairs",
+    "description": "daai6 zoeng3 in this order is 大將; competing orders 脹大 (zoeng3 daai6)",
+    "expected_characters": [
+      "大將"
+    ],
+    "expected_jyutping": [
+      "daai6 zoeng3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9104,
+    "query": "zoeng3 daai6",
+    "category": "order_pairs",
+    "description": "zoeng3 daai6 in this order is 脹大; competing orders 大將 (daai6 zoeng3)",
+    "expected_characters": [
+      "脹大"
+    ],
+    "expected_jyutping": [
+      "zoeng3 daai6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9105,
+    "query": "daap3 deoi3",
+    "category": "order_pairs",
+    "description": "daap3 deoi3 in this order is 答對; competing orders 對答 (deoi3 daap3)",
+    "expected_characters": [
+      "答對"
+    ],
+    "expected_jyutping": [
+      "daap3 deoi3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9106,
+    "query": "deoi3 daap3",
+    "category": "order_pairs",
+    "description": "deoi3 daap3 in this order is 對答; competing orders 答對 (daap3 deoi3)",
+    "expected_characters": [
+      "對答"
+    ],
+    "expected_jyutping": [
+      "deoi3 daap3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9107,
+    "query": "dak1 dou6",
+    "category": "order_pairs",
+    "description": "dak1 dou6 in this order is 得道; competing orders 道德 (dou6 dak1)",
+    "expected_characters": [
+      "得道"
+    ],
+    "expected_jyutping": [
+      "dak1 dou6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9108,
+    "query": "dou6 dak1",
+    "category": "order_pairs",
+    "description": "dou6 dak1 in this order is 道德; competing orders 得道 (dak1 dou6)",
+    "expected_characters": [
+      "道德"
+    ],
+    "expected_jyutping": [
+      "dou6 dak1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9109,
+    "query": "dak1 sat1",
+    "category": "order_pairs",
+    "description": "dak1 sat1 in this order is 得失/得瑟; competing orders 失德 (sat1 dak1)",
+    "expected_characters": [
+      "得失",
+      "得瑟"
+    ],
+    "expected_jyutping": [
+      "dak1 sat1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9110,
+    "query": "sat1 dak1",
+    "category": "order_pairs",
+    "description": "sat1 dak1 in this order is 失德; competing orders 得失/得瑟 (dak1 sat1)",
+    "expected_characters": [
+      "失德"
+    ],
+    "expected_jyutping": [
+      "sat1 dak1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9111,
+    "query": "dat6 gik1",
+    "category": "order_pairs",
+    "description": "dat6 gik1 in this order is 突擊; competing orders 激凸 (gik1 dat6)",
+    "expected_characters": [
+      "突擊"
+    ],
+    "expected_jyutping": [
+      "dat6 gik1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9112,
+    "query": "gik1 dat6",
+    "category": "order_pairs",
+    "description": "gik1 dat6 in this order is 激凸; competing orders 突擊 (dat6 gik1)",
+    "expected_characters": [
+      "激凸"
+    ],
+    "expected_jyutping": [
+      "gik1 dat6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9113,
+    "query": "dei6 jing4",
+    "category": "order_pairs",
+    "description": "dei6 jing4 in this order is 地形; competing orders 營地 (jing4 dei6)",
+    "expected_characters": [
+      "地形"
+    ],
+    "expected_jyutping": [
+      "dei6 jing4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9114,
+    "query": "jing4 dei6",
+    "category": "order_pairs",
+    "description": "jing4 dei6 in this order is 營地; competing orders 地形 (dei6 jing4)",
+    "expected_characters": [
+      "營地"
+    ],
+    "expected_jyutping": [
+      "jing4 dei6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9115,
+    "query": "deoi3 mun4",
+    "category": "order_pairs",
+    "description": "deoi3 mun4 in this order is 對門; competing orders 門對 (mun4 deoi3)",
+    "expected_characters": [
+      "對門"
+    ],
+    "expected_jyutping": [
+      "deoi3 mun4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9116,
+    "query": "mun4 deoi3",
+    "category": "order_pairs",
+    "description": "mun4 deoi3 in this order is 門對; competing orders 對門 (deoi3 mun4)",
+    "expected_characters": [
+      "門對"
+    ],
+    "expected_jyutping": [
+      "mun4 deoi3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9117,
+    "query": "dim2 tai4",
+    "category": "order_pairs",
+    "description": "dim2 tai4 in this order is 點題; competing orders 提點 (tai4 dim2)",
+    "expected_characters": [
+      "點題"
+    ],
+    "expected_jyutping": [
+      "dim2 tai4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9118,
+    "query": "tai4 dim2",
+    "category": "order_pairs",
+    "description": "tai4 dim2 in this order is 提點; competing orders 點題 (dim2 tai4)",
+    "expected_characters": [
+      "提點"
+    ],
+    "expected_jyutping": [
+      "tai4 dim2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9119,
+    "query": "din6 jik6",
+    "category": "order_pairs",
+    "description": "din6 jik6 in this order is 電驛; competing orders 譯電 (jik6 din6)",
+    "expected_characters": [
+      "電驛"
+    ],
+    "expected_jyutping": [
+      "din6 jik6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9120,
+    "query": "jik6 din6",
+    "category": "order_pairs",
+    "description": "jik6 din6 in this order is 譯電; competing orders 電驛 (din6 jik6)",
+    "expected_characters": [
+      "譯電"
+    ],
+    "expected_jyutping": [
+      "jik6 din6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9121,
+    "query": "ding6 laap6",
+    "category": "order_pairs",
+    "description": "ding6 laap6 in this order is 訂立; competing orders 立定 (laap6 ding6)",
+    "expected_characters": [
+      "訂立"
+    ],
+    "expected_jyutping": [
+      "ding6 laap6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9122,
+    "query": "laap6 ding6",
+    "category": "order_pairs",
+    "description": "laap6 ding6 in this order is 立定; competing orders 訂立 (ding6 laap6)",
+    "expected_characters": [
+      "立定"
+    ],
+    "expected_jyutping": [
+      "laap6 ding6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9123,
+    "query": "diu6 gon3",
+    "category": "order_pairs",
+    "description": "diu6 gon3 in this order is 調幹; competing orders 幹掉 (gon3 diu6)",
+    "expected_characters": [
+      "調幹"
+    ],
+    "expected_jyutping": [
+      "diu6 gon3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9124,
+    "query": "gon3 diu6",
+    "category": "order_pairs",
+    "description": "gon3 diu6 in this order is 幹掉; competing orders 調幹 (diu6 gon3)",
+    "expected_characters": [
+      "幹掉"
+    ],
+    "expected_jyutping": [
+      "gon3 diu6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9125,
+    "query": "man4 zi6 dong2",
+    "category": "order_pairs",
+    "description": "man4 zi6 dong2 in this order is 文字檔; competing orders 自民黨 (zi6 man4 dong2)",
+    "expected_characters": [
+      "文字檔"
+    ],
+    "expected_jyutping": [
+      "man4 zi6 dong2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9126,
+    "query": "zi6 man4 dong2",
+    "category": "order_pairs",
+    "description": "zi6 man4 dong2 in this order is 自民黨; competing orders 文字檔 (man4 zi6 dong2)",
+    "expected_characters": [
+      "自民黨"
+    ],
+    "expected_jyutping": [
+      "zi6 man4 dong2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9127,
+    "query": "dou2 wong4",
+    "category": "order_pairs",
+    "description": "dou2 wong4 in this order is 賭王; competing orders 黃島 (wong4 dou2)",
+    "expected_characters": [
+      "賭王"
+    ],
+    "expected_jyutping": [
+      "dou2 wong4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9128,
+    "query": "wong4 dou2",
+    "category": "order_pairs",
+    "description": "wong4 dou2 in this order is 黃島; competing orders 賭王 (dou2 wong4)",
+    "expected_characters": [
+      "黃島"
+    ],
+    "expected_jyutping": [
+      "wong4 dou2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9129,
+    "query": "dou6 jau4",
+    "category": "order_pairs",
+    "description": "dou6 jau4 in this order is 導遊; competing orders 柔道/遊導 (jau4 dou6)",
+    "expected_characters": [
+      "導遊"
+    ],
+    "expected_jyutping": [
+      "dou6 jau4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9130,
+    "query": "jau4 dou6",
+    "category": "order_pairs",
+    "description": "jau4 dou6 in this order is 柔道/遊導; competing orders 導遊 (dou6 jau4)",
+    "expected_characters": [
+      "柔道",
+      "遊導"
+    ],
+    "expected_jyutping": [
+      "jau4 dou6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9131,
+    "query": "duk6 jau5",
+    "category": "order_pairs",
+    "description": "duk6 jau5 in this order is 獨有; competing orders 有毒 (jau5 duk6)",
+    "expected_characters": [
+      "獨有"
+    ],
+    "expected_jyutping": [
+      "duk6 jau5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9132,
+    "query": "jau5 duk6",
+    "category": "order_pairs",
+    "description": "jau5 duk6 in this order is 有毒; competing orders 獨有 (duk6 jau5)",
+    "expected_characters": [
+      "有毒"
+    ],
+    "expected_jyutping": [
+      "jau5 duk6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9133,
+    "query": "dung1 liu4",
+    "category": "order_pairs",
+    "description": "dung1 liu4 in this order is 東遼; competing orders 遼東 (liu4 dung1)",
+    "expected_characters": [
+      "東遼"
+    ],
+    "expected_jyutping": [
+      "dung1 liu4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9134,
+    "query": "liu4 dung1",
+    "category": "order_pairs",
+    "description": "liu4 dung1 in this order is 遼東; competing orders 東遼 (dung1 liu4)",
+    "expected_characters": [
+      "遼東"
+    ],
+    "expected_jyutping": [
+      "liu4 dung1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9135,
+    "query": "dung6 zok3",
+    "category": "order_pairs",
+    "description": "dung6 zok3 in this order is 動作; competing orders 作動 (zok3 dung6)",
+    "expected_characters": [
+      "動作"
+    ],
+    "expected_jyutping": [
+      "dung6 zok3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9136,
+    "query": "zok3 dung6",
+    "category": "order_pairs",
+    "description": "zok3 dung6 in this order is 作動; competing orders 動作 (dung6 zok3)",
+    "expected_characters": [
+      "作動"
+    ],
+    "expected_jyutping": [
+      "zok3 dung6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9137,
+    "query": "faa1 wong4",
+    "category": "order_pairs",
+    "description": "faa1 wong4 in this order is 花王/花黃; competing orders 黃花 (wong4 faa1)",
+    "expected_characters": [
+      "花王",
+      "花黃"
+    ],
+    "expected_jyutping": [
+      "faa1 wong4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9138,
+    "query": "wong4 faa1",
+    "category": "order_pairs",
+    "description": "wong4 faa1 in this order is 黃花; competing orders 花王/花黃 (faa1 wong4)",
+    "expected_characters": [
+      "黃花"
+    ],
+    "expected_jyutping": [
+      "wong4 faa1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9139,
+    "query": "faan2 wui4",
+    "category": "order_pairs",
+    "description": "faan2 wui4 in this order is 返回; competing orders 回返 (wui4 faan2)",
+    "expected_characters": [
+      "返回"
+    ],
+    "expected_jyutping": [
+      "faan2 wui4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9140,
+    "query": "wui4 faan2",
+    "category": "order_pairs",
+    "description": "wui4 faan2 in this order is 回返; competing orders 返回 (faan2 wui4)",
+    "expected_characters": [
+      "回返"
+    ],
+    "expected_jyutping": [
+      "wui4 faan2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9141,
+    "query": "faan6 zong1",
+    "category": "order_pairs",
+    "description": "faan6 zong1 in this order is 飯莊; competing orders 裝飯 (zong1 faan6)",
+    "expected_characters": [
+      "飯莊"
+    ],
+    "expected_jyutping": [
+      "faan6 zong1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9142,
+    "query": "zong1 faan6",
+    "category": "order_pairs",
+    "description": "zong1 faan6 in this order is 裝飯; competing orders 飯莊 (faan6 zong1)",
+    "expected_characters": [
+      "裝飯"
+    ],
+    "expected_jyutping": [
+      "zong1 faan6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9143,
+    "query": "faat3 jyu5",
+    "category": "order_pairs",
+    "description": "faat3 jyu5 in this order is 法語; competing orders 語法 (jyu5 faat3)",
+    "expected_characters": [
+      "法語"
+    ],
+    "expected_jyutping": [
+      "faat3 jyu5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9144,
+    "query": "jyu5 faat3",
+    "category": "order_pairs",
+    "description": "jyu5 faat3 in this order is 語法; competing orders 法語 (faat3 jyu5)",
+    "expected_characters": [
+      "語法"
+    ],
+    "expected_jyutping": [
+      "jyu5 faat3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9145,
+    "query": "faat3 syu1",
+    "category": "order_pairs",
+    "description": "faat3 syu1 in this order is 法書; competing orders 抒發/書法 (syu1 faat3)",
+    "expected_characters": [
+      "法書"
+    ],
+    "expected_jyutping": [
+      "faat3 syu1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9146,
+    "query": "syu1 faat3",
+    "category": "order_pairs",
+    "description": "syu1 faat3 in this order is 抒發/書法; competing orders 法書 (faat3 syu1)",
+    "expected_characters": [
+      "抒發",
+      "書法"
+    ],
+    "expected_jyutping": [
+      "syu1 faat3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9147,
+    "query": "fan1 gwan1",
+    "category": "order_pairs",
+    "description": "fan1 gwan1 in this order is 昏君; competing orders 均分 (gwan1 fan1)",
+    "expected_characters": [
+      "昏君"
+    ],
+    "expected_jyutping": [
+      "fan1 gwan1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9148,
+    "query": "gwan1 fan1",
+    "category": "order_pairs",
+    "description": "gwan1 fan1 in this order is 均分; competing orders 昏君 (fan1 gwan1)",
+    "expected_characters": [
+      "均分"
+    ],
+    "expected_jyutping": [
+      "gwan1 fan1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9149,
+    "query": "fan1 zing1",
+    "category": "order_pairs",
+    "description": "fan1 zing1 in this order is 燻蒸; competing orders 徵婚 (zing1 fan1)",
+    "expected_characters": [
+      "燻蒸"
+    ],
+    "expected_jyutping": [
+      "fan1 zing1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9150,
+    "query": "zing1 fan1",
+    "category": "order_pairs",
+    "description": "zing1 fan1 in this order is 徵婚; competing orders 燻蒸 (fan1 zing1)",
+    "expected_characters": [
+      "徵婚"
+    ],
+    "expected_jyutping": [
+      "zing1 fan1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9151,
+    "query": "ham6 syu6 pei4 fau4",
+    "category": "order_pairs",
+    "description": "ham6 syu6 pei4 fau4 in this order is 撼樹蚍蜉; competing orders 蚍蜉撼樹 (pei4 fau4 ham6 syu6)",
+    "expected_characters": [
+      "撼樹蚍蜉"
+    ],
+    "expected_jyutping": [
+      "ham6 syu6 pei4 fau4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9152,
+    "query": "pei4 fau4 ham6 syu6",
+    "category": "order_pairs",
+    "description": "pei4 fau4 ham6 syu6 in this order is 蚍蜉撼樹; competing orders 撼樹蚍蜉 (ham6 syu6 pei4 fau4)",
+    "expected_characters": [
+      "蚍蜉撼樹"
+    ],
+    "expected_jyutping": [
+      "pei4 fau4 ham6 syu6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9153,
+    "query": "fo2 hung4",
+    "category": "order_pairs",
+    "description": "fo2 hung4 in this order is 火紅; competing orders 紅火 (hung4 fo2)",
+    "expected_characters": [
+      "火紅"
+    ],
+    "expected_jyutping": [
+      "fo2 hung4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9154,
+    "query": "hung4 fo2",
+    "category": "order_pairs",
+    "description": "hung4 fo2 in this order is 紅火; competing orders 火紅 (fo2 hung4)",
+    "expected_characters": [
+      "紅火"
+    ],
+    "expected_jyutping": [
+      "hung4 fo2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9155,
+    "query": "fo3 tai4",
+    "category": "order_pairs",
+    "description": "fo3 tai4 in this order is 課題; competing orders 提貨 (tai4 fo3)",
+    "expected_characters": [
+      "課題"
+    ],
+    "expected_jyutping": [
+      "fo3 tai4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9156,
+    "query": "tai4 fo3",
+    "category": "order_pairs",
+    "description": "tai4 fo3 in this order is 提貨; competing orders 課題 (fo3 tai4)",
+    "expected_characters": [
+      "提貨"
+    ],
+    "expected_jyutping": [
+      "tai4 fo3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9157,
+    "query": "fong3 haa6",
+    "category": "order_pairs",
+    "description": "fong3 haa6 in this order is 放下; competing orders 下放 (haa6 fong3)",
+    "expected_characters": [
+      "放下"
+    ],
+    "expected_jyutping": [
+      "fong3 haa6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9158,
+    "query": "haa6 fong3",
+    "category": "order_pairs",
+    "description": "haa6 fong3 in this order is 下放; competing orders 放下 (fong3 haa6)",
+    "expected_characters": [
+      "下放"
+    ],
+    "expected_jyutping": [
+      "haa6 fong3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9159,
+    "query": "fu1 gei1",
+    "category": "order_pairs",
+    "description": "fu1 gei1 in this order is 呼機; competing orders 肌膚 (gei1 fu1)",
+    "expected_characters": [
+      "呼機"
+    ],
+    "expected_jyutping": [
+      "fu1 gei1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9160,
+    "query": "gei1 fu1",
+    "category": "order_pairs",
+    "description": "gei1 fu1 in this order is 肌膚; competing orders 呼機 (fu1 gei1)",
+    "expected_characters": [
+      "肌膚"
+    ],
+    "expected_jyutping": [
+      "gei1 fu1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9161,
+    "query": "lo2 fu2 lei4 san1",
+    "category": "order_pairs",
+    "description": "lo2 fu2 lei4 san1 in this order is 攞苦嚟辛; competing orders 攞嚟辛苦 (lo2 lei4 san1 fu2)",
+    "expected_characters": [
+      "攞苦嚟辛"
+    ],
+    "expected_jyutping": [
+      "lo2 fu2 lei4 san1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9162,
+    "query": "lo2 lei4 san1 fu2",
+    "category": "order_pairs",
+    "description": "lo2 lei4 san1 fu2 in this order is 攞嚟辛苦; competing orders 攞苦嚟辛 (lo2 fu2 lei4 san1)",
+    "expected_characters": [
+      "攞嚟辛苦"
+    ],
+    "expected_jyutping": [
+      "lo2 lei4 san1 fu2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9163,
+    "query": "fu3 man4",
+    "category": "order_pairs",
+    "description": "fu3 man4 in this order is 富民; competing orders 文庫 (man4 fu3)",
+    "expected_characters": [
+      "富民"
+    ],
+    "expected_jyutping": [
+      "fu3 man4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9164,
+    "query": "man4 fu3",
+    "category": "order_pairs",
+    "description": "man4 fu3 in this order is 文庫; competing orders 富民 (fu3 man4)",
+    "expected_characters": [
+      "文庫"
+    ],
+    "expected_jyutping": [
+      "man4 fu3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9165,
+    "query": "fu6 song3",
+    "category": "order_pairs",
+    "description": "fu6 song3 in this order is 父喪; competing orders 喪父 (song3 fu6)",
+    "expected_characters": [
+      "父喪"
+    ],
+    "expected_jyutping": [
+      "fu6 song3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9166,
+    "query": "song3 fu6",
+    "category": "order_pairs",
+    "description": "song3 fu6 in this order is 喪父; competing orders 父喪 (fu6 song3)",
+    "expected_characters": [
+      "喪父"
+    ],
+    "expected_jyutping": [
+      "song3 fu6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9167,
+    "query": "zing2 tai2 fuk6 mou6 sou3 wai2 mong5 lou6",
+    "category": "order_pairs",
+    "description": "zing2 tai2 fuk6 mou6 sou3 wai2 mong5 lou6 in this order is 整體服務數位網路; competing orders 整體數位服務網路 (zing2 tai2 sou3 wai2 fuk6 mou6 mong5 lou6)",
+    "expected_characters": [
+      "整體服務數位網路"
+    ],
+    "expected_jyutping": [
+      "zing2 tai2 fuk6 mou6 sou3 wai2 mong5 lou6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9168,
+    "query": "zing2 tai2 sou3 wai2 fuk6 mou6 mong5 lou6",
+    "category": "order_pairs",
+    "description": "zing2 tai2 sou3 wai2 fuk6 mou6 mong5 lou6 in this order is 整體數位服務網路; competing orders 整體服務數位網路 (zing2 tai2 fuk6 mou6 sou3 wai2 mong5 lou6)",
+    "expected_characters": [
+      "整體數位服務網路"
+    ],
+    "expected_jyutping": [
+      "zing2 tai2 sou3 wai2 fuk6 mou6 mong5 lou6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9169,
+    "query": "fung1 him2 tau4 zi1",
+    "category": "order_pairs",
+    "description": "fung1 him2 tau4 zi1 in this order is 風險投資; competing orders 投資風險 (tau4 zi1 fung1 him2)",
+    "expected_characters": [
+      "風險投資"
+    ],
+    "expected_jyutping": [
+      "fung1 him2 tau4 zi1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9170,
+    "query": "tau4 zi1 fung1 him2",
+    "category": "order_pairs",
+    "description": "tau4 zi1 fung1 him2 in this order is 投資風險; competing orders 風險投資 (fung1 him2 tau4 zi1)",
+    "expected_characters": [
+      "投資風險"
+    ],
+    "expected_jyutping": [
+      "tau4 zi1 fung1 him2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9171,
+    "query": "fung1 sing4",
+    "category": "order_pairs",
+    "description": "fung1 sing4 in this order is 豐城/風城/風成; competing orders 乘風 (sing4 fung1)",
+    "expected_characters": [
+      "豐城",
+      "風城",
+      "風成"
+    ],
+    "expected_jyutping": [
+      "fung1 sing4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9172,
+    "query": "sing4 fung1",
+    "category": "order_pairs",
+    "description": "sing4 fung1 in this order is 乘風; competing orders 豐城/風城/風成 (fung1 sing4)",
+    "expected_characters": [
+      "乘風"
+    ],
+    "expected_jyutping": [
+      "sing4 fung1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9173,
+    "query": "gaa1 hong4",
+    "category": "order_pairs",
+    "description": "gaa1 hong4 in this order is 加航; competing orders 行家 (hong4 gaa1)",
+    "expected_characters": [
+      "加航"
+    ],
+    "expected_jyutping": [
+      "gaa1 hong4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9174,
+    "query": "hong4 gaa1",
+    "category": "order_pairs",
+    "description": "hong4 gaa1 in this order is 行家; competing orders 加航 (gaa1 hong4)",
+    "expected_characters": [
+      "行家"
+    ],
+    "expected_jyutping": [
+      "hong4 gaa1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9175,
+    "query": "gaa1 siu2",
+    "category": "order_pairs",
+    "description": "gaa1 siu2 in this order is 家小; competing orders 小家 (siu2 gaa1)",
+    "expected_characters": [
+      "家小"
+    ],
+    "expected_jyutping": [
+      "gaa1 siu2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9176,
+    "query": "siu2 gaa1",
+    "category": "order_pairs",
+    "description": "siu2 gaa1 in this order is 小家; competing orders 家小 (gaa1 siu2)",
+    "expected_characters": [
+      "小家"
+    ],
+    "expected_jyutping": [
+      "siu2 gaa1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9177,
+    "query": "gaa3 lim4 mat6 mei5",
+    "category": "order_pairs",
+    "description": "gaa3 lim4 mat6 mei5 in this order is 價廉物美; competing orders 物美價廉 (mat6 mei5 gaa3 lim4)",
+    "expected_characters": [
+      "價廉物美"
+    ],
+    "expected_jyutping": [
+      "gaa3 lim4 mat6 mei5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9178,
+    "query": "mat6 mei5 gaa3 lim4",
+    "category": "order_pairs",
+    "description": "mat6 mei5 gaa3 lim4 in this order is 物美價廉; competing orders 價廉物美 (gaa3 lim4 mat6 mei5)",
+    "expected_characters": [
+      "物美價廉"
+    ],
+    "expected_jyutping": [
+      "mat6 mei5 gaa3 lim4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9179,
+    "query": "gaai3 kwai1",
+    "category": "order_pairs",
+    "description": "gaai3 kwai1 in this order is 戒規; competing orders 規戒/規誡 (kwai1 gaai3)",
+    "expected_characters": [
+      "戒規"
+    ],
+    "expected_jyutping": [
+      "gaai3 kwai1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9180,
+    "query": "kwai1 gaai3",
+    "category": "order_pairs",
+    "description": "kwai1 gaai3 in this order is 規戒/規誡; competing orders 戒規 (gaai3 kwai1)",
+    "expected_characters": [
+      "規戒",
+      "規誡"
+    ],
+    "expected_jyutping": [
+      "kwai1 gaai3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9181,
+    "query": "gaan3 zaang3",
+    "category": "order_pairs",
+    "description": "gaan3 zaang3 in this order is 諫諍; competing orders 諍諫 (zaang3 gaan3)",
+    "expected_characters": [
+      "諫諍"
+    ],
+    "expected_jyutping": [
+      "gaan3 zaang3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9182,
+    "query": "zaang3 gaan3",
+    "category": "order_pairs",
+    "description": "zaang3 gaan3 in this order is 諍諫; competing orders 諫諍 (gaan3 zaang3)",
+    "expected_characters": [
+      "諍諫"
+    ],
+    "expected_jyutping": [
+      "zaang3 gaan3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9183,
+    "query": "gaau3 goek3",
+    "category": "order_pairs",
+    "description": "gaau3 goek3 in this order is 較腳; competing orders 腳骹 (goek3 gaau3)",
+    "expected_characters": [
+      "較腳"
+    ],
+    "expected_jyutping": [
+      "gaau3 goek3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9184,
+    "query": "goek3 gaau3",
+    "category": "order_pairs",
+    "description": "goek3 gaau3 in this order is 腳骹; competing orders 較腳 (gaau3 goek3)",
+    "expected_characters": [
+      "腳骹"
+    ],
+    "expected_jyutping": [
+      "goek3 gaau3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9185,
+    "query": "gai3 loeng4",
+    "category": "order_pairs",
+    "description": "gai3 loeng4 in this order is 計量; competing orders 量計 (loeng4 gai3)",
+    "expected_characters": [
+      "計量"
+    ],
+    "expected_jyutping": [
+      "gai3 loeng4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9186,
+    "query": "loeng4 gai3",
+    "category": "order_pairs",
+    "description": "loeng4 gai3 in this order is 量計; competing orders 計量 (gai3 loeng4)",
+    "expected_characters": [
+      "量計"
+    ],
+    "expected_jyutping": [
+      "loeng4 gai3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9187,
+    "query": "gam1 suk6",
+    "category": "order_pairs",
+    "description": "gam1 suk6 in this order is 金屬; competing orders 贖金 (suk6 gam1)",
+    "expected_characters": [
+      "金屬"
+    ],
+    "expected_jyutping": [
+      "gam1 suk6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9188,
+    "query": "suk6 gam1",
+    "category": "order_pairs",
+    "description": "suk6 gam1 in this order is 贖金; competing orders 金屬 (gam1 suk6)",
+    "expected_characters": [
+      "贖金"
+    ],
+    "expected_jyutping": [
+      "suk6 gam1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9189,
+    "query": "gan1 sik1",
+    "category": "order_pairs",
+    "description": "gan1 sik1 in this order is 根式; competing orders 飾巾 (sik1 gan1)",
+    "expected_characters": [
+      "根式"
+    ],
+    "expected_jyutping": [
+      "gan1 sik1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9190,
+    "query": "sik1 gan1",
+    "category": "order_pairs",
+    "description": "sik1 gan1 in this order is 飾巾; competing orders 根式 (gan1 sik1)",
+    "expected_characters": [
+      "飾巾"
+    ],
+    "expected_jyutping": [
+      "sik1 gan1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9191,
+    "query": "gat1 on1",
+    "category": "order_pairs",
+    "description": "gat1 on1 in this order is 吉安; competing orders 安吉 (on1 gat1)",
+    "expected_characters": [
+      "吉安"
+    ],
+    "expected_jyutping": [
+      "gat1 on1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9192,
+    "query": "on1 gat1",
+    "category": "order_pairs",
+    "description": "on1 gat1 in this order is 安吉; competing orders 吉安 (gat1 on1)",
+    "expected_characters": [
+      "安吉"
+    ],
+    "expected_jyutping": [
+      "on1 gat1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9193,
+    "query": "gau6 sau4 san1 han6",
+    "category": "order_pairs",
+    "description": "gau6 sau4 san1 han6 in this order is 舊愁新恨; competing orders 新仇舊恨/新愁舊恨 (san1 sau4 gau6 han6)",
+    "expected_characters": [
+      "舊愁新恨"
+    ],
+    "expected_jyutping": [
+      "gau6 sau4 san1 han6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9194,
+    "query": "san1 sau4 gau6 han6",
+    "category": "order_pairs",
+    "description": "san1 sau4 gau6 han6 in this order is 新仇舊恨/新愁舊恨; competing orders 舊愁新恨 (gau6 sau4 san1 han6)",
+    "expected_characters": [
+      "新仇舊恨",
+      "新愁舊恨"
+    ],
+    "expected_jyutping": [
+      "san1 sau4 gau6 han6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9195,
+    "query": "gei1 zong1",
+    "category": "order_pairs",
+    "description": "gei1 zong1 in this order is 基樁; competing orders 裝機 (zong1 gei1)",
+    "expected_characters": [
+      "基樁"
+    ],
+    "expected_jyutping": [
+      "gei1 zong1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9196,
+    "query": "zong1 gei1",
+    "category": "order_pairs",
+    "description": "zong1 gei1 in this order is 裝機; competing orders 基樁 (gei1 zong1)",
+    "expected_characters": [
+      "裝機"
+    ],
+    "expected_jyutping": [
+      "zong1 gei1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9197,
+    "query": "geoi1 soeng1",
+    "category": "order_pairs",
+    "description": "geoi1 soeng1 in this order is 居孀; competing orders 孀居 (soeng1 geoi1)",
+    "expected_characters": [
+      "居孀"
+    ],
+    "expected_jyutping": [
+      "geoi1 soeng1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9198,
+    "query": "soeng1 geoi1",
+    "category": "order_pairs",
+    "description": "soeng1 geoi1 in this order is 孀居; competing orders 居孀 (geoi1 soeng1)",
+    "expected_characters": [
+      "孀居"
+    ],
+    "expected_jyutping": [
+      "soeng1 geoi1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9199,
+    "query": "gin3 jin4",
+    "category": "order_pairs",
+    "description": "gin3 jin4 in this order is 建言; competing orders 延見 (jin4 gin3)",
+    "expected_characters": [
+      "建言"
+    ],
+    "expected_jyutping": [
+      "gin3 jin4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9200,
+    "query": "jin4 gin3",
+    "category": "order_pairs",
+    "description": "jin4 gin3 in this order is 延見; competing orders 建言 (gin3 jin4)",
+    "expected_characters": [
+      "延見"
+    ],
+    "expected_jyutping": [
+      "jin4 gin3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9201,
+    "query": "sek6 po3 tin1 ging1",
+    "category": "order_pairs",
+    "description": "sek6 po3 tin1 ging1 in this order is 石破天驚; competing orders 天驚石破 (tin1 ging1 sek6 po3)",
+    "expected_characters": [
+      "石破天驚"
+    ],
+    "expected_jyutping": [
+      "sek6 po3 tin1 ging1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9202,
+    "query": "tin1 ging1 sek6 po3",
+    "category": "order_pairs",
+    "description": "tin1 ging1 sek6 po3 in this order is 天驚石破; competing orders 石破天驚 (sek6 po3 tin1 ging1)",
+    "expected_characters": [
+      "天驚石破"
+    ],
+    "expected_jyutping": [
+      "tin1 ging1 sek6 po3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9203,
+    "query": "ging3 zik6",
+    "category": "order_pairs",
+    "description": "ging3 zik6 in this order is 徑直/逕直; competing orders 直徑 (zik6 ging3)",
+    "expected_characters": [
+      "徑直",
+      "逕直"
+    ],
+    "expected_jyutping": [
+      "ging3 zik6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9204,
+    "query": "zik6 ging3",
+    "category": "order_pairs",
+    "description": "zik6 ging3 in this order is 直徑; competing orders 徑直/逕直 (ging3 zik6)",
+    "expected_characters": [
+      "直徑"
+    ],
+    "expected_jyutping": [
+      "zik6 ging3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9205,
+    "query": "goeng1 zik6",
+    "category": "order_pairs",
+    "description": "goeng1 zik6 in this order is 僵直; competing orders 直殭 (zik6 goeng1)",
+    "expected_characters": [
+      "僵直"
+    ],
+    "expected_jyutping": [
+      "goeng1 zik6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9206,
+    "query": "zik6 goeng1",
+    "category": "order_pairs",
+    "description": "zik6 goeng1 in this order is 直殭; competing orders 僵直 (goeng1 zik6)",
+    "expected_characters": [
+      "直殭"
+    ],
+    "expected_jyutping": [
+      "zik6 goeng1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9207,
+    "query": "gong1 lei4",
+    "category": "order_pairs",
+    "description": "gong1 lei4 in this order is 江蘺; competing orders 灕江 (lei4 gong1)",
+    "expected_characters": [
+      "江蘺"
+    ],
+    "expected_jyutping": [
+      "gong1 lei4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9208,
+    "query": "lei4 gong1",
+    "category": "order_pairs",
+    "description": "lei4 gong1 in this order is 灕江; competing orders 江蘺 (gong1 lei4)",
+    "expected_characters": [
+      "灕江"
+    ],
+    "expected_jyutping": [
+      "lei4 gong1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9209,
+    "query": "gong2 sam1",
+    "category": "order_pairs",
+    "description": "gong2 sam1 in this order is 港深; competing orders 深港 (sam1 gong2)",
+    "expected_characters": [
+      "港深"
+    ],
+    "expected_jyutping": [
+      "gong2 sam1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9210,
+    "query": "sam1 gong2",
+    "category": "order_pairs",
+    "description": "sam1 gong2 in this order is 深港; competing orders 港深 (gong2 sam1)",
+    "expected_characters": [
+      "深港"
+    ],
+    "expected_jyutping": [
+      "sam1 gong2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9211,
+    "query": "gou3 kau4",
+    "category": "order_pairs",
+    "description": "gou3 kau4 in this order is 告求; competing orders 求告 (kau4 gou3)",
+    "expected_characters": [
+      "告求"
+    ],
+    "expected_jyutping": [
+      "gou3 kau4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9212,
+    "query": "kau4 gou3",
+    "category": "order_pairs",
+    "description": "kau4 gou3 in this order is 求告; competing orders 告求 (gou3 kau4)",
+    "expected_characters": [
+      "求告"
+    ],
+    "expected_jyutping": [
+      "kau4 gou3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9213,
+    "query": "gun1 gwai3",
+    "category": "order_pairs",
+    "description": "gun1 gwai3 in this order is 官桂; competing orders 桂冠 (gwai3 gun1)",
+    "expected_characters": [
+      "官桂"
+    ],
+    "expected_jyutping": [
+      "gun1 gwai3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9214,
+    "query": "gwai3 gun1",
+    "category": "order_pairs",
+    "description": "gwai3 gun1 in this order is 桂冠; competing orders 官桂 (gun1 gwai3)",
+    "expected_characters": [
+      "桂冠"
+    ],
+    "expected_jyutping": [
+      "gwai3 gun1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9215,
+    "query": "gung1 haau6",
+    "category": "order_pairs",
+    "description": "gung1 haau6 in this order is 功效/工效/工校; competing orders 校工 (haau6 gung1)",
+    "expected_characters": [
+      "功效",
+      "工效",
+      "工校"
+    ],
+    "expected_jyutping": [
+      "gung1 haau6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9216,
+    "query": "haau6 gung1",
+    "category": "order_pairs",
+    "description": "haau6 gung1 in this order is 校工; competing orders 功效/工效/工校 (gung1 haau6)",
+    "expected_characters": [
+      "校工"
+    ],
+    "expected_jyutping": [
+      "haau6 gung1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9217,
+    "query": "gung1 lou4",
+    "category": "order_pairs",
+    "description": "gung1 lou4 in this order is 功勞; competing orders 勞工 (lou4 gung1)",
+    "expected_characters": [
+      "功勞"
+    ],
+    "expected_jyutping": [
+      "gung1 lou4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9218,
+    "query": "lou4 gung1",
+    "category": "order_pairs",
+    "description": "lou4 gung1 in this order is 勞工; competing orders 功勞 (gung1 lou4)",
+    "expected_characters": [
+      "勞工"
+    ],
+    "expected_jyutping": [
+      "lou4 gung1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9219,
+    "query": "gung1 ting4",
+    "category": "order_pairs",
+    "description": "gung1 ting4 in this order is 宮廷; competing orders 停工 (ting4 gung1)",
+    "expected_characters": [
+      "宮廷"
+    ],
+    "expected_jyutping": [
+      "gung1 ting4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9220,
+    "query": "ting4 gung1",
+    "category": "order_pairs",
+    "description": "ting4 gung1 in this order is 停工; competing orders 宮廷 (gung1 ting4)",
+    "expected_characters": [
+      "停工"
+    ],
+    "expected_jyutping": [
+      "ting4 gung1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9221,
+    "query": "syu4 tou4 tung4 gwai1",
+    "category": "order_pairs",
+    "description": "syu4 tou4 tung4 gwai1 in this order is 殊途同歸; competing orders 同途殊歸 (tung4 tou4 syu4 gwai1)",
+    "expected_characters": [
+      "殊途同歸"
+    ],
+    "expected_jyutping": [
+      "syu4 tou4 tung4 gwai1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9222,
+    "query": "tung4 tou4 syu4 gwai1",
+    "category": "order_pairs",
+    "description": "tung4 tou4 syu4 gwai1 in this order is 同途殊歸; competing orders 殊途同歸 (syu4 tou4 tung4 gwai1)",
+    "expected_characters": [
+      "同途殊歸"
+    ],
+    "expected_jyutping": [
+      "tung4 tou4 syu4 gwai1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9223,
+    "query": "gwat1 zam1",
+    "category": "order_pairs",
+    "description": "gwat1 zam1 in this order is 骨針; competing orders 砧骨 (zam1 gwat1)",
+    "expected_characters": [
+      "骨針"
+    ],
+    "expected_jyutping": [
+      "gwat1 zam1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9224,
+    "query": "zam1 gwat1",
+    "category": "order_pairs",
+    "description": "zam1 gwat1 in this order is 砧骨; competing orders 骨針 (gwat1 zam1)",
+    "expected_characters": [
+      "砧骨"
+    ],
+    "expected_jyutping": [
+      "zam1 gwat1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9225,
+    "query": "gwok3 zi6",
+    "category": "order_pairs",
+    "description": "gwok3 zi6 in this order is 國字; competing orders 嗣國/治國 (zi6 gwok3)",
+    "expected_characters": [
+      "國字"
+    ],
+    "expected_jyutping": [
+      "gwok3 zi6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9226,
+    "query": "zi6 gwok3",
+    "category": "order_pairs",
+    "description": "zi6 gwok3 in this order is 嗣國/治國; competing orders 國字 (gwok3 zi6)",
+    "expected_characters": [
+      "嗣國",
+      "治國"
+    ],
+    "expected_jyutping": [
+      "zi6 gwok3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9227,
+    "query": "haa6 jin3",
+    "category": "order_pairs",
+    "description": "haa6 jin3 in this order is 下咽; competing orders 嚥下 (jin3 haa6)",
+    "expected_characters": [
+      "下咽"
+    ],
+    "expected_jyutping": [
+      "haa6 jin3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9228,
+    "query": "jin3 haa6",
+    "category": "order_pairs",
+    "description": "jin3 haa6 in this order is 嚥下; competing orders 下咽 (haa6 jin3)",
+    "expected_characters": [
+      "嚥下"
+    ],
+    "expected_jyutping": [
+      "jin3 haa6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9229,
+    "query": "haak3 jyu5",
+    "category": "order_pairs",
+    "description": "haak3 jyu5 in this order is 客語; competing orders 羽客 (jyu5 haak3)",
+    "expected_characters": [
+      "客語"
+    ],
+    "expected_jyutping": [
+      "haak3 jyu5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9230,
+    "query": "jyu5 haak3",
+    "category": "order_pairs",
+    "description": "jyu5 haak3 in this order is 羽客; competing orders 客語 (haak3 jyu5)",
+    "expected_characters": [
+      "羽客"
+    ],
+    "expected_jyutping": [
+      "jyu5 haak3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9231,
+    "query": "hak1 hau2 hak1 min6",
+    "category": "order_pairs",
+    "description": "hak1 hau2 hak1 min6 in this order is 黑口黑面; competing orders 口黑面黑 (hau2 hak1 min6 hak1)",
+    "expected_characters": [
+      "黑口黑面"
+    ],
+    "expected_jyutping": [
+      "hak1 hau2 hak1 min6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9232,
+    "query": "hau2 hak1 min6 hak1",
+    "category": "order_pairs",
+    "description": "hau2 hak1 min6 hak1 in this order is 口黑面黑; competing orders 黑口黑面 (hak1 hau2 hak1 min6)",
+    "expected_characters": [
+      "口黑面黑"
+    ],
+    "expected_jyutping": [
+      "hau2 hak1 min6 hak1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9233,
+    "query": "hang4 sin1",
+    "category": "order_pairs",
+    "description": "hang4 sin1 in this order is 行先; competing orders 先行 (sin1 hang4)",
+    "expected_characters": [
+      "行先"
+    ],
+    "expected_jyutping": [
+      "hang4 sin1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9234,
+    "query": "sin1 hang4",
+    "category": "order_pairs",
+    "description": "sin1 hang4 in this order is 先行; competing orders 行先 (hang4 sin1)",
+    "expected_characters": [
+      "先行"
+    ],
+    "expected_jyutping": [
+      "sin1 hang4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9235,
+    "query": "hat6 jit6",
+    "category": "order_pairs",
+    "description": "hat6 jit6 in this order is 核熱; competing orders 熱核 (jit6 hat6)",
+    "expected_characters": [
+      "核熱"
+    ],
+    "expected_jyutping": [
+      "hat6 jit6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9236,
+    "query": "jit6 hat6",
+    "category": "order_pairs",
+    "description": "jit6 hat6 in this order is 熱核; competing orders 核熱 (hat6 jit6)",
+    "expected_characters": [
+      "熱核"
+    ],
+    "expected_jyutping": [
+      "jit6 hat6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9237,
+    "query": "hau5 ngaan4",
+    "category": "order_pairs",
+    "description": "hau5 ngaan4 in this order is 厚顏; competing orders 顏厚 (ngaan4 hau5)",
+    "expected_characters": [
+      "厚顏"
+    ],
+    "expected_jyutping": [
+      "hau5 ngaan4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9238,
+    "query": "ngaan4 hau5",
+    "category": "order_pairs",
+    "description": "ngaan4 hau5 in this order is 顏厚; competing orders 厚顏 (hau5 ngaan4)",
+    "expected_characters": [
+      "顏厚"
+    ],
+    "expected_jyutping": [
+      "ngaan4 hau5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9239,
+    "query": "hei2 jin4",
+    "category": "order_pairs",
+    "description": "hei2 jin4 in this order is 喜筵; competing orders 燃起 (jin4 hei2)",
+    "expected_characters": [
+      "喜筵"
+    ],
+    "expected_jyutping": [
+      "hei2 jin4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9240,
+    "query": "jin4 hei2",
+    "category": "order_pairs",
+    "description": "jin4 hei2 in this order is 燃起; competing orders 喜筵 (hei2 jin4)",
+    "expected_characters": [
+      "燃起"
+    ],
+    "expected_jyutping": [
+      "jin4 hei2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9241,
+    "query": "hei3 ngok6",
+    "category": "order_pairs",
+    "description": "hei3 ngok6 in this order is 器樂; competing orders 樂器 (ngok6 hei3)",
+    "expected_characters": [
+      "器樂"
+    ],
+    "expected_jyutping": [
+      "hei3 ngok6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9242,
+    "query": "ngok6 hei3",
+    "category": "order_pairs",
+    "description": "ngok6 hei3 in this order is 樂器; competing orders 器樂 (hei3 ngok6)",
+    "expected_characters": [
+      "樂器"
+    ],
+    "expected_jyutping": [
+      "ngok6 hei3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9243,
+    "query": "heoi2 zi6",
+    "category": "order_pairs",
+    "description": "heoi2 zi6 in this order is 許字; competing orders 自詡 (zi6 heoi2)",
+    "expected_characters": [
+      "許字"
+    ],
+    "expected_jyutping": [
+      "heoi2 zi6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9244,
+    "query": "zi6 heoi2",
+    "category": "order_pairs",
+    "description": "zi6 heoi2 in this order is 自詡; competing orders 許字 (heoi2 zi6)",
+    "expected_characters": [
+      "自詡"
+    ],
+    "expected_jyutping": [
+      "zi6 heoi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9245,
+    "query": "ho4 jyu4",
+    "category": "order_pairs",
+    "description": "ho4 jyu4 in this order is 何如; competing orders 如何 (jyu4 ho4)",
+    "expected_characters": [
+      "何如"
+    ],
+    "expected_jyutping": [
+      "ho4 jyu4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9246,
+    "query": "jyu4 ho4",
+    "category": "order_pairs",
+    "description": "jyu4 ho4 in this order is 如何; competing orders 何如 (ho4 jyu4)",
+    "expected_characters": [
+      "如何"
+    ],
+    "expected_jyutping": [
+      "jyu4 ho4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9247,
+    "query": "hoeng1 si1",
+    "category": "order_pairs",
+    "description": "hoeng1 si1 in this order is 鄉思; competing orders 思鄉 (si1 hoeng1)",
+    "expected_characters": [
+      "鄉思"
+    ],
+    "expected_jyutping": [
+      "hoeng1 si1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9248,
+    "query": "si1 hoeng1",
+    "category": "order_pairs",
+    "description": "si1 hoeng1 in this order is 思鄉; competing orders 鄉思 (hoeng1 si1)",
+    "expected_characters": [
+      "思鄉"
+    ],
+    "expected_jyutping": [
+      "si1 hoeng1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9249,
+    "query": "hoi1 zin2",
+    "category": "order_pairs",
+    "description": "hoi1 zin2 in this order is 開展; competing orders 展開 (zin2 hoi1)",
+    "expected_characters": [
+      "開展"
+    ],
+    "expected_jyutping": [
+      "hoi1 zin2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9250,
+    "query": "zin2 hoi1",
+    "category": "order_pairs",
+    "description": "zin2 hoi1 in this order is 展開; competing orders 開展 (hoi1 zin2)",
+    "expected_characters": [
+      "展開"
+    ],
+    "expected_jyutping": [
+      "zin2 hoi1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9251,
+    "query": "hoi2 sai1",
+    "category": "order_pairs",
+    "description": "hoi2 sai1 in this order is 海西; competing orders 西海 (sai1 hoi2)",
+    "expected_characters": [
+      "海西"
+    ],
+    "expected_jyutping": [
+      "hoi2 sai1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9252,
+    "query": "sai1 hoi2",
+    "category": "order_pairs",
+    "description": "sai1 hoi2 in this order is 西海; competing orders 海西 (hoi2 sai1)",
+    "expected_characters": [
+      "西海"
+    ],
+    "expected_jyutping": [
+      "sai1 hoi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9253,
+    "query": "hon4 jyu6",
+    "category": "order_pairs",
+    "description": "hon4 jyu6 in this order is 韓愈; competing orders 禦寒 (jyu6 hon4)",
+    "expected_characters": [
+      "韓愈"
+    ],
+    "expected_jyutping": [
+      "hon4 jyu6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9254,
+    "query": "jyu6 hon4",
+    "category": "order_pairs",
+    "description": "jyu6 hon4 in this order is 禦寒; competing orders 韓愈 (hon4 jyu6)",
+    "expected_characters": [
+      "禦寒"
+    ],
+    "expected_jyutping": [
+      "jyu6 hon4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9255,
+    "query": "hung1 ji4",
+    "category": "order_pairs",
+    "description": "hung1 ji4 in this order is 空兒; competing orders 疑兇 (ji4 hung1)",
+    "expected_characters": [
+      "空兒"
+    ],
+    "expected_jyutping": [
+      "hung1 ji4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9256,
+    "query": "ji4 hung1",
+    "category": "order_pairs",
+    "description": "ji4 hung1 in this order is 疑兇; competing orders 空兒 (hung1 ji4)",
+    "expected_characters": [
+      "疑兇"
+    ],
+    "expected_jyutping": [
+      "ji4 hung1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9257,
+    "query": "hung4 sing3",
+    "category": "order_pairs",
+    "description": "hung4 sing3 in this order is 雄性; competing orders 聖雄 (sing3 hung4)",
+    "expected_characters": [
+      "雄性"
+    ],
+    "expected_jyutping": [
+      "hung4 sing3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9258,
+    "query": "sing3 hung4",
+    "category": "order_pairs",
+    "description": "sing3 hung4 in this order is 聖雄; competing orders 雄性 (hung4 sing3)",
+    "expected_characters": [
+      "聖雄"
+    ],
+    "expected_jyutping": [
+      "sing3 hung4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9259,
+    "query": "jam1 naam4",
+    "category": "order_pairs",
+    "description": "jam1 naam4 in this order is 欽南; competing orders 南音 (naam4 jam1)",
+    "expected_characters": [
+      "欽南"
+    ],
+    "expected_jyutping": [
+      "jam1 naam4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9260,
+    "query": "naam4 jam1",
+    "category": "order_pairs",
+    "description": "naam4 jam1 in this order is 南音; competing orders 欽南 (jam1 naam4)",
+    "expected_characters": [
+      "南音"
+    ],
+    "expected_jyutping": [
+      "naam4 jam1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9261,
+    "query": "jan1 sing4",
+    "category": "order_pairs",
+    "description": "jan1 sing4 in this order is 忻城; competing orders 成因 (sing4 jan1)",
+    "expected_characters": [
+      "忻城"
+    ],
+    "expected_jyutping": [
+      "jan1 sing4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9262,
+    "query": "sing4 jan1",
+    "category": "order_pairs",
+    "description": "sing4 jan1 in this order is 成因; competing orders 忻城 (jan1 sing4)",
+    "expected_characters": [
+      "成因"
+    ],
+    "expected_jyutping": [
+      "sing4 jan1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9263,
+    "query": "jan4 oi3",
+    "category": "order_pairs",
+    "description": "jan4 oi3 in this order is 仁愛; competing orders 愛人 (oi3 jan4)",
+    "expected_characters": [
+      "仁愛"
+    ],
+    "expected_jyutping": [
+      "jan4 oi3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9264,
+    "query": "oi3 jan4",
+    "category": "order_pairs",
+    "description": "oi3 jan4 in this order is 愛人; competing orders 仁愛 (jan4 oi3)",
+    "expected_characters": [
+      "愛人"
+    ],
+    "expected_jyutping": [
+      "oi3 jan4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9265,
+    "query": "jan5 zi2",
+    "category": "order_pairs",
+    "description": "jan5 zi2 in this order is 引子; competing orders 指引 (zi2 jan5)",
+    "expected_characters": [
+      "引子"
+    ],
+    "expected_jyutping": [
+      "jan5 zi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9266,
+    "query": "zi2 jan5",
+    "category": "order_pairs",
+    "description": "zi2 jan5 in this order is 指引; competing orders 引子 (jan5 zi2)",
+    "expected_characters": [
+      "指引"
+    ],
+    "expected_jyutping": [
+      "zi2 jan5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9267,
+    "query": "jat6 lau4",
+    "category": "order_pairs",
+    "description": "jat6 lau4 in this order is 日流; competing orders 流泆 (lau4 jat6)",
+    "expected_characters": [
+      "日流"
+    ],
+    "expected_jyutping": [
+      "jat6 lau4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9268,
+    "query": "lau4 jat6",
+    "category": "order_pairs",
+    "description": "lau4 jat6 in this order is 流泆; competing orders 日流 (jat6 lau4)",
+    "expected_characters": [
+      "流泆"
+    ],
+    "expected_jyutping": [
+      "lau4 jat6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9269,
+    "query": "jau4 joeng4",
+    "category": "order_pairs",
+    "description": "jau4 joeng4 in this order is 悠揚; competing orders 洋油/羊油 (joeng4 jau4)",
+    "expected_characters": [
+      "悠揚"
+    ],
+    "expected_jyutping": [
+      "jau4 joeng4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9270,
+    "query": "joeng4 jau4",
+    "category": "order_pairs",
+    "description": "joeng4 jau4 in this order is 洋油/羊油; competing orders 悠揚 (jau4 joeng4)",
+    "expected_characters": [
+      "洋油",
+      "羊油"
+    ],
+    "expected_jyutping": [
+      "joeng4 jau4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9271,
+    "query": "jau5 lei6",
+    "category": "order_pairs",
+    "description": "jau5 lei6 in this order is 有利; competing orders 利誘 (lei6 jau5)",
+    "expected_characters": [
+      "有利"
+    ],
+    "expected_jyutping": [
+      "jau5 lei6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9272,
+    "query": "lei6 jau5",
+    "category": "order_pairs",
+    "description": "lei6 jau5 in this order is 利誘; competing orders 有利 (jau5 lei6)",
+    "expected_characters": [
+      "利誘"
+    ],
+    "expected_jyutping": [
+      "lei6 jau5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9273,
+    "query": "lou5 tin1 je4",
+    "category": "order_pairs",
+    "description": "lou5 tin1 je4 in this order is 老天爺; competing orders 天老爺 (tin1 lou5 je4)",
+    "expected_characters": [
+      "老天爺"
+    ],
+    "expected_jyutping": [
+      "lou5 tin1 je4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9274,
+    "query": "tin1 lou5 je4",
+    "category": "order_pairs",
+    "description": "tin1 lou5 je4 in this order is 天老爺; competing orders 老天爺 (lou5 tin1 je4)",
+    "expected_characters": [
+      "天老爺"
+    ],
+    "expected_jyutping": [
+      "tin1 lou5 je4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9275,
+    "query": "ji3 zi3",
+    "category": "order_pairs",
+    "description": "ji3 zi3 in this order is 意志; competing orders 恣意/致意 (zi3 ji3)",
+    "expected_characters": [
+      "意志"
+    ],
+    "expected_jyutping": [
+      "ji3 zi3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9276,
+    "query": "zi3 ji3",
+    "category": "order_pairs",
+    "description": "zi3 ji3 in this order is 恣意/致意; competing orders 意志 (ji3 zi3)",
+    "expected_characters": [
+      "恣意",
+      "致意"
+    ],
+    "expected_jyutping": [
+      "zi3 ji3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9277,
+    "query": "ji4 wai6",
+    "category": "order_pairs",
+    "description": "ji4 wai6 in this order is 儀衛; competing orders 位移 (wai6 ji4)",
+    "expected_characters": [
+      "儀衛"
+    ],
+    "expected_jyutping": [
+      "ji4 wai6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9278,
+    "query": "wai6 ji4",
+    "category": "order_pairs",
+    "description": "wai6 ji4 in this order is 位移; competing orders 儀衛 (ji4 wai6)",
+    "expected_characters": [
+      "位移"
+    ],
+    "expected_jyutping": [
+      "wai6 ji4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9279,
+    "query": "ji6 loi4",
+    "category": "order_pairs",
+    "description": "ji6 loi4 in this order is 二來; competing orders 來義 (loi4 ji6)",
+    "expected_characters": [
+      "二來"
+    ],
+    "expected_jyutping": [
+      "ji6 loi4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9280,
+    "query": "loi4 ji6",
+    "category": "order_pairs",
+    "description": "loi4 ji6 in this order is 來義; competing orders 二來 (ji6 loi4)",
+    "expected_characters": [
+      "來義"
+    ],
+    "expected_jyutping": [
+      "loi4 ji6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9281,
+    "query": "jim4 syun1",
+    "category": "order_pairs",
+    "description": "jim4 syun1 in this order is 鹽酸; competing orders 酸鹽 (syun1 jim4)",
+    "expected_characters": [
+      "鹽酸"
+    ],
+    "expected_jyutping": [
+      "jim4 syun1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9282,
+    "query": "syun1 jim4",
+    "category": "order_pairs",
+    "description": "syun1 jim4 in this order is 酸鹽; competing orders 鹽酸 (jim4 syun1)",
+    "expected_characters": [
+      "酸鹽"
+    ],
+    "expected_jyutping": [
+      "syun1 jim4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9283,
+    "query": "jin4 sok3",
+    "category": "order_pairs",
+    "description": "jin4 sok3 in this order is 弦索/絃索; competing orders 索然 (sok3 jin4)",
+    "expected_characters": [
+      "弦索",
+      "絃索"
+    ],
+    "expected_jyutping": [
+      "jin4 sok3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9284,
+    "query": "sok3 jin4",
+    "category": "order_pairs",
+    "description": "sok3 jin4 in this order is 索然; competing orders 弦索/絃索 (jin4 sok3)",
+    "expected_characters": [
+      "索然"
+    ],
+    "expected_jyutping": [
+      "sok3 jin4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9285,
+    "query": "jing2 ngaan5",
+    "category": "order_pairs",
+    "description": "jing2 ngaan5 in this order is 映眼; competing orders 眼影 (ngaan5 jing2)",
+    "expected_characters": [
+      "映眼"
+    ],
+    "expected_jyutping": [
+      "jing2 ngaan5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9286,
+    "query": "ngaan5 jing2",
+    "category": "order_pairs",
+    "description": "ngaan5 jing2 in this order is 眼影; competing orders 映眼 (jing2 ngaan5)",
+    "expected_characters": [
+      "眼影"
+    ],
+    "expected_jyutping": [
+      "ngaan5 jing2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9287,
+    "query": "jing4 suk1",
+    "category": "order_pairs",
+    "description": "jing4 suk1 in this order is 凝縮; competing orders 宿營 (suk1 jing4)",
+    "expected_characters": [
+      "凝縮"
+    ],
+    "expected_jyutping": [
+      "jing4 suk1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9288,
+    "query": "suk1 jing4",
+    "category": "order_pairs",
+    "description": "suk1 jing4 in this order is 宿營; competing orders 凝縮 (jing4 suk1)",
+    "expected_characters": [
+      "宿營"
+    ],
+    "expected_jyutping": [
+      "suk1 jing4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9289,
+    "query": "jit6 naau6",
+    "category": "order_pairs",
+    "description": "jit6 naau6 in this order is 熱鬧; competing orders 鬧熱 (naau6 jit6)",
+    "expected_characters": [
+      "熱鬧"
+    ],
+    "expected_jyutping": [
+      "jit6 naau6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9290,
+    "query": "naau6 jit6",
+    "category": "order_pairs",
+    "description": "naau6 jit6 in this order is 鬧熱; competing orders 熱鬧 (jit6 naau6)",
+    "expected_characters": [
+      "鬧熱"
+    ],
+    "expected_jyutping": [
+      "naau6 jit6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9291,
+    "query": "joeng4 jyun4",
+    "category": "order_pairs",
+    "description": "joeng4 jyun4 in this order is 洋員/陽原; competing orders 元陽/原陽/羱羊 (jyun4 joeng4)",
+    "expected_characters": [
+      "洋員",
+      "陽原"
+    ],
+    "expected_jyutping": [
+      "joeng4 jyun4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9292,
+    "query": "jyun4 joeng4",
+    "category": "order_pairs",
+    "description": "jyun4 joeng4 in this order is 元陽/原陽/羱羊; competing orders 洋員/陽原 (joeng4 jyun4)",
+    "expected_characters": [
+      "元陽",
+      "原陽",
+      "羱羊"
+    ],
+    "expected_jyutping": [
+      "jyun4 joeng4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9293,
+    "query": "joeng4 zung1",
+    "category": "order_pairs",
+    "description": "joeng4 zung1 in this order is 揚中/陽宗; competing orders 中陽 (zung1 joeng4)",
+    "expected_characters": [
+      "揚中",
+      "陽宗"
+    ],
+    "expected_jyutping": [
+      "joeng4 zung1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9294,
+    "query": "zung1 joeng4",
+    "category": "order_pairs",
+    "description": "zung1 joeng4 in this order is 中陽; competing orders 揚中/陽宗 (joeng4 zung1)",
+    "expected_characters": [
+      "中陽"
+    ],
+    "expected_jyutping": [
+      "zung1 joeng4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9295,
+    "query": "juk6 zyut6",
+    "category": "order_pairs",
+    "description": "juk6 zyut6 in this order is 欲絕; competing orders 絕育 (zyut6 juk6)",
+    "expected_characters": [
+      "欲絕"
+    ],
+    "expected_jyutping": [
+      "juk6 zyut6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9296,
+    "query": "zyut6 juk6",
+    "category": "order_pairs",
+    "description": "zyut6 juk6 in this order is 絕育; competing orders 欲絕 (juk6 zyut6)",
+    "expected_characters": [
+      "絕育"
+    ],
+    "expected_jyutping": [
+      "zyut6 juk6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9297,
+    "query": "jyu4 jyun2",
+    "category": "order_pairs",
+    "description": "jyu4 jyun2 in this order is 愉園/魚丸; competing orders 婉如/宛如 (jyun2 jyu4)",
+    "expected_characters": [
+      "愉園",
+      "魚丸"
+    ],
+    "expected_jyutping": [
+      "jyu4 jyun2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9298,
+    "query": "jyun2 jyu4",
+    "category": "order_pairs",
+    "description": "jyun2 jyu4 in this order is 婉如/宛如; competing orders 愉園/魚丸 (jyu4 jyun2)",
+    "expected_characters": [
+      "婉如",
+      "宛如"
+    ],
+    "expected_jyutping": [
+      "jyun2 jyu4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9299,
+    "query": "jyu5 mei5",
+    "category": "order_pairs",
+    "description": "jyu5 mei5 in this order is 語尾; competing orders 尾羽/美語 (mei5 jyu5)",
+    "expected_characters": [
+      "語尾"
+    ],
+    "expected_jyutping": [
+      "jyu5 mei5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9300,
+    "query": "mei5 jyu5",
+    "category": "order_pairs",
+    "description": "mei5 jyu5 in this order is 尾羽/美語; competing orders 語尾 (jyu5 mei5)",
+    "expected_characters": [
+      "尾羽",
+      "美語"
+    ],
+    "expected_jyutping": [
+      "mei5 jyu5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9301,
+    "query": "jyun1 sei2",
+    "category": "order_pairs",
+    "description": "jyun1 sei2 in this order is 冤死; competing orders 死冤 (sei2 jyun1)",
+    "expected_characters": [
+      "冤死"
+    ],
+    "expected_jyutping": [
+      "jyun1 sei2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9302,
+    "query": "sei2 jyun1",
+    "category": "order_pairs",
+    "description": "sei2 jyun1 in this order is 死冤; competing orders 冤死 (jyun1 sei2)",
+    "expected_characters": [
+      "死冤"
+    ],
+    "expected_jyutping": [
+      "sei2 jyun1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9303,
+    "query": "jyun4 sang1",
+    "category": "order_pairs",
+    "description": "jyun4 sang1 in this order is 原生; competing orders 生員/生源 (sang1 jyun4)",
+    "expected_characters": [
+      "原生"
+    ],
+    "expected_jyutping": [
+      "jyun4 sang1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9304,
+    "query": "sang1 jyun4",
+    "category": "order_pairs",
+    "description": "sang1 jyun4 in this order is 生員/生源; competing orders 原生 (jyun4 sang1)",
+    "expected_characters": [
+      "生員",
+      "生源"
+    ],
+    "expected_jyutping": [
+      "sang1 jyun4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9305,
+    "query": "jyun4 zung1",
+    "category": "order_pairs",
+    "description": "jyun4 zung1 in this order is 原盅; competing orders 中元/中原 (zung1 jyun4)",
+    "expected_characters": [
+      "原盅"
+    ],
+    "expected_jyutping": [
+      "jyun4 zung1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9306,
+    "query": "zung1 jyun4",
+    "category": "order_pairs",
+    "description": "zung1 jyun4 in this order is 中元/中原; competing orders 原盅 (jyun4 zung1)",
+    "expected_characters": [
+      "中元",
+      "中原"
+    ],
+    "expected_jyutping": [
+      "zung1 jyun4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9307,
+    "query": "tung4 zi2 jyun6",
+    "category": "order_pairs",
+    "description": "tung4 zi2 jyun6 in this order is 桐梓縣; competing orders 梓潼縣 (zi2 tung4 jyun6)",
+    "expected_characters": [
+      "桐梓縣"
+    ],
+    "expected_jyutping": [
+      "tung4 zi2 jyun6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9308,
+    "query": "zi2 tung4 jyun6",
+    "category": "order_pairs",
+    "description": "zi2 tung4 jyun6 in this order is 梓潼縣; competing orders 桐梓縣 (tung4 zi2 jyun6)",
+    "expected_characters": [
+      "梓潼縣"
+    ],
+    "expected_jyutping": [
+      "zi2 tung4 jyun6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9309,
+    "query": "kau1 kok3",
+    "category": "order_pairs",
+    "description": "kau1 kok3 in this order is 溝壑; competing orders 壑溝 (kok3 kau1)",
+    "expected_characters": [
+      "溝壑"
+    ],
+    "expected_jyutping": [
+      "kau1 kok3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9310,
+    "query": "kok3 kau1",
+    "category": "order_pairs",
+    "description": "kok3 kau1 in this order is 壑溝; competing orders 溝壑 (kau1 kok3)",
+    "expected_characters": [
+      "壑溝"
+    ],
+    "expected_jyutping": [
+      "kok3 kau1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9311,
+    "query": "kei4 zan1",
+    "category": "order_pairs",
+    "description": "kei4 zan1 in this order is 奇珍; competing orders 珍奇 (zan1 kei4)",
+    "expected_characters": [
+      "奇珍"
+    ],
+    "expected_jyutping": [
+      "kei4 zan1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9312,
+    "query": "zan1 kei4",
+    "category": "order_pairs",
+    "description": "zan1 kei4 in this order is 珍奇; competing orders 奇珍 (kei4 zan1)",
+    "expected_characters": [
+      "珍奇"
+    ],
+    "expected_jyutping": [
+      "zan1 kei4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9313,
+    "query": "kwan2 saan3",
+    "category": "order_pairs",
+    "description": "kwan2 saan3 in this order is 菌傘; competing orders 傘菌 (saan3 kwan2)",
+    "expected_characters": [
+      "菌傘"
+    ],
+    "expected_jyutping": [
+      "kwan2 saan3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9314,
+    "query": "saan3 kwan2",
+    "category": "order_pairs",
+    "description": "saan3 kwan2 in this order is 傘菌; competing orders 菌傘 (kwan2 saan3)",
+    "expected_characters": [
+      "傘菌"
+    ],
+    "expected_jyutping": [
+      "saan3 kwan2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9315,
+    "query": "laang5 tin1",
+    "category": "order_pairs",
+    "description": "laang5 tin1 in this order is 冷天; competing orders 天冷 (tin1 laang5)",
+    "expected_characters": [
+      "冷天"
+    ],
+    "expected_jyutping": [
+      "laang5 tin1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9316,
+    "query": "tin1 laang5",
+    "category": "order_pairs",
+    "description": "tin1 laang5 in this order is 天冷; competing orders 冷天 (laang5 tin1)",
+    "expected_characters": [
+      "天冷"
+    ],
+    "expected_jyutping": [
+      "tin1 laang5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9317,
+    "query": "lau4 seoi2",
+    "category": "order_pairs",
+    "description": "lau4 seoi2 in this order is 流水; competing orders 水流 (seoi2 lau4)",
+    "expected_characters": [
+      "流水"
+    ],
+    "expected_jyutping": [
+      "lau4 seoi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9318,
+    "query": "seoi2 lau4",
+    "category": "order_pairs",
+    "description": "seoi2 lau4 in this order is 水流; competing orders 流水 (lau4 seoi2)",
+    "expected_characters": [
+      "水流"
+    ],
+    "expected_jyutping": [
+      "seoi2 lau4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9319,
+    "query": "lei5 si6",
+    "category": "order_pairs",
+    "description": "lei5 si6 in this order is 李氏/理事/里氏; competing orders 事理 (si6 lei5)",
+    "expected_characters": [
+      "李氏",
+      "理事",
+      "里氏"
+    ],
+    "expected_jyutping": [
+      "lei5 si6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9320,
+    "query": "si6 lei5",
+    "category": "order_pairs",
+    "description": "si6 lei5 in this order is 事理; competing orders 李氏/理事/里氏 (lei5 si6)",
+    "expected_characters": [
+      "事理"
+    ],
+    "expected_jyutping": [
+      "si6 lei5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9321,
+    "query": "leot6 seoi2",
+    "category": "order_pairs",
+    "description": "leot6 seoi2 in this order is 溧水; competing orders 水栗 (seoi2 leot6)",
+    "expected_characters": [
+      "溧水"
+    ],
+    "expected_jyutping": [
+      "leot6 seoi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9322,
+    "query": "seoi2 leot6",
+    "category": "order_pairs",
+    "description": "seoi2 leot6 in this order is 水栗; competing orders 溧水 (leot6 seoi2)",
+    "expected_characters": [
+      "水栗"
+    ],
+    "expected_jyutping": [
+      "seoi2 leot6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9323,
+    "query": "ling4 mou6",
+    "category": "order_pairs",
+    "description": "ling4 mou6 in this order is 陵墓; competing orders 耄齡/鶩舲 (mou6 ling4)",
+    "expected_characters": [
+      "陵墓"
+    ],
+    "expected_jyutping": [
+      "ling4 mou6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9324,
+    "query": "mou6 ling4",
+    "category": "order_pairs",
+    "description": "mou6 ling4 in this order is 耄齡/鶩舲; competing orders 陵墓 (ling4 mou6)",
+    "expected_characters": [
+      "耄齡",
+      "鶩舲"
+    ],
+    "expected_jyutping": [
+      "mou6 ling4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9325,
+    "query": "liu4 soeng1",
+    "category": "order_pairs",
+    "description": "liu4 soeng1 in this order is 療傷; competing orders 雙遼 (soeng1 liu4)",
+    "expected_characters": [
+      "療傷"
+    ],
+    "expected_jyutping": [
+      "liu4 soeng1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9326,
+    "query": "soeng1 liu4",
+    "category": "order_pairs",
+    "description": "soeng1 liu4 in this order is 雙遼; competing orders 療傷 (liu4 soeng1)",
+    "expected_characters": [
+      "雙遼"
+    ],
+    "expected_jyutping": [
+      "soeng1 liu4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9327,
+    "query": "loi4 wong5",
+    "category": "order_pairs",
+    "description": "loi4 wong5 in this order is 來往; competing orders 往來 (wong5 loi4)",
+    "expected_characters": [
+      "來往"
+    ],
+    "expected_jyutping": [
+      "loi4 wong5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9328,
+    "query": "wong5 loi4",
+    "category": "order_pairs",
+    "description": "wong5 loi4 in this order is 往來; competing orders 來往 (loi4 wong5)",
+    "expected_characters": [
+      "往來"
+    ],
+    "expected_jyutping": [
+      "wong5 loi4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9329,
+    "query": "lou5 zung1",
+    "category": "order_pairs",
+    "description": "lou5 zung1 in this order is 老宗; competing orders 終老 (zung1 lou5)",
+    "expected_characters": [
+      "老宗"
+    ],
+    "expected_jyutping": [
+      "lou5 zung1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9330,
+    "query": "zung1 lou5",
+    "category": "order_pairs",
+    "description": "zung1 lou5 in this order is 終老; competing orders 老宗 (lou5 zung1)",
+    "expected_characters": [
+      "終老"
+    ],
+    "expected_jyutping": [
+      "zung1 lou5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9331,
+    "query": "luk6 zuk6",
+    "category": "order_pairs",
+    "description": "luk6 zuk6 in this order is 陸續; competing orders 逐鹿 (zuk6 luk6)",
+    "expected_characters": [
+      "陸續"
+    ],
+    "expected_jyutping": [
+      "luk6 zuk6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9332,
+    "query": "zuk6 luk6",
+    "category": "order_pairs",
+    "description": "zuk6 luk6 in this order is 逐鹿; competing orders 陸續 (luk6 zuk6)",
+    "expected_characters": [
+      "逐鹿"
+    ],
+    "expected_jyutping": [
+      "zuk6 luk6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9333,
+    "query": "maai4 zong3",
+    "category": "order_pairs",
+    "description": "maai4 zong3 in this order is 埋葬; competing orders 葬埋 (zong3 maai4)",
+    "expected_characters": [
+      "埋葬"
+    ],
+    "expected_jyutping": [
+      "maai4 zong3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9334,
+    "query": "zong3 maai4",
+    "category": "order_pairs",
+    "description": "zong3 maai4 in this order is 葬埋; competing orders 埋葬 (maai4 zong3)",
+    "expected_characters": [
+      "葬埋"
+    ],
+    "expected_jyutping": [
+      "zong3 maai4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9335,
+    "query": "man4 san1",
+    "category": "order_pairs",
+    "description": "man4 san1 in this order is 文身/紋身; competing orders 新民/新聞 (san1 man4)",
+    "expected_characters": [
+      "文身",
+      "紋身"
+    ],
+    "expected_jyutping": [
+      "man4 san1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9336,
+    "query": "san1 man4",
+    "category": "order_pairs",
+    "description": "san1 man4 in this order is 新民/新聞; competing orders 文身/紋身 (man4 san1)",
+    "expected_characters": [
+      "新民",
+      "新聞"
+    ],
+    "expected_jyutping": [
+      "san1 man4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9337,
+    "query": "mat6 sik1",
+    "category": "order_pairs",
+    "description": "mat6 sik1 in this order is 物色; competing orders 飾物 (sik1 mat6)",
+    "expected_characters": [
+      "物色"
+    ],
+    "expected_jyutping": [
+      "mat6 sik1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9338,
+    "query": "sik1 mat6",
+    "category": "order_pairs",
+    "description": "sik1 mat6 in this order is 飾物; competing orders 物色 (mat6 sik1)",
+    "expected_characters": [
+      "飾物"
+    ],
+    "expected_jyutping": [
+      "sik1 mat6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9339,
+    "query": "mei6 syun3",
+    "category": "order_pairs",
+    "description": "mei6 syun3 in this order is 未算; competing orders 蒜味 (syun3 mei6)",
+    "expected_characters": [
+      "未算"
+    ],
+    "expected_jyutping": [
+      "mei6 syun3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9340,
+    "query": "syun3 mei6",
+    "category": "order_pairs",
+    "description": "syun3 mei6 in this order is 蒜味; competing orders 未算 (mei6 syun3)",
+    "expected_characters": [
+      "蒜味"
+    ],
+    "expected_jyutping": [
+      "syun3 mei6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9341,
+    "query": "ming4 san4",
+    "category": "order_pairs",
+    "description": "ming4 san4 in this order is 名臣; competing orders 神明 (san4 ming4)",
+    "expected_characters": [
+      "名臣"
+    ],
+    "expected_jyutping": [
+      "ming4 san4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9342,
+    "query": "san4 ming4",
+    "category": "order_pairs",
+    "description": "san4 ming4 in this order is 神明; competing orders 名臣 (ming4 san4)",
+    "expected_characters": [
+      "神明"
+    ],
+    "expected_jyutping": [
+      "san4 ming4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9343,
+    "query": "mo4 zit3",
+    "category": "order_pairs",
+    "description": "mo4 zit3 in this order is 磨折; competing orders 折磨 (zit3 mo4)",
+    "expected_characters": [
+      "磨折"
+    ],
+    "expected_jyutping": [
+      "mo4 zit3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9344,
+    "query": "zit3 mo4",
+    "category": "order_pairs",
+    "description": "zit3 mo4 in this order is 折磨; competing orders 磨折 (mo4 zit3)",
+    "expected_characters": [
+      "折磨"
+    ],
+    "expected_jyutping": [
+      "zit3 mo4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9345,
+    "query": "mou5 ping4",
+    "category": "order_pairs",
+    "description": "mou5 ping4 in this order is 武平; competing orders 平武 (ping4 mou5)",
+    "expected_characters": [
+      "武平"
+    ],
+    "expected_jyutping": [
+      "mou5 ping4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9346,
+    "query": "ping4 mou5",
+    "category": "order_pairs",
+    "description": "ping4 mou5 in this order is 平武; competing orders 武平 (mou5 ping4)",
+    "expected_characters": [
+      "平武"
+    ],
+    "expected_jyutping": [
+      "ping4 mou5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9347,
+    "query": "muk6 syun4",
+    "category": "order_pairs",
+    "description": "muk6 syun4 in this order is 木船; competing orders 鏇木 (syun4 muk6)",
+    "expected_characters": [
+      "木船"
+    ],
+    "expected_jyutping": [
+      "muk6 syun4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9348,
+    "query": "syun4 muk6",
+    "category": "order_pairs",
+    "description": "syun4 muk6 in this order is 鏇木; competing orders 木船 (muk6 syun4)",
+    "expected_characters": [
+      "鏇木"
+    ],
+    "expected_jyutping": [
+      "syun4 muk6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9349,
+    "query": "naam4 saan1",
+    "category": "order_pairs",
+    "description": "naam4 saan1 in this order is 南山; competing orders 山南 (saan1 naam4)",
+    "expected_characters": [
+      "南山"
+    ],
+    "expected_jyutping": [
+      "naam4 saan1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9350,
+    "query": "saan1 naam4",
+    "category": "order_pairs",
+    "description": "saan1 naam4 in this order is 山南; competing orders 南山 (naam4 saan1)",
+    "expected_characters": [
+      "山南"
+    ],
+    "expected_jyutping": [
+      "saan1 naam4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9351,
+    "query": "neoi5 soeng1",
+    "category": "order_pairs",
+    "description": "neoi5 soeng1 in this order is 女雙; competing orders 商女 (soeng1 neoi5)",
+    "expected_characters": [
+      "女雙"
+    ],
+    "expected_jyutping": [
+      "neoi5 soeng1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9352,
+    "query": "soeng1 neoi5",
+    "category": "order_pairs",
+    "description": "soeng1 neoi5 in this order is 商女; competing orders 女雙 (neoi5 soeng1)",
+    "expected_characters": [
+      "商女"
+    ],
+    "expected_jyutping": [
+      "soeng1 neoi5"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9353,
+    "query": "ngau4 zi6",
+    "category": "order_pairs",
+    "description": "ngau4 zi6 in this order is 牛治; competing orders 牸牛 (zi6 ngau4)",
+    "expected_characters": [
+      "牛治"
+    ],
+    "expected_jyutping": [
+      "ngau4 zi6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9354,
+    "query": "zi6 ngau4",
+    "category": "order_pairs",
+    "description": "zi6 ngau4 in this order is 牸牛; competing orders 牛治 (ngau4 zi6)",
+    "expected_characters": [
+      "牸牛"
+    ],
+    "expected_jyutping": [
+      "zi6 ngau4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9355,
+    "query": "ning4 zung1",
+    "category": "order_pairs",
+    "description": "ning4 zung1 in this order is 寧宗; competing orders 中寧 (zung1 ning4)",
+    "expected_characters": [
+      "寧宗"
+    ],
+    "expected_jyutping": [
+      "ning4 zung1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9356,
+    "query": "zung1 ning4",
+    "category": "order_pairs",
+    "description": "zung1 ning4 in this order is 中寧; competing orders 寧宗 (ning4 zung1)",
+    "expected_characters": [
+      "中寧"
+    ],
+    "expected_jyutping": [
+      "zung1 ning4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9357,
+    "query": "paak3 sau2",
+    "category": "order_pairs",
+    "description": "paak3 sau2 in this order is 拍手; competing orders 手帕 (sau2 paak3)",
+    "expected_characters": [
+      "拍手"
+    ],
+    "expected_jyutping": [
+      "paak3 sau2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9358,
+    "query": "sau2 paak3",
+    "category": "order_pairs",
+    "description": "sau2 paak3 in this order is 手帕; competing orders 拍手 (paak3 sau2)",
+    "expected_characters": [
+      "手帕"
+    ],
+    "expected_jyutping": [
+      "sau2 paak3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9359,
+    "query": "ping4 sing4",
+    "category": "order_pairs",
+    "description": "ping4 sing4 in this order is 平城/平成; competing orders 承平 (sing4 ping4)",
+    "expected_characters": [
+      "平城",
+      "平成"
+    ],
+    "expected_jyutping": [
+      "ping4 sing4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9360,
+    "query": "sing4 ping4",
+    "category": "order_pairs",
+    "description": "sing4 ping4 in this order is 承平; competing orders 平城/平成 (ping4 sing4)",
+    "expected_characters": [
+      "承平"
+    ],
+    "expected_jyutping": [
+      "sing4 ping4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9361,
+    "query": "saam1 seoi6",
+    "category": "order_pairs",
+    "description": "saam1 seoi6 in this order is 三穗; competing orders 睡衫 (seoi6 saam1)",
+    "expected_characters": [
+      "三穗"
+    ],
+    "expected_jyutping": [
+      "saam1 seoi6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9362,
+    "query": "seoi6 saam1",
+    "category": "order_pairs",
+    "description": "seoi6 saam1 in this order is 睡衫; competing orders 三穗 (saam1 seoi6)",
+    "expected_characters": [
+      "睡衫"
+    ],
+    "expected_jyutping": [
+      "seoi6 saam1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9363,
+    "query": "sai3 sing4",
+    "category": "order_pairs",
+    "description": "sai3 sing4 in this order is 細繩; competing orders 乘勢 (sing4 sai3)",
+    "expected_characters": [
+      "細繩"
+    ],
+    "expected_jyutping": [
+      "sai3 sing4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9364,
+    "query": "sing4 sai3",
+    "category": "order_pairs",
+    "description": "sing4 sai3 in this order is 乘勢; competing orders 細繩 (sai3 sing4)",
+    "expected_characters": [
+      "乘勢"
+    ],
+    "expected_jyutping": [
+      "sing4 sai3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9365,
+    "query": "sam1 tim4",
+    "category": "order_pairs",
+    "description": "sam1 tim4 in this order is 心甜; competing orders 甜心 (tim4 sam1)",
+    "expected_characters": [
+      "心甜"
+    ],
+    "expected_jyutping": [
+      "sam1 tim4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9366,
+    "query": "tim4 sam1",
+    "category": "order_pairs",
+    "description": "tim4 sam1 in this order is 甜心; competing orders 心甜 (sam1 tim4)",
+    "expected_characters": [
+      "甜心"
+    ],
+    "expected_jyutping": [
+      "tim4 sam1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9367,
+    "query": "san1 syun1",
+    "category": "order_pairs",
+    "description": "san1 syun1 in this order is 辛酸; competing orders 酸辛 (syun1 san1)",
+    "expected_characters": [
+      "辛酸"
+    ],
+    "expected_jyutping": [
+      "san1 syun1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9368,
+    "query": "syun1 san1",
+    "category": "order_pairs",
+    "description": "syun1 san1 in this order is 酸辛; competing orders 辛酸 (san1 syun1)",
+    "expected_characters": [
+      "酸辛"
+    ],
+    "expected_jyutping": [
+      "syun1 san1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9369,
+    "query": "sat1 wan1",
+    "category": "order_pairs",
+    "description": "sat1 wan1 in this order is 室溫; competing orders 溫室 (wan1 sat1)",
+    "expected_characters": [
+      "室溫"
+    ],
+    "expected_jyutping": [
+      "sat1 wan1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9370,
+    "query": "wan1 sat1",
+    "category": "order_pairs",
+    "description": "wan1 sat1 in this order is 溫室; competing orders 室溫 (sat1 wan1)",
+    "expected_characters": [
+      "溫室"
+    ],
+    "expected_jyutping": [
+      "wan1 sat1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9371,
+    "query": "sau2 song2",
+    "category": "order_pairs",
+    "description": "sau2 song2 in this order is 手爽; competing orders 爽手 (song2 sau2)",
+    "expected_characters": [
+      "手爽"
+    ],
+    "expected_jyutping": [
+      "sau2 song2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9372,
+    "query": "song2 sau2",
+    "category": "order_pairs",
+    "description": "song2 sau2 in this order is 爽手; competing orders 手爽 (sau2 song2)",
+    "expected_characters": [
+      "爽手"
+    ],
+    "expected_jyutping": [
+      "song2 sau2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9373,
+    "query": "se6 zin3",
+    "category": "order_pairs",
+    "description": "se6 zin3 in this order is 射箭; competing orders 濺射 (zin3 se6)",
+    "expected_characters": [
+      "射箭"
+    ],
+    "expected_jyutping": [
+      "se6 zin3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9374,
+    "query": "zin3 se6",
+    "category": "order_pairs",
+    "description": "zin3 se6 in this order is 濺射; competing orders 射箭 (se6 zin3)",
+    "expected_characters": [
+      "濺射"
+    ],
+    "expected_jyutping": [
+      "zin3 se6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9375,
+    "query": "seoi2 zuk6",
+    "category": "order_pairs",
+    "description": "seoi2 zuk6 in this order is 水族; competing orders 逐水 (zuk6 seoi2)",
+    "expected_characters": [
+      "水族"
+    ],
+    "expected_jyutping": [
+      "seoi2 zuk6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9376,
+    "query": "zuk6 seoi2",
+    "category": "order_pairs",
+    "description": "zuk6 seoi2 in this order is 逐水; competing orders 水族 (seoi2 zuk6)",
+    "expected_characters": [
+      "逐水"
+    ],
+    "expected_jyutping": [
+      "zuk6 seoi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9377,
+    "query": "si2 zik1",
+    "category": "order_pairs",
+    "description": "si2 zik1 in this order is 史跡; competing orders 即使 (zik1 si2)",
+    "expected_characters": [
+      "史跡"
+    ],
+    "expected_jyutping": [
+      "si2 zik1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9378,
+    "query": "zik1 si2",
+    "category": "order_pairs",
+    "description": "zik1 si2 in this order is 即使; competing orders 史跡 (si2 zik1)",
+    "expected_characters": [
+      "即使"
+    ],
+    "expected_jyutping": [
+      "zik1 si2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9379,
+    "query": "si6 zuk6",
+    "category": "order_pairs",
+    "description": "si6 zuk6 in this order is 士族/氏族; competing orders 俗事 (zuk6 si6)",
+    "expected_characters": [
+      "士族",
+      "氏族"
+    ],
+    "expected_jyutping": [
+      "si6 zuk6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9380,
+    "query": "zuk6 si6",
+    "category": "order_pairs",
+    "description": "zuk6 si6 in this order is 俗事; competing orders 士族/氏族 (si6 zuk6)",
+    "expected_characters": [
+      "俗事"
+    ],
+    "expected_jyutping": [
+      "zuk6 si6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9381,
+    "query": "sing1 tou2",
+    "category": "order_pairs",
+    "description": "sing1 tou2 in this order is 聲討; competing orders 土星 (tou2 sing1)",
+    "expected_characters": [
+      "聲討"
+    ],
+    "expected_jyutping": [
+      "sing1 tou2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9382,
+    "query": "tou2 sing1",
+    "category": "order_pairs",
+    "description": "tou2 sing1 in this order is 土星; competing orders 聲討 (sing1 tou2)",
+    "expected_characters": [
+      "土星"
+    ],
+    "expected_jyutping": [
+      "tou2 sing1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9383,
+    "query": "sing4 zoeng2",
+    "category": "order_pairs",
+    "description": "sing4 zoeng2 in this order is 成長; competing orders 長成 (zoeng2 sing4)",
+    "expected_characters": [
+      "成長"
+    ],
+    "expected_jyutping": [
+      "sing4 zoeng2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9384,
+    "query": "zoeng2 sing4",
+    "category": "order_pairs",
+    "description": "zoeng2 sing4 in this order is 長成; competing orders 成長 (sing4 zoeng2)",
+    "expected_characters": [
+      "長成"
+    ],
+    "expected_jyutping": [
+      "zoeng2 sing4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9385,
+    "query": "soeng1 zi2",
+    "category": "order_pairs",
+    "description": "soeng1 zi2 in this order is 相紙/箱子/雙子; competing orders 紙箱 (zi2 soeng1)",
+    "expected_characters": [
+      "相紙",
+      "箱子",
+      "雙子"
+    ],
+    "expected_jyutping": [
+      "soeng1 zi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9386,
+    "query": "zi2 soeng1",
+    "category": "order_pairs",
+    "description": "zi2 soeng1 in this order is 紙箱; competing orders 相紙/箱子/雙子 (soeng1 zi2)",
+    "expected_characters": [
+      "紙箱"
+    ],
+    "expected_jyutping": [
+      "zi2 soeng1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9387,
+    "query": "sou3 zung2",
+    "category": "order_pairs",
+    "description": "sou3 zung2 in this order is 數種; competing orders 總數 (zung2 sou3)",
+    "expected_characters": [
+      "數種"
+    ],
+    "expected_jyutping": [
+      "sou3 zung2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9388,
+    "query": "zung2 sou3",
+    "category": "order_pairs",
+    "description": "zung2 sou3 in this order is 總數; competing orders 數種 (sou3 zung2)",
+    "expected_characters": [
+      "總數"
+    ],
+    "expected_jyutping": [
+      "zung2 sou3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9389,
+    "query": "taan4 zi2",
+    "category": "order_pairs",
+    "description": "taan4 zi2 in this order is 彈指; competing orders 紫檀 (zi2 taan4)",
+    "expected_characters": [
+      "彈指"
+    ],
+    "expected_jyutping": [
+      "taan4 zi2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9390,
+    "query": "zi2 taan4",
+    "category": "order_pairs",
+    "description": "zi2 taan4 in this order is 紫檀; competing orders 彈指 (taan4 zi2)",
+    "expected_characters": [
+      "紫檀"
+    ],
+    "expected_jyutping": [
+      "zi2 taan4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9391,
+    "query": "tou4 tyut3",
+    "category": "order_pairs",
+    "description": "tou4 tyut3 in this order is 逃脫; competing orders 脫逃 (tyut3 tou4)",
+    "expected_characters": [
+      "逃脫"
+    ],
+    "expected_jyutping": [
+      "tou4 tyut3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9392,
+    "query": "tyut3 tou4",
+    "category": "order_pairs",
+    "description": "tyut3 tou4 in this order is 脫逃; competing orders 逃脫 (tou4 tyut3)",
+    "expected_characters": [
+      "脫逃"
+    ],
+    "expected_jyutping": [
+      "tyut3 tou4"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9393,
+    "query": "wo1 zyu2",
+    "category": "order_pairs",
+    "description": "wo1 zyu2 in this order is 窩主; competing orders 煮鍋 (zyu2 wo1)",
+    "expected_characters": [
+      "窩主"
+    ],
+    "expected_jyutping": [
+      "wo1 zyu2"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9394,
+    "query": "zyu2 wo1",
+    "category": "order_pairs",
+    "description": "zyu2 wo1 in this order is 煮鍋; competing orders 窩主 (wo1 zyu2)",
+    "expected_characters": [
+      "煮鍋"
+    ],
+    "expected_jyutping": [
+      "zyu2 wo1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9395,
+    "query": "zaat3 zam1",
+    "category": "order_pairs",
+    "description": "zaat3 zam1 in this order is 扎針; competing orders 針扎 (zam1 zaat3)",
+    "expected_characters": [
+      "扎針"
+    ],
+    "expected_jyutping": [
+      "zaat3 zam1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9396,
+    "query": "zam1 zaat3",
+    "category": "order_pairs",
+    "description": "zam1 zaat3 in this order is 針扎; competing orders 扎針 (zaat3 zam1)",
+    "expected_characters": [
+      "針扎"
+    ],
+    "expected_jyutping": [
+      "zam1 zaat3"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9397,
+    "query": "zau6 zoeng1",
+    "category": "order_pairs",
+    "description": "zau6 zoeng1 in this order is 袖章; competing orders 將就 (zoeng1 zau6)",
+    "expected_characters": [
+      "袖章"
+    ],
+    "expected_jyutping": [
+      "zau6 zoeng1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9398,
+    "query": "zoeng1 zau6",
+    "category": "order_pairs",
+    "description": "zoeng1 zau6 in this order is 將就; competing orders 袖章 (zau6 zoeng1)",
+    "expected_characters": [
+      "將就"
+    ],
+    "expected_jyutping": [
+      "zoeng1 zau6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9399,
+    "query": "zi6 zong1",
+    "category": "order_pairs",
+    "description": "zi6 zong1 in this order is 治裝/自裝; competing orders 髒字 (zong1 zi6)",
+    "expected_characters": [
+      "治裝",
+      "自裝"
+    ],
+    "expected_jyutping": [
+      "zi6 zong1"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  },
+  {
+    "id": 9400,
+    "query": "zong1 zi6",
+    "category": "order_pairs",
+    "description": "zong1 zi6 in this order is 髒字; competing orders 治裝/自裝 (zi6 zong1)",
+    "expected_characters": [
+      "髒字"
+    ],
+    "expected_jyutping": [
+      "zong1 zi6"
+    ],
+    "match_on": "character",
+    "accept_top_n": 1,
+    "tags": [
+      "order_pairs",
+      "permuted_rival"
+    ]
+  }
+]

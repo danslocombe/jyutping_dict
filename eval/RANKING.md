@@ -7,20 +7,30 @@ and composite terms.
 Contents:
 
 - [Diagnosis](#diagnosis) — why the frequency model fails
-- [Work done](#work-done) — the pin_jam set and the words.hk prior
+- [Work done](#work-done) — the pin_jam set, the words.hk prior, strict scoring
 - [Open items](#open-items)
 - [Full-suite A/B](#full-suite-ab-the-wordshk-prior) — measured effect of the prior
 - [The `spoken_corpus` query set](#the-spoken_corpus-query-set) — independent validation set
 - [Signals evaluated](#signals-evaluated) — datasets checked, licences, what to use next
 - [Gotchas](#gotchas) — **read before running the harness**
 
+Current state — strict, character-verified, 3,003 cases across 9 sets:
+**TOTAL p@1 91.6%**, MRR 0.948. Core is the weak set at 78.8% and is where the
+reported symptom lives. Numbers predating the strict-scoring fix are lenient and
+not comparable with these.
+
+Rebuilding the generated query sets needs `pip install -r eval/requirements.txt`.
+
+    python eval/build_pin_jam_eval.py
+    python eval/build_spoken_corpus_eval.py
+    python eval/build_order_pairs_eval.py
+    python eval/backfill_hk_trip.py
+
 Running the harness:
 
     python eval/run_suite_report.py                       # per-set breakdown
     python eval/run_suite_report.py --save eval/results/a.json
     python eval/run_suite_report.py --compare a.json b.json
-
-Rebuilding the generated query sets needs `pip install -r eval/requirements.txt`.
 
 ## Diagnosis
 
@@ -215,7 +225,7 @@ document above this section are lenient and not comparable.
       665M tokens) — see "Signals evaluated" below.
 - [x] Build a larger, harder query set for validation, **not derived from
       words.hk** — see `spoken_corpus.json` below.
-- [ ] Fix syllable-order insensitivity (see "Order insensitivity" below).
+- [x] Fix syllable-order insensitivity (see "Order insensitivity" below).
 - [x] Add a strict p@1 metric requiring a character match, to surface the hidden
       failures — see "3. Strict scoring" above.
 - [x] Backfill `expected_characters` in `hk_trip.json`.
@@ -358,18 +368,83 @@ same-reading rivals whose English glosses overlap (Jaccard >= 0.3) are tagged
 average (67.6% vs 96.9%), which is itself evidence the tag is picking out a real
 category. **Use the `hard` slice (166 cases, 84.9%) as the headline number.**
 
-### Order insensitivity (new bug)
+### Order insensitivity — diagnosed and fixed
 
-The set surfaced a distinct defect. Querying `gei2 baak3` returns 百幾, 幾十百 and
-others, but **幾百 — an exact, complete match for that reading — is not in the top
-20 at all**, despite `幾百 ... {gei2 baak3}` being present in
-`cccanto-webdist.txt`. Same shape for `jat1 maan6` (returns 萬一 over 一萬) and
-`zau6 gam2` (returns 噉就 over 就噉).
+The set surfaced a distinct defect: `jat1 maan6` returned 萬一 above 一萬, and
+`zau6 gam2` returned 噉就 above 就噉.
 
-Syllables appear to be matched as a set rather than a sequence, with no penalty
-for reordering, and something then suppresses the in-order match entirely. This
-is independent of the frequency/saturation issue and is likely a cheap, high-
-value fix.
+**One example in the original note was a misdiagnosis.** `gei2 baak3` returns 百幾
+while 幾百 is absent, but 幾百 appears *only* in
+`cccedict-canto-readings-150923.txt`, which `builder.annotate` uses as a
+reading-annotation table — it never creates entries. Entries come from
+`cedict_ts.u8` and `cccanto-webdist.txt` only (`console/src/main.rs`), and 幾百 is
+in neither. That case is a coverage gap, not a ranking failure. Returning 百幾 for
+it is the correct fallback, and still happens.
+
+The genuine bug had two halves, both confirmed by the cost breakdown rather than
+inferred:
+
+1. **The jyutping path.** Syllables *are* matched as a sequence and inversions
+   *are* charged — `cost_inversions` adds `OUT_OF_ORDER_INVERSION_PENALTY` per
+   inverted pair. But that constant is 8,000 and `WORDSHK_ATTESTED_BONUS` is also
+   8,000, and the bonus was gated only on `unmatched_position_cost == 0`, ignoring
+   inversions. So an attested out-of-order entry collected a bonus exactly
+   cancelling its penalty:
+
+   | query | entry | inversion | static | total |
+   |---|---|---|---|---|
+   | `jat1 maan6` | 萬一 (inverted, attested) | 8,000 | 10,149 | **18,149** |
+   | `jat1 maan6` | 一萬 (in order) | 0 | 18,149 | **18,149** |
+   | `zau6 gam2` | 噉就 (inverted, attested) | 8,000 | 6,525 | **14,525** |
+   | `zau6 gam2` | 就噉 (in order) | 0 | 14,525 | **14,525** |
+
+   An exact tie in both, decided by iteration order.
+
+2. **The character path.** `matches_query_traditional` was a pure set-containment
+   test returning `bool`, with `inversion_cost` hardcoded to 0 — so it was order
+   blind outright, and typing 一萬 also returned 萬一 first. It now claims query
+   terms left to right against the earliest unclaimed occurrence, mirroring
+   `matches_jyutping_term`, and returns the inversion cost.
+
+The fix gates the attested bonus on `inversion_cost == 0` on both paths. The
+principle: the bonus is a *prior* ("this is a real word"), the typed order is
+*direct evidence*, and a prior must not overturn evidence.
+
+`OUT_OF_ORDER_INVERSION_PENALTY` was deliberately left at 8,000 — the gate alone
+was sufficient, and raising it would push legitimate fallbacks like 百幾 down.
+**Revisit when LIHKG lands:** a graded frequency signal can exceed 8,000, which
+would re-open the same cancellation from a different direction.
+
+Result (`order_base.json` -> `order_fix2.json`): **51 improved, 0 regressed**.
+
+| set | before | after |
+|---|---|---|
+| order_pairs | 88.5% | **99.5%** |
+| pin_jam | 84.7% | 85.3% |
+| spoken_corpus | 96.9% | 97.2% |
+| TOTAL | 89.9% | **91.6%** |
+
+All other sets unchanged. Regression tests:
+`test_traditional_match_in_order_is_free`,
+`test_traditional_match_out_of_order_is_penalised`,
+`test_traditional_match_requires_every_character`.
+
+### The `order_pairs` query set (`eval/build_order_pairs_eval.py`)
+
+400 cases sampled from 4,097 permutation groups. The dictionary supplies its own
+ground truth: any two headwords whose readings are permutations of each other
+(一萬/萬一) form a case, and querying one reading must return the headword
+carrying *that* order. No external data, so it cannot be circular with any
+frequency prior adopted later, and no judgement call is involved.
+
+Both directions of every group are kept — testing only the easy direction would
+flatter any ordering change. Cases are emitted only when every ordering in the
+group is a real indexed entry, so a failure always means misranking, never a
+coverage gap. Readings carrying punctuation are skipped: a few multi-clause
+idioms record the clause comma inline, which tokenizes as its own unmatchable
+term and would report a permanent miss unrelated to ordering.
+
+The 2 residual failures are rank-2 near misses (p@3 is 100%, misses 0%).
 
 ---
 
