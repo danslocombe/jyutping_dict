@@ -4,6 +4,24 @@ Tracking doc for the search relevance workstream. The reported symptom was that
 terms which exist in the dictionary rank too low, particularly for multi-syllable
 and composite terms.
 
+Contents:
+
+- [Diagnosis](#diagnosis) — why the frequency model fails
+- [Work done](#work-done) — the pin_jam set and the words.hk prior
+- [Open items](#open-items)
+- [Full-suite A/B](#full-suite-ab-the-wordshk-prior) — measured effect of the prior
+- [The `spoken_corpus` query set](#the-spoken_corpus-query-set) — independent validation set
+- [Signals evaluated](#signals-evaluated) — datasets checked, licences, what to use next
+- [Gotchas](#gotchas) — **read before running the harness**
+
+Running the harness:
+
+    python eval/run_suite_report.py                       # per-set breakdown
+    python eval/run_suite_report.py --save eval/results/a.json
+    python eval/run_suite_report.py --compare a.json b.json
+
+Rebuilding the generated query sets needs `pip install -r eval/requirements.txt`.
+
 ## Diagnosis
 
 ### Static cost saturates
@@ -149,7 +167,7 @@ question is resolved.
 
 ---
 
-# Full-suite A/B: the words.hk prior
+## Full-suite A/B: the words.hk prior
 
 Complete suite, 2,629 cases, release build, toggled via
 `WORDSHK_ATTESTED_BONUS` (search-time, so no index rebuild is needed to A/B it).
@@ -180,7 +198,7 @@ The gain concentrates exactly where predicted: cases where another headword
 competes for the same reading. Sets with no homophone competition (`shorter_entry`,
 `exact_vs_prefix_extended`) do not move at all, which is the correct outcome.
 
-## The 11 regressions
+### The 11 regressions
 
 - `hot`, `sun` — the known English-path defect. Both parse as jyutping, so a
   promoted jyutping match displaces the intended English result. Tracked below.
@@ -191,34 +209,26 @@ competes for the same reading. Sets with no homophone competition (`shorter_entr
 - The remainder (`cung4 mou1`, `san4 neoi2`, `syut3 waa6`, `uk1 cyun1` ...) are
   rank 1→2 or 2→3 moves between orthographic variants, of the 部份/部分 kind.
 
-Reproduce with `files/suite/run_suite.py` in the session workspace; it chunks
-the batch at 600 to stay under `run_batch_queries`'s hardcoded `timeout=300`,
-which the full suite would otherwise exceed silently.
+Reproduce with:
+
+    python eval/run_suite_report.py --save eval/results/on.json
+    # set WORDSHK_ATTESTED_BONUS to 0, cargo build --release
+    python eval/run_suite_report.py --save eval/results/off.json
+    python eval/run_suite_report.py --compare eval/results/off.json eval/results/on.json
+
+That script exists because `run_eval.py` reports a single aggregate over all
+sets, which hides which set actually moved — the thing that matters most here.
+It also defaults to the release build and chunks the batch, avoiding the silent
+timeout described under Gotchas.
 
 ---
 
-## Gotchas
-
-- `run_eval.CONSOLE_EXE` points at the **debug** build and `run_batch_queries`
-  has `timeout=300`. Large query sets silently time out and report 0% accuracy.
-  The tell-tale is that "Start batch..." prints but "Done running!" does not.
-  Override to `console/target/release/console.exe`.
-- The console reads relative data paths, so run it from the `console/` directory.
-- Any change to static cost is also a change to the length signal.
-- **Never validate a ranking signal against a query set derived from that same
-  signal.** This is why the words.hk prior could not be validated on words.hk
-  data, and why `spoken_corpus.json` is built from HKCanCor rather than from
-  LIHKG — LIHKG is the next candidate ranking signal, so it must stay out of the
-  eval sets or the same circularity returns one step removed.
-
----
-
-# The `spoken_corpus` query set
+## The `spoken_corpus` query set
 
 `eval/build_spoken_corpus_eval.py` -> `eval/query_sets/spoken_corpus.json`
 (1,346 cases, ids 7001+).
 
-## Why HKCanCor
+### Why HKCanCor
 
 Every other query set is either hand-authored or derived from data that now
 feeds the ranker. HKCanCor is independent of every ranking signal in the project:
@@ -230,7 +240,10 @@ It is also a better model of the actual complaint than a homophone-pair set:
 every case is a word a real person actually said, looked up by the jyutping they
 actually said it with.
 
-## Construction
+### Construction
+
+Requires `pip install -r eval/requirements.txt` (pycantonese, which vendors the
+corpus — no corpus data is checked into this repo).
 
 Every case is guaranteed to be a **ranking** test, never a coverage test — the
 headword exists in the project's own Cantonese sources *and* the queried reading
@@ -250,7 +263,7 @@ would overfit the set to today's ranker. Each case instead carries a
 `competitors` count and tags, so the set can be sliced by difficulty after the
 fact and stays valid as the ranker changes.
 
-## Baseline (current ranker, words.hk prior enabled)
+### Baseline (current ranker, words.hk prior enabled)
 
 | Slice | n | p@1 | p@3 |
 |---|---|---|---|
@@ -269,7 +282,7 @@ shares its reading, and then it is not.
 As with `pin_jam`, p@3 is ~100% everywhere. The entry is always retrieved and
 merely demoted, so this is a scoring problem, not a retrieval problem.
 
-## The `variant_risk` tag
+### The `variant_risk` tag
 
 Roughly a fifth of the failures were pairs like 部份/部分, 說話/説話, 痴線/黐線 —
 alternative spellings of one word, where whichever ranks first is arguably fine.
@@ -279,7 +292,7 @@ same-reading rivals whose English glosses overlap (Jaccard >= 0.3) are tagged
 average (67.6% vs 96.9%), which is itself evidence the tag is picking out a real
 category. **Use the `hard` slice (166 cases, 84.9%) as the headline number.**
 
-## Order insensitivity (new bug)
+### Order insensitivity (new bug)
 
 The set surfaced a distinct defect. Querying `gei2 baak3` returns 百幾, 幾十百 and
 others, but **幾百 — an exact, complete match for that reading — is not in the top
@@ -294,9 +307,9 @@ value fix.
 
 ---
 
-# Signals evaluated
+## Signals evaluated
 
-## LIHKG frequency list — recommended next step
+### LIHKG frequency list — recommended next step
 
 `https://raw.githubusercontent.com/AlienKevin/cantonese_frequency_list/56ec4da0963ad1842e755eb1e430df708803c0e2/freq.tsv`
 
@@ -318,7 +331,7 @@ blocker.
 Use `freq.tsv`, **not** `wordhk_freq.tsv` — the latter is filtered by words.hk
 vocabulary and would reintroduce both the circularity and the licence problem.
 
-## Other sources checked
+### Other sources checked
 
 - **Wiktionary via kaikki.org** (CC BY-SA 4.0) — only 3,864 Cantonese rows, most
   bare hanzi with no gloss. Far smaller than expected; weak as an oracle.
@@ -331,3 +344,27 @@ vocabulary and would reintroduce both the circularity and the licence problem.
   `words.hk/static/datasets/corpus_word_frequency.csv`,
   `dumps.wikimedia.org/yuewiki/`, `github.com/kfcd/cantondict`,
   `github.com/mahavivo/cantonese-wordlist`.
+
+---
+
+## Gotchas
+
+- `run_eval.CONSOLE_EXE` points at the **debug** build and `run_batch_queries`
+  has `timeout=300`. Two distinct failure modes follow:
+  - Large query sets silently time out and report 0% accuracy. The tell-tale is
+    that "Start batch..." prints but "Done running!" does not.
+  - The debug binary is easily *stale*, so `run_eval.py` can silently score an
+    older ranker. Running `tone_fuzzy` through `run_eval.py` reports 92% while
+    `run_suite_report.py` reports 100% on the same set — the difference is
+    entirely that the debug build predates the attested prior.
+
+  `run_suite_report.py` defaults to the release build for this reason. When
+  using `run_eval.py` directly, override `CONSOLE_EXE` to
+  `console/target/release/console.exe` and rebuild first.
+- The console reads relative data paths, so run it from the `console/` directory.
+- Any change to static cost is also a change to the length signal.
+- **Never validate a ranking signal against a query set derived from that same
+  signal.** This is why the words.hk prior could not be validated on words.hk
+  data, and why `spoken_corpus.json` is built from HKCanCor rather than from
+  LIHKG — LIHKG is the next candidate ranking signal, so it must stay out of the
+  eval sets or the same circularity returns one step removed.

@@ -1,0 +1,9 @@
+# Python dependencies for the eval harness.
+#
+# Only needed to *build* query sets, not to run them:
+#   build_spoken_corpus_eval.py  -- reads the HKCanCor corpus, which pycantonese
+#                                   vendors (CC BY 4.0), so no corpus data needs
+#                                   to be checked into this repo.
+#
+# run_eval.py and run_suite_report.py use only the standard library.
+pycantonese>=3.4.0

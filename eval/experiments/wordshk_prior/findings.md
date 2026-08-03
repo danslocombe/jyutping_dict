@@ -134,3 +134,36 @@ distribution.
 - 33 of the 54 pin-jam demotions have both candidates in words.hk, so
   attestation cannot separate them. Roughly half are orthographic variants where
   the "wrong" answer is arguably fine (干炒牛河/乾炒牛河, 冷親/冷嚫).
+
+## Addendum: independent confirmation on the full suite
+
+The sweep above could only be run on the sets that existed at the time, several
+of which share source data with words.hk. That made the result suggestive rather
+than conclusive: a prior derived from words.hk, validated partly on words.hk.
+
+`spoken_corpus.json` was built afterwards from HKCanCor specifically to remove
+that circularity, and the whole 2,629-case suite was then re-run with
+`WORDSHK_ATTESTED_BONUS` toggled between 0 and 8,000:
+
+| Slice | n | off | on | Δ |
+|---|---|---|---|---|
+| TOTAL | 2629 | 92.8% | 94.5% | +1.7 |
+| `spoken_corpus` | 1346 | 94.7% | 96.9% | +2.2 |
+| `spoken_corpus` `hard` | 166 | **69.3%** | **84.9%** | **+15.6** |
+| `pin_jam` | 300 | 82.0% | 84.7% | +2.7 |
+
+60 improved, 11 regressed, net +44 at p@1. MRR 0.957 → 0.966.
+
+The `hard` slice is the meaningful one: HKCanCor shares no data with words.hk,
+so this is the first measurement of the prior that is not partly self-referential.
+The gain concentrates on readings with competing headwords, and sets without
+homophone competition (`shorter_entry`, `exact_vs_prefix_extended`) do not move
+at all — which is the expected shape. A prior that had also moved those would
+have meant something else was being measured.
+
+Two regressions, `jat1 maan6` (一萬) and `zau6 gam2` (就噉), turned out to be the
+prior amplifying a separate ordering defect: both orderings are attested words,
+so the bonus applies to both and no ordering signal remains to break the tie.
+See "Order insensitivity" in `eval/RANKING.md`.
+
+Full numbers and the reproduction command are in `eval/RANKING.md`.
