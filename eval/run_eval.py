@@ -151,6 +151,19 @@ def _match_result(test_case: dict, r: dict) -> str | None:
     """Check if a single result matches the test case expectations.
 
     Returns the match type string (e.g. 'character', 'jyutping', 'definition') or None.
+
+    By default `expected_characters` is authoritative: when a case says which
+    characters it wants, nothing else can satisfy it. Falling through to
+    `expected_jyutping` would compare the result's reading against the expected
+    reading, which for a jyutping query is equal for *every homophone* -- so a
+    case expecting 講 would be passed by 港, which is the exact failure these
+    sets exist to measure.
+
+    A case may set `match_on` to pick a single criterion explicitly. This is for
+    sets that assert something other than character identity: `exact_vs_prefix`
+    asserts that an exact-reading match outranks a prefix match ("wo1 exact
+    should beat wok1/wong1 prefix"), so any result reading `wo1` satisfies it and
+    its `expected_characters` are only illustrative.
     """
     r_chars = strip_html(r.get("characters", ""))
     r_jyutping = strip_html(r.get("jyutping", ""))
@@ -159,10 +172,22 @@ def _match_result(test_case: dict, r: dict) -> str | None:
     expected_jyutping = test_case.get("expected_jyutping", [])
     definition_contains = test_case.get("definition_contains", [])
 
+    match_on = test_case.get("match_on")
+    if match_on == "character":
+        expected_jyutping = definition_contains = []
+    elif match_on == "jyutping":
+        expected_chars = definition_contains = []
+    elif match_on == "definition":
+        expected_chars = expected_jyutping = []
+    elif match_on is not None:
+        raise ValueError("test case %s: unknown match_on %r"
+                         % (test_case.get("id"), match_on))
+
     if expected_chars:
         for exp_char in expected_chars:
             if r_chars == exp_char:
                 return "character"
+        return None
 
     if expected_jyutping:
         for exp_jp in expected_jyutping:

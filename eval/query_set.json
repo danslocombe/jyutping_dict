@@ -8821,6 +8821,7 @@
       "do1 di1"
     ],
     "definition_contains": null,
+    "match_on": "jyutping",
     "accept_top_n": 5
   },
   {
@@ -9020,8 +9021,11 @@
     "category": "exact_vs_prefix",
     "description": "Multi-syllable with tone: exact do1 + exact di1 should beat dou+dim combos",
     "expected_characters": null,
-    "expected_jyutping": null,
+    "expected_jyutping": [
+      "do1 di1"
+    ],
     "definition_contains": "more",
+    "match_on": "jyutping",
     "accept_top_n": 5
   },
   {
@@ -9062,6 +9066,7 @@
       "do2"
     ],
     "definition_contains": null,
+    "match_on": "jyutping",
     "accept_top_n": 1
   },
   {

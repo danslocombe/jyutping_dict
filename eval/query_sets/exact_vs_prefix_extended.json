@@ -4,399 +4,762 @@
     "query": "ho2",
     "category": "exact_vs_prefix",
     "description": "ho2 exact (可/好) should beat hou2/hoi2 prefix",
-    "expected_characters": ["可"],
-    "expected_jyutping": ["ho2"],
+    "expected_characters": [
+      "可"
+    ],
+    "expected_jyutping": [
+      "ho2"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2002,
     "query": "ho4",
     "category": "exact_vs_prefix",
     "description": "ho4 exact (何/河) should beat hou4/hoi4/hok4 prefix",
-    "expected_characters": ["何", "河"],
-    "expected_jyutping": ["ho4"],
+    "expected_characters": [
+      "何",
+      "河"
+    ],
+    "expected_jyutping": [
+      "ho4"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2003,
     "query": "ho1",
     "category": "exact_vs_prefix",
     "description": "ho1 exact (呵) should beat hou1/hoi1/hok1 prefix",
-    "expected_characters": ["呵"],
-    "expected_jyutping": ["ho1"],
+    "expected_characters": [
+      "呵"
+    ],
+    "expected_jyutping": [
+      "ho1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2004,
     "query": "ho",
     "category": "exact_vs_prefix",
     "description": "ho (no tone) exact should beat hou/hoi/hok prefix",
-    "expected_characters": ["可", "何", "河", "呵"],
-    "expected_jyutping": ["ho2", "ho4", "ho1"],
+    "expected_characters": [
+      "可",
+      "何",
+      "河",
+      "呵"
+    ],
+    "expected_jyutping": [
+      "ho2",
+      "ho4",
+      "ho1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2005,
     "query": "wo4",
     "category": "exact_vs_prefix",
     "description": "wo4 exact (和/禾) should beat wong4/wok4 prefix",
-    "expected_characters": ["和", "禾"],
-    "expected_jyutping": ["wo4"],
+    "expected_characters": [
+      "和",
+      "禾"
+    ],
+    "expected_jyutping": [
+      "wo4"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2006,
     "query": "wo1",
     "category": "exact_vs_prefix",
     "description": "wo1 exact (窩/倭) should beat wok1/wong1 prefix",
-    "expected_characters": ["窩", "倭"],
-    "expected_jyutping": ["wo1"],
+    "expected_characters": [
+      "窩",
+      "倭"
+    ],
+    "expected_jyutping": [
+      "wo1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2007,
     "query": "wo6",
     "category": "exact_vs_prefix",
     "description": "wo6 exact (禍) should beat wok6/wong6 prefix",
-    "expected_characters": ["禍"],
-    "expected_jyutping": ["wo6"],
+    "expected_characters": [
+      "禍"
+    ],
+    "expected_jyutping": [
+      "wo6"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2008,
     "query": "po3",
     "category": "exact_vs_prefix",
     "description": "po3 exact (破) should beat pou3/pok3 prefix",
-    "expected_characters": ["破"],
-    "expected_jyutping": ["po3"],
+    "expected_characters": [
+      "破"
+    ],
+    "expected_jyutping": [
+      "po3"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2009,
     "query": "po4",
     "category": "exact_vs_prefix",
     "description": "po4 exact (婆) should beat pou4/pong4 prefix",
-    "expected_characters": ["婆"],
-    "expected_jyutping": ["po4"],
+    "expected_characters": [
+      "婆"
+    ],
+    "expected_jyutping": [
+      "po4"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2010,
     "query": "po2",
     "category": "exact_vs_prefix",
     "description": "po2 exact (頗) should beat pou2 prefix",
-    "expected_characters": ["頗"],
-    "expected_jyutping": ["po2"],
+    "expected_characters": [
+      "頗"
+    ],
+    "expected_jyutping": [
+      "po2"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2011,
     "query": "ze1",
     "category": "exact_vs_prefix",
     "description": "ze1 exact (遮) should beat zek1/zeng1 prefix",
-    "expected_characters": ["遮"],
-    "expected_jyutping": ["ze1"],
+    "expected_characters": [
+      "遮"
+    ],
+    "expected_jyutping": [
+      "ze1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2012,
     "query": "ze2",
     "category": "exact_vs_prefix",
     "description": "ze2 exact (者/姐) should beat zek2/zeng2 prefix",
-    "expected_characters": ["者", "姐"],
-    "expected_jyutping": ["ze2"],
+    "expected_characters": [
+      "者",
+      "姐"
+    ],
+    "expected_jyutping": [
+      "ze2"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2013,
     "query": "ze3",
     "category": "exact_vs_prefix",
     "description": "ze3 exact (借/蔗) should beat zek3/zeng3 prefix",
-    "expected_characters": ["借", "蔗"],
-    "expected_jyutping": ["ze3"],
+    "expected_characters": [
+      "借",
+      "蔗"
+    ],
+    "expected_jyutping": [
+      "ze3"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2014,
     "query": "ze6",
     "category": "exact_vs_prefix",
     "description": "ze6 exact (謝) should beat zek6/zeng6 prefix",
-    "expected_characters": ["謝", "藉"],
-    "expected_jyutping": ["ze6"],
+    "expected_characters": [
+      "謝",
+      "藉"
+    ],
+    "expected_jyutping": [
+      "ze6"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2015,
     "query": "ce1",
     "category": "exact_vs_prefix",
     "description": "ce1 exact (車) should beat ceoi1/cek1 prefix",
-    "expected_characters": ["車"],
-    "expected_jyutping": ["ce1"],
+    "expected_characters": [
+      "車"
+    ],
+    "expected_jyutping": [
+      "ce1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2016,
     "query": "ce4",
     "category": "exact_vs_prefix",
     "description": "ce4 exact (斜/邪) should beat ceoi4 prefix",
-    "expected_characters": ["斜", "邪"],
-    "expected_jyutping": ["ce4"],
+    "expected_characters": [
+      "斜",
+      "邪"
+    ],
+    "expected_jyutping": [
+      "ce4"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2017,
     "query": "me1",
     "category": "exact_vs_prefix",
     "description": "me1 exact (咩) should beat mei1 prefix - common Cantonese particle",
-    "expected_characters": ["咩"],
-    "expected_jyutping": ["me1"],
+    "expected_characters": [
+      "咩"
+    ],
+    "expected_jyutping": [
+      "me1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2018,
     "query": "ne1",
     "category": "exact_vs_prefix",
     "description": "ne1 exact (呢) should beat nei1 prefix - common particle",
-    "expected_characters": ["呢"],
-    "expected_jyutping": ["ne1"],
+    "expected_characters": [
+      "呢"
+    ],
+    "expected_jyutping": [
+      "ne1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2019,
     "query": "le",
     "category": "exact_vs_prefix",
     "description": "le exact should beat lei/leoi/leon prefix",
-    "expected_characters": ["哩", "咧"],
-    "expected_jyutping": ["le1", "le2", "le4", "le5"],
+    "expected_characters": [
+      "哩",
+      "咧"
+    ],
+    "expected_jyutping": [
+      "le1",
+      "le2",
+      "le4",
+      "le5"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2020,
     "query": "be1",
     "category": "exact_vs_prefix",
     "description": "be1 exact (啤) should beat bei1/beng1 prefix",
-    "expected_characters": ["啤"],
-    "expected_jyutping": ["be1"],
+    "expected_characters": [
+      "啤"
+    ],
+    "expected_jyutping": [
+      "be1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2021,
     "query": "fe1",
     "category": "exact_vs_prefix",
     "description": "fe1 exact (啡) should beat fei1 prefix",
-    "expected_characters": ["啡"],
-    "expected_jyutping": ["fe1"],
+    "expected_characters": [
+      "啡"
+    ],
+    "expected_jyutping": [
+      "fe1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2022,
     "query": "ke2",
     "category": "exact_vs_prefix",
     "description": "ke2 exact (茄) should beat kei2/keoi2 prefix",
-    "expected_characters": ["茄"],
-    "expected_jyutping": ["ke2"],
+    "expected_characters": [
+      "茄"
+    ],
+    "expected_jyutping": [
+      "ke2"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2023,
     "query": "zi1",
     "category": "exact_vs_prefix",
     "description": "zi1 exact (之/知/姿/資) should beat zik1/zin1/zing1 prefix",
-    "expected_characters": ["之", "知", "姿", "資"],
-    "expected_jyutping": ["zi1"],
+    "expected_characters": [
+      "之",
+      "知",
+      "姿",
+      "資"
+    ],
+    "expected_jyutping": [
+      "zi1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2024,
     "query": "zi2",
     "category": "exact_vs_prefix",
     "description": "zi2 exact (子/只/紙/指) should beat zik2/zin2 prefix",
-    "expected_characters": ["子", "只", "紙", "指"],
-    "expected_jyutping": ["zi2"],
+    "expected_characters": [
+      "子",
+      "只",
+      "紙",
+      "指"
+    ],
+    "expected_jyutping": [
+      "zi2"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2025,
     "query": "zi6",
     "category": "exact_vs_prefix",
     "description": "zi6 exact (字/自) should beat zik6 prefix",
-    "expected_characters": ["字", "自"],
-    "expected_jyutping": ["zi6"],
+    "expected_characters": [
+      "字",
+      "自"
+    ],
+    "expected_jyutping": [
+      "zi6"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2026,
     "query": "ci1",
     "category": "exact_vs_prefix",
     "description": "ci1 exact (雌) should beat cik1/cin1/cing1 prefix",
-    "expected_characters": ["雌"],
-    "expected_jyutping": ["ci1"],
+    "expected_characters": [
+      "雌"
+    ],
+    "expected_jyutping": [
+      "ci1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2027,
     "query": "ci4",
     "category": "exact_vs_prefix",
     "description": "ci4 exact (慈/匙/詞) should beat cik4/cin4/cing4 prefix",
-    "expected_characters": ["慈", "匙", "詞"],
-    "expected_jyutping": ["ci4"],
+    "expected_characters": [
+      "慈",
+      "匙",
+      "詞"
+    ],
+    "expected_jyutping": [
+      "ci4"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2028,
     "query": "ci5",
     "category": "exact_vs_prefix",
     "description": "ci5 exact (似) should beat cin5 prefix",
-    "expected_characters": ["似"],
-    "expected_jyutping": ["ci5"],
+    "expected_characters": [
+      "似"
+    ],
+    "expected_jyutping": [
+      "ci5"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2029,
     "query": "gu1",
     "category": "exact_vs_prefix",
     "description": "gu1 exact (姑/菇/沽) should beat guk1/gun1/gung1 prefix",
-    "expected_characters": ["姑", "菇", "沽"],
-    "expected_jyutping": ["gu1"],
+    "expected_characters": [
+      "姑",
+      "菇",
+      "沽"
+    ],
+    "expected_jyutping": [
+      "gu1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2030,
     "query": "gu2",
     "category": "exact_vs_prefix",
     "description": "gu2 exact (古/股/估) should beat guk2/gun2/gung2 prefix",
-    "expected_characters": ["古", "股", "估"],
-    "expected_jyutping": ["gu2"],
+    "expected_characters": [
+      "古",
+      "股",
+      "估"
+    ],
+    "expected_jyutping": [
+      "gu2"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2031,
     "query": "gu3",
     "category": "exact_vs_prefix",
     "description": "gu3 exact (固/故/顧) should beat guk3/gung3 prefix",
-    "expected_characters": ["固", "故", "顧"],
-    "expected_jyutping": ["gu3"],
+    "expected_characters": [
+      "固",
+      "故",
+      "顧"
+    ],
+    "expected_jyutping": [
+      "gu3"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2032,
     "query": "fu1",
     "category": "exact_vs_prefix",
     "description": "fu1 exact (夫/膚) should beat fuk1/fun1/fung1 prefix",
-    "expected_characters": ["夫", "膚"],
-    "expected_jyutping": ["fu1"],
+    "expected_characters": [
+      "夫",
+      "膚"
+    ],
+    "expected_jyutping": [
+      "fu1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2033,
     "query": "fu2",
     "category": "exact_vs_prefix",
     "description": "fu2 exact (苦/府/虎) should beat fuk2/fun2/fung2 prefix",
-    "expected_characters": ["苦", "府", "虎"],
-    "expected_jyutping": ["fu2"],
+    "expected_characters": [
+      "苦",
+      "府",
+      "虎"
+    ],
+    "expected_jyutping": [
+      "fu2"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2034,
     "query": "fu3",
     "category": "exact_vs_prefix",
     "description": "fu3 exact (副/富/庫) should beat fuk3/fung3 prefix",
-    "expected_characters": ["副", "富", "庫"],
-    "expected_jyutping": ["fu3"],
+    "expected_characters": [
+      "副",
+      "富",
+      "庫"
+    ],
+    "expected_jyutping": [
+      "fu3"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2035,
     "query": "fu6",
     "category": "exact_vs_prefix",
     "description": "fu6 exact (付/負/附) should beat fuk6 prefix",
-    "expected_characters": ["付", "負", "附"],
-    "expected_jyutping": ["fu6"],
+    "expected_characters": [
+      "付",
+      "負",
+      "附"
+    ],
+    "expected_jyutping": [
+      "fu6"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2036,
     "query": "wu1",
     "category": "exact_vs_prefix",
     "description": "wu1 exact (烏/污) should beat wui1/wun1 prefix",
-    "expected_characters": ["烏", "污"],
-    "expected_jyutping": ["wu1"],
+    "expected_characters": [
+      "烏",
+      "污"
+    ],
+    "expected_jyutping": [
+      "wu1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2037,
     "query": "wu4",
     "category": "exact_vs_prefix",
     "description": "wu4 exact (湖/胡/狐) should beat wui4/wun4 prefix",
-    "expected_characters": ["湖", "胡", "狐"],
-    "expected_jyutping": ["wu4"],
+    "expected_characters": [
+      "湖",
+      "胡",
+      "狐"
+    ],
+    "expected_jyutping": [
+      "wu4"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2038,
     "query": "wu6",
     "category": "exact_vs_prefix",
     "description": "wu6 exact (互/戶/護) should beat wui6/wun6 prefix",
-    "expected_characters": ["互", "戶", "護"],
-    "expected_jyutping": ["wu6"],
+    "expected_characters": [
+      "互",
+      "戶",
+      "護"
+    ],
+    "expected_jyutping": [
+      "wu6"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2039,
     "query": "de1",
     "category": "exact_vs_prefix",
     "description": "de1 exact (爹) should beat dei1/dek1/deng1 prefix",
-    "expected_characters": ["爹"],
-    "expected_jyutping": ["de1"],
+    "expected_characters": [
+      "爹"
+    ],
+    "expected_jyutping": [
+      "de1"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   },
   {
     "id": 2040,
     "query": "ke4",
     "category": "exact_vs_prefix",
     "description": "ke4 exact (騎) should beat kei4/keoi4 prefix",
-    "expected_characters": ["騎"],
-    "expected_jyutping": ["ke4"],
+    "expected_characters": [
+      "騎"
+    ],
+    "expected_jyutping": [
+      "ke4"
+    ],
     "accept_top_n": 1,
-    "tags": ["exact-match", "short-syllable"]
+    "tags": [
+      "exact-match",
+      "short-syllable"
+    ],
+    "match_on": "jyutping"
   }
 ]

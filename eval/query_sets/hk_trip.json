@@ -1,22 +1,5 @@
 [
   {
-    "id": 5001,
-    "query": "nei5 hou2 maa3",
-    "category": "hk_greetings",
-    "description": "How are you?",
-    "expected_jyutping": [
-      "nei5 hou2 maa3"
-    ],
-    "accept_top_n": 2,
-    "tags": [
-      "hk_trip",
-      "multi_syllable"
-    ],
-    "definition_contains": [
-      "How are you"
-    ]
-  },
-  {
     "id": 5002,
     "query": "zou2 san4",
     "category": "hk_greetings",
@@ -31,23 +14,9 @@
     ],
     "definition_contains": [
       "Good morning"
-    ]
-  },
-  {
-    "id": 5003,
-    "query": "maan5 ngon1",
-    "category": "hk_greetings",
-    "description": "Good night (ending statement not greeting)",
-    "expected_jyutping": [
-      "maan5 ngon1"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Good night"
+    "expected_characters": [
+      "早晨"
     ]
   },
   {
@@ -65,6 +34,9 @@
     ],
     "definition_contains": [
       "Hi"
+    ],
+    "expected_characters": [
+      "喂"
     ]
   },
   {
@@ -82,6 +54,9 @@
     ],
     "definition_contains": [
       "Hello"
+    ],
+    "expected_characters": [
+      "喂"
     ]
   },
   {
@@ -99,6 +74,9 @@
     ],
     "definition_contains": [
       "Thank you"
+    ],
+    "expected_characters": [
+      "唔該"
     ]
   },
   {
@@ -116,6 +94,9 @@
     ],
     "definition_contains": [
       "Thank you"
+    ],
+    "expected_characters": [
+      "多謝"
     ]
   },
   {
@@ -133,6 +114,10 @@
     ],
     "definition_contains": [
       "Thank you very much"
+    ],
+    "expected_characters": [
+      "唔該嗮",
+      "唔該晒"
     ]
   },
   {
@@ -150,6 +135,11 @@
     ],
     "definition_contains": [
       "Thank you very much"
+    ],
+    "expected_characters": [
+      "多謝嗮",
+      "多謝晒",
+      "多謝曬"
     ]
   },
   {
@@ -167,6 +157,9 @@
     ],
     "definition_contains": [
       "Sorry"
+    ],
+    "expected_characters": [
+      "對唔住"
     ]
   },
   {
@@ -184,6 +177,9 @@
     ],
     "definition_contains": [
       "Bye"
+    ],
+    "expected_characters": [
+      "拜拜"
     ]
   },
   {
@@ -201,6 +197,9 @@
     ],
     "definition_contains": [
       "Goodbye"
+    ],
+    "expected_characters": [
+      "再見"
     ]
   },
   {
@@ -218,23 +217,9 @@
     ],
     "definition_contains": [
       "You're welcome"
-    ]
-  },
-  {
-    "id": 5014,
-    "query": "sik6 zo2 faan6 mei6",
-    "category": "hk_greetings",
-    "description": "Have you eaten yet? (You alright - type greeting)",
-    "expected_jyutping": [
-      "sik6 zo2 faan6 mei6"
     ],
-    "accept_top_n": 3,
-    "tags": [
-      "hk_trip",
-      "multi_syllable"
-    ],
-    "definition_contains": [
-      "Have you eaten yet"
+    "expected_characters": [
+      "唔駛客氣"
     ]
   },
   {
@@ -252,6 +237,9 @@
     ],
     "definition_contains": [
       "No need"
+    ],
+    "expected_characters": [
+      "唔使"
     ]
   },
   {
@@ -269,6 +257,9 @@
     ],
     "definition_contains": [
       "I am"
+    ],
+    "expected_characters": [
+      "我係"
     ]
   },
   {
@@ -286,6 +277,11 @@
     ],
     "definition_contains": [
       "You"
+    ],
+    "expected_characters": [
+      "你",
+      "妳",
+      "您"
     ]
   },
   {
@@ -303,6 +299,10 @@
     ],
     "definition_contains": [
       "We"
+    ],
+    "expected_characters": [
+      "我哋",
+      "我地"
     ]
   },
   {
@@ -320,6 +320,9 @@
     ],
     "definition_contains": [
       "He"
+    ],
+    "expected_characters": [
+      "佢"
     ]
   },
   {
@@ -337,6 +340,10 @@
     ],
     "definition_contains": [
       "They"
+    ],
+    "expected_characters": [
+      "佢哋",
+      "佢地"
     ]
   },
   {
@@ -354,6 +361,9 @@
     ],
     "definition_contains": [
       "This"
+    ],
+    "expected_characters": [
+      "呢個"
     ]
   },
   {
@@ -371,6 +381,9 @@
     ],
     "definition_contains": [
       "That"
+    ],
+    "expected_characters": [
+      "嗰個"
     ]
   },
   {
@@ -388,6 +401,9 @@
     ],
     "definition_contains": [
       "Big"
+    ],
+    "expected_characters": [
+      "大"
     ]
   },
   {
@@ -405,6 +421,9 @@
     ],
     "definition_contains": [
       "Medium"
+    ],
+    "expected_characters": [
+      "中"
     ]
   },
   {
@@ -422,6 +441,10 @@
     ],
     "definition_contains": [
       "Small"
+    ],
+    "expected_characters": [
+      "些",
+      "細"
     ]
   },
   {
@@ -439,6 +462,9 @@
     ],
     "definition_contains": [
       "Many"
+    ],
+    "expected_characters": [
+      "好多"
     ]
   },
   {
@@ -456,6 +482,9 @@
     ],
     "definition_contains": [
       "want to"
+    ],
+    "expected_characters": [
+      "想"
     ]
   },
   {
@@ -473,6 +502,9 @@
     ],
     "definition_contains": [
       "need"
+    ],
+    "expected_characters": [
+      "要"
     ]
   },
   {
@@ -490,6 +522,9 @@
     ],
     "definition_contains": [
       "[I"
+    ],
+    "expected_characters": [
+      "想要"
     ]
   },
   {
@@ -507,6 +542,9 @@
     ],
     "definition_contains": [
       "Can"
+    ],
+    "expected_characters": [
+      "可以"
     ]
   },
   {
@@ -524,6 +562,9 @@
     ],
     "definition_contains": [
       "have"
+    ],
+    "expected_characters": [
+      "有"
     ]
   },
   {
@@ -541,6 +582,9 @@
     ],
     "definition_contains": [
       "not have"
+    ],
+    "expected_characters": [
+      "冇"
     ]
   },
   {
@@ -558,6 +602,9 @@
     ],
     "definition_contains": [
       "Do"
+    ],
+    "expected_characters": [
+      "有冇"
     ]
   },
   {
@@ -575,6 +622,9 @@
     ],
     "definition_contains": [
       "go"
+    ],
+    "expected_characters": [
+      "去"
     ]
   },
   {
@@ -592,6 +642,9 @@
     ],
     "definition_contains": [
       "come"
+    ],
+    "expected_characters": [
+      "嚟"
     ]
   },
   {
@@ -609,23 +662,12 @@
     ],
     "definition_contains": [
       "like"
-    ]
-  },
-  {
-    "id": 5037,
-    "query": "m4 zung1 ji3",
-    "category": "hk_core",
-    "description": "To not like",
-    "expected_jyutping": [
-      "m4 zung1 ji3"
     ],
-    "accept_top_n": 2,
-    "tags": [
-      "hk_trip",
-      "multi_syllable"
-    ],
-    "definition_contains": [
-      "not like"
+    "expected_characters": [
+      "鍾意",
+      "鐘意",
+      "钟意",
+      "锺意"
     ]
   },
   {
@@ -643,6 +685,9 @@
     ],
     "definition_contains": [
       "look"
+    ],
+    "expected_characters": [
+      "睇"
     ]
   },
   {
@@ -660,6 +705,9 @@
     ],
     "definition_contains": [
       "listen"
+    ],
+    "expected_characters": [
+      "聽"
     ]
   },
   {
@@ -677,6 +725,9 @@
     ],
     "definition_contains": [
       "do"
+    ],
+    "expected_characters": [
+      "做"
     ]
   },
   {
@@ -694,6 +745,9 @@
     ],
     "definition_contains": [
       "ask"
+    ],
+    "expected_characters": [
+      "問"
     ]
   },
   {
@@ -711,6 +765,9 @@
     ],
     "definition_contains": [
       "help"
+    ],
+    "expected_characters": [
+      "幫"
     ]
   },
   {
@@ -728,6 +785,9 @@
     ],
     "definition_contains": [
       "think"
+    ],
+    "expected_characters": [
+      "諗"
     ]
   },
   {
@@ -745,6 +805,9 @@
     ],
     "definition_contains": [
       "buy"
+    ],
+    "expected_characters": [
+      "買"
     ]
   },
   {
@@ -762,6 +825,10 @@
     ],
     "definition_contains": [
       "drink"
+    ],
+    "expected_characters": [
+      "飮",
+      "飲"
     ]
   },
   {
@@ -779,6 +846,10 @@
     ],
     "definition_contains": [
       "eat"
+    ],
+    "expected_characters": [
+      "蝕",
+      "食"
     ]
   },
   {
@@ -796,6 +867,9 @@
     ],
     "definition_contains": [
       "speak"
+    ],
+    "expected_characters": [
+      "講"
     ]
   },
   {
@@ -813,6 +887,9 @@
     ],
     "definition_contains": [
       "Find"
+    ],
+    "expected_characters": [
+      "搵"
     ]
   },
   {
@@ -830,6 +907,9 @@
     ],
     "definition_contains": [
       "Take"
+    ],
+    "expected_characters": [
+      "攞"
     ]
   },
   {
@@ -847,6 +927,11 @@
     ],
     "definition_contains": [
       "Choose"
+    ],
+    "expected_characters": [
+      "揀",
+      "柬",
+      "簡"
     ]
   },
   {
@@ -864,6 +949,9 @@
     ],
     "definition_contains": [
       "Some"
+    ],
+    "expected_characters": [
+      "啲"
     ]
   },
   {
@@ -878,6 +966,9 @@
     "tags": [
       "hk_trip",
       "single_syllable"
+    ],
+    "expected_characters": [
+      "咩"
     ]
   },
   {
@@ -895,6 +986,9 @@
     ],
     "definition_contains": [
       "Why"
+    ],
+    "expected_characters": [
+      "點解"
     ]
   },
   {
@@ -912,6 +1006,9 @@
     ],
     "definition_contains": [
       "Because"
+    ],
+    "expected_characters": [
+      "因為"
     ]
   },
   {
@@ -929,6 +1026,11 @@
     ],
     "definition_contains": [
       "Where"
+    ],
+    "expected_characters": [
+      "焉道",
+      "邊喥",
+      "邊度"
     ]
   },
   {
@@ -946,6 +1048,9 @@
     ],
     "definition_contains": [
       "When"
+    ],
+    "expected_characters": [
+      "幾時"
     ]
   },
   {
@@ -963,6 +1068,10 @@
     ],
     "definition_contains": [
       "Who"
+    ],
+    "expected_characters": [
+      "邊个",
+      "邊個"
     ]
   },
   {
@@ -980,6 +1089,9 @@
     ],
     "definition_contains": [
       "How many"
+    ],
+    "expected_characters": [
+      "幾多"
     ]
   },
   {
@@ -997,6 +1109,9 @@
     ],
     "definition_contains": [
       "Yes"
+    ],
+    "expected_characters": [
+      "嗎"
     ]
   },
   {
@@ -1014,6 +1129,9 @@
     ],
     "definition_contains": [
       "But, however"
+    ],
+    "expected_characters": [
+      "但係"
     ]
   },
   {
@@ -1031,6 +1149,9 @@
     ],
     "definition_contains": [
       "Ok got it"
+    ],
+    "expected_characters": [
+      "得"
     ]
   },
   {
@@ -1048,6 +1169,9 @@
     ],
     "definition_contains": [
       "Maybe"
+    ],
+    "expected_characters": [
+      "可能"
     ]
   },
   {
@@ -1065,6 +1189,9 @@
     ],
     "definition_contains": [
       "All, every"
+    ],
+    "expected_characters": [
+      "都"
     ]
   },
   {
@@ -1082,23 +1209,9 @@
     ],
     "definition_contains": [
       "More than; Above"
-    ]
-  },
-  {
-    "id": 5065,
-    "query": "m4 gan3",
-    "category": "hk_core",
-    "description": "Not enough",
-    "expected_jyutping": [
-      "m4 gan3"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Not enough"
+    "expected_characters": [
+      "以上"
     ]
   },
   {
@@ -1116,6 +1229,9 @@
     ],
     "definition_contains": [
       "Enough"
+    ],
+    "expected_characters": [
+      "夠"
     ]
   },
   {
@@ -1133,6 +1249,9 @@
     ],
     "definition_contains": [
       "Right now; now; this moment"
+    ],
+    "expected_characters": [
+      "而家"
     ]
   },
   {
@@ -1150,6 +1269,9 @@
     ],
     "definition_contains": [
       "bit more"
+    ],
+    "expected_characters": [
+      "多啲"
     ]
   },
   {
@@ -1167,6 +1289,9 @@
     ],
     "definition_contains": [
       "formal"
+    ],
+    "expected_characters": [
+      "請"
     ]
   },
   {
@@ -1184,6 +1309,10 @@
     ],
     "definition_contains": [
       "One"
+    ],
+    "expected_characters": [
+      "一",
+      "壹"
     ]
   },
   {
@@ -1201,6 +1330,10 @@
     ],
     "definition_contains": [
       "Two"
+    ],
+    "expected_characters": [
+      "二",
+      "貳"
     ]
   },
   {
@@ -1218,6 +1351,11 @@
     ],
     "definition_contains": [
       "Three"
+    ],
+    "expected_characters": [
+      "三",
+      "仨",
+      "參"
     ]
   },
   {
@@ -1235,6 +1373,10 @@
     ],
     "definition_contains": [
       "Four"
+    ],
+    "expected_characters": [
+      "四",
+      "肆"
     ]
   },
   {
@@ -1252,6 +1394,10 @@
     ],
     "definition_contains": [
       "Five"
+    ],
+    "expected_characters": [
+      "五",
+      "伍"
     ]
   },
   {
@@ -1269,6 +1415,10 @@
     ],
     "definition_contains": [
       "Six"
+    ],
+    "expected_characters": [
+      "六",
+      "陸"
     ]
   },
   {
@@ -1286,6 +1436,10 @@
     ],
     "definition_contains": [
       "Seven"
+    ],
+    "expected_characters": [
+      "七",
+      "柒"
     ]
   },
   {
@@ -1303,6 +1457,10 @@
     ],
     "definition_contains": [
       "Eight"
+    ],
+    "expected_characters": [
+      "八",
+      "捌"
     ]
   },
   {
@@ -1320,6 +1478,10 @@
     ],
     "definition_contains": [
       "Nine"
+    ],
+    "expected_characters": [
+      "九",
+      "玖"
     ]
   },
   {
@@ -1337,6 +1499,11 @@
     ],
     "definition_contains": [
       "Ten"
+    ],
+    "expected_characters": [
+      "什",
+      "十",
+      "拾"
     ]
   },
   {
@@ -1354,6 +1521,9 @@
     ],
     "definition_contains": [
       "Dim sum"
+    ],
+    "expected_characters": [
+      "點心"
     ]
   },
   {
@@ -1371,23 +1541,9 @@
     ],
     "definition_contains": [
       "Shrimp Dumpling"
-    ]
-  },
-  {
-    "id": 5082,
-    "query": "siu1 maai2",
-    "category": "hk_food",
-    "description": "Steamed Dumpling (Shiu Mai)",
-    "expected_jyutping": [
-      "siu1 maai2"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Steamed Dumpling"
+    "expected_characters": [
+      "蝦餃"
     ]
   },
   {
@@ -1405,6 +1561,9 @@
     ],
     "definition_contains": [
       "Shrimp Rice Noodle Roll"
+    ],
+    "expected_characters": [
+      "蝦腸"
     ]
   },
   {
@@ -1422,6 +1581,10 @@
     ],
     "definition_contains": [
       "Tea"
+    ],
+    "expected_characters": [
+      "茶",
+      "荼"
     ]
   },
   {
@@ -1439,6 +1602,11 @@
     ],
     "definition_contains": [
       "Water"
+    ],
+    "expected_characters": [
+      "水",
+      "氵",
+      "氺"
     ]
   },
   {
@@ -1456,6 +1624,9 @@
     ],
     "definition_contains": [
       "Coffee"
+    ],
+    "expected_characters": [
+      "咖啡"
     ]
   },
   {
@@ -1473,6 +1644,9 @@
     ],
     "definition_contains": [
       "Milk Tea"
+    ],
+    "expected_characters": [
+      "奶茶"
     ]
   },
   {
@@ -1490,6 +1664,9 @@
     ],
     "definition_contains": [
       "Bubble Tea"
+    ],
+    "expected_characters": [
+      "珍珠奶茶"
     ]
   },
   {
@@ -1507,6 +1684,9 @@
     ],
     "definition_contains": [
       "Rice"
+    ],
+    "expected_characters": [
+      "飯"
     ]
   },
   {
@@ -1524,6 +1704,9 @@
     ],
     "definition_contains": [
       "Chicken"
+    ],
+    "expected_characters": [
+      "雞肉"
     ]
   },
   {
@@ -1541,6 +1724,9 @@
     ],
     "definition_contains": [
       "Beef"
+    ],
+    "expected_characters": [
+      "牛肉"
     ]
   },
   {
@@ -1558,6 +1744,9 @@
     ],
     "definition_contains": [
       "Tofu"
+    ],
+    "expected_characters": [
+      "豆腐"
     ]
   },
   {
@@ -1575,6 +1764,9 @@
     ],
     "definition_contains": [
       "Fish"
+    ],
+    "expected_characters": [
+      "魚"
     ]
   },
   {
@@ -1592,6 +1784,9 @@
     ],
     "definition_contains": [
       "Soup"
+    ],
+    "expected_characters": [
+      "湯"
     ]
   },
   {
@@ -1609,6 +1804,9 @@
     ],
     "definition_contains": [
       "Vegetable; Dish"
+    ],
+    "expected_characters": [
+      "菜"
     ]
   },
   {
@@ -1626,6 +1824,9 @@
     ],
     "definition_contains": [
       "Egg"
+    ],
+    "expected_characters": [
+      "蛋"
     ]
   },
   {
@@ -1643,6 +1844,9 @@
     ],
     "definition_contains": [
       "be a vegetarian"
+    ],
+    "expected_characters": [
+      "食齋"
     ]
   },
   {
@@ -1660,6 +1864,9 @@
     ],
     "definition_contains": [
       "Cold"
+    ],
+    "expected_characters": [
+      "凍"
     ]
   },
   {
@@ -1677,6 +1884,9 @@
     ],
     "definition_contains": [
       "Hot"
+    ],
+    "expected_characters": [
+      "熱"
     ]
   },
   {
@@ -1694,6 +1904,10 @@
     ],
     "definition_contains": [
       "To"
+    ],
+    "expected_characters": [
+      "吵",
+      "炒"
     ]
   },
   {
@@ -1711,6 +1925,9 @@
     ],
     "definition_contains": [
       "steam"
+    ],
+    "expected_characters": [
+      "蒸"
     ]
   },
   {
@@ -1728,6 +1945,9 @@
     ],
     "definition_contains": [
       "Buying groceries"
+    ],
+    "expected_characters": [
+      "買餸"
     ]
   },
   {
@@ -1745,6 +1965,9 @@
     ],
     "definition_contains": [
       "Fresh"
+    ],
+    "expected_characters": [
+      "新鮮"
     ]
   },
   {
@@ -1762,6 +1985,9 @@
     ],
     "definition_contains": [
       "Cook a meal"
+    ],
+    "expected_characters": [
+      "煮飯"
     ]
   },
   {
@@ -1779,6 +2005,9 @@
     ],
     "definition_contains": [
       "Subway"
+    ],
+    "expected_characters": [
+      "地鐵"
     ]
   },
   {
@@ -1796,6 +2025,9 @@
     ],
     "definition_contains": [
       "Bus"
+    ],
+    "expected_characters": [
+      "巴士"
     ]
   },
   {
@@ -1813,6 +2045,9 @@
     ],
     "definition_contains": [
       "Taxi"
+    ],
+    "expected_characters": [
+      "的士"
     ]
   },
   {
@@ -1830,23 +2065,9 @@
     ],
     "definition_contains": [
       "Train"
-    ]
-  },
-  {
-    "id": 5109,
-    "query": "haang4 lou6",
-    "category": "hk_transport",
-    "description": "To walk",
-    "expected_jyutping": [
-      "haang4 lou6"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "walk"
+    "expected_characters": [
+      "火車"
     ]
   },
   {
@@ -1864,6 +2085,9 @@
     ],
     "definition_contains": [
       "ride a car"
+    ],
+    "expected_characters": [
+      "搭車"
     ]
   },
   {
@@ -1881,6 +2105,9 @@
     ],
     "definition_contains": [
       "Octopus"
+    ],
+    "expected_characters": [
+      "八達通"
     ]
   },
   {
@@ -1898,23 +2125,9 @@
     ],
     "definition_contains": [
       "Stop; Station"
-    ]
-  },
-  {
-    "id": 5113,
-    "query": "haa6 go3 zaam6",
-    "category": "hk_transport",
-    "description": "Next stop",
-    "expected_jyutping": [
-      "haa6 go3 zaam6"
     ],
-    "accept_top_n": 2,
-    "tags": [
-      "hk_trip",
-      "multi_syllable"
-    ],
-    "definition_contains": [
-      "Next stop"
+    "expected_characters": [
+      "站"
     ]
   },
   {
@@ -1932,6 +2145,10 @@
     ],
     "definition_contains": [
       "Line"
+    ],
+    "expected_characters": [
+      "綫",
+      "線"
     ]
   },
   {
@@ -1949,6 +2166,9 @@
     ],
     "definition_contains": [
       "Queue"
+    ],
+    "expected_characters": [
+      "排隊"
     ]
   },
   {
@@ -1966,6 +2186,9 @@
     ],
     "definition_contains": [
       "Get on the vehicle"
+    ],
+    "expected_characters": [
+      "上車"
     ]
   },
   {
@@ -1983,40 +2206,9 @@
     ],
     "definition_contains": [
       "Get off"
-    ]
-  },
-  {
-    "id": 5118,
-    "query": "zyun3 ce1",
-    "category": "hk_transport",
-    "description": "Change / transfer (on transport)",
-    "expected_jyutping": [
-      "zyun3 ce1"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Change"
-    ]
-  },
-  {
-    "id": 5119,
-    "query": "jap6 cin2",
-    "category": "hk_transport",
-    "description": "Top up (eg a metro card)",
-    "expected_jyutping": [
-      "jap6 cin2"
-    ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Top up"
+    "expected_characters": [
+      "落車"
     ]
   },
   {
@@ -2034,6 +2226,9 @@
     ],
     "definition_contains": [
       "Crowded, push squeeze"
+    ],
+    "expected_characters": [
+      "偪"
     ]
   },
   {
@@ -2051,6 +2246,9 @@
     ],
     "definition_contains": [
       "Traffic jam"
+    ],
+    "expected_characters": [
+      "塞車"
     ]
   },
   {
@@ -2068,6 +2266,9 @@
     ],
     "definition_contains": [
       "Please let me through"
+    ],
+    "expected_characters": [
+      "唔該借借"
     ]
   },
   {
@@ -2085,40 +2286,9 @@
     ],
     "definition_contains": [
       "Hong Kong dollar"
-    ]
-  },
-  {
-    "id": 5124,
-    "query": "gei2 cin2",
-    "category": "hk_money",
-    "description": "How much is it?",
-    "expected_jyutping": [
-      "gei2 cin2"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "How much is it"
-    ]
-  },
-  {
-    "id": 5125,
-    "query": "saam1 man1",
-    "category": "hk_money",
-    "description": "Three dollars",
-    "expected_jyutping": [
-      "saam1 man1"
-    ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Three dollars"
+    "expected_characters": [
+      "港幣"
     ]
   },
   {
@@ -2136,6 +2306,9 @@
     ],
     "definition_contains": [
       "Ten cent denomination"
+    ],
+    "expected_characters": [
+      "毫"
     ]
   },
   {
@@ -2153,6 +2326,9 @@
     ],
     "definition_contains": [
       "Cent piece"
+    ],
+    "expected_characters": [
+      "仙"
     ]
   },
   {
@@ -2170,6 +2346,9 @@
     ],
     "definition_contains": [
       "Give me the change"
+    ],
+    "expected_characters": [
+      "找錢"
     ]
   },
   {
@@ -2187,6 +2366,9 @@
     ],
     "definition_contains": [
       "Plastic bag"
+    ],
+    "expected_characters": [
+      "膠袋"
     ]
   },
   {
@@ -2204,6 +2386,10 @@
     ],
     "definition_contains": [
       "Discount"
+    ],
+    "expected_characters": [
+      "折",
+      "摺"
     ]
   },
   {
@@ -2221,6 +2407,9 @@
     ],
     "definition_contains": [
       "Rich, has money"
+    ],
+    "expected_characters": [
+      "有錢"
     ]
   },
   {
@@ -2238,6 +2427,9 @@
     ],
     "definition_contains": [
       "Front"
+    ],
+    "expected_characters": [
+      "前面"
     ]
   },
   {
@@ -2255,6 +2447,9 @@
     ],
     "definition_contains": [
       "Back"
+    ],
+    "expected_characters": [
+      "後面"
     ]
   },
   {
@@ -2272,6 +2467,9 @@
     ],
     "definition_contains": [
       "Top"
+    ],
+    "expected_characters": [
+      "上面"
     ]
   },
   {
@@ -2289,6 +2487,9 @@
     ],
     "definition_contains": [
       "Bottom"
+    ],
+    "expected_characters": [
+      "下面"
     ]
   },
   {
@@ -2306,6 +2507,9 @@
     ],
     "definition_contains": [
       "Left"
+    ],
+    "expected_characters": [
+      "左邊"
     ]
   },
   {
@@ -2323,6 +2527,9 @@
     ],
     "definition_contains": [
       "Right"
+    ],
+    "expected_characters": [
+      "右邊"
     ]
   },
   {
@@ -2340,23 +2547,9 @@
     ],
     "definition_contains": [
       "Inside"
-    ]
-  },
-  {
-    "id": 5139,
-    "query": "ceot1 min6",
-    "category": "hk_directions",
-    "description": "Outside",
-    "expected_jyutping": [
-      "ceot1 min6"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Outside"
+    "expected_characters": [
+      "宗筋"
     ]
   },
   {
@@ -2374,6 +2567,9 @@
     ],
     "definition_contains": [
       "inside"
+    ],
+    "expected_characters": [
+      "入面"
     ]
   },
   {
@@ -2391,6 +2587,9 @@
     ],
     "definition_contains": [
       "Address"
+    ],
+    "expected_characters": [
+      "地址"
     ]
   },
   {
@@ -2408,6 +2607,9 @@
     ],
     "definition_contains": [
       "Nearby"
+    ],
+    "expected_characters": [
+      "附近"
     ]
   },
   {
@@ -2425,6 +2627,9 @@
     ],
     "definition_contains": [
       "Far"
+    ],
+    "expected_characters": [
+      "遠"
     ]
   },
   {
@@ -2442,6 +2647,9 @@
     ],
     "definition_contains": [
       "Near"
+    ],
+    "expected_characters": [
+      "近"
     ]
   },
   {
@@ -2459,6 +2667,9 @@
     ],
     "definition_contains": [
       "Opposite"
+    ],
+    "expected_characters": [
+      "對面"
     ]
   },
   {
@@ -2476,6 +2687,9 @@
     ],
     "definition_contains": [
       "Bank"
+    ],
+    "expected_characters": [
+      "銀行"
     ]
   },
   {
@@ -2493,6 +2707,9 @@
     ],
     "definition_contains": [
       "Park"
+    ],
+    "expected_characters": [
+      "公園"
     ]
   },
   {
@@ -2510,6 +2727,9 @@
     ],
     "definition_contains": [
       "Shopping Mall"
+    ],
+    "expected_characters": [
+      "商場"
     ]
   },
   {
@@ -2527,6 +2747,10 @@
     ],
     "definition_contains": [
       "Toilet"
+    ],
+    "expected_characters": [
+      "厠所",
+      "廁所"
     ]
   },
   {
@@ -2544,23 +2768,9 @@
     ],
     "definition_contains": [
       "Don't understand"
-    ]
-  },
-  {
-    "id": 5151,
-    "query": "me1 ji3 si1",
-    "category": "hk_communication",
-    "description": "What (does it) mean?",
-    "expected_jyutping": [
-      "me1 ji3 si1"
     ],
-    "accept_top_n": 2,
-    "tags": [
-      "hk_trip",
-      "multi_syllable"
-    ],
-    "definition_contains": [
-      "What"
+    "expected_characters": [
+      "唔明"
     ]
   },
   {
@@ -2578,6 +2788,9 @@
     ],
     "definition_contains": [
       "Correct"
+    ],
+    "expected_characters": [
+      "啱"
     ]
   },
   {
@@ -2595,6 +2808,9 @@
     ],
     "definition_contains": [
       "Wrong"
+    ],
+    "expected_characters": [
+      "錯"
     ]
   },
   {
@@ -2612,6 +2828,9 @@
     ],
     "definition_contains": [
       "Don't know"
+    ],
+    "expected_characters": [
+      "唔知"
     ]
   },
   {
@@ -2629,6 +2848,9 @@
     ],
     "definition_contains": [
       "Is What? part of question - Casual"
+    ],
+    "expected_characters": [
+      "乜嘢"
     ]
   },
   {
@@ -2646,6 +2868,9 @@
     ],
     "definition_contains": [
       "Excuse me"
+    ],
+    "expected_characters": [
+      "唔該"
     ]
   },
   {
@@ -2663,6 +2888,9 @@
     ],
     "definition_contains": [
       "Today"
+    ],
+    "expected_characters": [
+      "今日"
     ]
   },
   {
@@ -2680,6 +2908,10 @@
     ],
     "definition_contains": [
       "Yesterday"
+    ],
+    "expected_characters": [
+      "噙日",
+      "琴日"
     ]
   },
   {
@@ -2697,6 +2929,9 @@
     ],
     "definition_contains": [
       "Tomorrow"
+    ],
+    "expected_characters": [
+      "聽日"
     ]
   },
   {
@@ -2714,6 +2949,9 @@
     ],
     "definition_contains": [
       "Morning"
+    ],
+    "expected_characters": [
+      "上晝"
     ]
   },
   {
@@ -2731,23 +2969,9 @@
     ],
     "definition_contains": [
       "Afternoon"
-    ]
-  },
-  {
-    "id": 5162,
-    "query": "je6 maan6",
-    "category": "hk_time",
-    "description": "Evening / night",
-    "expected_jyutping": [
-      "je6 maan6"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Evening"
+    "expected_characters": [
+      "下晝"
     ]
   },
   {
@@ -2765,6 +2989,9 @@
     ],
     "definition_contains": [
       "Time"
+    ],
+    "expected_characters": [
+      "時間"
     ]
   },
   {
@@ -2782,6 +3009,9 @@
     ],
     "definition_contains": [
       "Monday"
+    ],
+    "expected_characters": [
+      "禮拜一"
     ]
   },
   {
@@ -2799,23 +3029,9 @@
     ],
     "definition_contains": [
       "Half"
-    ]
-  },
-  {
-    "id": 5166,
-    "query": "jat1 zan6 gaan1",
-    "category": "hk_time",
-    "description": "Later (time from now)",
-    "expected_jyutping": [
-      "jat1 zan6 gaan1"
     ],
-    "accept_top_n": 2,
-    "tags": [
-      "hk_trip",
-      "multi_syllable"
-    ],
-    "definition_contains": [
-      "Later"
+    "expected_characters": [
+      "一半"
     ]
   },
   {
@@ -2833,6 +3049,9 @@
     ],
     "definition_contains": [
       "Just now"
+    ],
+    "expected_characters": [
+      "頭先"
     ]
   },
   {
@@ -2850,6 +3069,9 @@
     ],
     "definition_contains": [
       "Minute"
+    ],
+    "expected_characters": [
+      "分鐘"
     ]
   },
   {
@@ -2867,6 +3089,9 @@
     ],
     "definition_contains": [
       "How long"
+    ],
+    "expected_characters": [
+      "幾耐"
     ]
   },
   {
@@ -2884,6 +3109,9 @@
     ],
     "definition_contains": [
       "Ache"
+    ],
+    "expected_characters": [
+      "痛"
     ]
   },
   {
@@ -2901,6 +3129,9 @@
     ],
     "definition_contains": [
       "Throat"
+    ],
+    "expected_characters": [
+      "喉嚨"
     ]
   },
   {
@@ -2918,23 +3149,9 @@
     ],
     "definition_contains": [
       "Belly"
-    ]
-  },
-  {
-    "id": 5173,
-    "query": "tou4",
-    "category": "hk_medical",
-    "description": "Head",
-    "expected_jyutping": [
-      "tou4"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "single_syllable"
-    ],
-    "definition_contains": [
-      "Head"
+    "expected_characters": [
+      "肚"
     ]
   },
   {
@@ -2952,6 +3169,9 @@
     ],
     "definition_contains": [
       "Foot"
+    ],
+    "expected_characters": [
+      "腳"
     ]
   },
   {
@@ -2969,6 +3189,9 @@
     ],
     "definition_contains": [
       "Hand"
+    ],
+    "expected_characters": [
+      "腎"
     ]
   },
   {
@@ -2986,6 +3209,9 @@
     ],
     "definition_contains": [
       "Have a cold"
+    ],
+    "expected_characters": [
+      "感冒"
     ]
   },
   {
@@ -3003,6 +3229,9 @@
     ],
     "definition_contains": [
       "Have a fever"
+    ],
+    "expected_characters": [
+      "發燒"
     ]
   },
   {
@@ -3020,6 +3249,9 @@
     ],
     "definition_contains": [
       "be unwell"
+    ],
+    "expected_characters": [
+      "唔舒服"
     ]
   },
   {
@@ -3037,6 +3269,9 @@
     ],
     "definition_contains": [
       "See a doctor"
+    ],
+    "expected_characters": [
+      "睇醫生"
     ]
   },
   {
@@ -3054,6 +3289,9 @@
     ],
     "definition_contains": [
       "Friend"
+    ],
+    "expected_characters": [
+      "朋友"
     ]
   },
   {
@@ -3071,40 +3309,10 @@
     ],
     "definition_contains": [
       "Person, People"
-    ]
-  },
-  {
-    "id": 5182,
-    "query": "jing1 man2",
-    "category": "hk_people",
-    "description": "English (language)",
-    "expected_jyutping": [
-      "jing1 man2"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "English"
-    ]
-  },
-  {
-    "id": 5183,
-    "query": "zung1 man2",
-    "category": "hk_people",
-    "description": "Chinese (language)",
-    "expected_jyutping": [
-      "zung1 man2"
-    ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Chinese"
+    "expected_characters": [
+      "人",
+      "亻"
     ]
   },
   {
@@ -3122,6 +3330,9 @@
     ],
     "definition_contains": [
       "Cat"
+    ],
+    "expected_characters": [
+      "貓"
     ]
   },
   {
@@ -3139,6 +3350,9 @@
     ],
     "definition_contains": [
       "Dog"
+    ],
+    "expected_characters": [
+      "狗"
     ]
   },
   {
@@ -3156,6 +3370,9 @@
     ],
     "definition_contains": [
       "Weather"
+    ],
+    "expected_characters": [
+      "天氣"
     ]
   },
   {
@@ -3173,6 +3390,9 @@
     ],
     "definition_contains": [
       "Beautiful"
+    ],
+    "expected_characters": [
+      "靚"
     ]
   },
   {
@@ -3190,6 +3410,9 @@
     ],
     "definition_contains": [
       "Smart"
+    ],
+    "expected_characters": [
+      "叻"
     ]
   },
   {
@@ -3207,6 +3430,9 @@
     ],
     "definition_contains": [
       "Tired"
+    ],
+    "expected_characters": [
+      "癐"
     ]
   },
   {
@@ -3224,23 +3450,9 @@
     ],
     "definition_contains": [
       "Bill please"
-    ]
-  },
-  {
-    "id": 5191,
-    "query": "caan1 paai2",
-    "category": "hk_food",
-    "description": "Menu",
-    "expected_jyutping": [
-      "caan1 paai2"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Menu"
+    "expected_characters": [
+      "埋單"
     ]
   },
   {
@@ -3258,23 +3470,9 @@
     ],
     "definition_contains": [
       "Spicy"
-    ]
-  },
-  {
-    "id": 5193,
-    "query": "m4 laat6",
-    "category": "hk_food",
-    "description": "Not spicy",
-    "expected_jyutping": [
-      "m4 laat6"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Not spicy"
+    "expected_characters": [
+      "辣"
     ]
   },
   {
@@ -3292,6 +3490,9 @@
     ],
     "definition_contains": [
       "Char siu"
+    ],
+    "expected_characters": [
+      "叉燒"
     ]
   },
   {
@@ -3309,6 +3510,10 @@
     ],
     "definition_contains": [
       "Wonton noodles"
+    ],
+    "expected_characters": [
+      "雲吞麵",
+      "餛飩麵"
     ]
   },
   {
@@ -3326,6 +3531,9 @@
     ],
     "definition_contains": [
       "Egg tart"
+    ],
+    "expected_characters": [
+      "蛋撻"
     ]
   },
   {
@@ -3343,23 +3551,9 @@
     ],
     "definition_contains": [
       "Pineapple bun"
-    ]
-  },
-  {
-    "id": 5198,
-    "query": "siu1 ngo4",
-    "category": "hk_food",
-    "description": "Roast goose",
-    "expected_jyutping": [
-      "siu1 ngo4"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Roast goose"
+    "expected_characters": [
+      "菠蘿包"
     ]
   },
   {
@@ -3377,6 +3571,10 @@
     ],
     "definition_contains": [
       "Congee"
+    ],
+    "expected_characters": [
+      "粥",
+      "鬻"
     ]
   },
   {
@@ -3394,6 +3592,10 @@
     ],
     "definition_contains": [
       "Dai pai dong"
+    ],
+    "expected_characters": [
+      "大排檔",
+      "大牌檔"
     ]
   },
   {
@@ -3411,23 +3613,9 @@
     ],
     "definition_contains": [
       "Help"
-    ]
-  },
-  {
-    "id": 5202,
-    "query": "dim2 heoi3",
-    "category": "hk_directions",
-    "description": "How do I get to...?",
-    "expected_jyutping": [
-      "dim2 heoi3"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "How do I get to"
+    "expected_characters": [
+      "救命"
     ]
   },
   {
@@ -3445,6 +3633,9 @@
     ],
     "definition_contains": [
       "Turn left"
+    ],
+    "expected_characters": [
+      "轉左"
     ]
   },
   {
@@ -3462,6 +3653,9 @@
     ],
     "definition_contains": [
       "Turn right"
+    ],
+    "expected_characters": [
+      "轉右"
     ]
   },
   {
@@ -3479,6 +3673,9 @@
     ],
     "definition_contains": [
       "Go straight"
+    ],
+    "expected_characters": [
+      "一直行"
     ]
   },
   {
@@ -3496,6 +3693,9 @@
     ],
     "definition_contains": [
       "Airport"
+    ],
+    "expected_characters": [
+      "機場"
     ]
   },
   {
@@ -3513,6 +3713,9 @@
     ],
     "definition_contains": [
       "Hotel"
+    ],
+    "expected_characters": [
+      "酒店"
     ]
   },
   {
@@ -3530,6 +3733,9 @@
     ],
     "definition_contains": [
       "Hospital"
+    ],
+    "expected_characters": [
+      "醫院"
     ]
   },
   {
@@ -3547,6 +3753,9 @@
     ],
     "definition_contains": [
       "Pharmacy"
+    ],
+    "expected_characters": [
+      "藥房"
     ]
   },
   {
@@ -3564,6 +3773,9 @@
     ],
     "definition_contains": [
       "Check in"
+    ],
+    "expected_characters": [
+      "入住"
     ]
   },
   {
@@ -3581,6 +3793,9 @@
     ],
     "definition_contains": [
       "Check out"
+    ],
+    "expected_characters": [
+      "退房"
     ]
   },
   {
@@ -3598,57 +3813,9 @@
     ],
     "definition_contains": [
       "Room"
-    ]
-  },
-  {
-    "id": 5213,
-    "query": "fong2 kaa1",
-    "category": "hk_hotel",
-    "description": "Key / key card",
-    "expected_jyutping": [
-      "fong2 kaa1"
     ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Key"
-    ]
-  },
-  {
-    "id": 5214,
-    "query": "taai3 gwai3",
-    "category": "hk_money",
-    "description": "Too expensive",
-    "expected_jyutping": [
-      "taai3 gwai3"
-    ],
-    "accept_top_n": 1,
-    "tags": [
-      "hk_trip",
-      "two_syllable"
-    ],
-    "definition_contains": [
-      "Too expensive"
-    ]
-  },
-  {
-    "id": 5215,
-    "query": "tai2 haa5 sin1",
-    "category": "hk_money",
-    "description": "Just looking",
-    "expected_jyutping": [
-      "tai2 haa5 sin1"
-    ],
-    "accept_top_n": 2,
-    "tags": [
-      "hk_trip",
-      "multi_syllable"
-    ],
-    "definition_contains": [
-      "Just looking"
+    "expected_characters": [
+      "房"
     ]
   },
   {
@@ -3666,6 +3833,9 @@
     ],
     "definition_contains": [
       "Eleven"
+    ],
+    "expected_characters": [
+      "十一"
     ]
   },
   {
@@ -3683,6 +3853,9 @@
     ],
     "definition_contains": [
       "Twenty"
+    ],
+    "expected_characters": [
+      "二十"
     ]
   },
   {
@@ -3700,6 +3873,9 @@
     ],
     "definition_contains": [
       "Fifty"
+    ],
+    "expected_characters": [
+      "五十"
     ]
   },
   {
@@ -3717,6 +3893,11 @@
     ],
     "definition_contains": [
       "Hundred"
+    ],
+    "expected_characters": [
+      "伯",
+      "佰",
+      "百"
     ]
   },
   {
@@ -3734,6 +3915,10 @@
     ],
     "definition_contains": [
       "Thousand"
+    ],
+    "expected_characters": [
+      "仟",
+      "千"
     ]
   },
   {
@@ -3751,6 +3936,9 @@
     ],
     "definition_contains": [
       "Peanuts"
+    ],
+    "expected_characters": [
+      "花生"
     ]
   },
   {
@@ -3768,6 +3956,9 @@
     ],
     "definition_contains": [
       "Cheers"
+    ],
+    "expected_characters": [
+      "飲杯"
     ]
   },
   {
@@ -3785,6 +3976,9 @@
     ],
     "definition_contains": [
       "Air conditioning"
+    ],
+    "expected_characters": [
+      "冷氣"
     ]
   },
   {
@@ -3802,6 +3996,9 @@
     ],
     "definition_contains": [
       "Humid"
+    ],
+    "expected_characters": [
+      "沉悶"
     ]
   },
   {
@@ -3819,6 +4016,9 @@
     ],
     "definition_contains": [
       "Meat"
+    ],
+    "expected_characters": [
+      "肉"
     ]
   }
 ]

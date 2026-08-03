@@ -60,7 +60,8 @@ everyday Cantonese word from a Classical or Mandarin-only term:
 
 ### The eval suite was overstating quality
 
-Blind spots found in `run_eval.py` and the query sets (**all still unfixed**):
+Blind spots found in `run_eval.py` and the query sets (**fixed — see "3. Strict
+scoring" below**):
 
 - `_match_result` accepts a hit if `expected_jyutping` matches, ignoring
   characters entirely. **148 of 983 queries scored as p@1 return a character that
@@ -139,6 +140,70 @@ open subset only, the sweep shows **no improvement over baseline**. Source CSVs
 and the derived headword list are gitignored. This cannot ship until the licence
 question is resolved.
 
+### 3. Strict scoring
+
+`_match_result` used to try `expected_characters`, then `expected_jyutping`, then
+`definition_contains`, returning on the first hit. For a jyutping query the second
+branch compares the *result's* reading to the *expected* reading — which is equal
+for every homophone. A case expecting 講 was passed by 港, which is precisely the
+failure the suite exists to catch.
+
+Measured on the pre-fix suite: of 2,485 rank-1 passes only 2,161 (87%) were
+character-verified. **Headline p@1 94.5% was really 82.2%.**
+
+`expected_characters` is now authoritative: when a case names its characters,
+nothing else can satisfy it. A case may set `match_on` (`character` | `jyutping` |
+`definition`) to select one criterion explicitly — needed because
+`exact_vs_prefix` asserts *match shape*, not identity ("wo1 exact should beat
+wok1/wong1 prefix"), so any result reading `wo1` legitimately satisfies it and its
+`expected_characters` are illustrative. 43 cases carry the override.
+
+`hk_trip.json` had no `expected_characters` at all. `eval/backfill_hk_trip.py`
+derives them from **source dictionaries, not search output**, so today's ranking
+cannot leak into tomorrow's ground truth. Each case constrains a reading and an
+English keyword; their intersection usually identifies one headword. Resolution
+routes, strongest first: exact whole-word keyword match (156), reading shared by
+exactly one headword (28), a hand-checked table for glosses that share no wording
+with the dictionary's (8, e.g. "Ok got it" vs 得 "to obtain" — only accepted if
+source data already lists that headword under the case's reading), then long
+content words (7).
+
+Keyword matching is word-boundary based. A substring test for "Hi" matches any
+gloss containing "t*hi*s", which is how a naive first pass derived 薈 for `wai3`.
+
+26 cases were **dropped**: no source entry carries their reading at all
+(你好嗎, 晚安, 燒賣 …). Those are coverage or romanization gaps, not ranking
+failures, and scoring them measures nothing. hk_trip is 225 -> 199 cases.
+
+An intermediate version marked unresolved cases `match_on: definition`, which
+looked far worse (hk_trip 65.3%, misses 24%) but was wrong: 早晨 ranks **#1** for
+`zou2 san4`, yet CEDict glosses it "early morning" while the phrasebook says
+"Good morning". The phrasebook's English is not the dictionary's, so that setting
+manufactured failures. Traded lenient scoring for false negatives; both are bad.
+
+Result — strict, character-verified, words.hk prior enabled:
+
+| set | n | p@1 | p@3 | miss | MRR |
+|---|---|---|---|---|---|
+| ccanto_boost | 30 | 86.7% | 90.0% | 3.3% | 0.896 |
+| exact_vs_prefix_extended | 40 | 100.0% | 100.0% | 0.0% | 1.000 |
+| hk_trip | 199 | 86.9% | 97.5% | 0.5% | 0.921 |
+| pin_jam | 300 | 84.7% | 99.7% | 0.0% | 0.919 |
+| query_set (core) | 650 | **78.8%** | 92.0% | 2.9% | 0.858 |
+| shorter_entry | 25 | 100.0% | 100.0% | 0.0% | 1.000 |
+| spoken_corpus | 1346 | 96.9% | 99.9% | 0.1% | 0.984 |
+| tone_fuzzy | 13 | 100.0% | 100.0% | 0.0% | 1.000 |
+| **TOTAL** | **2603** | **90.2%** | **97.6%** | **0.8%** | **0.940** |
+
+`spoken_corpus`, `pin_jam`, `shorter_entry`, `tone_fuzzy` and `ccanto_boost` are
+**unchanged** by the fix — they already carried clean expectations.
+
+The movement is all in core, 94.8% -> **78.8%**, and those failures are the
+reported bug verbatim: `gong2` -> 港 #1 with 講 #2; `dou1` -> 刀 #1 with 都 #2;
+`sik1` and `saai3` outside the top 3. **~107 real instances of the complaint were
+previously invisible.** Treat 78.8% as core's true score; earlier numbers in this
+document above this section are lenient and not comparable.
+
 ## Open items
 
 - [ ] Resolve the words.hk licence question, or replace the prior with an
@@ -150,9 +215,9 @@ question is resolved.
 - [x] Build a larger, harder query set for validation, **not derived from
       words.hk** — see `spoken_corpus.json` below.
 - [ ] Fix syllable-order insensitivity (see "Order insensitivity" below).
-- [ ] Add a strict p@1 metric requiring a character match, to surface the 148
-      hidden failures.
-- [ ] Backfill `expected_characters` in `hk_trip.json`.
+- [x] Add a strict p@1 metric requiring a character match, to surface the hidden
+      failures — see "3. Strict scoring" above.
+- [x] Backfill `expected_characters` in `hk_trip.json`.
 - [ ] Renumber the duplicate 800-816 IDs.
 - [ ] Port the coverage-vs-ranking split (does the entry exist at all?) into
       `run_eval.py`, so data gaps stop being reported as ranking failures.
