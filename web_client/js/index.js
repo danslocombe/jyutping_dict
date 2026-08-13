@@ -1,6 +1,6 @@
 "use strict";
 
-import { JyutpingSearch } from "../pkg/index.js"
+import { JyutpingSearch, dict_version } from "../pkg/index.js"
 
 const query_string = window.location.search;
 const url_params = new URLSearchParams(query_string);
@@ -391,20 +391,28 @@ function wrapCharacters(sourceNode, targetNode) {
 }
 
 async function loadDictionary(filename) {
+    // The index format changes between builds, so every cache is keyed on the
+    // version this wasm build expects. Without it a returning visitor replays a
+    // stale blob and deserialize aborts on the version assert.
+    const version = dict_version();
+    const cacheKey = `${filename}@v${version}`;
+
     try {
         const db = await openDB();
-        const cached = await getCachedDict(db, filename);
-        
+        const cached = await getCachedDict(db, cacheKey);
+
         if (cached) {
             console.log("Using cached dictionary from IndexedDB");
             return cached;
         }
+
+        await purgeStaleDicts(db, cacheKey);
     } catch (err) {
         console.warn("IndexedDB access failed, falling back to network:", err);
     }
     
     console.log("Fetching dictionary from network");
-    const response = await fetch(filename, { cache: 'force-cache' });
+    const response = await fetch(`${filename}?v=${version}`, { cache: 'force-cache' });
     if (!response.ok) {
         throw new Error(`Failed to fetch dictionary blob: ${response.status} ${response.statusText}`);
     }
@@ -412,7 +420,7 @@ async function loadDictionary(filename) {
     
     try {
         const db = await openDB();
-        await cacheDict(db, filename, data);
+        await cacheDict(db, cacheKey, data);
         console.log("Dictionary cached in IndexedDB");
     } catch (err) {
         console.warn("Failed to cache dictionary in IndexedDB:", err);
@@ -460,5 +468,28 @@ function cacheDict(db, filename, data) {
         
         request.onerror = () => reject(request.error);
         request.onsuccess = () => resolve();
+    });
+}
+
+// Dictionary blobs are several megabytes each, so drop every entry that is not
+// the one this build wants rather than accumulating one per released version.
+function purgeStaleDicts(db, keepKey) {
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction([DB_STORE_NAME], 'readwrite');
+        const store = transaction.objectStore(DB_STORE_NAME);
+        const request = store.getAllKeys();
+
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => {
+            for (const key of request.result) {
+                if (key !== keepKey) {
+                    console.log("Dropping stale cached dictionary", key);
+                    store.delete(key);
+                }
+            }
+        };
+
+        transaction.oncomplete = () => resolve();
+        transaction.onerror = () => reject(transaction.error);
     });
 }

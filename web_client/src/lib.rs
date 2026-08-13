@@ -1,4 +1,4 @@
-use dictlib::{DebugLogger, Stopwatch, compiled_dictionary::CompiledDictionary, data_reader::DataReader, rendered_result::RenderedResult, search::{MatchWithHitInfo, Timings}};
+use dictlib::{DebugLogger, Stopwatch, compiled_dictionary::{CompiledDictionary, CURRENT_VERSION}, data_reader::DataReader, rendered_result::RenderedResult, search::{MatchWithHitInfo, Timings}};
 use serde::Serialize;
 use wasm_bindgen::prelude::*;
 
@@ -35,6 +35,13 @@ static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 pub struct JyutpingSearch
 {
     dict: CompiledDictionary,
+}
+
+/// The index format version this build expects. The client keys its caches on
+/// this so a returning visitor never feeds a stale blob to `deserialize`.
+#[wasm_bindgen]
+pub fn dict_version() -> u32 {
+    CURRENT_VERSION
 }
 
 #[wasm_bindgen]
